@@ -15,6 +15,8 @@ namespace WinFormsApp1.Data
         public DbSet<Ilce> Ilces { get; set; }
         public DbSet<Koy> Koys { get; set; }
         public DbSet<PurEmanet> PurEmanets { get; set; }
+        public DbSet<Proje> Projes { get; set; }
+        public DbSet<Hakedis> Hakedis { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Yatirim");
 
@@ -28,6 +30,8 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<Ilce>().ToTable(nameof(Ilce));
             modelBuilder.Entity<Koy>().ToTable(nameof(Koy));
             modelBuilder.Entity<PurEmanet>().ToTable(nameof(PurEmanet));
+            modelBuilder.Entity<Proje>().ToTable(nameof(Proje));
+            modelBuilder.Entity<Hakedis>().ToTable(nameof(Hakedis));
         }
     }
 }

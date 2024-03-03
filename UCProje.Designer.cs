@@ -44,7 +44,7 @@
             // 
             btnNewProject.Location = new Point(0, 0);
             btnNewProject.Name = "btnNewProject";
-            btnNewProject.Size = new Size(160, 60);
+            btnNewProject.Size = new Size(201, 60);
             btnNewProject.TabIndex = 0;
             btnNewProject.Text = "Yeni Proje Ekle";
             btnNewProject.UseVisualStyleBackColor = true;
@@ -53,6 +53,9 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Proje, Miktar, YaklasikMaliyet, Aciklama, Durum, Duzenle, Uygulama });
             dataGridView1.Location = new Point(3, 66);

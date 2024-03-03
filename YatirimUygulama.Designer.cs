@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            KoyAdi = new DataGridViewTextBoxColumn();
+            ImalatTuru = new DataGridViewTextBoxColumn();
+            YaklasikMaliyet = new DataGridViewTextBoxColumn();
+            Miktar = new DataGridViewTextBoxColumn();
+            Uygulama = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dtpGeciciKabul = new DateTimePicker();
             label6 = new Label();
-            dateTimePicker2 = new DateTimePicker();
+            dtpKesinKabul = new DateTimePicker();
             label7 = new Label();
-            comboBox1 = new ComboBox();
+            cmbDurum = new ComboBox();
             label8 = new Label();
-            textBox1 = new TextBox();
+            txtAciklama = new TextBox();
             button1 = new Button();
             button2 = new Button();
             textBox2 = new TextBox();
@@ -53,13 +56,16 @@
             textBox3 = new TextBox();
             label9 = new Label();
             textBox4 = new TextBox();
-            KoyAdi = new DataGridViewTextBoxColumn();
-            ImalatTuru = new DataGridViewTextBoxColumn();
-            YaklasikMaliyet = new DataGridViewTextBoxColumn();
-            Yuklenici = new DataGridViewTextBoxColumn();
-            Miktar = new DataGridViewTextBoxColumn();
-            Uygulama = new DataGridViewTextBoxColumn();
-            IhaleDurum = new DataGridViewCheckBoxColumn();
+            label3 = new Label();
+            dtpIseBaslama = new DateTimePicker();
+            dtpBitisTarihi = new DateTimePicker();
+            label4 = new Label();
+            txtSure = new MaskedTextBox();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            txtYuklenici = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -67,18 +73,54 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyAdi, ImalatTuru, YaklasikMaliyet, Yuklenici, Miktar, Uygulama, IhaleDurum });
-            dataGridView1.Location = new Point(29, 487);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyAdi, ImalatTuru, YaklasikMaliyet, Miktar, Uygulama });
+            dataGridView1.Location = new Point(15, 443);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1120, 298);
+            dataGridView1.Size = new Size(1501, 456);
             dataGridView1.TabIndex = 0;
+            // 
+            // KoyAdi
+            // 
+            KoyAdi.HeaderText = "Köy Adi ";
+            KoyAdi.MinimumWidth = 8;
+            KoyAdi.Name = "KoyAdi";
+            KoyAdi.Width = 150;
+            // 
+            // ImalatTuru
+            // 
+            ImalatTuru.HeaderText = "İmalat Türü";
+            ImalatTuru.MinimumWidth = 8;
+            ImalatTuru.Name = "ImalatTuru";
+            ImalatTuru.Width = 150;
+            // 
+            // YaklasikMaliyet
+            // 
+            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
+            YaklasikMaliyet.MinimumWidth = 8;
+            YaklasikMaliyet.Name = "YaklasikMaliyet";
+            YaklasikMaliyet.Width = 150;
+            // 
+            // Miktar
+            // 
+            Miktar.HeaderText = "Miktar";
+            Miktar.MinimumWidth = 8;
+            Miktar.Name = "Miktar";
+            Miktar.Width = 150;
+            // 
+            // Uygulama
+            // 
+            Uygulama.HeaderText = "Uygulama";
+            Uygulama.MinimumWidth = 8;
+            Uygulama.Name = "Uygulama";
+            Uygulama.Width = 150;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 459);
+            label1.Location = new Point(15, 404);
             label1.Name = "label1";
             label1.Size = new Size(133, 25);
             label1.TabIndex = 1;
@@ -88,106 +130,86 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.Location = new Point(14, 21);
+            label2.Location = new Point(12, 9);
             label2.Name = "label2";
-            label2.Size = new Size(88, 32);
+            label2.Size = new Size(120, 32);
             label2.TabIndex = 2;
-            label2.Text = "Proje1";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label3.Location = new Point(383, 21);
-            label3.Name = "label3";
-            label3.Size = new Size(133, 32);
-            label3.TabIndex = 3;
-            label3.Text = "630000,00";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label4.Location = new Point(173, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(204, 32);
-            label4.TabIndex = 4;
-            label4.Text = "Sözleşme Bedeli:";
+            label2.Text = "Proje Adı";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F);
-            label5.Location = new Point(14, 71);
+            label5.Location = new Point(4, 173);
             label5.Name = "label5";
             label5.Size = new Size(155, 25);
             label5.TabIndex = 5;
             label5.Text = "Geçici Kabul Tarihi:";
             // 
-            // dateTimePicker1
+            // dtpGeciciKabul
             // 
-            dateTimePicker1.Location = new Point(175, 66);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(300, 31);
-            dateTimePicker1.TabIndex = 6;
+            dtpGeciciKabul.Location = new Point(194, 173);
+            dtpGeciciKabul.Name = "dtpGeciciKabul";
+            dtpGeciciKabul.Size = new Size(300, 31);
+            dtpGeciciKabul.TabIndex = 6;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F);
-            label6.Location = new Point(12, 126);
+            label6.Location = new Point(8, 221);
             label6.Name = "label6";
             label6.Size = new Size(151, 25);
             label6.TabIndex = 7;
             label6.Text = "Kesin Kabul Tarihi:";
             // 
-            // dateTimePicker2
+            // dtpKesinKabul
             // 
-            dateTimePicker2.Location = new Point(175, 120);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(300, 31);
-            dateTimePicker2.TabIndex = 8;
+            dtpKesinKabul.Location = new Point(194, 221);
+            dtpKesinKabul.Name = "dtpKesinKabul";
+            dtpKesinKabul.Size = new Size(300, 31);
+            dtpKesinKabul.TabIndex = 8;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F);
-            label7.Location = new Point(593, 66);
+            label7.Location = new Point(537, 178);
             label7.Name = "label7";
             label7.Size = new Size(86, 25);
             label7.TabIndex = 9;
             label7.Text = "Durumu :";
             // 
-            // comboBox1
+            // cmbDurum
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Devam Ediyor", "Bitti", "Sonuçlandı" });
-            comboBox1.Location = new Point(685, 63);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 33);
-            comboBox1.TabIndex = 10;
+            cmbDurum.FormattingEnabled = true;
+            cmbDurum.Items.AddRange(new object[] { "Devam Ediyor", "Geçici Kabul Yapıldı", "Kesin Kabul Yapıldı", "Bitti", "Sonuçlandı" });
+            cmbDurum.Location = new Point(658, 178);
+            cmbDurum.Name = "cmbDurum";
+            cmbDurum.Size = new Size(299, 33);
+            cmbDurum.TabIndex = 10;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F);
-            label8.Location = new Point(593, 125);
+            label8.Location = new Point(537, 233);
             label8.Name = "label8";
             label8.Size = new Size(92, 25);
             label8.TabIndex = 11;
             label8.Text = "Açıklama :";
             // 
-            // textBox1
+            // txtAciklama
             // 
-            textBox1.Location = new Point(683, 127);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(312, 89);
-            textBox1.TabIndex = 12;
+            txtAciklama.Location = new Point(658, 233);
+            txtAciklama.Multiline = true;
+            txtAciklama.Name = "txtAciklama";
+            txtAciklama.Size = new Size(312, 89);
+            txtAciklama.TabIndex = 12;
             // 
             // button1
             // 
-            button1.Location = new Point(723, 800);
+            button1.Location = new Point(732, 935);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 13;
@@ -196,7 +218,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(883, 800);
+            button2.Location = new Point(936, 935);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 14;
@@ -239,9 +261,9 @@
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
-            groupBox1.Location = new Point(29, 229);
+            groupBox1.Location = new Point(990, 59);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(600, 227);
+            groupBox1.Size = new Size(559, 344);
             groupBox1.TabIndex = 20;
             groupBox1.TabStop = false;
             groupBox1.Text = "Hakediş Listesi";
@@ -250,13 +272,14 @@
             // 
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No, HakedisMiktari });
             dataGridView2.Location = new Point(6, 107);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(493, 114);
+            dataGridView2.Size = new Size(493, 231);
             dataGridView2.TabIndex = 21;
             // 
             // No
@@ -285,96 +308,137 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(14, 176);
+            label9.Location = new Point(12, 282);
             label9.Name = "label9";
-            label9.Size = new Size(119, 25);
+            label9.Size = new Size(148, 25);
             label9.TabIndex = 21;
-            label9.Text = "Bitum Bedeli :";
+            label9.Text = "Sözleşme Bedeli :";
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(175, 176);
+            textBox4.Location = new Point(194, 276);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "0,00";
             textBox4.Size = new Size(300, 31);
             textBox4.TabIndex = 22;
             // 
-            // KoyAdi
+            // label3
             // 
-            KoyAdi.HeaderText = "Köy Adi ";
-            KoyAdi.MinimumWidth = 8;
-            KoyAdi.Name = "KoyAdi";
-            KoyAdi.Width = 150;
+            label3.AutoSize = true;
+            label3.Location = new Point(8, 59);
+            label3.Name = "label3";
+            label3.Size = new Size(158, 25);
+            label3.TabIndex = 23;
+            label3.Text = "İşe Başlama Tarihi :";
             // 
-            // ImalatTuru
+            // dtpIseBaslama
             // 
-            ImalatTuru.HeaderText = "İmalat Türü";
-            ImalatTuru.MinimumWidth = 8;
-            ImalatTuru.Name = "ImalatTuru";
-            ImalatTuru.Width = 150;
+            dtpIseBaslama.Location = new Point(194, 59);
+            dtpIseBaslama.Name = "dtpIseBaslama";
+            dtpIseBaslama.Size = new Size(300, 31);
+            dtpIseBaslama.TabIndex = 24;
             // 
-            // YaklasikMaliyet
+            // dtpBitisTarihi
             // 
-            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
-            YaklasikMaliyet.MinimumWidth = 8;
-            YaklasikMaliyet.Name = "YaklasikMaliyet";
-            YaklasikMaliyet.Width = 150;
+            dtpBitisTarihi.Location = new Point(194, 115);
+            dtpBitisTarihi.Name = "dtpBitisTarihi";
+            dtpBitisTarihi.Size = new Size(300, 31);
+            dtpBitisTarihi.TabIndex = 25;
             // 
-            // Yuklenici
+            // label4
             // 
-            Yuklenici.HeaderText = "Yüklenici";
-            Yuklenici.MinimumWidth = 8;
-            Yuklenici.Name = "Yuklenici";
-            Yuklenici.Width = 150;
+            label4.AutoSize = true;
+            label4.Location = new Point(8, 115);
+            label4.Name = "label4";
+            label4.Size = new Size(116, 25);
+            label4.TabIndex = 26;
+            label4.Text = "İş Bitiş Tarihi :";
             // 
-            // Miktar
+            // txtSure
             // 
-            Miktar.HeaderText = "Miktar";
-            Miktar.MinimumWidth = 8;
-            Miktar.Name = "Miktar";
-            Miktar.Width = 150;
+            txtSure.Location = new Point(658, 59);
+            txtSure.Name = "txtSure";
+            txtSure.Size = new Size(150, 31);
+            txtSure.TabIndex = 27;
             // 
-            // Uygulama
+            // label10
             // 
-            Uygulama.HeaderText = "Uygulama";
-            Uygulama.MinimumWidth = 8;
-            Uygulama.Name = "Uygulama";
-            Uygulama.Width = 150;
+            label10.AutoSize = true;
+            label10.Location = new Point(537, 59);
+            label10.Name = "label10";
+            label10.Size = new Size(103, 25);
+            label10.TabIndex = 28;
+            label10.Text = "Süre (Gün) :";
             // 
-            // IhaleDurum
+            // label11
             // 
-            IhaleDurum.HeaderText = "İhale Edildi";
-            IhaleDurum.MinimumWidth = 8;
-            IhaleDurum.Name = "IhaleDurum";
-            IhaleDurum.Resizable = DataGridViewTriState.True;
-            IhaleDurum.SortMode = DataGridViewColumnSortMode.Automatic;
-            IhaleDurum.Width = 150;
+            label11.AutoSize = true;
+            label11.Location = new Point(537, 120);
+            label11.Name = "label11";
+            label11.Size = new Size(89, 25);
+            label11.TabIndex = 29;
+            label11.Text = "Yüklenici :";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 337);
+            label12.Name = "label12";
+            label12.Size = new Size(143, 25);
+            label12.TabIndex = 31;
+            label12.Text = "Yaklaşık Maliyet :";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label13.Location = new Point(194, 333);
+            label13.Name = "label13";
+            label13.Size = new Size(58, 30);
+            label13.TabIndex = 32;
+            label13.Text = "00,0";
+            // 
+            // txtYuklenici
+            // 
+            txtYuklenici.Location = new Point(658, 117);
+            txtYuklenici.Name = "txtYuklenici";
+            txtYuklenici.Size = new Size(299, 31);
+            txtYuklenici.TabIndex = 33;
             // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1161, 860);
+            ClientSize = new Size(1561, 1050);
+            Controls.Add(txtYuklenici);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(txtSure);
+            Controls.Add(label4);
+            Controls.Add(dtpBitisTarihi);
+            Controls.Add(dtpIseBaslama);
+            Controls.Add(label3);
             Controls.Add(textBox4);
             Controls.Add(label9);
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(txtAciklama);
             Controls.Add(label8);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbDurum);
             Controls.Add(label7);
-            Controls.Add(dateTimePicker2);
+            Controls.Add(dtpKesinKabul);
             Controls.Add(label6);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpGeciciKabul);
             Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -388,16 +452,14 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
         private Label label5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpGeciciKabul;
         private Label label6;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpKesinKabul;
         private Label label7;
-        private ComboBox comboBox1;
+        private ComboBox cmbDurum;
         private Label label8;
-        private TextBox textBox1;
+        private TextBox txtAciklama;
         private Button button1;
         private Button button2;
         private TextBox textBox2;
@@ -410,12 +472,20 @@
         private TextBox textBox3;
         private Label label9;
         private TextBox textBox4;
+        private Label label3;
+        private DateTimePicker dtpIseBaslama;
+        private DateTimePicker dtpBitisTarihi;
+        private Label label4;
+        private MaskedTextBox txtSure;
+        private Label label10;
+        private Label label11;
         private DataGridViewTextBoxColumn KoyAdi;
         private DataGridViewTextBoxColumn ImalatTuru;
         private DataGridViewTextBoxColumn YaklasikMaliyet;
-        private DataGridViewTextBoxColumn Yuklenici;
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewTextBoxColumn Uygulama;
-        private DataGridViewCheckBoxColumn IhaleDurum;
+        private Label label12;
+        private Label label13;
+        private TextBox txtYuklenici;
     }
 }
