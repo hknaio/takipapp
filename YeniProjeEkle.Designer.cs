@@ -31,13 +31,14 @@
             label1 = new Label();
             txtProjeAdi = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtAciklama = new TextBox();
             dataGridView1 = new DataGridView();
             label2 = new Label();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             Koy = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
             Ilce = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
@@ -76,13 +77,13 @@
             label3.TabIndex = 3;
             label3.Text = "Açıklama :";
             // 
-            // textBox1
+            // txtAciklama
             // 
-            textBox1.Location = new Point(178, 96);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(505, 70);
-            textBox1.TabIndex = 7;
+            txtAciklama.Location = new Point(178, 96);
+            txtAciklama.Multiline = true;
+            txtAciklama.Name = "txtAciklama";
+            txtAciklama.Size = new Size(505, 70);
+            txtAciklama.TabIndex = 7;
             // 
             // dataGridView1
             // 
@@ -92,7 +93,7 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Koy, Ilce, Imalat, Birim, Uygulama, YaklasikMaliyet, Proje, Miktar, Yil, Kaynak, YatirimDurumu });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Koy, ID, Ilce, Imalat, Birim, Uygulama, YaklasikMaliyet, Proje, Miktar, Yil, Kaynak, YatirimDurumu });
             dataGridView1.Location = new Point(33, 279);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -148,6 +149,16 @@
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
             Koy.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
             // 
             // Ilce
             // 
@@ -252,12 +263,14 @@
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            Controls.Add(txtAciklama);
             Controls.Add(label3);
             Controls.Add(txtProjeAdi);
             Controls.Add(label1);
             Name = "YeniProjeEkle";
             Text = "Yeni Proje Ekle";
+            FormClosing += YeniProjeEkle_FormClosing;
+            Load += YeniProjeEkle_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -268,13 +281,14 @@
         private Label label1;
         private TextBox txtProjeAdi;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox txtAciklama;
         private DataGridView dataGridView1;
         private Label label2;
         private Button button1;
         private Button button2;
         private Button button3;
         private DataGridViewTextBoxColumn Koy;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn Imalat;
         private DataGridViewTextBoxColumn Birim;

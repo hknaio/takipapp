@@ -34,7 +34,10 @@
             cmbKaynak = new ComboBox();
             btnGetir = new Button();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
+            button2 = new Button();
             Ilce = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
             YaklasikMaliyet = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
@@ -46,8 +49,6 @@
             Proje = new DataGridViewTextBoxColumn();
             Kaynak = new DataGridViewTextBoxColumn();
             Sec = new DataGridViewCheckBoxColumn();
-            button1 = new Button();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -105,7 +106,7 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, Uygulama, YaklasikMaliyet, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, Sec });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ID, Uygulama, YaklasikMaliyet, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, Sec });
             dataGridView1.Location = new Point(12, 100);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -113,6 +114,26 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1408, 707);
             dataGridView1.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(637, 851);
+            button1.Name = "button1";
+            button1.Size = new Size(149, 63);
+            button1.TabIndex = 6;
+            button1.Text = "Seçilenleri Ekle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(841, 851);
+            button2.Name = "button2";
+            button2.Size = new Size(130, 63);
+            button2.TabIndex = 7;
+            button2.Text = "İptal";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Ilce
             // 
@@ -122,6 +143,16 @@
             Ilce.Name = "Ilce";
             Ilce.ReadOnly = true;
             Ilce.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
             // 
             // Uygulama
             // 
@@ -223,26 +254,6 @@
             Sec.Name = "Sec";
             Sec.Width = 150;
             // 
-            // button1
-            // 
-            button1.Location = new Point(637, 851);
-            button1.Name = "button1";
-            button1.Size = new Size(149, 63);
-            button1.TabIndex = 6;
-            button1.Text = "Seçilenleri Ekle";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(841, 851);
-            button2.Name = "button2";
-            button2.Size = new Size(130, 63);
-            button2.TabIndex = 7;
-            button2.Text = "İptal";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // ProgramlarSec
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -275,6 +286,7 @@
         private Button button1;
         private Button button2;
         private DataGridViewTextBoxColumn Ilce;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Uygulama;
         private DataGridViewTextBoxColumn YaklasikMaliyet;
         private DataGridViewTextBoxColumn Koy;

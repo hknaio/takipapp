@@ -129,16 +129,16 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("GeciciKabulTarihi")
+                    b.Property<DateTime?>("GeciciKabulTarihi")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("IsBitisTarihi")
+                    b.Property<DateTime?>("IsBitisTarihi")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("IseBaslamaTarihi")
+                    b.Property<DateTime?>("IseBaslamaTarihi")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("KesinKabulTarihi")
+                    b.Property<DateTime?>("KesinKabulTarihi")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ProjeDurumu")
@@ -154,7 +154,6 @@ namespace WinFormsApp1.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Yuklenici")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
