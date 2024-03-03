@@ -18,7 +18,10 @@ namespace WinFormsApp1.Models
         public string Imalat { get; set; }
         public string Miktar { get; set; }
         public string Kaynak { get; set; }
-        public int Yil { get; set; }
+        public string? Uygulama { get; set; }
+        public string? YaklasikMaliyet { get; set; }
+        public int Yil { get; set; }        
         public YatirimDurumu YatirimDurumu { get; set; }
+        public Proje? Proje { get; set; }
     }
 }

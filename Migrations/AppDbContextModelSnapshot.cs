@@ -22,6 +22,31 @@ namespace WinFormsApp1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WinFormsApp1.Models.Hakedis", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Miktar")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProjeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProjeID");
+
+                    b.ToTable("Hakedis", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>
                 {
                     b.Property<int>("ID")
@@ -87,6 +112,54 @@ namespace WinFormsApp1.Migrations
                     b.HasIndex("IlceID");
 
                     b.ToTable("Koy", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.Proje", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GeciciKabulTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("IsBitisTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("IseBaslamaTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("KesinKabulTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProjeDurumu")
+                        .HasColumnType("int");
+
+                    b.Property<double>("SozlesmeBedeli")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Sure")
+                        .HasColumnType("int");
+
+                    b.Property<double>("YaklasikMaliyet")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Yuklenici")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Proje", (string)null);
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.PurEmanet", b =>
@@ -186,6 +259,15 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProjeID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Uygulama")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YaklasikMaliyet")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("YatirimDurumu")
                         .HasColumnType("int");
 
@@ -194,7 +276,20 @@ namespace WinFormsApp1.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("ProjeID");
+
                     b.ToTable("YatirimProgrami", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.Hakedis", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Proje", "Proje")
+                        .WithMany("Hakedis")
+                        .HasForeignKey("ProjeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proje");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Koy", b =>
@@ -241,9 +336,25 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("SpiralBoru");
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.YatirimProgrami", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Proje", "Proje")
+                        .WithMany("Programis")
+                        .HasForeignKey("ProjeID");
+
+                    b.Navigation("Proje");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>
                 {
                     b.Navigation("Koyler");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.Proje", b =>
+                {
+                    b.Navigation("Hakedis");
+
+                    b.Navigation("Programis");
                 });
 #pragma warning restore 612, 618
         }
