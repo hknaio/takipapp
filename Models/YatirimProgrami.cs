@@ -6,9 +6,10 @@ namespace WinFormsApp1.Models
     public enum YatirimDurumu
     {
         Uygulanmadi,
+        IhaleAsamasi,
         Uygulandi
     }
-    internal class YatirimProgrami 
+    public class YatirimProgrami 
     {
         [Browsable(false)]
         public int ID { get; set; }
