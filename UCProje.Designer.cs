@@ -30,13 +30,15 @@
         {
             btnNewProject = new Button();
             dataGridView1 = new DataGridView();
-            Proje = new DataGridViewTextBoxColumn();
-            Miktar = new DataGridViewTextBoxColumn();
-            YaklasikMaliyet = new DataGridViewTextBoxColumn();
+            Adi = new DataGridViewTextBoxColumn();
             Aciklama = new DataGridViewTextBoxColumn();
-            Durum = new DataGridViewTextBoxColumn();
-            Duzenle = new DataGridViewButtonColumn();
+            YaklasikMaliyet = new DataGridViewTextBoxColumn();
+            SozlesmeBedeli = new DataGridViewTextBoxColumn();
+            ProjeDurumu = new DataGridViewTextBoxColumn();
+            Yuklenici = new DataGridViewTextBoxColumn();
+            Sil = new DataGridViewButtonColumn();
             Uygulama = new DataGridViewButtonColumn();
+            ID = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -52,67 +54,105 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Proje, Miktar, YaklasikMaliyet, Aciklama, Durum, Duzenle, Uygulama });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Adi, Aciklama, YaklasikMaliyet, SozlesmeBedeli, ProjeDurumu, Yuklenici, Sil, Uygulama, ID });
             dataGridView1.Location = new Point(3, 66);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1093, 575);
+            dataGridView1.Size = new Size(1390, 575);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // Proje
+            // Adi
             // 
-            Proje.HeaderText = "Proje Adı";
-            Proje.MinimumWidth = 8;
-            Proje.Name = "Proje";
-            Proje.Width = 150;
-            // 
-            // Miktar
-            // 
-            Miktar.HeaderText = "Miktar";
-            Miktar.MinimumWidth = 8;
-            Miktar.Name = "Miktar";
-            Miktar.Width = 150;
-            // 
-            // YaklasikMaliyet
-            // 
-            YaklasikMaliyet.HeaderText = "Yaklaşık Maliyet";
-            YaklasikMaliyet.MinimumWidth = 8;
-            YaklasikMaliyet.Name = "YaklasikMaliyet";
-            YaklasikMaliyet.Width = 150;
+            Adi.DataPropertyName = "Adi";
+            Adi.HeaderText = "Adı";
+            Adi.MinimumWidth = 8;
+            Adi.Name = "Adi";
+            Adi.ReadOnly = true;
+            Adi.Width = 150;
             // 
             // Aciklama
             // 
-            Aciklama.HeaderText = "Açıklama ";
+            Aciklama.DataPropertyName = "Aciklama";
+            Aciklama.HeaderText = "Açıklama";
             Aciklama.MinimumWidth = 8;
             Aciklama.Name = "Aciklama";
+            Aciklama.ReadOnly = true;
             Aciklama.Width = 150;
             // 
-            // Durum
+            // YaklasikMaliyet
             // 
-            Durum.HeaderText = "Durum";
-            Durum.MinimumWidth = 8;
-            Durum.Name = "Durum";
-            Durum.Width = 150;
+            YaklasikMaliyet.DataPropertyName = "YaklasikMaliyet";
+            YaklasikMaliyet.HeaderText = "Yaklaşık Maliyet";
+            YaklasikMaliyet.MinimumWidth = 8;
+            YaklasikMaliyet.Name = "YaklasikMaliyet";
+            YaklasikMaliyet.ReadOnly = true;
+            YaklasikMaliyet.Width = 150;
             // 
-            // Duzenle
+            // SozlesmeBedeli
             // 
-            Duzenle.HeaderText = "Düzenle";
-            Duzenle.MinimumWidth = 8;
-            Duzenle.Name = "Duzenle";
-            Duzenle.Width = 150;
+            SozlesmeBedeli.DataPropertyName = "SozlesmeBedeli";
+            SozlesmeBedeli.HeaderText = "Sözleşme Bedeli";
+            SozlesmeBedeli.MinimumWidth = 8;
+            SozlesmeBedeli.Name = "SozlesmeBedeli";
+            SozlesmeBedeli.ReadOnly = true;
+            SozlesmeBedeli.Width = 150;
+            // 
+            // ProjeDurumu
+            // 
+            ProjeDurumu.DataPropertyName = "ProjeDurumu";
+            ProjeDurumu.HeaderText = "ProjeDurumu";
+            ProjeDurumu.MinimumWidth = 8;
+            ProjeDurumu.Name = "ProjeDurumu";
+            ProjeDurumu.ReadOnly = true;
+            ProjeDurumu.Width = 150;
+            // 
+            // Yuklenici
+            // 
+            Yuklenici.DataPropertyName = "Yuklenici";
+            Yuklenici.HeaderText = "Yüklenici";
+            Yuklenici.MinimumWidth = 8;
+            Yuklenici.Name = "Yuklenici";
+            Yuklenici.ReadOnly = true;
+            Yuklenici.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.DataPropertyName = "Sil";
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Resizable = DataGridViewTriState.True;
+            Sil.SortMode = DataGridViewColumnSortMode.Automatic;
+            Sil.Width = 150;
             // 
             // Uygulama
             // 
-            Uygulama.HeaderText = "Uygulama İşlemleri";
+            Uygulama.DataPropertyName = "Uygulama";
+            Uygulama.HeaderText = "Uygulama";
             Uygulama.MinimumWidth = 8;
             Uygulama.Name = "Uygulama";
+            Uygulama.ReadOnly = true;
             Uygulama.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
             // 
             // UCProje
             // 
@@ -124,7 +164,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(btnNewProject);
             Name = "UCProje";
-            Size = new Size(1099, 644);
+            Size = new Size(1396, 644);
             Load += UCProje_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -134,12 +174,14 @@
 
         private Button btnNewProject;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Proje;
-        private DataGridViewTextBoxColumn Miktar;
-        private DataGridViewTextBoxColumn YaklasikMaliyet;
+        private DataGridViewTextBoxColumn Adi;
         private DataGridViewTextBoxColumn Aciklama;
-        private DataGridViewTextBoxColumn Durum;
-        private DataGridViewButtonColumn Duzenle;
+        private DataGridViewTextBoxColumn YaklasikMaliyet;
+        private DataGridViewTextBoxColumn SozlesmeBedeli;
+        private DataGridViewTextBoxColumn ProjeDurumu;
+        private DataGridViewTextBoxColumn Yuklenici;
+        private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Uygulama;
+        private DataGridViewTextBoxColumn ID;
     }
 }

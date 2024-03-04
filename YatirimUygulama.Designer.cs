@@ -439,6 +439,7 @@
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
             WindowState = FormWindowState.Maximized;
+            Load += YatirimUygulama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

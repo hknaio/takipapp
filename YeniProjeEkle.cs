@@ -40,7 +40,7 @@ namespace WinFormsApp1
                 {
                     var proje = new Proje
                     {
-                        Adi = txtAciklama.Text,
+                        Adi = txtProjeAdi.Text,
                         Aciklama = txtAciklama.Text,
                     };
 

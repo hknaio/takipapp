@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.Entity;
+using WinFormsApp1.Data;
 
 namespace WinFormsApp1
 {
     public partial class UCProje : UserControl
     {
+        private AppDbContext _dbContext;
         public UCProje()
         {
             InitializeComponent();
@@ -28,16 +22,39 @@ namespace WinFormsApp1
 
         private void UCProje_Load(object sender, EventArgs e)
         {
-
+            _dbContext = new AppDbContext();
+            _dbContext.Projes.Load();
+            dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
+            dataGridView1.AutoGenerateColumns = false;
+            OrderColumns();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            using (YatirimUygulama yatirim = new())
+            if (e.ColumnIndex == dataGridView1.Columns[1].Index
+                && e.RowIndex > -1)
             {
-                yatirim.ShowDialog();
-                this.OnLoad(e);
-            }
+                var projeId = dataGridView1.CurrentRow.Cells["ID"].Value;
+
+                using (YatirimUygulama yatirim = new((int)projeId))
+                {
+                    yatirim.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }             
+        }
+
+        private void OrderColumns()
+        {
+            dataGridView1.Columns["Adi"].DisplayIndex = 0;
+            dataGridView1.Columns["Aciklama"].DisplayIndex = 1;
+            dataGridView1.Columns["YaklasikMaliyet"].DisplayIndex = 2;
+            dataGridView1.Columns["SozlesmeBedeli"].DisplayIndex = 3;
+            dataGridView1.Columns["ProjeDurumu"].DisplayIndex = 4;
+            dataGridView1.Columns["Yuklenici"].DisplayIndex = 5;
+            dataGridView1.Columns["Sil"].DisplayIndex = 6;
+            dataGridView1.Columns["Uygulama"].DisplayIndex = 7;
+            dataGridView1.Columns["ID"].DisplayIndex = 8;
         }
     }
 }
