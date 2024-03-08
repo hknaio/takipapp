@@ -152,6 +152,7 @@
             dtpGeciciKabul.Name = "dtpGeciciKabul";
             dtpGeciciKabul.Size = new Size(300, 31);
             dtpGeciciKabul.TabIndex = 6;
+            dtpGeciciKabul.ValueChanged += dtpGeciciKabul_ValueChanged;
             // 
             // label6
             // 
@@ -169,6 +170,7 @@
             dtpKesinKabul.Name = "dtpKesinKabul";
             dtpKesinKabul.Size = new Size(300, 31);
             dtpKesinKabul.TabIndex = 8;
+            dtpKesinKabul.ValueChanged += dtpKesinKabul_ValueChanged;
             // 
             // label7
             // 

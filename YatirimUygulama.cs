@@ -38,14 +38,45 @@ namespace WinFormsApp1
             {
                 dtpIseBaslama.CustomFormat = "          ";
                 dtpIseBaslama.Format = DateTimePickerFormat.Custom;
+            }
+
+            else
+            {
+                dtpIseBaslama.Value = proje.IseBaslamaTarihi.Value;
+                dtpKesinKabul.Value = proje.KesinKabulTarihi.Value;
+            }
+
+            if (proje.IsBitisTarihi is null)
+            {
                 dtpBitisTarihi.CustomFormat = "          ";
                 dtpBitisTarihi.Format = DateTimePickerFormat.Custom;
             }
 
             else
             {
-                dtpIseBaslama.Value = proje.IseBaslamaTarihi.Value;
                 dtpBitisTarihi.Value = proje.IsBitisTarihi.Value;
+            }
+
+            if (proje.GeciciKabulTarihi is null)
+            {
+                dtpGeciciKabul.CustomFormat = "          ";
+                dtpGeciciKabul.Format = DateTimePickerFormat.Custom;
+            }
+
+            else
+            {
+                dtpGeciciKabul.Value = proje.GeciciKabulTarihi.Value;
+            }
+
+            if (proje.KesinKabulTarihi is null)
+            {
+                dtpKesinKabul.CustomFormat = "          ";
+                dtpKesinKabul.Format = DateTimePickerFormat.Custom;
+            }
+
+            else
+            {
+                dtpKesinKabul.Value = proje.KesinKabulTarihi.Value;
             }
         }
         private void dtpIseBaslama_ValueChanged(object sender, EventArgs e)
@@ -57,7 +88,17 @@ namespace WinFormsApp1
         {
             dtpIseBaslama.CustomFormat = "dd MMMM yyyy dddd";
             dtpBitisTarihi.Value = dtpIseBaslama.Value.AddDays(Convert.ToDouble(txtSure.Text));
-            dtpBitisTarihi.CustomFormat = "dd MMMM yyyy dddd";           
+            dtpBitisTarihi.CustomFormat = "dd MMMM yyyy dddd";
+        }
+
+        private void dtpGeciciKabul_ValueChanged(object sender, EventArgs e)
+        {
+            dtpGeciciKabul.CustomFormat = "dd MMMM yyyy dddd";
+        }
+
+        private void dtpKesinKabul_ValueChanged(object sender, EventArgs e)
+        {
+            dtpKesinKabul.CustomFormat = "dd MMMM yyyy dddd";
         }
     }
 }
