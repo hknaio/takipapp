@@ -334,12 +334,15 @@
             // dtpIseBaslama
             // 
             dtpIseBaslama.Location = new Point(194, 59);
+            dtpIseBaslama.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtpIseBaslama.Name = "dtpIseBaslama";
             dtpIseBaslama.Size = new Size(300, 31);
             dtpIseBaslama.TabIndex = 24;
+            dtpIseBaslama.ValueChanged += dtpIseBaslama_ValueChanged;
             // 
             // dtpBitisTarihi
             // 
+            dtpBitisTarihi.Enabled = false;
             dtpBitisTarihi.Location = new Point(194, 115);
             dtpBitisTarihi.Name = "dtpBitisTarihi";
             dtpBitisTarihi.Size = new Size(300, 31);
@@ -360,6 +363,7 @@
             txtSure.Name = "txtSure";
             txtSure.Size = new Size(150, 31);
             txtSure.TabIndex = 27;
+            txtSure.TextChanged += txtSure_TextChanged;
             // 
             // label10
             // 

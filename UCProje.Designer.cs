@@ -133,6 +133,8 @@
             Sil.ReadOnly = true;
             Sil.Resizable = DataGridViewTriState.True;
             Sil.SortMode = DataGridViewColumnSortMode.Automatic;
+            Sil.Text = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
             // 
             // Uygulama
@@ -142,6 +144,8 @@
             Uygulama.MinimumWidth = 8;
             Uygulama.Name = "Uygulama";
             Uygulama.ReadOnly = true;
+            Uygulama.Text = "Uygulama";
+            Uygulama.UseColumnTextForButtonValue = true;
             Uygulama.Width = 150;
             // 
             // ID
