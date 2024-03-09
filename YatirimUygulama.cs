@@ -22,6 +22,11 @@ namespace WinFormsApp1
             {
                 label2.Text = proje.Adi;
                 txtSure.Text = proje.Sure.ToString();
+                txtYuklenici.Text = proje.Yuklenici;
+                cmbDurum.SelectedValue = proje.ProjeDurumu;
+                txtSozlesmeBedeli.Text = proje.SozlesmeBedeli.ToString("0.00");
+                txtAciklama.Text = proje.Aciklama;
+                label13.Text = proje.YaklasikMaliyet.ToString();
 
                 formatDtps(proje);
             }
@@ -86,9 +91,18 @@ namespace WinFormsApp1
 
         private void txtSure_TextChanged(object sender, EventArgs e)
         {
-            dtpIseBaslama.CustomFormat = "dd MMMM yyyy dddd";
-            dtpBitisTarihi.Value = dtpIseBaslama.Value.AddDays(Convert.ToDouble(txtSure.Text));
-            dtpBitisTarihi.CustomFormat = "dd MMMM yyyy dddd";
+            if (dtpIseBaslama.Value.Date.Year > 1970)
+            {
+                dtpIseBaslama.CustomFormat = "dd MMMM yyyy dddd";
+                dtpBitisTarihi.Value = dtpIseBaslama.Value.AddDays(Convert.ToDouble(txtSure.Text));
+                dtpBitisTarihi.CustomFormat = "dd MMMM yyyy dddd";
+            }
+
+            else
+            {
+                dtpIseBaslama.Focus();
+            }
+
         }
 
         private void dtpGeciciKabul_ValueChanged(object sender, EventArgs e)
@@ -100,5 +114,24 @@ namespace WinFormsApp1
         {
             dtpKesinKabul.CustomFormat = "dd MMMM yyyy dddd";
         }
+
+        private void YatirimUygulama_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _dbContext?.Dispose();
+            _dbContext = null;
+        }
+
+        private void txtSozlesmeBedeli_Leave(object sender, EventArgs e)
+        {
+            double value;
+            if (double.TryParse(txtSozlesmeBedeli.Text, out value))
+                txtSozlesmeBedeli.Text = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", value);
+            else
+                txtSozlesmeBedeli.Text = string.Empty;
+        }
+
+
     }
 }

@@ -55,7 +55,6 @@
             HakedisMiktari = new DataGridViewTextBoxColumn();
             textBox3 = new TextBox();
             label9 = new Label();
-            textBox4 = new TextBox();
             label3 = new Label();
             dtpIseBaslama = new DateTimePicker();
             dtpBitisTarihi = new DateTimePicker();
@@ -66,6 +65,7 @@
             label12 = new Label();
             label13 = new Label();
             txtYuklenici = new TextBox();
+            txtSozlesmeBedeli = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -316,14 +316,6 @@
             label9.TabIndex = 21;
             label9.Text = "Sözleşme Bedeli :";
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(194, 276);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "0,00";
-            textBox4.Size = new Size(300, 31);
-            textBox4.TabIndex = 22;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -340,6 +332,7 @@
             dtpIseBaslama.Name = "dtpIseBaslama";
             dtpIseBaslama.Size = new Size(300, 31);
             dtpIseBaslama.TabIndex = 24;
+            dtpIseBaslama.Value = new DateTime(1970, 1, 1, 21, 47, 0, 0);
             dtpIseBaslama.ValueChanged += dtpIseBaslama_ValueChanged;
             // 
             // dtpBitisTarihi
@@ -411,11 +404,20 @@
             txtYuklenici.Size = new Size(299, 31);
             txtYuklenici.TabIndex = 33;
             // 
+            // txtSozlesmeBedeli
+            // 
+            txtSozlesmeBedeli.Location = new Point(194, 282);
+            txtSozlesmeBedeli.Name = "txtSozlesmeBedeli";
+            txtSozlesmeBedeli.Size = new Size(300, 31);
+            txtSozlesmeBedeli.TabIndex = 34;
+            txtSozlesmeBedeli.Leave += txtSozlesmeBedeli_Leave;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1561, 1050);
+            Controls.Add(txtSozlesmeBedeli);
             Controls.Add(txtYuklenici);
             Controls.Add(label13);
             Controls.Add(label12);
@@ -426,7 +428,6 @@
             Controls.Add(dtpBitisTarihi);
             Controls.Add(dtpIseBaslama);
             Controls.Add(label3);
-            Controls.Add(textBox4);
             Controls.Add(label9);
             Controls.Add(groupBox1);
             Controls.Add(button2);
@@ -445,6 +446,7 @@
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
             WindowState = FormWindowState.Maximized;
+            FormClosing += YatirimUygulama_FormClosing;
             Load += YatirimUygulama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
@@ -478,7 +480,6 @@
         private DataGridViewTextBoxColumn HakedisMiktari;
         private TextBox textBox3;
         private Label label9;
-        private TextBox textBox4;
         private Label label3;
         private DateTimePicker dtpIseBaslama;
         private DateTimePicker dtpBitisTarihi;
@@ -494,5 +495,6 @@
         private Label label12;
         private Label label13;
         private TextBox txtYuklenici;
+        private MaskedTextBox txtSozlesmeBedeli;
     }
 }
