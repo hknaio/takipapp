@@ -5,6 +5,8 @@ namespace WinFormsApp1.Models
 {
     public enum ProjeDurumu
     {        
+        IhaleHazirlik,
+        IhaleAsamasi,
         DevamEdiyor,
         GeciciKabul,
         KesinKabul,
@@ -35,6 +37,12 @@ namespace WinFormsApp1.Models
         public ProjeDurumu ProjeDurumu { get; set; }
         public double SozlesmeBedeli { get; set; }
         public double YaklasikMaliyet { get; set; }
+
+        [Browsable(false)]
+        public double HakedisToplami { get; set; }
+
+        [Browsable(false)]
+        public double HakedisToplamTahakkuk { get; set; }
 
         [Browsable(false)]
         public ICollection<YatirimProgrami> Programis { get; set; }

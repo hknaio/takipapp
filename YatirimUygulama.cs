@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -16,17 +17,25 @@ namespace WinFormsApp1
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+            var proje = _dbContext.Projes
+                  .Include(p => p.Programis)
+                  .Include(p => p.Hakedis)                   
+                  .Where(p => p.ID == _id).FirstOrDefault();
+            cmbDurum.DataSource = Enum.GetValues(typeof(ProjeDurumu));
 
             if (proje is not null)
             {
                 label2.Text = proje.Adi;
                 txtSure.Text = proje.Sure.ToString();
                 txtYuklenici.Text = proje.Yuklenici;
-                cmbDurum.SelectedValue = proje.ProjeDurumu;
+                cmbDurum.SelectedItem = proje.ProjeDurumu;
                 txtSozlesmeBedeli.Text = proje.SozlesmeBedeli.ToString("0.00");
                 txtAciklama.Text = proje.Aciklama;
                 label13.Text = proje.YaklasikMaliyet.ToString();
+                lblToplamHakedis.Text = proje.HakedisToplami.ToString();
+                lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                dataGridView1.DataSource = proje.Programis?.ToList();
+                dataGridView2.DataSource = proje.Hakedis?.ToList();
 
                 formatDtps(proje);
             }

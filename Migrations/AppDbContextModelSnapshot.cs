@@ -132,6 +132,12 @@ namespace WinFormsApp1.Migrations
                     b.Property<DateTime?>("GeciciKabulTarihi")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("HakedisToplamTahakkuk")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HakedisToplami")
+                        .HasColumnType("float");
+
                     b.Property<DateTime?>("IsBitisTarihi")
                         .HasColumnType("datetime2");
 

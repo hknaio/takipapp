@@ -66,6 +66,10 @@
             label13 = new Label();
             txtYuklenici = new TextBox();
             txtSozlesmeBedeli = new MaskedTextBox();
+            label14 = new Label();
+            lblToplamHakedis = new Label();
+            label15 = new Label();
+            lblHakedisTahakkuk = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -76,10 +80,10 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyAdi, ImalatTuru, YaklasikMaliyet, Miktar, Uygulama });
-            dataGridView1.Location = new Point(15, 443);
+            dataGridView1.Location = new Point(30, 481);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1501, 456);
+            dataGridView1.Size = new Size(1501, 389);
             dataGridView1.TabIndex = 0;
             // 
             // KoyAdi
@@ -120,7 +124,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 404);
+            label1.Location = new Point(26, 453);
             label1.Name = "label1";
             label1.Size = new Size(133, 25);
             label1.TabIndex = 1;
@@ -185,7 +189,6 @@
             // cmbDurum
             // 
             cmbDurum.FormattingEnabled = true;
-            cmbDurum.Items.AddRange(new object[] { "Devam Ediyor", "Geçici Kabul Yapıldı", "Kesin Kabul Yapıldı", "Bitti", "Sonuçlandı" });
             cmbDurum.Location = new Point(658, 178);
             cmbDurum.Name = "cmbDurum";
             cmbDurum.Size = new Size(299, 33);
@@ -211,7 +214,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(732, 935);
+            button1.Location = new Point(743, 900);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 13;
@@ -220,7 +223,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(936, 935);
+            button2.Location = new Point(953, 900);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 14;
@@ -412,11 +415,53 @@
             txtSozlesmeBedeli.TabIndex = 34;
             txtSozlesmeBedeli.Leave += txtSozlesmeBedeli_Leave;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(15, 394);
+            label14.Name = "label14";
+            label14.Size = new Size(151, 25);
+            label14.TabIndex = 35;
+            label14.Text = "Hakediş Toplamı :";
+            // 
+            // lblToplamHakedis
+            // 
+            lblToplamHakedis.AutoSize = true;
+            lblToplamHakedis.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblToplamHakedis.Location = new Point(194, 390);
+            lblToplamHakedis.Name = "lblToplamHakedis";
+            lblToplamHakedis.Size = new Size(58, 30);
+            lblToplamHakedis.TabIndex = 36;
+            lblToplamHakedis.Text = "00,0";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(287, 394);
+            label15.Name = "label15";
+            label15.Size = new Size(161, 25);
+            label15.TabIndex = 37;
+            label15.Text = "Hakediş Tahakkuk :";
+            // 
+            // lblHakedisTahakkuk
+            // 
+            lblHakedisTahakkuk.AutoSize = true;
+            lblHakedisTahakkuk.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblHakedisTahakkuk.Location = new Point(454, 389);
+            lblHakedisTahakkuk.Name = "lblHakedisTahakkuk";
+            lblHakedisTahakkuk.Size = new Size(58, 30);
+            lblHakedisTahakkuk.TabIndex = 38;
+            lblHakedisTahakkuk.Text = "00,0";
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1561, 1050);
+            Controls.Add(lblHakedisTahakkuk);
+            Controls.Add(label15);
+            Controls.Add(lblToplamHakedis);
+            Controls.Add(label14);
             Controls.Add(txtSozlesmeBedeli);
             Controls.Add(txtYuklenici);
             Controls.Add(label13);
@@ -496,5 +541,9 @@
         private Label label13;
         private TextBox txtYuklenici;
         private MaskedTextBox txtSozlesmeBedeli;
+        private Label label14;
+        private Label lblToplamHakedis;
+        private Label label15;
+        private Label lblHakedisTahakkuk;
     }
 }
