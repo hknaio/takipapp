@@ -46,14 +46,15 @@
             txtAciklama = new TextBox();
             button1 = new Button();
             button2 = new Button();
-            textBox2 = new TextBox();
-            button3 = new Button();
-            button4 = new Button();
+            txtHakedisMiktar = new TextBox();
+            btnHakedisEkle = new Button();
             groupBox1 = new GroupBox();
             dataGridView2 = new DataGridView();
             No = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
             HakedisMiktari = new DataGridViewTextBoxColumn();
-            textBox3 = new TextBox();
+            Sil = new DataGridViewButtonColumn();
+            txtHakedis = new TextBox();
             label9 = new Label();
             label3 = new Label();
             dtpIseBaslama = new DateTimePicker();
@@ -230,42 +231,32 @@
             button2.Text = "İptal";
             button2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtHakedisMiktar
             // 
-            textBox2.Location = new Point(146, 30);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "0,00";
-            textBox2.Size = new Size(62, 31);
-            textBox2.TabIndex = 17;
+            txtHakedisMiktar.Location = new Point(231, 30);
+            txtHakedisMiktar.Name = "txtHakedisMiktar";
+            txtHakedisMiktar.PlaceholderText = "0,00";
+            txtHakedisMiktar.Size = new Size(142, 31);
+            txtHakedisMiktar.TabIndex = 17;
+            txtHakedisMiktar.Leave += txtHakedisMiktar_Leave;
             // 
-            // button3
+            // btnHakedisEkle
             // 
-            button3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button3.Location = new Point(227, 30);
-            button3.Name = "button3";
-            button3.Size = new Size(62, 57);
-            button3.TabIndex = 18;
-            button3.Text = "+";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button4.Location = new Point(295, 30);
-            button4.Name = "button4";
-            button4.Size = new Size(66, 57);
-            button4.TabIndex = 19;
-            button4.Text = "-";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            btnHakedisEkle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnHakedisEkle.Location = new Point(393, 30);
+            btnHakedisEkle.Name = "btnHakedisEkle";
+            btnHakedisEkle.Size = new Size(62, 57);
+            btnHakedisEkle.TabIndex = 18;
+            btnHakedisEkle.Text = "+";
+            btnHakedisEkle.UseVisualStyleBackColor = true;
+            btnHakedisEkle.Click += btnHakedisEkle_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView2);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(button4);
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(txtHakedis);
+            groupBox1.Controls.Add(txtHakedisMiktar);
+            groupBox1.Controls.Add(btnHakedisEkle);
             groupBox1.Location = new Point(990, 59);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(559, 344);
@@ -279,36 +270,60 @@
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No, HakedisMiktari });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No, ID, HakedisMiktari, Sil });
             dataGridView2.Location = new Point(6, 107);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
+            dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 62;
             dataGridView2.Size = new Size(493, 231);
             dataGridView2.TabIndex = 21;
+            dataGridView2.CellClick += dataGridView2_CellClick;
             // 
             // No
             // 
+            No.DataPropertyName = "Adi";
             No.HeaderText = "Hakediş";
             No.MinimumWidth = 8;
             No.Name = "No";
             No.ReadOnly = true;
             No.Width = 150;
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
+            // 
             // HakedisMiktari
             // 
+            HakedisMiktari.DataPropertyName = "Miktar";
             HakedisMiktari.HeaderText = "Hakediş Miktarı";
             HakedisMiktari.MinimumWidth = 8;
             HakedisMiktari.Name = "HakedisMiktari";
             HakedisMiktari.ReadOnly = true;
             HakedisMiktari.Width = 150;
             // 
-            // textBox3
+            // Sil
             // 
-            textBox3.Location = new Point(6, 30);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(130, 31);
-            textBox3.TabIndex = 20;
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
+            // 
+            // txtHakedis
+            // 
+            txtHakedis.Location = new Point(6, 30);
+            txtHakedis.Name = "txtHakedis";
+            txtHakedis.Size = new Size(201, 31);
+            txtHakedis.TabIndex = 20;
             // 
             // label9
             // 
@@ -516,14 +531,11 @@
         private TextBox txtAciklama;
         private Button button1;
         private Button button2;
-        private TextBox textBox2;
-        private Button button3;
-        private Button button4;
+        private TextBox txtHakedisMiktar;
+        private Button btnHakedisEkle;
         private GroupBox groupBox1;
         private DataGridView dataGridView2;
-        private DataGridViewTextBoxColumn No;
-        private DataGridViewTextBoxColumn HakedisMiktari;
-        private TextBox textBox3;
+        private TextBox txtHakedis;
         private Label label9;
         private Label label3;
         private DateTimePicker dtpIseBaslama;
@@ -545,5 +557,9 @@
         private Label lblToplamHakedis;
         private Label label15;
         private Label lblHakedisTahakkuk;
+        private DataGridViewTextBoxColumn No;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn HakedisMiktari;
+        private DataGridViewButtonColumn Sil;
     }
 }

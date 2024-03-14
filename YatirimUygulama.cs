@@ -19,9 +19,12 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             var proje = _dbContext.Projes
                   .Include(p => p.Programis)
-                  .Include(p => p.Hakedis)                   
+                  .Include(p => p.Hakedis)
                   .Where(p => p.ID == _id).FirstOrDefault();
+            _dbContext.Hakedis.Where(h => h.Proje.ID == _id).Load();
+            dataGridView2.DataSource = _dbContext.Hakedis.Local.ToBindingList();
             cmbDurum.DataSource = Enum.GetValues(typeof(ProjeDurumu));
+            OrderColumns();
 
             if (proje is not null)
             {
@@ -35,15 +38,9 @@ namespace WinFormsApp1
                 lblToplamHakedis.Text = proje.HakedisToplami.ToString();
                 lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
                 dataGridView1.DataSource = proje.Programis?.ToList();
-                dataGridView2.DataSource = proje.Hakedis?.ToList();
 
                 formatDtps(proje);
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void formatDtps(Proje proje)
@@ -141,6 +138,95 @@ namespace WinFormsApp1
                 txtSozlesmeBedeli.Text = string.Empty;
         }
 
+        private void btnHakedisEkle_Click(object sender, EventArgs e)
+        {
+            if (txtHakedis.Text != string.Empty && txtHakedisMiktar.Text != string.Empty)
+            {
+                try
+                {
+                    var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+                    var miktar = txtHakedisMiktar.Text.Remove(0, 1);
 
+                    _dbContext.Hakedis.Add(new Hakedis
+                    {
+                        Adi = txtHakedis.Text,
+                        Miktar = Convert.ToDouble(miktar),
+                        Proje = proje
+                    });
+
+                    proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text.Remove(0, 1));
+                    proje.HakedisToplamTahakkuk = proje.HakedisToplami * 1.2;
+                    _dbContext.Projes.Update(proje);
+
+                    _dbContext.SaveChanges();
+                    dataGridView2.Refresh();
+
+                    lblToplamHakedis.Text = proje.HakedisToplami.ToString();
+                    lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                    txtHakedis.Text = txtHakedisMiktar.Text = string.Empty;
+                }
+
+                catch (Exception)
+                {
+
+                }
+
+            }
+
+            txtHakedis.Focus();
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHakedisMiktar_Leave(object sender, EventArgs e)
+        {
+            double value;
+            if (double.TryParse(txtHakedisMiktar.Text, out value))
+                txtHakedisMiktar.Text = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", value);
+            else
+                txtHakedisMiktar.Text = string.Empty;
+        }
+
+        private void OrderColumns()
+        {
+            dataGridView2.Columns["ID"].DisplayIndex = 0;
+            dataGridView2.Columns["No"].DisplayIndex = 1;
+            dataGridView2.Columns["HakedisMiktari"].DisplayIndex = 2;
+            dataGridView2.Columns["Sil"].DisplayIndex = 3;
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex ==
+           dataGridView2.Columns[0].Index)
+            {
+                var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+                var hakedisId = dataGridView2.CurrentRow.Cells["ID"].Value;
+                var hakedis = _dbContext!.Hakedis.Where(i => i.ID == (int)hakedisId).FirstOrDefault();
+
+                if (hakedis != null)
+                {
+                    try
+                    {
+                        proje.HakedisToplami -= hakedis.Miktar;
+                        proje.HakedisToplamTahakkuk = proje.HakedisToplami * 1.2;
+                        _dbContext.Projes.Update(proje);
+
+                        _dbContext.Hakedis.Remove(hakedis);
+                        _dbContext.SaveChanges();
+                        dataGridView2.Refresh();
+
+                        lblToplamHakedis.Text = proje.HakedisToplami.ToString();
+                        lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bir şeyler ters gitti. Lütfen tekrar deneyin.", "Hata");
+                    }
+                }
+            }
+        }
     }
 }
