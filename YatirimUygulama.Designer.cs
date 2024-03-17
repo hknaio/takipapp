@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            KoyAdi = new DataGridViewTextBoxColumn();
-            ImalatTuru = new DataGridViewTextBoxColumn();
-            YaklasikMaliyet = new DataGridViewTextBoxColumn();
-            Miktar = new DataGridViewTextBoxColumn();
-            Uygulama = new DataGridViewTextBoxColumn();
             label1 = new Label();
             label2 = new Label();
             label5 = new Label();
@@ -71,56 +65,25 @@
             lblToplamHakedis = new Label();
             label15 = new Label();
             lblHakedisTahakkuk = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridView1 = new DataGridView();
+            Ilce = new DataGridViewTextBoxColumn();
+            ProgramId = new DataGridViewTextBoxColumn();
+            Uygulama = new DataGridViewTextBoxColumn();
+            UygulamaEkle = new DataGridViewButtonColumn();
+            YaklasikMaliyet = new DataGridViewTextBoxColumn();
+            MaliyetButton = new DataGridViewButtonColumn();
+            Koy = new DataGridViewTextBoxColumn();
+            Birim = new DataGridViewTextBoxColumn();
+            Imalat = new DataGridViewTextBoxColumn();
+            Miktar = new DataGridViewTextBoxColumn();
+            Yil = new DataGridViewTextBoxColumn();
+            YatirimDurumu = new DataGridViewTextBoxColumn();
+            Proje = new DataGridViewTextBoxColumn();
+            Kaynak = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyAdi, ImalatTuru, YaklasikMaliyet, Miktar, Uygulama });
-            dataGridView1.Location = new Point(30, 481);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1501, 389);
-            dataGridView1.TabIndex = 0;
-            // 
-            // KoyAdi
-            // 
-            KoyAdi.HeaderText = "Köy Adi ";
-            KoyAdi.MinimumWidth = 8;
-            KoyAdi.Name = "KoyAdi";
-            KoyAdi.Width = 150;
-            // 
-            // ImalatTuru
-            // 
-            ImalatTuru.HeaderText = "İmalat Türü";
-            ImalatTuru.MinimumWidth = 8;
-            ImalatTuru.Name = "ImalatTuru";
-            ImalatTuru.Width = 150;
-            // 
-            // YaklasikMaliyet
-            // 
-            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
-            YaklasikMaliyet.MinimumWidth = 8;
-            YaklasikMaliyet.Name = "YaklasikMaliyet";
-            YaklasikMaliyet.Width = 150;
-            // 
-            // Miktar
-            // 
-            Miktar.HeaderText = "Miktar";
-            Miktar.MinimumWidth = 8;
-            Miktar.Name = "Miktar";
-            Miktar.Width = 150;
-            // 
-            // Uygulama
-            // 
-            Uygulama.HeaderText = "Uygulama";
-            Uygulama.MinimumWidth = 8;
-            Uygulama.Name = "Uygulama";
-            Uygulama.Width = 150;
             // 
             // label1
             // 
@@ -468,11 +431,158 @@
             lblHakedisTahakkuk.TabIndex = 38;
             lblHakedisTahakkuk.Text = "00,0";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak });
+            dataGridView1.Location = new Point(26, 481);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.Size = new Size(1852, 404);
+            dataGridView1.TabIndex = 39;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // Ilce
+            // 
+            Ilce.DataPropertyName = "Ilce";
+            Ilce.HeaderText = "Ilce";
+            Ilce.MinimumWidth = 8;
+            Ilce.Name = "Ilce";
+            Ilce.ReadOnly = true;
+            Ilce.Width = 150;
+            // 
+            // ProgramId
+            // 
+            ProgramId.DataPropertyName = "ID";
+            ProgramId.HeaderText = "ID";
+            ProgramId.MinimumWidth = 8;
+            ProgramId.Name = "ProgramId";
+            ProgramId.ReadOnly = true;
+            ProgramId.Visible = false;
+            ProgramId.Width = 150;
+            // 
+            // Uygulama
+            // 
+            Uygulama.DataPropertyName = "Uygulama";
+            Uygulama.HeaderText = "Uygulama";
+            Uygulama.MinimumWidth = 8;
+            Uygulama.Name = "Uygulama";
+            Uygulama.ReadOnly = true;
+            Uygulama.Width = 150;
+            // 
+            // UygulamaEkle
+            // 
+            UygulamaEkle.HeaderText = "Uygulama Ekle";
+            UygulamaEkle.MinimumWidth = 8;
+            UygulamaEkle.Name = "UygulamaEkle";
+            UygulamaEkle.Text = "Uygulama Ekle";
+            UygulamaEkle.UseColumnTextForButtonValue = true;
+            UygulamaEkle.Width = 150;
+            // 
+            // YaklasikMaliyet
+            // 
+            YaklasikMaliyet.DataPropertyName = "YaklasikMaliyet";
+            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
+            YaklasikMaliyet.MinimumWidth = 8;
+            YaklasikMaliyet.Name = "YaklasikMaliyet";
+            YaklasikMaliyet.ReadOnly = true;
+            YaklasikMaliyet.Width = 150;
+            // 
+            // MaliyetButton
+            // 
+            MaliyetButton.HeaderText = "Maliyet Ekle";
+            MaliyetButton.MinimumWidth = 8;
+            MaliyetButton.Name = "MaliyetButton";
+            MaliyetButton.Text = "Maliyet Ekle";
+            MaliyetButton.UseColumnTextForButtonValue = true;
+            MaliyetButton.Width = 150;
+            // 
+            // Koy
+            // 
+            Koy.DataPropertyName = "Koy";
+            Koy.HeaderText = "Koy";
+            Koy.MinimumWidth = 8;
+            Koy.Name = "Koy";
+            Koy.ReadOnly = true;
+            Koy.Width = 150;
+            // 
+            // Birim
+            // 
+            Birim.DataPropertyName = "Birim";
+            Birim.HeaderText = "Birim";
+            Birim.MinimumWidth = 8;
+            Birim.Name = "Birim";
+            Birim.ReadOnly = true;
+            Birim.Width = 150;
+            // 
+            // Imalat
+            // 
+            Imalat.DataPropertyName = "Imalat";
+            Imalat.HeaderText = "Imalat";
+            Imalat.MinimumWidth = 8;
+            Imalat.Name = "Imalat";
+            Imalat.ReadOnly = true;
+            Imalat.Width = 150;
+            // 
+            // Miktar
+            // 
+            Miktar.DataPropertyName = "Miktar";
+            Miktar.HeaderText = "Miktar";
+            Miktar.MinimumWidth = 8;
+            Miktar.Name = "Miktar";
+            Miktar.ReadOnly = true;
+            Miktar.Width = 150;
+            // 
+            // Yil
+            // 
+            Yil.DataPropertyName = "Yil";
+            Yil.HeaderText = "Yil";
+            Yil.MinimumWidth = 8;
+            Yil.Name = "Yil";
+            Yil.ReadOnly = true;
+            Yil.Width = 150;
+            // 
+            // YatirimDurumu
+            // 
+            YatirimDurumu.DataPropertyName = "YatirimDurumu";
+            YatirimDurumu.HeaderText = "Durum";
+            YatirimDurumu.MinimumWidth = 8;
+            YatirimDurumu.Name = "YatirimDurumu";
+            YatirimDurumu.ReadOnly = true;
+            YatirimDurumu.Width = 150;
+            // 
+            // Proje
+            // 
+            Proje.DataPropertyName = "Proje";
+            Proje.HeaderText = "Proje";
+            Proje.MinimumWidth = 8;
+            Proje.Name = "Proje";
+            Proje.ReadOnly = true;
+            Proje.Visible = false;
+            Proje.Width = 150;
+            // 
+            // Kaynak
+            // 
+            Kaynak.DataPropertyName = "Kaynak";
+            Kaynak.HeaderText = "Kaynak";
+            Kaynak.MinimumWidth = 8;
+            Kaynak.Name = "Kaynak";
+            Kaynak.ReadOnly = true;
+            Kaynak.Width = 150;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1561, 1050);
+            ClientSize = new Size(1890, 1050);
+            Controls.Add(dataGridView1);
             Controls.Add(lblHakedisTahakkuk);
             Controls.Add(label15);
             Controls.Add(lblToplamHakedis);
@@ -502,23 +612,20 @@
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
             WindowState = FormWindowState.Maximized;
             FormClosing += YatirimUygulama_FormClosing;
             Load += YatirimUygulama_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Label label1;
         private Label label2;
         private Label label5;
@@ -544,11 +651,6 @@
         private MaskedTextBox txtSure;
         private Label label10;
         private Label label11;
-        private DataGridViewTextBoxColumn KoyAdi;
-        private DataGridViewTextBoxColumn ImalatTuru;
-        private DataGridViewTextBoxColumn YaklasikMaliyet;
-        private DataGridViewTextBoxColumn Miktar;
-        private DataGridViewTextBoxColumn Uygulama;
         private Label label12;
         private Label label13;
         private TextBox txtYuklenici;
@@ -561,5 +663,20 @@
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn HakedisMiktari;
         private DataGridViewButtonColumn Sil;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Ilce;
+        private DataGridViewTextBoxColumn ProgramId;
+        private DataGridViewTextBoxColumn Uygulama;
+        private DataGridViewButtonColumn UygulamaEkle;
+        private DataGridViewTextBoxColumn YaklasikMaliyet;
+        private DataGridViewButtonColumn MaliyetButton;
+        private DataGridViewTextBoxColumn Koy;
+        private DataGridViewTextBoxColumn Birim;
+        private DataGridViewTextBoxColumn Imalat;
+        private DataGridViewTextBoxColumn Miktar;
+        private DataGridViewTextBoxColumn Yil;
+        private DataGridViewTextBoxColumn YatirimDurumu;
+        private DataGridViewTextBoxColumn Proje;
+        private DataGridViewTextBoxColumn Kaynak;
     }
 }

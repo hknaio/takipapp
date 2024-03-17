@@ -267,11 +267,11 @@ namespace WinFormsApp1.Migrations
                     b.Property<int?>("ProjeID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Uygulama")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Uygulama")
+                        .HasColumnType("float");
 
-                    b.Property<string>("YaklasikMaliyet")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("YaklasikMaliyet")
+                        .HasColumnType("float");
 
                     b.Property<int>("YatirimDurumu")
                         .HasColumnType("int");

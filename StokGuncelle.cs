@@ -11,7 +11,7 @@ namespace WinFormsApp1
             InitializeComponent();
             _dbContext = new AppDbContext();
             label2.Text = guncelMiktar.ToString();
-            _selected = selected;   
+            _selected = selected;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +36,14 @@ namespace WinFormsApp1
             }
 
             txtYeniMiktar.Focus();
+        }
+
+        private void StokGuncelle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _dbContext?.Dispose();
+            _dbContext = null;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using System.Data;
 using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
@@ -17,12 +19,11 @@ namespace WinFormsApp1
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            var proje = _dbContext.Projes
-                  .Include(p => p.Programis)
-                  .Include(p => p.Hakedis)
-                  .Where(p => p.ID == _id).FirstOrDefault();
+            var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
             _dbContext.Hakedis.Where(h => h.Proje.ID == _id).Load();
+            _dbContext.YatirimProgramis.Where(p => p.Proje.ID == _id).Load();
             dataGridView2.DataSource = _dbContext.Hakedis.Local.ToBindingList();
+            dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
             cmbDurum.DataSource = Enum.GetValues(typeof(ProjeDurumu));
             OrderColumns();
 
@@ -37,7 +38,6 @@ namespace WinFormsApp1
                 label13.Text = proje.YaklasikMaliyet.ToString();
                 lblToplamHakedis.Text = proje.HakedisToplami.ToString();
                 lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
-                dataGridView1.DataSource = proje.Programis?.ToList();
 
                 formatDtps(proje);
             }
@@ -228,5 +228,34 @@ namespace WinFormsApp1
                 }
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex ==
+           dataGridView1.Columns[0].Index && e.RowIndex > -1)
+            {
+                var uygulama = dataGridView1.CurrentRow.Cells["Uygulama"].Value;
+                var id = dataGridView1.CurrentRow.Cells["ProgramId"].Value;
+
+                using (UygulamaGuncelle uygulamaGuncelle = new((double)uygulama, (int)id))
+                {
+                    uygulamaGuncelle.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
+
+            if (e.ColumnIndex ==
+           dataGridView1.Columns[1].Index && e.RowIndex > -1)
+            {
+                var yaklasikMaliyet = dataGridView1.CurrentRow.Cells["YaklasikMaliyet"].Value;
+                var id = dataGridView1.CurrentRow.Cells["ProgramId"].Value;
+
+                using (MaliyetGuncelle maliyetGuncelle = new((double)yaklasikMaliyet, (int)id, _id))
+                {
+                    maliyetGuncelle.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
+        }        
     }
 }

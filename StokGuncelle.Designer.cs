@@ -91,6 +91,7 @@
             Controls.Add(label1);
             Name = "StokGuncelle";
             Text = "StokGuncelle";
+            FormClosing += StokGuncelle_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
