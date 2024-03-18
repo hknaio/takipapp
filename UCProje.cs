@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using WinFormsApp1.Data;
+using WinFormsApp1.Models;
 
 namespace WinFormsApp1
 {
@@ -41,7 +42,36 @@ namespace WinFormsApp1
                     yatirim.ShowDialog();
                     this.OnLoad(e);
                 }
-            }             
+            }
+
+            if (e.ColumnIndex == dataGridView1.Columns[0].Index
+                && e.RowIndex > -1)
+            {
+                var projeId = (int)dataGridView1.CurrentRow.Cells["ID"].Value;
+                var proje = _dbContext.Projes.Where(p => p.ID == projeId).FirstOrDefault();
+
+                if (proje != null) 
+                {
+                    var programs = _dbContext.YatirimProgramis.Where(y => y.Proje!.ID == projeId);
+
+                    foreach (var yatirimProgrami in programs)
+                    {
+                        yatirimProgrami.YatirimDurumu = YatirimDurumu.Uygulanmadi;
+                    }
+
+                    var buttons = MessageBoxButtons.YesNo;
+                    var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        _dbContext.YatirimProgramis.UpdateRange(programs);
+                        _dbContext.Projes.Remove(proje);
+
+                        _dbContext.SaveChanges();
+                        dataGridView1.Refresh();
+                    }
+                }
+            }
         }
 
         private void OrderColumns()

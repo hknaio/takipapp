@@ -11,6 +11,7 @@ namespace WinFormsApp1
     {
         private readonly int _id;
         private AppDbContext _dbContext;
+        private Proje _proje;
         public YatirimUygulama(int id)
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace WinFormsApp1
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+            _proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
             _dbContext.Hakedis.Where(h => h.Proje.ID == _id).Load();
             _dbContext.YatirimProgramis.Where(p => p.Proje.ID == _id).Load();
             dataGridView2.DataSource = _dbContext.Hakedis.Local.ToBindingList();
@@ -27,19 +28,19 @@ namespace WinFormsApp1
             cmbDurum.DataSource = Enum.GetValues(typeof(ProjeDurumu));
             OrderColumns();
 
-            if (proje is not null)
+            if (_proje is not null)
             {
-                label2.Text = proje.Adi;
-                txtSure.Text = proje.Sure.ToString();
-                txtYuklenici.Text = proje.Yuklenici;
-                cmbDurum.SelectedItem = proje.ProjeDurumu;
-                txtSozlesmeBedeli.Text = proje.SozlesmeBedeli.ToString("0.00");
-                txtAciklama.Text = proje.Aciklama;
-                label13.Text = proje.YaklasikMaliyet.ToString();
-                lblToplamHakedis.Text = proje.HakedisToplami.ToString();
-                lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                label2.Text = _proje.Adi;
+                txtSure.Text = _proje.Sure.ToString() == "0" ? "" : _proje.Sure.ToString();
+                txtYuklenici.Text = _proje.Yuklenici;
+                cmbDurum.SelectedItem = _proje.ProjeDurumu;
+                txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("0.00");
+                txtAciklama.Text = _proje.Aciklama;
+                label13.Text = _proje.YaklasikMaliyet.ToString();
+                lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
+                lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
 
-                formatDtps(proje);
+                formatDtps(_proje);
             }
         }
 
@@ -143,26 +144,25 @@ namespace WinFormsApp1
             if (txtHakedis.Text != string.Empty && txtHakedisMiktar.Text != string.Empty)
             {
                 try
-                {
-                    var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+                {                    
                     var miktar = txtHakedisMiktar.Text.Remove(0, 1);
 
                     _dbContext.Hakedis.Add(new Hakedis
                     {
                         Adi = txtHakedis.Text,
                         Miktar = Convert.ToDouble(miktar),
-                        Proje = proje
+                        Proje = _proje
                     });
 
-                    proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text.Remove(0, 1));
-                    proje.HakedisToplamTahakkuk = proje.HakedisToplami * 1.2;
-                    _dbContext.Projes.Update(proje);
+                    _proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text.Remove(0, 1));
+                    _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
+                    _dbContext.Projes.Update(_proje);
 
                     _dbContext.SaveChanges();
                     dataGridView2.Refresh();
 
-                    lblToplamHakedis.Text = proje.HakedisToplami.ToString();
-                    lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                    lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
+                    lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
                     txtHakedis.Text = txtHakedisMiktar.Text = string.Empty;
                 }
 
@@ -201,8 +201,7 @@ namespace WinFormsApp1
         {
             if (e.ColumnIndex ==
            dataGridView2.Columns[0].Index)
-            {
-                var proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+            {              
                 var hakedisId = dataGridView2.CurrentRow.Cells["ID"].Value;
                 var hakedis = _dbContext!.Hakedis.Where(i => i.ID == (int)hakedisId).FirstOrDefault();
 
@@ -210,16 +209,16 @@ namespace WinFormsApp1
                 {
                     try
                     {
-                        proje.HakedisToplami -= hakedis.Miktar;
-                        proje.HakedisToplamTahakkuk = proje.HakedisToplami * 1.2;
-                        _dbContext.Projes.Update(proje);
+                        _proje.HakedisToplami -= hakedis.Miktar;
+                        _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
+                        _dbContext.Projes.Update(_proje);
 
                         _dbContext.Hakedis.Remove(hakedis);
                         _dbContext.SaveChanges();
                         dataGridView2.Refresh();
 
-                        lblToplamHakedis.Text = proje.HakedisToplami.ToString();
-                        lblHakedisTahakkuk.Text = proje.HakedisToplamTahakkuk.ToString();
+                        lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
+                        lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
                     }
                     catch (Exception)
                     {
@@ -256,6 +255,40 @@ namespace WinFormsApp1
                     this.OnLoad(e);
                 }
             }
-        }        
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _proje.IseBaslamaTarihi = dtpIseBaslama.Value;
+                _proje.Sure = Convert.ToInt32(txtSure.Text);
+                _proje.IsBitisTarihi = dtpBitisTarihi.Value;
+                _proje.GeciciKabulTarihi = dtpGeciciKabul.Value;
+                _proje.KesinKabulTarihi = dtpKesinKabul.Value;
+                _proje.Yuklenici = txtYuklenici.Text;
+                _proje.ProjeDurumu = (ProjeDurumu)cmbDurum.SelectedValue!;
+                _proje.Aciklama = txtAciklama.Text;
+                _proje.SozlesmeBedeli = Convert.ToDouble(
+                    txtSozlesmeBedeli.Text.Contains('₺') ? txtSozlesmeBedeli.Text.Remove(0, 1) :
+                    txtSozlesmeBedeli.Text);
+                _proje.HakedisToplami = Convert.ToDouble(lblToplamHakedis.Text);
+                _proje.HakedisToplamTahakkuk = Convert.ToDouble(lblHakedisTahakkuk.Text);
+
+                _dbContext.Projes.Update(_proje);
+                _dbContext.SaveChanges();
+                this.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

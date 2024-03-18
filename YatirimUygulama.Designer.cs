@@ -38,7 +38,7 @@
             cmbDurum = new ComboBox();
             label8 = new Label();
             txtAciklama = new TextBox();
-            button1 = new Button();
+            btnKaydet = new Button();
             button2 = new Button();
             txtHakedisMiktar = new TextBox();
             btnHakedisEkle = new Button();
@@ -176,14 +176,15 @@
             txtAciklama.Size = new Size(312, 89);
             txtAciklama.TabIndex = 12;
             // 
-            // button1
+            // btnKaydet
             // 
-            button1.Location = new Point(743, 900);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 13;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            btnKaydet.Location = new Point(743, 900);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(112, 34);
+            btnKaydet.TabIndex = 13;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
             // 
             // button2
             // 
@@ -193,6 +194,7 @@
             button2.TabIndex = 14;
             button2.Text = "İptal";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // txtHakedisMiktar
             // 
@@ -601,7 +603,7 @@
             Controls.Add(label9);
             Controls.Add(groupBox1);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnKaydet);
             Controls.Add(txtAciklama);
             Controls.Add(label8);
             Controls.Add(cmbDurum);
@@ -636,7 +638,7 @@
         private ComboBox cmbDurum;
         private Label label8;
         private TextBox txtAciklama;
-        private Button button1;
+        private Button btnKaydet;
         private Button button2;
         private TextBox txtHakedisMiktar;
         private Button btnHakedisEkle;
