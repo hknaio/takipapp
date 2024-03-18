@@ -25,7 +25,9 @@ namespace WinFormsApp1
             _dbContext.YatirimProgramis.Where(p => p.Proje.ID == _id).Load();
             dataGridView2.DataSource = _dbContext.Hakedis.Local.ToBindingList();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
-            cmbDurum.DataSource = Enum.GetValues(typeof(ProjeDurumu));
+            cmbDurum.DataSource = EnumList.EnumKeyValue<ProjeDurumu>();
+            cmbDurum.DisplayMember = "Value";
+            cmbDurum.ValueMember = "Key";
             OrderColumns();
 
             if (_proje is not null)
@@ -33,12 +35,13 @@ namespace WinFormsApp1
                 label2.Text = _proje.Adi;
                 txtSure.Text = _proje.Sure.ToString() == "0" ? "" : _proje.Sure.ToString();
                 txtYuklenici.Text = _proje.Yuklenici;
-                cmbDurum.SelectedItem = _proje.ProjeDurumu;
+                cmbDurum.SelectedItem = _proje.Yuklenici is null ? ProjeDurumu.IhaleAsamasi : _proje.ProjeDurumu;
                 txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("0.00");
                 txtAciklama.Text = _proje.Aciklama;
                 label13.Text = _proje.YaklasikMaliyet.ToString();
                 lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
                 lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
+                
 
                 formatDtps(_proje);
             }

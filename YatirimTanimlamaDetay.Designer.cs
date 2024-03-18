@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             Durum = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
             Ilce = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
             Yil = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Ilce, Koy, Birim, Imalat, Miktar, Yil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil });
             dataGridView1.GridColor = SystemColors.HotTrack;
             dataGridView1.Location = new Point(12, 115);
             dataGridView1.Name = "dataGridView1";
@@ -57,6 +58,42 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1337, 604);
             dataGridView1.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label1.Location = new Point(44, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 30);
+            label1.TabIndex = 3;
+            label1.Text = "Yıl :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label2.Location = new Point(214, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 30);
+            label2.TabIndex = 4;
+            label2.Text = "Kaynak :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(297, 29);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 25);
+            label3.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(100, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 25);
+            label4.TabIndex = 6;
             // 
             // Durum
             // 
@@ -66,6 +103,16 @@
             Durum.Name = "Durum";
             Durum.ReadOnly = true;
             Durum.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
             // 
             // Ilce
             // 
@@ -121,42 +168,6 @@
             Yil.ReadOnly = true;
             Yil.Width = 150;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(44, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 30);
-            label1.TabIndex = 3;
-            label1.Text = "Yıl :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label2.Location = new Point(214, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 30);
-            label2.TabIndex = 4;
-            label2.Text = "Kaynak :";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(297, 29);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 25);
-            label3.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(100, 29);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 25);
-            label4.TabIndex = 6;
-            // 
             // YatirimTanimlamaDetay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -184,6 +195,7 @@
         private Label label3;
         private Label label4;
         private DataGridViewTextBoxColumn Durum;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn Koy;
         private DataGridViewTextBoxColumn Birim;

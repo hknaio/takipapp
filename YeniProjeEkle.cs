@@ -51,6 +51,7 @@ namespace WinFormsApp1
                         var yatirimProgrami = (YatirimProgrami)row.DataBoundItem;
                         yatirimProgrami.Proje = proje;
                         yatirimProgrami.YatirimDurumu = Models.YatirimDurumu.IhaleAsamasi;
+                        proje.YaklasikMaliyet += yatirimProgrami.YaklasikMaliyet;
                         programlar.Add(yatirimProgrami);
                     }
 
@@ -58,6 +59,7 @@ namespace WinFormsApp1
                     _dbContext.SaveChanges();
                     dataGridView1.DataSource = null;
                     ClearTexts();
+                    this.Close();
                 }
                 catch (Exception)
                 {

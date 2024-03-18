@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel;
+using System.Data.Entity;
+using System.Reflection;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -50,7 +52,7 @@ namespace WinFormsApp1
                 var projeId = (int)dataGridView1.CurrentRow.Cells["ID"].Value;
                 var proje = _dbContext.Projes.Where(p => p.ID == projeId).FirstOrDefault();
 
-                if (proje != null) 
+                if (proje != null)
                 {
                     var programs = _dbContext.YatirimProgramis.Where(y => y.Proje!.ID == projeId);
 
@@ -85,6 +87,15 @@ namespace WinFormsApp1
             dataGridView1.Columns["Sil"].DisplayIndex = 6;
             dataGridView1.Columns["Uygulama"].DisplayIndex = 7;
             dataGridView1.Columns["ID"].DisplayIndex = 8;
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "ProjeDurumu")
+            {
+                ProjeDurumu enumValue = (ProjeDurumu)e.Value!;
+                e.Value = ((DescriptionAttribute)typeof(ProjeDurumu).GetMember(enumValue.ToString()).FirstOrDefault().GetCustomAttributes(typeof(DescriptionAttribute)).FirstOrDefault()).Description;
+            }
         }
     }
 }
