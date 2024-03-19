@@ -271,6 +271,13 @@ namespace WinFormsApp1
                 _proje.KesinKabulTarihi = dtpKesinKabul.Value;
                 _proje.Yuklenici = txtYuklenici.Text;
                 _proje.ProjeDurumu = (ProjeDurumu)cmbDurum.SelectedValue!;
+                if (_proje.ProjeDurumu == ProjeDurumu.Bitti)
+                {
+                    foreach (var program in _proje.Programis)
+                    {
+                        program.YatirimDurumu = Models.YatirimDurumu.Uygulandi;
+                    }
+                }
                 _proje.Aciklama = txtAciklama.Text;
                 _proje.SozlesmeBedeli = Convert.ToDouble(
                     txtSozlesmeBedeli.Text.Contains('₺') ? txtSozlesmeBedeli.Text.Remove(0, 1) :

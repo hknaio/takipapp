@@ -50,7 +50,7 @@ namespace WinFormsApp1
                     {
                         var yatirimProgrami = (YatirimProgrami)row.DataBoundItem;
                         yatirimProgrami.Proje = proje;
-                        yatirimProgrami.YatirimDurumu = Models.YatirimDurumu.IhaleAsamasi;
+                        yatirimProgrami.YatirimDurumu = Models.YatirimDurumu.Uygulaniyor;
                         proje.YaklasikMaliyet += yatirimProgrami.YaklasikMaliyet;
                         programlar.Add(yatirimProgrami);
                     }

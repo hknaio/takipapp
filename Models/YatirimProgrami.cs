@@ -6,7 +6,7 @@ namespace WinFormsApp1.Models
     public enum YatirimDurumu
     {
         Uygulanmadi,
-        IhaleAsamasi,
+        Uygulaniyor,
         Uygulandi
     }
     public class YatirimProgrami 
