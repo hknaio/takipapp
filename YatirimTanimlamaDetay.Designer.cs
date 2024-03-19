@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             Durum = new DataGridViewTextBoxColumn();
+            Proje = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             Ilce = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
@@ -41,6 +38,13 @@
             Imalat = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
             Yil = new DataGridViewTextBoxColumn();
+            Program = new DataGridViewTextBoxColumn();
+            Sil = new DataGridViewButtonColumn();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            btnEkProgram = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -50,50 +54,16 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Proje, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil, Program, Sil });
             dataGridView1.GridColor = SystemColors.HotTrack;
             dataGridView1.Location = new Point(12, 115);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1337, 604);
+            dataGridView1.Size = new Size(1858, 847);
             dataGridView1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(44, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 30);
-            label1.TabIndex = 3;
-            label1.Text = "Yıl :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label2.Location = new Point(214, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 30);
-            label2.TabIndex = 4;
-            label2.Text = "Kaynak :";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(297, 29);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 25);
-            label3.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(100, 29);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 25);
-            label4.TabIndex = 6;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // Durum
             // 
@@ -103,6 +73,16 @@
             Durum.Name = "Durum";
             Durum.ReadOnly = true;
             Durum.Width = 150;
+            // 
+            // Proje
+            // 
+            Proje.DataPropertyName = "Proje";
+            Proje.HeaderText = "Proje";
+            Proje.MinimumWidth = 8;
+            Proje.Name = "Proje";
+            Proje.ReadOnly = true;
+            Proje.Visible = false;
+            Proje.Width = 150;
             // 
             // ID
             // 
@@ -168,12 +148,79 @@
             Yil.ReadOnly = true;
             Yil.Width = 150;
             // 
+            // Program
+            // 
+            Program.DataPropertyName = "Program";
+            Program.HeaderText = "Program";
+            Program.MinimumWidth = 8;
+            Program.Name = "Program";
+            Program.ReadOnly = true;
+            Program.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label1.Location = new Point(44, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 30);
+            label1.TabIndex = 3;
+            label1.Text = "Yıl :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label2.Location = new Point(214, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 30);
+            label2.TabIndex = 4;
+            label2.Text = "Kaynak :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(297, 29);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 25);
+            label3.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(100, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 25);
+            label4.TabIndex = 6;
+            // 
+            // btnEkProgram
+            // 
+            btnEkProgram.BackColor = Color.IndianRed;
+            btnEkProgram.Location = new Point(450, 24);
+            btnEkProgram.Name = "btnEkProgram";
+            btnEkProgram.Size = new Size(159, 48);
+            btnEkProgram.TabIndex = 7;
+            btnEkProgram.Text = "Ek Program Ekle";
+            btnEkProgram.UseVisualStyleBackColor = false;
+            btnEkProgram.Click += btnEkProgram_Click;
+            // 
             // YatirimTanimlamaDetay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(1361, 731);
+            ClientSize = new Size(1924, 974);
+            Controls.Add(btnEkProgram);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -181,7 +228,9 @@
             Controls.Add(dataGridView1);
             Name = "YatirimTanimlamaDetay";
             Text = "YatirimTanimlamaDetay";
+            WindowState = FormWindowState.Maximized;
             FormClosing += YatirimTanimlamaDetay_FormClosing;
+            Load += YatirimTanimlamaDetay_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -194,7 +243,9 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Button btnEkProgram;
         private DataGridViewTextBoxColumn Durum;
+        private DataGridViewTextBoxColumn Proje;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn Koy;
@@ -202,5 +253,7 @@
         private DataGridViewTextBoxColumn Imalat;
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewTextBoxColumn Yil;
+        private DataGridViewTextBoxColumn Program;
+        private DataGridViewButtonColumn Sil;
     }
 }

@@ -24,7 +24,7 @@ namespace WinFormsApp1
             if (cmbKaynak.Text != string.Empty && cmbYil.Text != string.Empty)
             {
                 var programlar = _dbContext.YatirimProgramis.Where(p => p.Yil == Convert.ToInt32(cmbYil.Text)
-                && p.Kaynak == cmbKaynak.Text && p.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).ToList();
+                && p.Kaynak == cmbKaynak.Text && p.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).OrderBy(y => y.Ilce).ToList();
 
                 dataGridView1.DataSource = programlar;
             }

@@ -264,6 +264,10 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Program")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ProjeID")
                         .HasColumnType("int");
 

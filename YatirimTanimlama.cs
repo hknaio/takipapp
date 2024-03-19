@@ -39,7 +39,7 @@ namespace WinFormsApp1
             _dbContext.YatirimProgramis.Distinct().Load();
             var yatirimProgramlar = _dbContext.YatirimProgramis.Local
                 .Select(y => new { y.Kaynak,y.Yil }).Distinct().ToList();            
-            dataGridView1.DataSource =  yatirimProgramlar;            
+            dataGridView1.DataSource =  yatirimProgramlar;
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -94,6 +94,7 @@ namespace WinFormsApp1
                             Miktar = reader.GetField(5),
                             Kaynak = cmbKaynak.Text,
                             Yil = Convert.ToInt32(txtYil.Text),
+                            Program = "Ana Program",
                             YatirimDurumu = YatirimDurumu.Uygulanmadi,
                         };
                         records.Add(record);

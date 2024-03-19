@@ -21,6 +21,7 @@ namespace WinFormsApp1.Models
         public double Uygulama { get; set; }
         public double YaklasikMaliyet { get; set; }
         public int Yil { get; set; }        
+        public string Program { get; set; } 
         public YatirimDurumu YatirimDurumu { get; set; }
         public Proje? Proje { get; set; }
     }
