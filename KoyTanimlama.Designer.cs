@@ -34,7 +34,9 @@
             txtKoy = new TextBox();
             btnEkle = new Button();
             dataGridView1 = new DataGridView();
+            btnKoyleriGetir = new Button();
             ID = new DataGridViewTextBoxColumn();
+            No = new DataGridViewTextBoxColumn();
             Adi = new DataGridViewTextBoxColumn();
             Ilce = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
@@ -90,16 +92,28 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Adi, Ilce, Sil });
-            dataGridView1.Location = new Point(43, 101);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, No, Adi, Ilce, Sil });
+            dataGridView1.Location = new Point(38, 157);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(453, 446);
+            dataGridView1.Size = new Size(1258, 530);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            dataGridView1.RowPostPaint += dataGridView1_RowPostPaint;
+            // 
+            // btnKoyleriGetir
+            // 
+            btnKoyleriGetir.Location = new Point(91, 85);
+            btnKoyleriGetir.Name = "btnKoyleriGetir";
+            btnKoyleriGetir.Size = new Size(182, 47);
+            btnKoyleriGetir.TabIndex = 6;
+            btnKoyleriGetir.Text = "İlçe Köylerini Getir";
+            btnKoyleriGetir.UseVisualStyleBackColor = true;
+            btnKoyleriGetir.Click += btnKoyleriGetir_Click;
             // 
             // ID
             // 
@@ -110,6 +124,14 @@
             ID.ReadOnly = true;
             ID.Visible = false;
             ID.Width = 150;
+            // 
+            // No
+            // 
+            No.HeaderText = "No";
+            No.MinimumWidth = 8;
+            No.Name = "No";
+            No.ReadOnly = true;
+            No.Width = 150;
             // 
             // Adi
             // 
@@ -144,7 +166,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1018, 583);
+            ClientSize = new Size(1319, 699);
+            Controls.Add(btnKoyleriGetir);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);
             Controls.Add(txtKoy);
@@ -168,7 +191,9 @@
         private TextBox txtKoy;
         private Button btnEkle;
         private DataGridView dataGridView1;
+        private Button btnKoyleriGetir;
         private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn No;
         private DataGridViewTextBoxColumn Adi;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewButtonColumn Sil;

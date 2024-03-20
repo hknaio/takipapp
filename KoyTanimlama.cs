@@ -85,7 +85,7 @@ namespace WinFormsApp1
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 var koy = (Koy)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (koy != null)
@@ -118,6 +118,21 @@ namespace WinFormsApp1
                     }
                 }
             }
+        }
+
+        private void btnKoyleriGetir_Click(object sender, EventArgs e)
+        {
+            if (cmbIlce.Text != string.Empty)
+            {
+                var koyler = _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).ToList();
+                dataGridView1.DataSource = koyler;
+            }
+        }
+
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].Cells[0].Value
+                   = (e.RowIndex + 1).ToString();
         }
     }
 }
