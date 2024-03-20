@@ -108,7 +108,7 @@ namespace WinFormsApp1
 
         private void cmbIlce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedItem = cmbIlce.Text;
+            var selectedItem = cmbIlce.Text;            
 
             var koyList = _dbContext!.Koys.Where(k => k.Ilce.Adi == selectedItem).ToList();
 

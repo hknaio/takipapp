@@ -184,6 +184,7 @@
             Name = "AnaEkran";
             Text = "Ana Ekran";
             WindowState = FormWindowState.Maximized;
+            Load += AnaEkran_Load;
             panelLeft.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

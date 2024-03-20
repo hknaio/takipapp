@@ -85,19 +85,22 @@ namespace WinFormsApp1
                     reader.Read(); reader.Read(); reader.Read();
                     while (reader.Read())
                     {
-                        var record = new YatirimProgrami
+                        if (reader.GetField(3) == "Yol ve Ulaşım")
                         {
-                            Ilce = reader.GetField(1),
-                            Koy = reader.GetField(2),
-                            Birim = reader.GetField(3),
-                            Imalat = reader.GetField(4),
-                            Miktar = reader.GetField(5),
-                            Kaynak = cmbKaynak.Text,
-                            Yil = Convert.ToInt32(txtYil.Text),
-                            Program = "Ana Program",
-                            YatirimDurumu = YatirimDurumu.Uygulanmadi,
-                        };
-                        records.Add(record);
+                            var record = new YatirimProgrami
+                            {
+                                Ilce = reader.GetField(1),
+                                Koy = reader.GetField(2),
+                                Birim = reader.GetField(3),
+                                Imalat = reader.GetField(4),
+                                Miktar = reader.GetField(5),
+                                Kaynak = cmbKaynak.Text,
+                                Yil = Convert.ToInt32(txtYil.Text),
+                                Program = "Ana Program",
+                                YatirimDurumu = YatirimDurumu.Uygulanmadi,
+                            };
+                            records.Add(record);
+                        }
                     }
 
                     _dbContext!.YatirimProgramis.AddRange(records);
@@ -105,6 +108,8 @@ namespace WinFormsApp1
                     dataGridView1.Refresh();
                     this.OnLoad(e);
                     ClearTexts();
+
+                    MessageBox.Show($"Başarılı.\n\nKayıtlar eklendi.");
                 }
                 catch (Exception ex)
                 {

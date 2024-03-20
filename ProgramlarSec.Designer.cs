@@ -34,8 +34,6 @@
             cmbKaynak = new ComboBox();
             btnGetir = new Button();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
             Ilce = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@
             Proje = new DataGridViewTextBoxColumn();
             Kaynak = new DataGridViewTextBoxColumn();
             Sec = new DataGridViewCheckBoxColumn();
+            button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +64,6 @@
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2025", "2024", "2023", "2022" });
             cmbYil.Location = new Point(137, 38);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
@@ -114,26 +113,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1408, 707);
             dataGridView1.TabIndex = 5;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(637, 851);
-            button1.Name = "button1";
-            button1.Size = new Size(149, 63);
-            button1.TabIndex = 6;
-            button1.Text = "Seçilenleri Ekle";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(841, 851);
-            button2.Name = "button2";
-            button2.Size = new Size(130, 63);
-            button2.TabIndex = 7;
-            button2.Text = "İptal";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // Ilce
             // 
@@ -253,6 +232,26 @@
             Sec.MinimumWidth = 8;
             Sec.Name = "Sec";
             Sec.Width = 150;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(637, 851);
+            button1.Name = "button1";
+            button1.Size = new Size(149, 63);
+            button1.TabIndex = 6;
+            button1.Text = "Seçilenleri Ekle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(841, 851);
+            button2.Name = "button2";
+            button2.Size = new Size(130, 63);
+            button2.TabIndex = 7;
+            button2.Text = "İptal";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // ProgramlarSec
             // 

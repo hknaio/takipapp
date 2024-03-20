@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using WinFormsApp1.Helpers;
 
 namespace WinFormsApp1
 {
@@ -16,7 +8,14 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
+        private void AnaEkran_Load(object sender, EventArgs e)
+        {
+            if (DateTime.Now.Day == 31 && DateTime.Now.Month == 12)
+            {
+                var devir = new YatirimProgramiDevir();
+                devir.ProgramDevret();
+            }
+        }
         private void slidePanel(Button btn)
         {
             panelSide.Height = btn.Height;
