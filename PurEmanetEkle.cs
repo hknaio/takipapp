@@ -62,7 +62,7 @@ namespace WinFormsApp1
                         ImalatId = imalat!.ID,
                         Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToInt32(txtBoruMetre.Text) 
                         : Convert.ToInt32(txtMiktar.Text),
-                        Tutar = cmbImalat.Text == "Spiral Boru" ? imalat.BirimFiyat * Convert.ToInt32(txtBoruMetre.Text)
+                        Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToInt32(txtBoruMetre.Text)
                         : imalat.BirimFiyat * Convert.ToInt32(txtMiktar.Text),
                         SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null
                     });
@@ -126,6 +126,7 @@ namespace WinFormsApp1
             {
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
                 cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();
+                txtMiktar.Visible = false;
 
                 var spiralBoruList = _dbContext?.SpiralBorus.ToList();
 

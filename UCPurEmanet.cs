@@ -95,7 +95,15 @@ namespace WinFormsApp1
                 var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (purEmanet != null)
                 {
-                    e.Value = purEmanet.Imalat.BirimFiyat;
+                    if (purEmanet.Imalat.Isim == "Spiral Boru")
+                    {
+                        var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
+                        e.Value = boru!.BirimFiyat.ToString();
+                    }
+                    else
+                    {
+                        e.Value = purEmanet.Imalat.BirimFiyat;
+                    }
                 }
             }
         }

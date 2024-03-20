@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using DocumentFormat.OpenXml.Drawing;
+using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -18,6 +19,8 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             _dbContext.SpiralBorus.Load();
             dataGridView1.DataSource = _dbContext.SpiralBorus.Local.ToBindingList();
+            dataGridView1.AutoGenerateColumns = false;
+            OrderColumns();
         }
 
         private void SpiralBoruTanimlama_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,7 +81,7 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex ==
-           dataGridView1.Columns[1].Index)
+           dataGridView1.Columns[2].Index && e.RowIndex > -1)
             {
                 var boruId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
@@ -100,7 +103,7 @@ namespace WinFormsApp1
             }
 
             if (e.ColumnIndex ==
-          dataGridView1.Columns[0].Index)
+          dataGridView1.Columns[1].Index && e.RowIndex > -1)
             {
                 var miktar = dataGridView1.CurrentRow.Cells["StokMiktar"].Value;
                 var id = dataGridView1.CurrentRow.Cells["ID"].Value;
@@ -111,6 +114,31 @@ namespace WinFormsApp1
                     this.OnLoad(e);
                 }
             }
+
+            if (e.ColumnIndex ==
+          dataGridView1.Columns[0].Index && e.RowIndex > -1)
+            {
+                var birimFiyat = dataGridView1.CurrentRow.Cells["BirimFiyat"].Value;
+                var id = dataGridView1.CurrentRow.Cells["ID"].Value;
+
+                using (BoruFiyatGuncelle boruFiyatGuncelle = new((double)birimFiyat, (int)id))
+                {
+                    boruFiyatGuncelle.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
+        }
+
+        private void OrderColumns()
+        {
+            dataGridView1.Columns["Cap"].DisplayIndex = 0;
+            dataGridView1.Columns["Birim"].DisplayIndex = 1;
+            dataGridView1.Columns["BirimFiyat"].DisplayIndex = 2;
+            dataGridView1.Columns["StokMiktar"].DisplayIndex = 3;
+            dataGridView1.Columns["BirimFiyatGuncelle"].DisplayIndex = 4;
+            dataGridView1.Columns["MiktarGuncelle"].DisplayIndex = 5;
+            dataGridView1.Columns["Sil"].DisplayIndex = 6;            
+            dataGridView1.Columns["ID"].DisplayIndex = 7;
         }
     }
 }

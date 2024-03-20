@@ -221,6 +221,9 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("BirimFiyat")
+                        .HasColumnType("float");
+
                     b.Property<int>("Cap")
                         .HasColumnType("int");
 

@@ -37,12 +37,16 @@
             txtStok = new MaskedTextBox();
             dataGridView1 = new DataGridView();
             btnEkle = new Button();
+            label4 = new Label();
+            txtBirimFiyat = new MaskedTextBox();
             ID = new DataGridViewTextBoxColumn();
             Cap = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
+            BirimFiyat = new DataGridViewTextBoxColumn();
+            StokMiktar = new DataGridViewTextBoxColumn();
+            BirimFiyatGuncelle = new DataGridViewButtonColumn();
             MiktarGuncelle = new DataGridViewButtonColumn();
             Sil = new DataGridViewButtonColumn();
-            StokMiktar = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +62,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(372, 29);
+            label2.Location = new Point(261, 31);
             label2.Name = "label2";
             label2.Size = new Size(61, 25);
             label2.TabIndex = 1;
@@ -67,7 +71,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(672, 29);
+            label3.Location = new Point(503, 32);
             label3.Name = "label3";
             label3.Size = new Size(111, 25);
             label3.TabIndex = 2;
@@ -75,21 +79,21 @@
             // 
             // txtCap
             // 
-            txtCap.Location = new Point(88, 29);
+            txtCap.Location = new Point(77, 28);
             txtCap.Name = "txtCap";
             txtCap.Size = new Size(150, 31);
             txtCap.TabIndex = 3;
             // 
             // txtBirim
             // 
-            txtBirim.Location = new Point(439, 26);
+            txtBirim.Location = new Point(319, 29);
             txtBirim.Name = "txtBirim";
             txtBirim.Size = new Size(150, 31);
             txtBirim.TabIndex = 4;
             // 
             // txtStok
             // 
-            txtStok.Location = new Point(789, 29);
+            txtStok.Location = new Point(610, 29);
             txtStok.Name = "txtStok";
             txtStok.Size = new Size(150, 31);
             txtStok.TabIndex = 5;
@@ -101,25 +105,41 @@
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cap, Birim, MiktarGuncelle, Sil, StokMiktar });
-            dataGridView1.Location = new Point(88, 114);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cap, Birim, BirimFiyat, StokMiktar, BirimFiyatGuncelle, MiktarGuncelle, Sil });
+            dataGridView1.Location = new Point(30, 97);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(751, 423);
+            dataGridView1.Size = new Size(1074, 423);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(994, 28);
+            btnEkle.Location = new Point(1109, 28);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(153, 39);
             btnEkle.TabIndex = 7;
             btnEkle.Text = "Listeye Ekle";
             btnEkle.UseVisualStyleBackColor = true;
             btnEkle.Click += btnEkle_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(812, 32);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Birim Fiyat :";
+            // 
+            // txtBirimFiyat
+            // 
+            txtBirimFiyat.Location = new Point(912, 31);
+            txtBirimFiyat.Name = "txtBirimFiyat";
+            txtBirimFiyat.Size = new Size(150, 31);
+            txtBirimFiyat.TabIndex = 9;
             // 
             // ID
             // 
@@ -149,6 +169,36 @@
             Birim.ReadOnly = true;
             Birim.Width = 150;
             // 
+            // BirimFiyat
+            // 
+            BirimFiyat.DataPropertyName = "BirimFiyat";
+            BirimFiyat.HeaderText = "BirimFiyat";
+            BirimFiyat.MinimumWidth = 8;
+            BirimFiyat.Name = "BirimFiyat";
+            BirimFiyat.ReadOnly = true;
+            BirimFiyat.Width = 150;
+            // 
+            // StokMiktar
+            // 
+            StokMiktar.DataPropertyName = "StokMiktar";
+            dataGridViewCellStyle1.NullValue = "00";
+            StokMiktar.DefaultCellStyle = dataGridViewCellStyle1;
+            StokMiktar.HeaderText = "Stok Miktar";
+            StokMiktar.MinimumWidth = 8;
+            StokMiktar.Name = "StokMiktar";
+            StokMiktar.ReadOnly = true;
+            StokMiktar.Width = 150;
+            // 
+            // BirimFiyatGuncelle
+            // 
+            BirimFiyatGuncelle.HeaderText = "Birim Fiyat Güncelle";
+            BirimFiyatGuncelle.MinimumWidth = 8;
+            BirimFiyatGuncelle.Name = "BirimFiyatGuncelle";
+            BirimFiyatGuncelle.ReadOnly = true;
+            BirimFiyatGuncelle.Text = "Fiyat Güncelle";
+            BirimFiyatGuncelle.UseColumnTextForButtonValue = true;
+            BirimFiyatGuncelle.Width = 150;
+            // 
             // MiktarGuncelle
             // 
             MiktarGuncelle.HeaderText = "Miktar Güncelle";
@@ -169,23 +219,13 @@
             Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
             // 
-            // StokMiktar
-            // 
-            StokMiktar.DataPropertyName = "StokMiktar";
-            dataGridViewCellStyle1.NullValue = "00";
-            StokMiktar.DefaultCellStyle = dataGridViewCellStyle1;
-            StokMiktar.HeaderText = "Stok Miktar";
-            StokMiktar.MinimumWidth = 8;
-            StokMiktar.Name = "StokMiktar";
-            StokMiktar.ReadOnly = true;
-            StokMiktar.SortMode = DataGridViewColumnSortMode.NotSortable;
-            StokMiktar.Width = 150;
-            // 
             // SpiralBoruTanimlama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1284, 589);
+            Controls.Add(txtBirimFiyat);
+            Controls.Add(label4);
             Controls.Add(btnEkle);
             Controls.Add(dataGridView1);
             Controls.Add(txtStok);
@@ -213,10 +253,14 @@
         private MaskedTextBox txtStok;
         private DataGridView dataGridView1;
         private Button btnEkle;
+        private Label label4;
+        private MaskedTextBox txtBirimFiyat;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Cap;
         private DataGridViewTextBoxColumn Birim;
+        private DataGridViewTextBoxColumn BirimFiyat;
         private DataGridViewTextBoxColumn StokMiktar;
+        private DataGridViewButtonColumn BirimFiyatGuncelle;
         private DataGridViewButtonColumn MiktarGuncelle;
         private DataGridViewButtonColumn Sil;
     }
