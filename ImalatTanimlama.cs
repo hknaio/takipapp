@@ -80,7 +80,7 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex ==
-           dataGridView1.Columns[0].Index)
+           dataGridView1.Columns[0].Index && e.RowIndex > -1)
             {
                 var imalatId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
@@ -98,6 +98,19 @@ namespace WinFormsApp1
                     {
                         MessageBox.Show("Bir şeyler ters gitti. Lütfen tekrar deneyin.", "Hata");
                     }
+                }
+            }
+
+            if (e.ColumnIndex ==
+           dataGridView1.Columns[1].Index && e.RowIndex > -1)
+            {
+                var imalatId = (int)dataGridView1.CurrentRow.Cells["ID"].Value;
+                var imalat = _dbContext!.Imalats.Where(i => i.ID == imalatId).FirstOrDefault();
+
+                using (BirimFiyatGuncelle birimFiyatGuncelle = new(imalat!.BirimFiyat,imalatId))
+                {
+                    birimFiyatGuncelle.ShowDialog();
+                    this.OnLoad(e);
                 }
             }
         }           

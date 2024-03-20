@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
             Isim = new DataGridViewTextBoxColumn();
             Cins = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
             BirimFiyat = new DataGridViewTextBoxColumn();
             btnSil = new DataGridViewButtonColumn();
+            ID = new DataGridViewTextBoxColumn();
+            FiyatGuncelle = new DataGridViewButtonColumn();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -53,25 +54,15 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Isim, Cins, Birim, BirimFiyat, btnSil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Isim, Cins, Birim, BirimFiyat, btnSil, ID, FiyatGuncelle });
             dataGridView1.Location = new Point(12, 133);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(879, 294);
+            dataGridView1.Size = new Size(931, 294);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
-            ID.Width = 150;
             // 
             // Isim
             // 
@@ -118,6 +109,26 @@
             btnSil.Text = "Listeden Sil";
             btnSil.UseColumnTextForButtonValue = true;
             btnSil.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
+            // 
+            // FiyatGuncelle
+            // 
+            FiyatGuncelle.HeaderText = "Birim Fiyat Güncelle";
+            FiyatGuncelle.MinimumWidth = 8;
+            FiyatGuncelle.Name = "FiyatGuncelle";
+            FiyatGuncelle.ReadOnly = true;
+            FiyatGuncelle.Text = "Fiyat Güncelle";
+            FiyatGuncelle.UseColumnTextForButtonValue = true;
+            FiyatGuncelle.Width = 150;
             // 
             // label1
             // 
@@ -232,11 +243,12 @@
         private TextBox txtBirim;
         private TextBox txtCins;
         private MaskedTextBox txtBirimFiyat;
-        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Isim;
         private DataGridViewTextBoxColumn Cins;
         private DataGridViewTextBoxColumn Birim;
         private DataGridViewTextBoxColumn BirimFiyat;
         private DataGridViewButtonColumn btnSil;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewButtonColumn FiyatGuncelle;
     }
 }
