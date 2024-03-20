@@ -35,7 +35,7 @@ namespace WinFormsApp1
                 label2.Text = _proje.Adi;
                 txtSure.Text = _proje.Sure.ToString() == "0" ? "" : _proje.Sure.ToString();
                 txtYuklenici.Text = _proje.Yuklenici;
-                cmbDurum.SelectedItem = _proje.Yuklenici is null ? ProjeDurumu.IhaleAsamasi : _proje.ProjeDurumu;
+                cmbDurum.SelectedValue = _proje.Yuklenici is null ? ProjeDurumu.IhaleHazirlik : _proje.ProjeDurumu;
                 txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("0.00");
                 txtAciklama.Text = _proje.Aciklama;
                 label13.Text = _proje.YaklasikMaliyet.ToString();

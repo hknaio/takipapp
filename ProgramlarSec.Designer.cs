@@ -39,11 +39,11 @@
             Ilce = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
-            YaklasikMaliyet = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
+            YaklasikMaliyet = new DataGridViewTextBoxColumn();
             Yil = new DataGridViewTextBoxColumn();
             YatirimDurumu = new DataGridViewTextBoxColumn();
             Proje = new DataGridViewTextBoxColumn();
@@ -106,7 +106,7 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ID, Uygulama, YaklasikMaliyet, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, Sec });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ID, Uygulama, Koy, Birim, Imalat, Miktar, YaklasikMaliyet, Yil, YatirimDurumu, Proje, Kaynak, Sec });
             dataGridView1.Location = new Point(12, 100);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -164,16 +164,6 @@
             Uygulama.Visible = false;
             Uygulama.Width = 150;
             // 
-            // YaklasikMaliyet
-            // 
-            YaklasikMaliyet.DataPropertyName = "YaklasikMaliyet";
-            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
-            YaklasikMaliyet.MinimumWidth = 8;
-            YaklasikMaliyet.Name = "YaklasikMaliyet";
-            YaklasikMaliyet.ReadOnly = true;
-            YaklasikMaliyet.Visible = false;
-            YaklasikMaliyet.Width = 150;
-            // 
             // Koy
             // 
             Koy.DataPropertyName = "Koy";
@@ -209,6 +199,16 @@
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
             Miktar.Width = 150;
+            // 
+            // YaklasikMaliyet
+            // 
+            YaklasikMaliyet.DataPropertyName = "YaklasikMaliyet";
+            YaklasikMaliyet.HeaderText = "YaklasikMaliyet";
+            YaklasikMaliyet.MinimumWidth = 8;
+            YaklasikMaliyet.Name = "YaklasikMaliyet";
+            YaklasikMaliyet.ReadOnly = true;
+            YaklasikMaliyet.Visible = false;
+            YaklasikMaliyet.Width = 150;
             // 
             // Yil
             // 
@@ -288,11 +288,11 @@
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Uygulama;
-        private DataGridViewTextBoxColumn YaklasikMaliyet;
         private DataGridViewTextBoxColumn Koy;
         private DataGridViewTextBoxColumn Birim;
         private DataGridViewTextBoxColumn Imalat;
         private DataGridViewTextBoxColumn Miktar;
+        private DataGridViewTextBoxColumn YaklasikMaliyet;
         private DataGridViewTextBoxColumn Yil;
         private DataGridViewTextBoxColumn YatirimDurumu;
         private DataGridViewTextBoxColumn Proje;

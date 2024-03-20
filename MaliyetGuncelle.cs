@@ -12,7 +12,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             _dbContext = new AppDbContext();
-            label2.Text = guncelMiktar.ToString();
+            lblGuncelMiktar.Text = guncelMiktar.ToString();
             _selected = selected;
             _projeId = projeId;
         }
@@ -32,9 +32,10 @@ namespace WinFormsApp1
 
             if (selected != null && proje != null)
             {
-                selected.YaklasikMaliyet = Convert.ToDouble(txtYeniMiktar.Text);
-
-                proje.YaklasikMaliyet += selected.YaklasikMaliyet; 
+               selected.YaklasikMaliyet = Convert.ToDouble(txtYeniMiktar.Text);
+                               
+               proje.YaklasikMaliyet -= Convert.ToInt32(lblGuncelMiktar.Text);
+               proje.YaklasikMaliyet += selected.YaklasikMaliyet; 
 
                 try
                 {

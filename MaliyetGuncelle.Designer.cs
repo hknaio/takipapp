@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
+            lblGuncelMiktar = new Label();
             label1 = new Label();
             txtYeniMiktar = new MaskedTextBox();
             label3 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
-            // label2
+            // lblGuncelMiktar
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(168, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(20, 25);
-            label2.TabIndex = 3;
-            label2.Text = "..";
+            lblGuncelMiktar.AutoSize = true;
+            lblGuncelMiktar.Location = new Point(168, 35);
+            lblGuncelMiktar.Name = "lblGuncelMiktar";
+            lblGuncelMiktar.Size = new Size(20, 25);
+            lblGuncelMiktar.TabIndex = 3;
+            lblGuncelMiktar.Text = "..";
             // 
             // label1
             // 
@@ -87,7 +87,7 @@
             Controls.Add(button1);
             Controls.Add(txtYeniMiktar);
             Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(lblGuncelMiktar);
             Controls.Add(label1);
             Name = "MaliyetGuncelle";
             Text = "MaliyetGuncelle";
@@ -98,7 +98,7 @@
 
         #endregion
 
-        private Label label2;
+        private Label lblGuncelMiktar;
         private Label label1;
         private MaskedTextBox txtYeniMiktar;
         private Label label3;
