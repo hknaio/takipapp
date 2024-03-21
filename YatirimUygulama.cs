@@ -195,6 +195,22 @@ namespace WinFormsApp1
             dataGridView2.Columns["No"].DisplayIndex = 1;
             dataGridView2.Columns["HakedisMiktari"].DisplayIndex = 2;
             dataGridView2.Columns["Sil"].DisplayIndex = 3;
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns["Ilce"].DisplayIndex = 0;
+            dataGridView1.Columns["Koy"].DisplayIndex = 1;
+            dataGridView1.Columns["ProgramId"].DisplayIndex = 2;
+            dataGridView1.Columns["Miktar"].DisplayIndex = 3;
+            dataGridView1.Columns["Uygulama"].DisplayIndex = 4;
+            dataGridView1.Columns["UygulamaEkle"].DisplayIndex = 5;
+            dataGridView1.Columns["YaklasikMaliyet"].DisplayIndex = 6;
+            dataGridView1.Columns["MaliyetButton"].DisplayIndex = 7;            
+            dataGridView1.Columns["Birim"].DisplayIndex = 8;
+            dataGridView1.Columns["Imalat"].DisplayIndex = 9;            
+            dataGridView1.Columns["Yil"].DisplayIndex = 10;
+            dataGridView1.Columns["YatirimDurumu"].DisplayIndex = 11;
+            dataGridView1.Columns["Proje"].DisplayIndex = 12;
+            dataGridView1.Columns["Kaynak"].DisplayIndex = 13;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
