@@ -61,10 +61,9 @@ namespace WinFormsApp1
                     ClearTexts();
                     this.Close();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
-                    throw;
+                    MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n");
                 }
             }
 

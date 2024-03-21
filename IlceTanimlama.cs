@@ -33,9 +33,9 @@ namespace WinFormsApp1
                     dataGridView1.Refresh();
                     ClearTexts();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n");
                 }
             }
         }

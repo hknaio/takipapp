@@ -70,10 +70,7 @@ namespace WinFormsApp1
                     _dbContext.SaveChanges();
                     this.Close();
                 }
-                catch (Exception)
-                {
-
-                }
+                catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
             }
 
             txtMiktar.Focus();

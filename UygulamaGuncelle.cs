@@ -28,10 +28,7 @@ namespace WinFormsApp1
                     _dbContext.Update(selected);
                     _dbContext.SaveChanges();
                 }
-                catch (Exception)
-                {
-
-                }
+                catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
 
                 this.Close();
             }
