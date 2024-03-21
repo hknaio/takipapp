@@ -48,6 +48,8 @@
             // 
             // panelLeft
             // 
+            panelLeft.BackColor = SystemColors.GradientActiveCaption;
+            panelLeft.BorderStyle = BorderStyle.Fixed3D;
             panelLeft.Controls.Add(panelSide);
             panelLeft.Controls.Add(button1);
             panelLeft.Controls.Add(btnRapor);
@@ -58,7 +60,7 @@
             panelLeft.Location = new Point(10, 14);
             panelLeft.Margin = new Padding(4);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(402, 844);
+            panelLeft.Size = new Size(402, 913);
             panelLeft.TabIndex = 0;
             // 
             // panelSide
@@ -71,76 +73,84 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
             button1.Location = new Point(26, 195);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(359, 65);
             button1.TabIndex = 2;
             button1.Text = "Yol Yapım Bakım Onarım";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // btnRapor
             // 
+            btnRapor.BackColor = Color.LightSkyBlue;
             btnRapor.Location = new Point(26, 486);
             btnRapor.Margin = new Padding(4);
             btnRapor.Name = "btnRapor";
             btnRapor.Size = new Size(359, 65);
             btnRapor.TabIndex = 5;
             btnRapor.Text = "Raporlar";
-            btnRapor.UseVisualStyleBackColor = true;
+            btnRapor.UseVisualStyleBackColor = false;
             btnRapor.Click += btnRapor_Click;
             // 
             // btnTanimlama
             // 
+            btnTanimlama.BackColor = Color.LightSkyBlue;
             btnTanimlama.Location = new Point(26, 413);
             btnTanimlama.Margin = new Padding(4);
             btnTanimlama.Name = "btnTanimlama";
             btnTanimlama.Size = new Size(359, 65);
             btnTanimlama.TabIndex = 4;
             btnTanimlama.Text = "Tanımlamalar";
-            btnTanimlama.UseVisualStyleBackColor = true;
+            btnTanimlama.UseVisualStyleBackColor = false;
             btnTanimlama.Click += btnTanimlama_Click;
             // 
             // btnSanatYapilari
             // 
+            btnSanatYapilari.BackColor = Color.LightSkyBlue;
             btnSanatYapilari.Location = new Point(26, 340);
             btnSanatYapilari.Margin = new Padding(4);
             btnSanatYapilari.Name = "btnSanatYapilari";
             btnSanatYapilari.Size = new Size(359, 65);
             btnSanatYapilari.TabIndex = 3;
             btnSanatYapilari.Text = "Sanat Yapıları";
-            btnSanatYapilari.UseVisualStyleBackColor = true;
+            btnSanatYapilari.UseVisualStyleBackColor = false;
             // 
             // btnAsfaltYapim
             // 
+            btnAsfaltYapim.BackColor = Color.LightSkyBlue;
             btnAsfaltYapim.Location = new Point(26, 268);
             btnAsfaltYapim.Margin = new Padding(4);
             btnAsfaltYapim.Name = "btnAsfaltYapim";
             btnAsfaltYapim.Size = new Size(359, 65);
             btnAsfaltYapim.TabIndex = 1;
             btnAsfaltYapim.Text = "Asfalt Yapım";
-            btnAsfaltYapim.UseVisualStyleBackColor = true;
+            btnAsfaltYapim.UseVisualStyleBackColor = false;
+            btnAsfaltYapim.Click += btnAsfaltYapim_Click;
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox2);
             panel1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             panel1.Location = new Point(5, 4);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(390, 192);
+            panel1.Size = new Size(390, 162);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label1.Location = new Point(148, 55);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(183, 41);
+            label1.Size = new Size(202, 41);
             label1.TabIndex = 2;
             label1.Text = "Yatırım Takip";
             // 
@@ -156,26 +166,30 @@
             // 
             // panelContainer
             // 
+            panelContainer.BackColor = SystemColors.GradientActiveCaption;
+            panelContainer.BorderStyle = BorderStyle.Fixed3D;
             panelContainer.Location = new Point(420, 83);
             panelContainer.Margin = new Padding(4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1476, 659);
+            panelContainer.Size = new Size(1476, 844);
             panelContainer.TabIndex = 1;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(656, 47);
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTitle.ForeColor = SystemColors.Highlight;
+            lblTitle.Location = new Point(916, 20);
             lblTitle.Margin = new Padding(4, 0, 4, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(0, 32);
+            lblTitle.Size = new Size(0, 41);
             lblTitle.TabIndex = 2;
             // 
             // AnaEkran
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 881);
+            ClientSize = new Size(1924, 940);
             Controls.Add(lblTitle);
             Controls.Add(panelContainer);
             Controls.Add(panelLeft);

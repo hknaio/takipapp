@@ -71,7 +71,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1457, 486);
+            dataGridView1.Size = new Size(1320, 646);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -227,7 +227,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "UCPurEmanet";
-            Size = new Size(1463, 546);
+            Size = new Size(1326, 706);
             Load += UCPurEmanet_Load;
             Leave += UCPurEmanet_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

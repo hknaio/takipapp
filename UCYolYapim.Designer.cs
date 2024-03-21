@@ -35,9 +35,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(3, 0);
+            button1.Location = new Point(85, 51);
             button1.Name = "button1";
-            button1.Size = new Size(233, 104);
+            button1.Size = new Size(233, 89);
             button1.TabIndex = 0;
             button1.Text = "Proje - Yatırım Programı";
             button1.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(395, 0);
+            button2.Location = new Point(476, 51);
             button2.Name = "button2";
-            button2.Size = new Size(272, 101);
+            button2.Size = new Size(272, 89);
             button2.TabIndex = 1;
             button2.Text = "Püremanet İşler";
             button2.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "UCYolYapim";
-            Size = new Size(1370, 490);
+            Size = new Size(1370, 502);
             ResumeLayout(false);
             PerformLayout();
         }

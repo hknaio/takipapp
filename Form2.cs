@@ -53,5 +53,13 @@ namespace WinFormsApp1
             UCRaporlar ucc = new();
             addControls(ucc);
         }
+
+        private void btnAsfaltYapim_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "ASFALT YAPIM";
+            slidePanel(button1);
+            UCAsfalt ucc = new();
+            addControls(ucc);
+        }
     }
 }
