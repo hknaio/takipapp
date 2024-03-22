@@ -166,7 +166,7 @@
             // 
             // panelContainer
             // 
-            panelContainer.BackColor = SystemColors.GradientActiveCaption;
+            panelContainer.BackColor = Color.Azure;
             panelContainer.BorderStyle = BorderStyle.Fixed3D;
             panelContainer.Location = new Point(420, 83);
             panelContainer.Margin = new Padding(4);

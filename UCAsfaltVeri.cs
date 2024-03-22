@@ -1,20 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.Entity;
+using WinFormsApp1.Data;
+using WinFormsApp1.Models;
 
 namespace WinFormsApp1
 {
     public partial class UCAsfaltVeri : UserControl
     {
+        private AppDbContext _dbContext;
         public UCAsfaltVeri()
         {
             InitializeComponent();
+        }
+
+        private void UCAsfaltVeri_Load(object sender, EventArgs e)
+        {
+            _dbContext = new AppDbContext();
+            _dbContext.YatirimProgramis.Where(y => (y.Imalat.Contains("Asfalt") || y.Imalat.Contains("asfalt") || y.Imalat.Contains("BSK")) 
+                                                   && y.YatirimDurumu == Models.YatirimDurumu.Uygulaniyor).Load();
+            dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
         }
     }
 }

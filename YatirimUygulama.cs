@@ -225,16 +225,22 @@ namespace WinFormsApp1
                 {
                     try
                     {
-                        _proje.HakedisToplami -= hakedis.Miktar;
-                        _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
-                        _dbContext.Projes.Update(_proje);
+                        var buttons = MessageBoxButtons.YesNo;
+                        var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
 
-                        _dbContext.Hakedis.Remove(hakedis);
-                        _dbContext.SaveChanges();
-                        dataGridView2.Refresh();
+                        if (result == DialogResult.Yes)
+                        {
+                            _proje.HakedisToplami -= hakedis.Miktar;
+                            _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
+                            _dbContext.Projes.Update(_proje);
 
-                        lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
-                        lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
+                            _dbContext.Hakedis.Remove(hakedis);
+                            _dbContext.SaveChanges();
+                            dataGridView2.Refresh();
+
+                            lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
+                            lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
+                        }
                     }
                     catch (Exception)
                     {

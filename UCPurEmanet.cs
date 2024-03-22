@@ -139,21 +139,27 @@ namespace WinFormsApp1
                 {
                     var imalat = (Imalat)dataGridView1.CurrentRow.Cells["Imalat"].Value;
 
-                    if (imalat!.Isim.Contains("Spiral Boru"))
+                    var buttons = MessageBoxButtons.YesNo;
+                    var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
                     {
-                        var spiralBoru = _dbContext?.SpiralBorus.Where(b => b.ID == purEmanet!.SpiralBoruId).FirstOrDefault();
-
-                        if (spiralBoru != null)
+                        if (imalat!.Isim.Contains("Spiral Boru"))
                         {
-                            spiralBoru.StokMiktar++;
-                            _dbContext?.Update(spiralBoru);
-                        }
-                    }
+                            var spiralBoru = _dbContext?.SpiralBorus.Where(b => b.ID == purEmanet!.SpiralBoruId).FirstOrDefault();
 
-                    _dbContext!.Remove(purEmanet!);
-                    _dbContext.SaveChanges();
-                    dataGridView1.Refresh();
-                    this.OnLoad(e);
+                            if (spiralBoru != null)
+                            {
+                                spiralBoru.StokMiktar++;
+                                _dbContext?.Update(spiralBoru);
+                            }
+                        }
+
+                        _dbContext!.Remove(purEmanet!);
+                        _dbContext.SaveChanges();
+                        dataGridView1.Refresh();
+                        this.OnLoad(e);
+                    }                    
                 }
                 catch (Exception ex)
                 {

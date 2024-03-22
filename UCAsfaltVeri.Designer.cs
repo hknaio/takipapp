@@ -168,6 +168,7 @@
             Controls.Add(dataGridView1);
             Name = "UCAsfaltVeri";
             Size = new Size(1360, 611);
+            Load += UCAsfaltVeri_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

@@ -91,9 +91,15 @@ namespace WinFormsApp1
                 {
                     try
                     {
-                        _dbContext.SpiralBorus.Remove(boru);
-                        _dbContext.SaveChanges();
-                        dataGridView1.Refresh();
+                        var buttons = MessageBoxButtons.YesNo;
+                        var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            _dbContext.SpiralBorus.Remove(boru);
+                            _dbContext.SaveChanges();
+                            dataGridView1.Refresh();
+                        }
                     }
                     catch (Exception)
                     {

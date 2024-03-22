@@ -173,10 +173,16 @@ namespace WinFormsApp1
 
                 try
                 {
-                    _dbContext.RemoveRange(yatirimProgramlar);
-                    _dbContext.SaveChanges();
-                    dataGridView1.Refresh();
-                    this.OnLoad(e);
+                    var buttons = MessageBoxButtons.YesNo;
+                    var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        _dbContext.RemoveRange(yatirimProgramlar);
+                        _dbContext.SaveChanges();
+                        dataGridView1.Refresh();
+                        this.OnLoad(e);
+                    }
                 }
                 catch (Exception ex)
                 {
