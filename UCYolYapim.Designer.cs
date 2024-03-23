@@ -38,7 +38,7 @@
             button1.BackColor = Color.LightSkyBlue;
             button1.Location = new Point(97, 22);
             button1.Name = "button1";
-            button1.Size = new Size(233, 89);
+            button1.Size = new Size(233, 107);
             button1.TabIndex = 0;
             button1.Text = "Proje - Yatırım Programı";
             button1.UseVisualStyleBackColor = false;
@@ -49,7 +49,7 @@
             button2.BackColor = Color.LightSkyBlue;
             button2.Location = new Point(476, 22);
             button2.Name = "button2";
-            button2.Size = new Size(272, 89);
+            button2.Size = new Size(272, 107);
             button2.TabIndex = 1;
             button2.Text = "Püremanet İşler";
             button2.UseVisualStyleBackColor = false;

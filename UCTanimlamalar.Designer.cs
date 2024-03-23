@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCTanimlamalar));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -40,70 +41,85 @@
             // 
             // button1
             // 
-            button1.Location = new Point(83, 51);
+            button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_roadwork_64;
+            button1.Location = new Point(83, 34);
             button1.Name = "button1";
-            button1.Size = new Size(160, 112);
+            button1.Size = new Size(160, 183);
             button1.TabIndex = 0;
             button1.Text = "İmalat Tanımlama";
-            button1.UseVisualStyleBackColor = true;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(289, 51);
+            button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_village_100;
+            button2.Location = new Point(289, 34);
             button2.Name = "button2";
-            button2.Size = new Size(160, 112);
+            button2.Size = new Size(160, 183);
             button2.TabIndex = 1;
             button2.Text = "Köy Tanımlama";
-            button2.UseVisualStyleBackColor = true;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(490, 51);
+            button3.BackColor = Color.LightSkyBlue;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.Location = new Point(490, 34);
             button3.Name = "button3";
-            button3.Size = new Size(160, 112);
+            button3.Size = new Size(160, 183);
             button3.TabIndex = 2;
             button3.Text = "İlçe Tanımlama";
-            button3.UseVisualStyleBackColor = true;
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(289, 193);
+            button4.BackColor = Color.LightSkyBlue;
+            button4.Image = Properties.Resources.icons8_pipelines_48;
+            button4.Location = new Point(289, 241);
             button4.Name = "button4";
-            button4.Size = new Size(160, 112);
+            button4.Size = new Size(160, 155);
             button4.TabIndex = 3;
             button4.Text = "Boru Tanımlama";
-            button4.UseVisualStyleBackColor = true;
+            button4.TextImageRelation = TextImageRelation.ImageAboveText;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(490, 193);
+            button5.BackColor = Color.LightSkyBlue;
+            button5.Location = new Point(490, 241);
             button5.Name = "button5";
-            button5.Size = new Size(160, 112);
+            button5.Size = new Size(160, 155);
             button5.TabIndex = 4;
             button5.Text = "Muhtar Tanımlama";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
-            button6.Location = new Point(83, 328);
+            button6.BackColor = Color.LightSkyBlue;
+            button6.Location = new Point(689, 34);
             button6.Name = "button6";
-            button6.Size = new Size(160, 112);
+            button6.Size = new Size(160, 183);
             button6.TabIndex = 5;
             button6.Text = "Personel Tanımlama";
-            button6.UseVisualStyleBackColor = true;
+            button6.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
-            button7.Location = new Point(83, 193);
+            button7.BackColor = Color.LightSkyBlue;
+            button7.Location = new Point(83, 241);
             button7.Name = "button7";
-            button7.Size = new Size(160, 112);
+            button7.Size = new Size(160, 155);
             button7.TabIndex = 6;
             button7.Text = "Yatırım Programı Tanımlama";
-            button7.UseVisualStyleBackColor = true;
+            button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
             // UCTanimlamalar
@@ -118,7 +134,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "UCTanimlamalar";
-            Size = new Size(1241, 533);
+            Size = new Size(1241, 577);
             ResumeLayout(false);
         }
 

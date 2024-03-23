@@ -118,17 +118,71 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icons8-roadwork-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-roadwork-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-road-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-road-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-road-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-road-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-add-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-add-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="elazig_ilozelidare_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>elazig_ilozelidare_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-report-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-report-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-asphalt-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-asphalt-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-planning-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-planning-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-city-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-city-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-tunnel-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-tunnel-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-road-roller-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-road-roller-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-document-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-document-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-village-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-village-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-city-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-city-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-pipelines-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-pipelines-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="elazig_ilozelidare_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>elazig_ilozelidare_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="elazig_ilozelidare_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>elazig_ilozelidare_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-add-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-add-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-asphalt-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-asphalt-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-city-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-city-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-document-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-document-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-pipelines-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-pipelines-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-planning-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-planning-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-report-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-report-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,7 +196,13 @@
   <data name="icons8-road-roller-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-road-roller-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-roadwork-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-roadwork-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-tunnel-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-tunnel-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-village-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-village-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
