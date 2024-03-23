@@ -74,18 +74,23 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(26, 195);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(359, 65);
             button1.TabIndex = 2;
             button1.Text = "Yol Yapım Bakım Onarım";
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // btnRapor
             // 
             btnRapor.BackColor = Color.LightSkyBlue;
+            btnRapor.Image = (Image)resources.GetObject("btnRapor.Image");
+            btnRapor.ImageAlign = ContentAlignment.MiddleLeft;
             btnRapor.Location = new Point(26, 486);
             btnRapor.Margin = new Padding(4);
             btnRapor.Name = "btnRapor";
@@ -98,6 +103,8 @@
             // btnTanimlama
             // 
             btnTanimlama.BackColor = Color.LightSkyBlue;
+            btnTanimlama.Image = (Image)resources.GetObject("btnTanimlama.Image");
+            btnTanimlama.ImageAlign = ContentAlignment.MiddleLeft;
             btnTanimlama.Location = new Point(26, 413);
             btnTanimlama.Margin = new Padding(4);
             btnTanimlama.Name = "btnTanimlama";
@@ -110,6 +117,8 @@
             // btnSanatYapilari
             // 
             btnSanatYapilari.BackColor = Color.LightSkyBlue;
+            btnSanatYapilari.Image = (Image)resources.GetObject("btnSanatYapilari.Image");
+            btnSanatYapilari.ImageAlign = ContentAlignment.MiddleLeft;
             btnSanatYapilari.Location = new Point(26, 340);
             btnSanatYapilari.Margin = new Padding(4);
             btnSanatYapilari.Name = "btnSanatYapilari";
@@ -121,6 +130,8 @@
             // btnAsfaltYapim
             // 
             btnAsfaltYapim.BackColor = Color.LightSkyBlue;
+            btnAsfaltYapim.Image = (Image)resources.GetObject("btnAsfaltYapim.Image");
+            btnAsfaltYapim.ImageAlign = ContentAlignment.MiddleLeft;
             btnAsfaltYapim.Location = new Point(26, 268);
             btnAsfaltYapim.Margin = new Padding(4);
             btnAsfaltYapim.Name = "btnAsfaltYapim";
@@ -147,7 +158,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label1.Location = new Point(148, 55);
+            label1.Location = new Point(94, 90);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(202, 41);
@@ -157,16 +168,16 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(4, 29);
+            pictureBox2.Location = new Point(81, 4);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(118, 106);
+            pictureBox2.Size = new Size(203, 82);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
             // panelContainer
             // 
-            panelContainer.BackColor = Color.Azure;
+            panelContainer.BackColor = SystemColors.GradientActiveCaption;
             panelContainer.BorderStyle = BorderStyle.Fixed3D;
             panelContainer.Location = new Point(420, 83);
             panelContainer.Margin = new Padding(4);
@@ -189,6 +200,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(1924, 940);
             Controls.Add(lblTitle);
             Controls.Add(panelContainer);
