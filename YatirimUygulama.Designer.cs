@@ -315,7 +315,7 @@
             dtpIseBaslama.Name = "dtpIseBaslama";
             dtpIseBaslama.Size = new Size(300, 31);
             dtpIseBaslama.TabIndex = 24;
-            dtpIseBaslama.Value = new DateTime(1970, 1, 1, 21, 47, 0, 0);
+            dtpIseBaslama.Value = new DateTime(2024, 3, 24, 0, 0, 0, 0);
             dtpIseBaslama.ValueChanged += dtpIseBaslama_ValueChanged;
             // 
             // dtpBitisTarihi

@@ -101,6 +101,11 @@ namespace WinFormsApp1
 
         private void txtSure_TextChanged(object sender, EventArgs e)
         {
+            if (txtSure.Text == string.Empty)
+            {
+                txtSure.Text = "0";
+            }
+
             if (dtpIseBaslama.Value.Date.Year > 1970)
             {
                 dtpIseBaslama.CustomFormat = "dd MMMM yyyy dddd";
@@ -284,7 +289,7 @@ namespace WinFormsApp1
             try
             {
                 _proje.IseBaslamaTarihi = dtpIseBaslama.Value;
-                _proje.Sure = Convert.ToInt32(txtSure.Text);
+                _proje.Sure = Convert.ToInt32(txtSure.Text == string.Empty ? "0" : txtSure.Text);
                 _proje.IsBitisTarihi = dtpBitisTarihi.Value;
                 _proje.GeciciKabulTarihi = dtpGeciciKabul.Value;
                 _proje.KesinKabulTarihi = dtpKesinKabul.Value;
