@@ -38,11 +38,13 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_roadwork_64;
             button1.Location = new Point(282, 44);
             button1.Name = "button1";
             button1.Size = new Size(178, 127);
             button1.TabIndex = 0;
             button1.Text = "İmalat Raporu";
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -88,6 +90,7 @@
             btnProgramRaporu.Text = "Program Raporu";
             btnProgramRaporu.TextImageRelation = TextImageRelation.ImageAboveText;
             btnProgramRaporu.UseVisualStyleBackColor = false;
+            btnProgramRaporu.Click += btnProgramRaporu_Click;
             // 
             // UCRaporlar
             // 

@@ -33,7 +33,6 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            button5 = new Button();
             button6 = new Button();
             button7 = new Button();
             openFileDialog1 = new OpenFileDialog();
@@ -91,34 +90,28 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
-            // button5
-            // 
-            button5.BackColor = Color.LightSkyBlue;
-            button5.Location = new Point(490, 241);
-            button5.Name = "button5";
-            button5.Size = new Size(160, 155);
-            button5.TabIndex = 4;
-            button5.Text = "Muhtar Tanımlama";
-            button5.UseVisualStyleBackColor = false;
-            // 
             // button6
             // 
             button6.BackColor = Color.LightSkyBlue;
-            button6.Location = new Point(689, 34);
+            button6.Image = Properties.Resources.icons8_worker_64;
+            button6.Location = new Point(490, 241);
             button6.Name = "button6";
-            button6.Size = new Size(160, 183);
+            button6.Size = new Size(160, 155);
             button6.TabIndex = 5;
             button6.Text = "Personel Tanımlama";
+            button6.TextImageRelation = TextImageRelation.ImageAboveText;
             button6.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
             button7.BackColor = Color.LightSkyBlue;
+            button7.Image = Properties.Resources.icons8_council_64;
             button7.Location = new Point(83, 241);
             button7.Name = "button7";
             button7.Size = new Size(160, 155);
             button7.TabIndex = 6;
             button7.Text = "Yatırım Programı Tanımlama";
+            button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
@@ -128,7 +121,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(button7);
             Controls.Add(button6);
-            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -144,7 +136,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private Button button5;
         private Button button6;
         private Button button7;
         private OpenFileDialog openFileDialog1;

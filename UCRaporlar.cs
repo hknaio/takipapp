@@ -30,5 +30,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void btnProgramRaporu_Click(object sender, EventArgs e)
+        {
+            using (RprProgram programRaporu =new())
+            {
+                programRaporu.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }

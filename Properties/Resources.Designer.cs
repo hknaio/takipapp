@@ -103,6 +103,26 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_city_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-city-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_council_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-council-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_document_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-document-64", resourceCulture);
@@ -196,6 +216,16 @@ namespace WinFormsApp1.Properties {
         internal static System.Drawing.Bitmap icons8_village_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-village-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_worker_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-worker-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
