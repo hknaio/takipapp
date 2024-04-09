@@ -79,7 +79,7 @@
             button1.Location = new Point(26, 195);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
-            button1.Size = new Size(359, 65);
+            button1.Size = new Size(359, 104);
             button1.TabIndex = 2;
             button1.Text = "Yol Yapım Bakım Onarım";
             button1.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -91,10 +91,10 @@
             btnRapor.BackColor = Color.LightSkyBlue;
             btnRapor.Image = (Image)resources.GetObject("btnRapor.Image");
             btnRapor.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRapor.Location = new Point(26, 486);
+            btnRapor.Location = new Point(26, 623);
             btnRapor.Margin = new Padding(4);
             btnRapor.Name = "btnRapor";
-            btnRapor.Size = new Size(359, 65);
+            btnRapor.Size = new Size(359, 92);
             btnRapor.TabIndex = 5;
             btnRapor.Text = "Raporlar";
             btnRapor.UseVisualStyleBackColor = false;
@@ -105,10 +105,10 @@
             btnTanimlama.BackColor = Color.LightSkyBlue;
             btnTanimlama.Image = (Image)resources.GetObject("btnTanimlama.Image");
             btnTanimlama.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTanimlama.Location = new Point(26, 413);
+            btnTanimlama.Location = new Point(26, 517);
             btnTanimlama.Margin = new Padding(4);
             btnTanimlama.Name = "btnTanimlama";
-            btnTanimlama.Size = new Size(359, 65);
+            btnTanimlama.Size = new Size(359, 98);
             btnTanimlama.TabIndex = 4;
             btnTanimlama.Text = "Tanımlamalar";
             btnTanimlama.UseVisualStyleBackColor = false;
@@ -119,10 +119,10 @@
             btnSanatYapilari.BackColor = Color.LightSkyBlue;
             btnSanatYapilari.Image = (Image)resources.GetObject("btnSanatYapilari.Image");
             btnSanatYapilari.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSanatYapilari.Location = new Point(26, 340);
+            btnSanatYapilari.Location = new Point(26, 414);
             btnSanatYapilari.Margin = new Padding(4);
             btnSanatYapilari.Name = "btnSanatYapilari";
-            btnSanatYapilari.Size = new Size(359, 65);
+            btnSanatYapilari.Size = new Size(359, 95);
             btnSanatYapilari.TabIndex = 3;
             btnSanatYapilari.Text = "Sanat Yapıları";
             btnSanatYapilari.UseVisualStyleBackColor = false;
@@ -132,10 +132,10 @@
             btnAsfaltYapim.BackColor = Color.LightSkyBlue;
             btnAsfaltYapim.Image = (Image)resources.GetObject("btnAsfaltYapim.Image");
             btnAsfaltYapim.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAsfaltYapim.Location = new Point(26, 268);
+            btnAsfaltYapim.Location = new Point(26, 307);
             btnAsfaltYapim.Margin = new Padding(4);
             btnAsfaltYapim.Name = "btnAsfaltYapim";
-            btnAsfaltYapim.Size = new Size(359, 65);
+            btnAsfaltYapim.Size = new Size(359, 99);
             btnAsfaltYapim.TabIndex = 1;
             btnAsfaltYapim.Text = "Asfalt Yapım";
             btnAsfaltYapim.UseVisualStyleBackColor = false;
@@ -158,7 +158,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label1.Location = new Point(94, 90);
+            label1.Location = new Point(92, 117);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(202, 41);
@@ -168,10 +168,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(81, 4);
+            pictureBox2.Location = new Point(92, 4);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(203, 82);
+            pictureBox2.Size = new Size(286, 99);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 

@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
@@ -41,7 +39,7 @@ namespace WinFormsApp1
                 label13.Text = _proje.YaklasikMaliyet.ToString();
                 lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
                 lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
-                
+
 
                 formatDtps(_proje);
             }
@@ -152,7 +150,7 @@ namespace WinFormsApp1
             if (txtHakedis.Text != string.Empty && txtHakedisMiktar.Text != string.Empty)
             {
                 try
-                {                    
+                {
                     var miktar = txtHakedisMiktar.Text.Remove(0, 1);
 
                     _dbContext.Hakedis.Add(new Hakedis
@@ -209,20 +207,21 @@ namespace WinFormsApp1
             dataGridView1.Columns["Uygulama"].DisplayIndex = 4;
             dataGridView1.Columns["UygulamaEkle"].DisplayIndex = 5;
             dataGridView1.Columns["YaklasikMaliyet"].DisplayIndex = 6;
-            dataGridView1.Columns["MaliyetButton"].DisplayIndex = 7;            
+            dataGridView1.Columns["MaliyetButton"].DisplayIndex = 7;
             dataGridView1.Columns["Birim"].DisplayIndex = 8;
-            dataGridView1.Columns["Imalat"].DisplayIndex = 9;            
+            dataGridView1.Columns["Imalat"].DisplayIndex = 9;
             dataGridView1.Columns["Yil"].DisplayIndex = 10;
             dataGridView1.Columns["YatirimDurumu"].DisplayIndex = 11;
             dataGridView1.Columns["Proje"].DisplayIndex = 12;
             dataGridView1.Columns["Kaynak"].DisplayIndex = 13;
+            dataGridView1.Columns["ProjedenCikar"].DisplayIndex = 14;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex ==
            dataGridView2.Columns[0].Index)
-            {              
+            {
                 var hakedisId = dataGridView2.CurrentRow.Cells["ID"].Value;
                 var hakedis = _dbContext!.Hakedis.Where(i => i.ID == (int)hakedisId).FirstOrDefault();
 
@@ -282,6 +281,36 @@ namespace WinFormsApp1
                     this.OnLoad(e);
                 }
             }
+
+            if (e.ColumnIndex == 
+                dataGridView1.Columns[2].Index && e.RowIndex > -1)
+            {
+                var id = (int)dataGridView1.CurrentRow.Cells["ProgramId"].Value;
+                var program = _dbContext.YatirimProgramis.Where(p => p.ID == id).FirstOrDefault();
+                var buttons = MessageBoxButtons.YesNo;
+                var result = MessageBox.Show("Çıkarmak İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                try
+                {                   
+                    if (result == DialogResult.Yes)
+                    {
+                        program.YatirimDurumu = Models.YatirimDurumu.Uygulanmadi;
+                        program.Proje = null;
+                        _proje.YaklasikMaliyet -= program.YaklasikMaliyet;
+
+                        _dbContext.Update(program);
+                        _dbContext.Update(_proje);
+                        _dbContext.SaveChanges();
+
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Bir şeyler ters gitti. Lütfen tekrar deneyin.", "Hata");
+                }
+
+                this.OnLoad(e);
+            }
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -320,6 +349,34 @@ namespace WinFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnYeniProgram_Click(object sender, EventArgs e)
+        {
+            using (ProgramlarSec programlar = new(this))
+            {
+                programlar.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        public void ReceiveData(List<YatirimProgrami> programList)
+        {
+            if (programList.Count > 0)
+            {
+                foreach (var program in programList)
+                {
+                    program.Proje = _proje;
+                    program.YatirimDurumu = Models.YatirimDurumu.Uygulaniyor;
+                    _proje.YaklasikMaliyet += program.YaklasikMaliyet;
+                }
+
+                _dbContext.Update(_proje);
+                _dbContext.UpdateRange(programList);
+                _dbContext.SaveChanges();
+            }
+
+            dataGridView1.Refresh();
         }
     }
 }

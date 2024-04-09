@@ -66,6 +66,7 @@
             label15 = new Label();
             lblHakedisTahakkuk = new Label();
             dataGridView1 = new DataGridView();
+            btnYeniProgram = new Button();
             Ilce = new DataGridViewTextBoxColumn();
             ProgramId = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
@@ -80,6 +81,7 @@
             YatirimDurumu = new DataGridViewTextBoxColumn();
             Proje = new DataGridViewTextBoxColumn();
             Kaynak = new DataGridViewTextBoxColumn();
+            ProjedenCikar = new DataGridViewButtonColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -88,11 +90,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(26, 453);
+            label1.Location = new Point(27, 487);
             label1.Name = "label1";
-            label1.Size = new Size(133, 25);
+            label1.Size = new Size(142, 25);
             label1.TabIndex = 1;
-            label1.Text = "Program Listesi";
+            label1.Text = "Program Listesi :";
             // 
             // label2
             // 
@@ -178,7 +180,7 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(743, 900);
+            btnKaydet.Location = new Point(743, 935);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(112, 34);
             btnKaydet.TabIndex = 13;
@@ -188,7 +190,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(953, 900);
+            button2.Location = new Point(958, 935);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 14;
@@ -417,7 +419,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(287, 394);
+            label15.Location = new Point(320, 394);
             label15.Name = "label15";
             label15.Size = new Size(161, 25);
             label15.TabIndex = 37;
@@ -427,7 +429,7 @@
             // 
             lblHakedisTahakkuk.AutoSize = true;
             lblHakedisTahakkuk.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblHakedisTahakkuk.Location = new Point(454, 389);
+            lblHakedisTahakkuk.Location = new Point(487, 390);
             lblHakedisTahakkuk.Name = "lblHakedisTahakkuk";
             lblHakedisTahakkuk.Size = new Size(58, 30);
             lblHakedisTahakkuk.TabIndex = 38;
@@ -441,8 +443,8 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak });
-            dataGridView1.Location = new Point(26, 481);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, ProjedenCikar });
+            dataGridView1.Location = new Point(26, 525);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
@@ -450,6 +452,16 @@
             dataGridView1.Size = new Size(1852, 404);
             dataGridView1.TabIndex = 39;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // btnYeniProgram
+            // 
+            btnYeniProgram.Location = new Point(175, 471);
+            btnYeniProgram.Name = "btnYeniProgram";
+            btnYeniProgram.Size = new Size(161, 45);
+            btnYeniProgram.TabIndex = 40;
+            btnYeniProgram.Text = "Program Ekle";
+            btnYeniProgram.UseVisualStyleBackColor = true;
+            btnYeniProgram.Click += btnYeniProgram_Click;
             // 
             // Ilce
             // 
@@ -579,11 +591,21 @@
             Kaynak.ReadOnly = true;
             Kaynak.Width = 150;
             // 
+            // ProjedenCikar
+            // 
+            ProjedenCikar.HeaderText = "Projeden Çıkar";
+            ProjedenCikar.MinimumWidth = 8;
+            ProjedenCikar.Name = "ProjedenCikar";
+            ProjedenCikar.Text = "Projeden Çıkar";
+            ProjedenCikar.UseColumnTextForButtonValue = true;
+            ProjedenCikar.Width = 150;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1890, 1050);
+            Controls.Add(btnYeniProgram);
             Controls.Add(dataGridView1);
             Controls.Add(lblHakedisTahakkuk);
             Controls.Add(label15);
@@ -666,6 +688,7 @@
         private DataGridViewTextBoxColumn HakedisMiktari;
         private DataGridViewButtonColumn Sil;
         private DataGridView dataGridView1;
+        private Button btnYeniProgram;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn ProgramId;
         private DataGridViewTextBoxColumn Uygulama;
@@ -680,5 +703,6 @@
         private DataGridViewTextBoxColumn YatirimDurumu;
         private DataGridViewTextBoxColumn Proje;
         private DataGridViewTextBoxColumn Kaynak;
+        private DataGridViewButtonColumn ProjedenCikar;
     }
 }

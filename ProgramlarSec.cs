@@ -7,8 +7,8 @@ namespace WinFormsApp1
     public partial class ProgramlarSec : Form
     {
         private AppDbContext _dbContext;
-        private YeniProjeEkle _parent;
-        public ProgramlarSec(YeniProjeEkle parent)
+        private object _parent;
+        public ProgramlarSec(object parent)
         {
             InitializeComponent();
             _parent = parent;
@@ -47,8 +47,15 @@ namespace WinFormsApp1
             }
             this.Close();
 
-            _parent.ReceiveData(seciliProgramListesi);
-            _parent.Show();
+            if( _parent.GetType() == typeof(YeniProjeEkle))
+            {
+                typeof(YeniProjeEkle).GetMethod("ReceiveData")!.Invoke(_parent, new[] { seciliProgramListesi });
+            }
+
+            if (_parent.GetType() == typeof(YatirimUygulama))
+            {
+                typeof(YatirimUygulama).GetMethod("ReceiveData")!.Invoke(_parent, new[] { seciliProgramListesi });
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

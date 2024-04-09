@@ -18,7 +18,7 @@ namespace WinFormsApp1
         {
             var selected = _dbContext.Imalats.Where(s => s.ID == _selected).FirstOrDefault();
 
-            if (selected != null)
+            if (selected != null && txtYeniMiktar.Text != string.Empty)
             {
                 selected.BirimFiyat = Convert.ToDouble(txtYeniMiktar.Text);
 
