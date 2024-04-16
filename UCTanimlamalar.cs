@@ -61,5 +61,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (MezraTanimlama mezra = new())
+            {
+                mezra.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }

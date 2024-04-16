@@ -114,6 +114,28 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("Koy", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.Mezra", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Adi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("KoyID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("KoyID");
+
+                    b.ToTable("Mezra", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Proje", b =>
                 {
                     b.Property<int>("ID")
@@ -315,6 +337,17 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("Ilce");
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.Mezra", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Koy", "Koy")
+                        .WithMany("Mezralar")
+                        .HasForeignKey("KoyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Koy");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.PurEmanet", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
@@ -360,6 +393,11 @@ namespace WinFormsApp1.Migrations
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>
                 {
                     b.Navigation("Koyler");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.Koy", b =>
+                {
+                    b.Navigation("Mezralar");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Proje", b =>

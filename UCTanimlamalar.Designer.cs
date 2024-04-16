@@ -36,6 +36,7 @@
             button6 = new Button();
             button7 = new Button();
             openFileDialog1 = new OpenFileDialog();
+            button5 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -55,7 +56,7 @@
             // 
             button2.BackColor = Color.LightSkyBlue;
             button2.Image = Properties.Resources.icons8_village_100;
-            button2.Location = new Point(289, 34);
+            button2.Location = new Point(490, 34);
             button2.Name = "button2";
             button2.Size = new Size(160, 183);
             button2.TabIndex = 1;
@@ -68,7 +69,7 @@
             // 
             button3.BackColor = Color.LightSkyBlue;
             button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(490, 34);
+            button3.Location = new Point(289, 34);
             button3.Name = "button3";
             button3.Size = new Size(160, 183);
             button3.TabIndex = 2;
@@ -115,10 +116,24 @@
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.LightSkyBlue;
+            button5.Image = Properties.Resources.icons8_farm_2_100;
+            button5.Location = new Point(686, 33);
+            button5.Name = "button5";
+            button5.Size = new Size(172, 185);
+            button5.TabIndex = 7;
+            button5.Text = "Mezra Tanımlama";
+            button5.TextImageRelation = TextImageRelation.ImageAboveText;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // UCTanimlamalar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button5);
             Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button4);
@@ -139,5 +154,6 @@
         private Button button6;
         private Button button7;
         private OpenFileDialog openFileDialog1;
+        private Button button5;
     }
 }

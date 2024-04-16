@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing.Charts;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -85,7 +84,7 @@ namespace WinFormsApp1
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 var koy = (Koy)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (koy != null)
@@ -98,7 +97,7 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex ==
-           dataGridView1.Columns[0].Index)
+           dataGridView1.Columns[1].Index && e.RowIndex > -1)
             {
                 var koyId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
