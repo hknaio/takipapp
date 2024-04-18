@@ -17,11 +17,13 @@ namespace WinFormsApp1
         private void UCPurEmanet_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            _dbContext.Koys.Load();
+            _dbContext.Koys.Load();            
             _dbContext.Ilces.Load();
+            _dbContext.Mezras.Load();
             _dbContext.Imalats.Load();
             _dbContext.PurEmanets.Load();
             _dbContext.SpiralBorus.Load();
+            _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
             OrderColumns();
         }
@@ -40,7 +42,7 @@ namespace WinFormsApp1
 
         }
 
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private async void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 7)
             {
@@ -106,6 +108,15 @@ namespace WinFormsApp1
                     }
                 }
             }
+
+            if (e.ColumnIndex == 16)
+            {
+                var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
+                string mezralar = string.Empty;
+                _dbContext.PurEmanetMezras.Where(p => p.PurEmanetId == purEmanet.ID).ToList().ForEach(
+                      m => mezralar += m.Mezra.Adi + " ");
+                    e.Value = mezralar;
+            }
         }
 
         private void OrderColumns()
@@ -119,7 +130,8 @@ namespace WinFormsApp1
             dataGridView1.Columns["Miktar"].DisplayIndex = 7;
             dataGridView1.Columns["BirimFiyat"].DisplayIndex = 8;
             dataGridView1.Columns["Tutar"].DisplayIndex = 9;
-            dataGridView1.Columns["Sil"].DisplayIndex = 10;
+            dataGridView1.Columns["Mezralar"].DisplayIndex = 10;
+            dataGridView1.Columns["Sil"].DisplayIndex = 11;
             dataGridView1.Columns["SpiralBoru"].Visible = false;
             dataGridView1.Columns["SpiralBoruId"].Visible = false;
             dataGridView1.Columns["Tarih"].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";

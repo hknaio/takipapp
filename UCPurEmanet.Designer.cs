@@ -43,6 +43,7 @@
             Miktar = new DataGridViewTextBoxColumn();
             BirimFiyat = new DataGridViewTextBoxColumn();
             Tutar = new DataGridViewTextBoxColumn();
+            Mezralar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -66,13 +67,13 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Cins, Birim, Miktar, BirimFiyat, Tutar, Sil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Cins, Birim, Miktar, BirimFiyat, Tutar, Mezralar, Sil });
             dataGridView1.Location = new Point(3, 57);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1320, 646);
+            dataGridView1.Size = new Size(1435, 646);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -197,6 +198,14 @@
             Tutar.ReadOnly = true;
             Tutar.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
+            // Mezralar
+            // 
+            Mezralar.DataPropertyName = "Mezralar";
+            Mezralar.HeaderText = "Mezralar";
+            Mezralar.MinimumWidth = 8;
+            Mezralar.Name = "Mezralar";
+            Mezralar.ReadOnly = true;
+            // 
             // Sil
             // 
             Sil.HeaderText = "Sil";
@@ -215,7 +224,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "UCPurEmanet";
-            Size = new Size(1326, 706);
+            Size = new Size(1441, 706);
             Load += UCPurEmanet_Load;
             Leave += UCPurEmanet_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -240,5 +249,6 @@
         private DataGridViewTextBoxColumn BirimFiyat;
         private DataGridViewTextBoxColumn Tutar;
         private DataGridViewButtonColumn Sil;
+        private DataGridViewTextBoxColumn Mezralar;
     }
 }

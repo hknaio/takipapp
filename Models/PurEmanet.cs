@@ -13,6 +13,7 @@ namespace WinFormsApp1.Models
         public Imalat Imalat { get; set; }
         public int? SpiralBoruId { get; set; }
         public SpiralBoru? SpiralBoru { get; set; }
+        public List<PurEmanetMezra>? Mezralar { get; set; }
         public double Miktar { get; set; }
         public double Tutar { get; set; }
     }

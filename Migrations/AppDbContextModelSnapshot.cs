@@ -231,6 +231,29 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("PurEmanet", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.PurEmanetMezra", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("MezraId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PurEmanetId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MezraId");
+
+                    b.HasIndex("PurEmanetId");
+
+                    b.ToTable("PurEmanetMezra", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
                 {
                     b.Property<int>("ID")
@@ -381,6 +404,25 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("SpiralBoru");
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.PurEmanetMezra", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Mezra", "Mezra")
+                        .WithMany()
+                        .HasForeignKey("MezraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WinFormsApp1.Models.PurEmanet", "PurEmanet")
+                        .WithMany("Mezralar")
+                        .HasForeignKey("PurEmanetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mezra");
+
+                    b.Navigation("PurEmanet");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.YatirimProgrami", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.Proje", "Proje")
@@ -405,6 +447,11 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("Hakedis");
 
                     b.Navigation("Programis");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.PurEmanet", b =>
+                {
+                    b.Navigation("Mezralar");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,7 @@ namespace WinFormsApp1.Data
         public DbSet<Ilce> Ilces { get; set; }
         public DbSet<Koy> Koys { get; set; }
         public DbSet<Mezra> Mezras { get; set; }
+        public DbSet<PurEmanetMezra> PurEmanetMezras { get; set; }
         public DbSet<PurEmanet> PurEmanets { get; set; }
         public DbSet<Proje> Projes { get; set; }
         public DbSet<Hakedis> Hakedis { get; set; }
@@ -31,6 +32,7 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<Ilce>().ToTable(nameof(Ilce));
             modelBuilder.Entity<Koy>().ToTable(nameof(Koy));
             modelBuilder.Entity<Mezra>().ToTable(nameof(Mezra));
+            modelBuilder.Entity<PurEmanetMezra>().ToTable(nameof(PurEmanetMezra));
             modelBuilder.Entity<PurEmanet>().ToTable(nameof(PurEmanet));
             modelBuilder.Entity<Proje>().ToTable(nameof(Proje));
             modelBuilder.Entity<Hakedis>().ToTable(nameof(Hakedis));

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Data.Common;
+using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -29,15 +30,16 @@ namespace WinFormsApp1
             cmbSpiral.Visible = false;
             txtBoruMetre.Visible = false;
             label6.Visible = false;
+            chkMezraList.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (IsModelValid())
             {
-                var ilce = (Ilce)cmbIlce.SelectedValue; 
-                var koy = (Koy)cmbKoy.SelectedValue; 
-                var imalat = (Imalat)cmbImalat.SelectedValue;
+                var ilce = (Ilce)cmbIlce.SelectedValue!;
+                var koy = (Koy)cmbKoy.SelectedValue!;
+                var imalat = (Imalat)cmbImalat.SelectedValue!;
 
                 SpiralBoru? spiralBoru = new();
 
@@ -54,18 +56,30 @@ namespace WinFormsApp1
 
                 try
                 {
-                    _dbContext!.PurEmanets.Add(new PurEmanet
+                    var purEmanet = new PurEmanet
                     {
                         Tarih = dtTarih.Value,
                         IlceId = ilce!.ID,
                         KoyId = koy!.ID,
                         ImalatId = imalat!.ID,
-                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToInt32(txtBoruMetre.Text) 
+                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToInt32(txtBoruMetre.Text)
                         : Convert.ToInt32(txtMiktar.Text),
                         Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToInt32(txtBoruMetre.Text)
                         : imalat.BirimFiyat * Convert.ToInt32(txtMiktar.Text),
                         SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null
-                    });
+                    };
+
+                    foreach (var mezra in chkMezraList.CheckedItems)
+                    {
+                        var purEmanetMezra = new PurEmanetMezra
+                        {
+                            PurEmanet = purEmanet,
+                            Mezra = (Mezra)mezra,
+                        };
+                        _dbContext!.PurEmanetMezras.Add(purEmanetMezra);
+                    }
+
+                    _dbContext!.PurEmanets.Add(purEmanet);
 
                     _dbContext.SaveChanges();
                     this.Close();
@@ -105,7 +119,7 @@ namespace WinFormsApp1
 
         private void cmbIlce_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedItem = cmbIlce.Text;            
+            var selectedItem = cmbIlce.Text;
 
             var koyList = _dbContext!.Koys.Where(k => k.Ilce.Adi == selectedItem).ToList();
 
@@ -132,6 +146,31 @@ namespace WinFormsApp1
                     cmbSpiral.DataSource = spiralBoruList;
                 }
             }
+        }
+
+        private void chkMezra_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkMezra.Checked)
+            {
+                chkMezraList.Visible = true;
+                var mezralar = _dbContext!.Mezras.Where(m => m.Koy.Adi == cmbKoy.Text).ToList();
+                ListBox checkBoxList = chkMezraList;
+                checkBoxList.DataSource = mezralar;
+                checkBoxList.DisplayMember = "Adi";
+                checkBoxList.ValueMember = "Adi";
+            }
+            else
+            {
+                chkMezraList.Visible = false;
+            }
+        }
+
+        private void cmbKoy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            chkMezraList.ClearSelected();
+            chkMezra.Checked = false;
+            chkMezraList.Visible = false;
+
         }
     }
 }

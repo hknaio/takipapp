@@ -43,6 +43,8 @@
             cmbSpiral = new ComboBox();
             txtBoruMetre = new MaskedTextBox();
             label6 = new Label();
+            chkMezra = new CheckBox();
+            chkMezraList = new CheckedListBox();
             SuspendLayout();
             // 
             // label1
@@ -66,7 +68,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(455, 74);
+            label3.Location = new Point(45, 124);
             label3.Name = "label3";
             label3.Size = new Size(56, 25);
             label3.TabIndex = 2;
@@ -75,7 +77,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(45, 143);
+            label4.Location = new Point(45, 192);
             label4.Name = "label4";
             label4.Size = new Size(70, 25);
             label4.TabIndex = 3;
@@ -91,33 +93,34 @@
             // cmbIlce
             // 
             cmbIlce.FormattingEnabled = true;
-            cmbIlce.Location = new Point(167, 71);
+            cmbIlce.Location = new Point(113, 74);
             cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(246, 33);
+            cmbIlce.Size = new Size(300, 33);
             cmbIlce.TabIndex = 5;
             cmbIlce.SelectedIndexChanged += cmbIlce_SelectedIndexChanged;
             // 
             // cmbKoy
             // 
             cmbKoy.FormattingEnabled = true;
-            cmbKoy.Location = new Point(542, 66);
+            cmbKoy.Location = new Point(113, 124);
             cmbKoy.Name = "cmbKoy";
-            cmbKoy.Size = new Size(277, 33);
+            cmbKoy.Size = new Size(300, 33);
             cmbKoy.TabIndex = 6;
+            cmbKoy.SelectedIndexChanged += cmbKoy_SelectedIndexChanged;
             // 
             // cmbImalat
             // 
             cmbImalat.FormattingEnabled = true;
-            cmbImalat.Location = new Point(167, 137);
+            cmbImalat.Location = new Point(121, 192);
             cmbImalat.Name = "cmbImalat";
-            cmbImalat.Size = new Size(246, 33);
+            cmbImalat.Size = new Size(333, 33);
             cmbImalat.TabIndex = 7;
             cmbImalat.SelectedIndexChanged += cmbImalat_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(455, 137);
+            label5.Location = new Point(45, 250);
             label5.Name = "label5";
             label5.Size = new Size(76, 25);
             label5.TabIndex = 8;
@@ -125,9 +128,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(455, 288);
+            button1.Location = new Point(436, 490);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(130, 51);
             button1.TabIndex = 10;
             button1.Text = "Kaydet";
             button1.UseVisualStyleBackColor = true;
@@ -135,9 +138,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(620, 288);
+            button2.Location = new Point(642, 490);
             button2.Name = "button2";
-            button2.Size = new Size(112, 34);
+            button2.Size = new Size(122, 51);
             button2.TabIndex = 11;
             button2.Text = "İptal";
             button2.UseVisualStyleBackColor = true;
@@ -145,7 +148,7 @@
             // 
             // txtMiktar
             // 
-            txtMiktar.Location = new Point(542, 137);
+            txtMiktar.Location = new Point(121, 250);
             txtMiktar.Name = "txtMiktar";
             txtMiktar.Size = new Size(150, 31);
             txtMiktar.TabIndex = 12;
@@ -153,32 +156,53 @@
             // cmbSpiral
             // 
             cmbSpiral.FormattingEnabled = true;
-            cmbSpiral.Location = new Point(196, 200);
+            cmbSpiral.Location = new Point(212, 335);
             cmbSpiral.Name = "cmbSpiral";
             cmbSpiral.Size = new Size(96, 33);
             cmbSpiral.TabIndex = 13;
             // 
             // txtBoruMetre
             // 
-            txtBoruMetre.Location = new Point(312, 200);
+            txtBoruMetre.Location = new Point(337, 335);
             txtBoruMetre.Name = "txtBoruMetre";
-            txtBoruMetre.Size = new Size(101, 31);
+            txtBoruMetre.Size = new Size(142, 31);
             txtBoruMetre.TabIndex = 14;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(29, 206);
+            label6.Location = new Point(45, 338);
             label6.Name = "label6";
             label6.Size = new Size(161, 25);
             label6.TabIndex = 15;
             label6.Text = "Boru Çap / Miktar :";
             // 
+            // chkMezra
+            // 
+            chkMezra.AutoSize = true;
+            chkMezra.Location = new Point(456, 126);
+            chkMezra.Name = "chkMezra";
+            chkMezra.Size = new Size(86, 29);
+            chkMezra.TabIndex = 16;
+            chkMezra.Text = "Mezra";
+            chkMezra.UseVisualStyleBackColor = true;
+            chkMezra.CheckedChanged += chkMezra_CheckedChanged;
+            // 
+            // chkMezraList
+            // 
+            chkMezraList.FormattingEnabled = true;
+            chkMezraList.Location = new Point(569, 124);
+            chkMezraList.Name = "chkMezraList";
+            chkMezraList.Size = new Size(313, 256);
+            chkMezraList.TabIndex = 17;
+            // 
             // PurEmanetEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(831, 366);
+            ClientSize = new Size(923, 629);
+            Controls.Add(chkMezraList);
+            Controls.Add(chkMezra);
             Controls.Add(label6);
             Controls.Add(txtBoruMetre);
             Controls.Add(cmbSpiral);
@@ -195,7 +219,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "PurEmanetEkle";
-            Text = "PurEmanetEkle";
+            Text = "Pür Emanet Ekle";
             Load += PurEmanetEkle_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -218,5 +242,7 @@
         private ComboBox cmbSpiral;
         private MaskedTextBox txtBoruMetre;
         private Label label6;
+        private CheckBox chkMezra;
+        private CheckedListBox chkMezraList;
     }
 }
