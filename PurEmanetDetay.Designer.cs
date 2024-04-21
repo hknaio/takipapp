@@ -279,6 +279,7 @@
             Controls.Add(label1);
             Name = "PurEmanetDetay";
             Text = "Pür Emanet Detay";
+            FormClosing += PurEmanetDetay_FormClosing;
             Load += PurEmanetDetay_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            btnEkProgram = new Button();
             Durum = new DataGridViewTextBoxColumn();
             Proje = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
@@ -40,11 +45,7 @@
             Yil = new DataGridViewTextBoxColumn();
             Program = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            btnEkProgram = new Button();
+            Duzenle = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Proje, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil, Program, Sil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Proje, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil, Program, Sil, Duzenle });
             dataGridView1.GridColor = SystemColors.HotTrack;
             dataGridView1.Location = new Point(12, 115);
             dataGridView1.Name = "dataGridView1";
@@ -64,6 +65,53 @@
             dataGridView1.Size = new Size(1858, 847);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label1.Location = new Point(44, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 30);
+            label1.TabIndex = 3;
+            label1.Text = "Yıl :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label2.Location = new Point(214, 24);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 30);
+            label2.TabIndex = 4;
+            label2.Text = "Kaynak :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(297, 29);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 25);
+            label3.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(100, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 25);
+            label4.TabIndex = 6;
+            // 
+            // btnEkProgram
+            // 
+            btnEkProgram.BackColor = Color.IndianRed;
+            btnEkProgram.Location = new Point(450, 24);
+            btnEkProgram.Name = "btnEkProgram";
+            btnEkProgram.Size = new Size(159, 48);
+            btnEkProgram.TabIndex = 7;
+            btnEkProgram.Text = "Ek Program Ekle";
+            btnEkProgram.UseVisualStyleBackColor = false;
+            btnEkProgram.Click += btnEkProgram_Click;
             // 
             // Durum
             // 
@@ -167,52 +215,15 @@
             Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
             // 
-            // label1
+            // Duzenle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(44, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 30);
-            label1.TabIndex = 3;
-            label1.Text = "Yıl :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label2.Location = new Point(214, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 30);
-            label2.TabIndex = 4;
-            label2.Text = "Kaynak :";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(297, 29);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 25);
-            label3.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(100, 29);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 25);
-            label4.TabIndex = 6;
-            // 
-            // btnEkProgram
-            // 
-            btnEkProgram.BackColor = Color.IndianRed;
-            btnEkProgram.Location = new Point(450, 24);
-            btnEkProgram.Name = "btnEkProgram";
-            btnEkProgram.Size = new Size(159, 48);
-            btnEkProgram.TabIndex = 7;
-            btnEkProgram.Text = "Ek Program Ekle";
-            btnEkProgram.UseVisualStyleBackColor = false;
-            btnEkProgram.Click += btnEkProgram_Click;
+            Duzenle.HeaderText = "Düzenle";
+            Duzenle.MinimumWidth = 8;
+            Duzenle.Name = "Duzenle";
+            Duzenle.ReadOnly = true;
+            Duzenle.Text = "Düzenle";
+            Duzenle.UseColumnTextForButtonValue = true;
+            Duzenle.Width = 150;
             // 
             // YatirimTanimlamaDetay
             // 
@@ -255,5 +266,6 @@
         private DataGridViewTextBoxColumn Yil;
         private DataGridViewTextBoxColumn Program;
         private DataGridViewButtonColumn Sil;
+        private DataGridViewButtonColumn Duzenle;
     }
 }

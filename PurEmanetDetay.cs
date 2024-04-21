@@ -42,7 +42,7 @@ namespace WinFormsApp1
                 lblBirimFiyat.Text = BirimFiyat(_purEmanet);
                 lblMiktar.Text = _purEmanet.Miktar.ToString();
                 lblTutar.Text = _purEmanet.Tutar.ToString();
-                lblPersonel.Text = "Hakan Aygüzer";                
+                lblPersonel.Text = "Hakan Aygüzer";
             }
         }
 
@@ -105,6 +105,14 @@ namespace WinFormsApp1
             }
 
             return birimFiyat;
+        }
+
+        private void PurEmanetDetay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _dbContext?.Dispose();
+            _dbContext = null;
         }
     }
 }

@@ -72,6 +72,18 @@ namespace WinFormsApp1
                     }
                 }
             }
+
+            if (e.ColumnIndex ==
+          dataGridView1.Columns[1].Index && e.RowIndex > -1)
+            {
+                var programId = dataGridView1.CurrentRow.Cells["ID"].Value;
+
+                using (YatirimProgramiDuzenle yatirimProgramiDuzenle = new((int)programId))
+                {
+                    yatirimProgramiDuzenle.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
         }
     }
 }
