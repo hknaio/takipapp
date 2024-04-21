@@ -31,6 +31,7 @@ namespace WinFormsApp1
                         Isim = txtAdi.Text,
                         Birim = txtBirim.Text,
                         Cins = txtCins.Text,
+                        FiyatGecerlilikBaslangicTarihi = dtpBaslangic.Value.Date,
                         BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text)
                     });
 
@@ -113,7 +114,7 @@ namespace WinFormsApp1
                 var imalatId = (int)dataGridView1.CurrentRow.Cells["ID"].Value;
                 var imalat = _dbContext!.Imalats.Where(i => i.ID == imalatId).FirstOrDefault();
 
-                using (BirimFiyatGuncelle birimFiyatGuncelle = new(imalat!.BirimFiyat,imalatId))
+                using (BirimFiyatGuncelle birimFiyatGuncelle = new(imalat!.BirimFiyat,imalatId, imalat!.FiyatGecerlilikBaslangicTarihi))
                 {
                     birimFiyatGuncelle.ShowDialog();
                     this.OnLoad(e);

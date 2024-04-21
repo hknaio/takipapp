@@ -38,13 +38,11 @@
             Ilce = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
-            Cins = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
-            Miktar = new DataGridViewTextBoxColumn();
-            BirimFiyat = new DataGridViewTextBoxColumn();
             Tutar = new DataGridViewTextBoxColumn();
-            Mezralar = new DataGridViewTextBoxColumn();
+            Miktar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
+            Detay = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -67,7 +65,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Cins, Birim, Miktar, BirimFiyat, Tutar, Mezralar, Sil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay });
             dataGridView1.Location = new Point(3, 57);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -86,7 +84,6 @@
             Tarih.Name = "Tarih";
             Tarih.ReadOnly = true;
             Tarih.Resizable = DataGridViewTriState.True;
-            Tarih.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // ID
             // 
@@ -131,7 +128,6 @@
             Ilce.MinimumWidth = 8;
             Ilce.Name = "Ilce";
             Ilce.ReadOnly = true;
-            Ilce.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // Koy
             // 
@@ -140,7 +136,6 @@
             Koy.MinimumWidth = 8;
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
-            Koy.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // Imalat
             // 
@@ -150,17 +145,7 @@
             Imalat.MinimumWidth = 8;
             Imalat.Name = "Imalat";
             Imalat.ReadOnly = true;
-            Imalat.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Imalat.Width = 67;
-            // 
-            // Cins
-            // 
-            Cins.DataPropertyName = "Cins";
-            Cins.HeaderText = "Cins";
-            Cins.MinimumWidth = 8;
-            Cins.Name = "Cins";
-            Cins.ReadOnly = true;
-            Cins.SortMode = DataGridViewColumnSortMode.NotSortable;
+            Imalat.Width = 97;
             // 
             // Birim
             // 
@@ -169,25 +154,6 @@
             Birim.MinimumWidth = 8;
             Birim.Name = "Birim";
             Birim.ReadOnly = true;
-            Birim.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Miktar
-            // 
-            Miktar.DataPropertyName = "Miktar";
-            Miktar.HeaderText = "Miktar";
-            Miktar.MinimumWidth = 8;
-            Miktar.Name = "Miktar";
-            Miktar.ReadOnly = true;
-            Miktar.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // BirimFiyat
-            // 
-            BirimFiyat.DataPropertyName = "BirimFiyat";
-            BirimFiyat.HeaderText = "Birim Fiyat";
-            BirimFiyat.MinimumWidth = 8;
-            BirimFiyat.Name = "BirimFiyat";
-            BirimFiyat.ReadOnly = true;
-            BirimFiyat.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // Tutar
             // 
@@ -196,15 +162,14 @@
             Tutar.MinimumWidth = 8;
             Tutar.Name = "Tutar";
             Tutar.ReadOnly = true;
-            Tutar.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
-            // Mezralar
+            // Miktar
             // 
-            Mezralar.DataPropertyName = "Mezralar";
-            Mezralar.HeaderText = "Mezralar";
-            Mezralar.MinimumWidth = 8;
-            Mezralar.Name = "Mezralar";
-            Mezralar.ReadOnly = true;
+            Miktar.DataPropertyName = "Miktar";
+            Miktar.HeaderText = "Miktar";
+            Miktar.MinimumWidth = 8;
+            Miktar.Name = "Miktar";
+            Miktar.ReadOnly = true;
             // 
             // Sil
             // 
@@ -214,6 +179,15 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
+            // 
+            // Detay
+            // 
+            Detay.HeaderText = "Detay";
+            Detay.MinimumWidth = 8;
+            Detay.Name = "Detay";
+            Detay.ReadOnly = true;
+            Detay.Text = "Detay";
+            Detay.UseColumnTextForButtonValue = true;
             // 
             // UCPurEmanet
             // 
@@ -235,6 +209,7 @@
 
         private Button button1;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Cins;
         private DataGridViewTextBoxColumn Tarih;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn IlceId;
@@ -243,12 +218,10 @@
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn Koy;
         private DataGridViewTextBoxColumn Imalat;
-        private DataGridViewTextBoxColumn Cins;
         private DataGridViewTextBoxColumn Birim;
-        private DataGridViewTextBoxColumn Miktar;
-        private DataGridViewTextBoxColumn BirimFiyat;
         private DataGridViewTextBoxColumn Tutar;
+        private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
-        private DataGridViewTextBoxColumn Mezralar;
+        private DataGridViewButtonColumn Detay;
     }
 }

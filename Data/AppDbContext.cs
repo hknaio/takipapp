@@ -10,8 +10,10 @@ namespace WinFormsApp1.Data
 
         }
         public DbSet<Imalat> Imalats { get; set; }
+        public DbSet<ImalatBirimFiyatTarihGecmisi> ImalatBirimFiyatTarihGecmisis { get; set; }
         public DbSet<YatirimProgrami> YatirimProgramis { get; set; }
         public DbSet<SpiralBoru> SpiralBorus { get; set; }  
+        public DbSet<SpiralBirimFiyatTarihGecmisi> SpiralBirimFiyatTarihGecmisis { get; set; } 
         public DbSet<Ilce> Ilces { get; set; }
         public DbSet<Koy> Koys { get; set; }
         public DbSet<Mezra> Mezras { get; set; }
@@ -36,6 +38,7 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<PurEmanet>().ToTable(nameof(PurEmanet));
             modelBuilder.Entity<Proje>().ToTable(nameof(Proje));
             modelBuilder.Entity<Hakedis>().ToTable(nameof(Hakedis));
+            modelBuilder.Entity<ImalatBirimFiyatTarihGecmisi>().ToTable(nameof(ImalatBirimFiyatTarihGecmisi));
         }
     }
 }

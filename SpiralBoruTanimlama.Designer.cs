@@ -36,17 +36,19 @@
             txtBirim = new TextBox();
             txtStok = new MaskedTextBox();
             dataGridView1 = new DataGridView();
-            btnEkle = new Button();
-            label4 = new Label();
-            txtBirimFiyat = new MaskedTextBox();
             ID = new DataGridViewTextBoxColumn();
             Cap = new DataGridViewTextBoxColumn();
             Birim = new DataGridViewTextBoxColumn();
             BirimFiyat = new DataGridViewTextBoxColumn();
             StokMiktar = new DataGridViewTextBoxColumn();
+            FiyatGecerlilikTarihi = new DataGridViewTextBoxColumn();
             BirimFiyatGuncelle = new DataGridViewButtonColumn();
             MiktarGuncelle = new DataGridViewButtonColumn();
             Sil = new DataGridViewButtonColumn();
+            TarihListesi = new DataGridViewTextBoxColumn();
+            btnEkle = new Button();
+            label4 = new Label();
+            txtBirimFiyat = new MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -105,41 +107,15 @@
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cap, Birim, BirimFiyat, StokMiktar, BirimFiyatGuncelle, MiktarGuncelle, Sil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cap, Birim, BirimFiyat, StokMiktar, FiyatGecerlilikTarihi, BirimFiyatGuncelle, MiktarGuncelle, Sil, TarihListesi });
             dataGridView1.Location = new Point(30, 97);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1074, 423);
+            dataGridView1.Size = new Size(1204, 423);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // btnEkle
-            // 
-            btnEkle.Location = new Point(1109, 28);
-            btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(153, 39);
-            btnEkle.TabIndex = 7;
-            btnEkle.Text = "Listeye Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
-            btnEkle.Click += btnEkle_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(812, 32);
-            label4.Name = "label4";
-            label4.Size = new Size(103, 25);
-            label4.TabIndex = 8;
-            label4.Text = "Birim Fiyat :";
-            // 
-            // txtBirimFiyat
-            // 
-            txtBirimFiyat.Location = new Point(912, 31);
-            txtBirimFiyat.Name = "txtBirimFiyat";
-            txtBirimFiyat.Size = new Size(150, 31);
-            txtBirimFiyat.TabIndex = 9;
             // 
             // ID
             // 
@@ -189,6 +165,15 @@
             StokMiktar.ReadOnly = true;
             StokMiktar.Width = 150;
             // 
+            // FiyatGecerlilikTarihi
+            // 
+            FiyatGecerlilikTarihi.DataPropertyName = "FiyatGecerlilikBaslangicTarihi";
+            FiyatGecerlilikTarihi.HeaderText = "Fiyat Geçerlilik Başlangıç Tarihi";
+            FiyatGecerlilikTarihi.MinimumWidth = 8;
+            FiyatGecerlilikTarihi.Name = "FiyatGecerlilikTarihi";
+            FiyatGecerlilikTarihi.ReadOnly = true;
+            FiyatGecerlilikTarihi.Width = 150;
+            // 
             // BirimFiyatGuncelle
             // 
             BirimFiyatGuncelle.HeaderText = "Birim Fiyat Güncelle";
@@ -218,6 +203,42 @@
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
+            // 
+            // TarihListesi
+            // 
+            TarihListesi.DataPropertyName = "TarihListesi";
+            TarihListesi.HeaderText = "TarihListesi";
+            TarihListesi.MinimumWidth = 8;
+            TarihListesi.Name = "TarihListesi";
+            TarihListesi.ReadOnly = true;
+            TarihListesi.Visible = false;
+            TarihListesi.Width = 150;
+            // 
+            // btnEkle
+            // 
+            btnEkle.Location = new Point(1109, 28);
+            btnEkle.Name = "btnEkle";
+            btnEkle.Size = new Size(153, 39);
+            btnEkle.TabIndex = 7;
+            btnEkle.Text = "Listeye Ekle";
+            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(812, 32);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 25);
+            label4.TabIndex = 8;
+            label4.Text = "Birim Fiyat :";
+            // 
+            // txtBirimFiyat
+            // 
+            txtBirimFiyat.Location = new Point(912, 31);
+            txtBirimFiyat.Name = "txtBirimFiyat";
+            txtBirimFiyat.Size = new Size(150, 31);
+            txtBirimFiyat.TabIndex = 9;
             // 
             // SpiralBoruTanimlama
             // 
@@ -260,8 +281,10 @@
         private DataGridViewTextBoxColumn Birim;
         private DataGridViewTextBoxColumn BirimFiyat;
         private DataGridViewTextBoxColumn StokMiktar;
+        private DataGridViewTextBoxColumn FiyatGecerlilikTarihi;
         private DataGridViewButtonColumn BirimFiyatGuncelle;
         private DataGridViewButtonColumn MiktarGuncelle;
         private DataGridViewButtonColumn Sil;
+        private DataGridViewTextBoxColumn TarihListesi;
     }
 }

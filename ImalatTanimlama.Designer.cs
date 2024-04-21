@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            Isim = new DataGridViewTextBoxColumn();
-            Cins = new DataGridViewTextBoxColumn();
-            Birim = new DataGridViewTextBoxColumn();
-            BirimFiyat = new DataGridViewTextBoxColumn();
-            btnSil = new DataGridViewButtonColumn();
-            ID = new DataGridViewTextBoxColumn();
-            FiyatGuncelle = new DataGridViewButtonColumn();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -45,6 +38,17 @@
             txtBirim = new TextBox();
             txtCins = new TextBox();
             txtBirimFiyat = new MaskedTextBox();
+            dtpBaslangic = new DateTimePicker();
+            label5 = new Label();
+            Isim = new DataGridViewTextBoxColumn();
+            Cins = new DataGridViewTextBoxColumn();
+            Birim = new DataGridViewTextBoxColumn();
+            BirimFiyat = new DataGridViewTextBoxColumn();
+            FiyatGecerlilikTarihi = new DataGridViewTextBoxColumn();
+            btnSil = new DataGridViewButtonColumn();
+            ID = new DataGridViewTextBoxColumn();
+            FiyatGuncelle = new DataGridViewButtonColumn();
+            TarihListesi = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -54,81 +58,15 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Isim, Cins, Birim, BirimFiyat, btnSil, ID, FiyatGuncelle });
-            dataGridView1.Location = new Point(12, 133);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Isim, Cins, Birim, BirimFiyat, FiyatGecerlilikTarihi, btnSil, ID, FiyatGuncelle, TarihListesi });
+            dataGridView1.Location = new Point(12, 186);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(931, 294);
+            dataGridView1.Size = new Size(1136, 431);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // Isim
-            // 
-            Isim.DataPropertyName = "Isim";
-            Isim.HeaderText = "İsim";
-            Isim.MinimumWidth = 8;
-            Isim.Name = "Isim";
-            Isim.ReadOnly = true;
-            Isim.Width = 150;
-            // 
-            // Cins
-            // 
-            Cins.DataPropertyName = "Cins";
-            Cins.HeaderText = "Cins";
-            Cins.MinimumWidth = 8;
-            Cins.Name = "Cins";
-            Cins.ReadOnly = true;
-            Cins.Width = 150;
-            // 
-            // Birim
-            // 
-            Birim.DataPropertyName = "Birim";
-            Birim.HeaderText = "Birim";
-            Birim.MinimumWidth = 8;
-            Birim.Name = "Birim";
-            Birim.ReadOnly = true;
-            Birim.Width = 150;
-            // 
-            // BirimFiyat
-            // 
-            BirimFiyat.DataPropertyName = "BirimFiyat";
-            BirimFiyat.HeaderText = "Birim Fiyat";
-            BirimFiyat.MinimumWidth = 8;
-            BirimFiyat.Name = "BirimFiyat";
-            BirimFiyat.ReadOnly = true;
-            BirimFiyat.Width = 150;
-            // 
-            // btnSil
-            // 
-            btnSil.HeaderText = "Sil";
-            btnSil.MinimumWidth = 8;
-            btnSil.Name = "btnSil";
-            btnSil.ReadOnly = true;
-            btnSil.Text = "Listeden Sil";
-            btnSil.UseColumnTextForButtonValue = true;
-            btnSil.Width = 150;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "ID";
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 8;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
-            ID.Visible = false;
-            ID.Width = 150;
-            // 
-            // FiyatGuncelle
-            // 
-            FiyatGuncelle.HeaderText = "Birim Fiyat Güncelle";
-            FiyatGuncelle.MinimumWidth = 8;
-            FiyatGuncelle.Name = "FiyatGuncelle";
-            FiyatGuncelle.ReadOnly = true;
-            FiyatGuncelle.Text = "Fiyat Güncelle";
-            FiyatGuncelle.UseColumnTextForButtonValue = true;
-            FiyatGuncelle.Width = 150;
             // 
             // label1
             // 
@@ -168,9 +106,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(680, 55);
+            button1.Location = new Point(719, 116);
             button1.Name = "button1";
-            button1.Size = new Size(112, 34);
+            button1.Size = new Size(127, 53);
             button1.TabIndex = 5;
             button1.Text = "Listeye Ekle";
             button1.UseVisualStyleBackColor = true;
@@ -204,11 +142,114 @@
             txtBirimFiyat.Size = new Size(223, 31);
             txtBirimFiyat.TabIndex = 10;
             // 
+            // dtpBaslangic
+            // 
+            dtpBaslangic.Location = new Point(381, 116);
+            dtpBaslangic.Name = "dtpBaslangic";
+            dtpBaslangic.Size = new Size(278, 31);
+            dtpBaslangic.TabIndex = 11;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(102, 116);
+            label5.Name = "label5";
+            label5.Size = new Size(255, 25);
+            label5.TabIndex = 12;
+            label5.Text = "Fiyat Geçerlilik Başlangıç Tarihi :";
+            // 
+            // Isim
+            // 
+            Isim.DataPropertyName = "Isim";
+            Isim.HeaderText = "İsim";
+            Isim.MinimumWidth = 8;
+            Isim.Name = "Isim";
+            Isim.ReadOnly = true;
+            Isim.Width = 150;
+            // 
+            // Cins
+            // 
+            Cins.DataPropertyName = "Cins";
+            Cins.HeaderText = "Cins";
+            Cins.MinimumWidth = 8;
+            Cins.Name = "Cins";
+            Cins.ReadOnly = true;
+            Cins.Width = 150;
+            // 
+            // Birim
+            // 
+            Birim.DataPropertyName = "Birim";
+            Birim.HeaderText = "Birim";
+            Birim.MinimumWidth = 8;
+            Birim.Name = "Birim";
+            Birim.ReadOnly = true;
+            Birim.Width = 150;
+            // 
+            // BirimFiyat
+            // 
+            BirimFiyat.DataPropertyName = "BirimFiyat";
+            BirimFiyat.HeaderText = "Birim Fiyat";
+            BirimFiyat.MinimumWidth = 8;
+            BirimFiyat.Name = "BirimFiyat";
+            BirimFiyat.ReadOnly = true;
+            BirimFiyat.Width = 150;
+            // 
+            // FiyatGecerlilikTarihi
+            // 
+            FiyatGecerlilikTarihi.DataPropertyName = "FiyatGecerlilikBaslangicTarihi";
+            FiyatGecerlilikTarihi.HeaderText = "Fiyat Geçerlilik Başlangıç Tarihi";
+            FiyatGecerlilikTarihi.MinimumWidth = 8;
+            FiyatGecerlilikTarihi.Name = "FiyatGecerlilikTarihi";
+            FiyatGecerlilikTarihi.ReadOnly = true;
+            FiyatGecerlilikTarihi.Width = 150;
+            // 
+            // btnSil
+            // 
+            btnSil.HeaderText = "Sil";
+            btnSil.MinimumWidth = 8;
+            btnSil.Name = "btnSil";
+            btnSil.ReadOnly = true;
+            btnSil.Text = "Listeden Sil";
+            btnSil.UseColumnTextForButtonValue = true;
+            btnSil.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
+            // 
+            // FiyatGuncelle
+            // 
+            FiyatGuncelle.HeaderText = "Birim Fiyat Güncelle";
+            FiyatGuncelle.MinimumWidth = 8;
+            FiyatGuncelle.Name = "FiyatGuncelle";
+            FiyatGuncelle.ReadOnly = true;
+            FiyatGuncelle.Text = "Fiyat Güncelle";
+            FiyatGuncelle.UseColumnTextForButtonValue = true;
+            FiyatGuncelle.Width = 150;
+            // 
+            // TarihListesi
+            // 
+            TarihListesi.DataPropertyName = "TarihListesi";
+            TarihListesi.HeaderText = "TarihListesi";
+            TarihListesi.MinimumWidth = 8;
+            TarihListesi.Name = "TarihListesi";
+            TarihListesi.ReadOnly = true;
+            TarihListesi.Visible = false;
+            TarihListesi.Width = 150;
+            // 
             // ImalatTanimlama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(986, 464);
+            ClientSize = new Size(1145, 617);
+            Controls.Add(label5);
+            Controls.Add(dtpBaslangic);
             Controls.Add(txtBirimFiyat);
             Controls.Add(txtCins);
             Controls.Add(txtBirim);
@@ -243,12 +284,16 @@
         private TextBox txtBirim;
         private TextBox txtCins;
         private MaskedTextBox txtBirimFiyat;
+        private DateTimePicker dtpBaslangic;
+        private Label label5;
         private DataGridViewTextBoxColumn Isim;
         private DataGridViewTextBoxColumn Cins;
         private DataGridViewTextBoxColumn Birim;
         private DataGridViewTextBoxColumn BirimFiyat;
+        private DataGridViewTextBoxColumn FiyatGecerlilikTarihi;
         private DataGridViewButtonColumn btnSil;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewButtonColumn FiyatGuncelle;
+        private DataGridViewTextBoxColumn TarihListesi;
     }
 }

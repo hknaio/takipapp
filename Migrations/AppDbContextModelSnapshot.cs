@@ -83,6 +83,9 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("FiyatGecerlilikBaslangicTarihi")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Isim")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -90,6 +93,30 @@ namespace WinFormsApp1.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Imalat", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.ImalatBirimFiyatTarihGecmisi", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("BirimFiyat")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("GecerlilikBaslangicTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ImalatID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ImalatID");
+
+                    b.ToTable("ImalatBirimFiyatTarihGecmisi", (string)null);
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Koy", b =>
@@ -254,6 +281,30 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("PurEmanetMezra", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.SpiralBirimFiyatTarihGecmisi", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("BirimFiyat")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("GecerlilikBaslangicTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SpiralBoruID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SpiralBoruID");
+
+                    b.ToTable("SpiralBirimFiyatTarihGecmisis");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
                 {
                     b.Property<int>("ID")
@@ -271,6 +322,9 @@ namespace WinFormsApp1.Migrations
 
                     b.Property<int>("Cap")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("FiyatGecerlilikBaslangicTarihi")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("StokMiktar")
                         .HasColumnType("int");
@@ -349,6 +403,17 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("Proje");
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.ImalatBirimFiyatTarihGecmisi", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Imalat", "Imalat")
+                        .WithMany("TarihListesi")
+                        .HasForeignKey("ImalatID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Imalat");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Koy", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
@@ -423,6 +488,17 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("PurEmanet");
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.SpiralBirimFiyatTarihGecmisi", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.SpiralBoru", "SpiralBoru")
+                        .WithMany("TarihListesi")
+                        .HasForeignKey("SpiralBoruID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SpiralBoru");
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.YatirimProgrami", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.Proje", "Proje")
@@ -435,6 +511,11 @@ namespace WinFormsApp1.Migrations
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>
                 {
                     b.Navigation("Koyler");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.Imalat", b =>
+                {
+                    b.Navigation("TarihListesi");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Koy", b =>
@@ -452,6 +533,11 @@ namespace WinFormsApp1.Migrations
             modelBuilder.Entity("WinFormsApp1.Models.PurEmanet", b =>
                 {
                     b.Navigation("Mezralar");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
+                {
+                    b.Navigation("TarihListesi");
                 });
 #pragma warning restore 612, 618
         }

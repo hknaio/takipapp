@@ -126,8 +126,9 @@ namespace WinFormsApp1
             {
                 var birimFiyat = dataGridView1.CurrentRow.Cells["BirimFiyat"].Value;
                 var id = dataGridView1.CurrentRow.Cells["ID"].Value;
+                var fiyatTarihi = dataGridView1.CurrentRow.Cells["FiyatGecerlilikTarihi"].Value;
 
-                using (BoruFiyatGuncelle boruFiyatGuncelle = new((double)birimFiyat, (int)id))
+                using (BoruFiyatGuncelle boruFiyatGuncelle = new((double)birimFiyat, (int)id, (DateTime)fiyatTarihi))
                 {
                     boruFiyatGuncelle.ShowDialog();
                     this.OnLoad(e);
@@ -141,10 +142,11 @@ namespace WinFormsApp1
             dataGridView1.Columns["Birim"].DisplayIndex = 1;
             dataGridView1.Columns["BirimFiyat"].DisplayIndex = 2;
             dataGridView1.Columns["StokMiktar"].DisplayIndex = 3;
-            dataGridView1.Columns["BirimFiyatGuncelle"].DisplayIndex = 4;
-            dataGridView1.Columns["MiktarGuncelle"].DisplayIndex = 5;
-            dataGridView1.Columns["Sil"].DisplayIndex = 6;            
-            dataGridView1.Columns["ID"].DisplayIndex = 7;
+            dataGridView1.Columns["FiyatGecerlilikTarihi"].DisplayIndex = 4;
+            dataGridView1.Columns["BirimFiyatGuncelle"].DisplayIndex = 5;
+            dataGridView1.Columns["MiktarGuncelle"].DisplayIndex = 6;
+            dataGridView1.Columns["Sil"].DisplayIndex = 7;            
+            dataGridView1.Columns["ID"].DisplayIndex = 8;
         }
     }
 }

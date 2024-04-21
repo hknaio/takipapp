@@ -44,7 +44,7 @@ namespace WinFormsApp1
 
         private async void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 6)
             {
                 var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (purEmanet != null)
@@ -52,7 +52,7 @@ namespace WinFormsApp1
                     e.Value = purEmanet.Ilce.Adi;
                 }
             }
-            if (e.ColumnIndex == 11)
+            if (e.ColumnIndex == 10)
             {
                 var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (purEmanet != null)
@@ -68,7 +68,7 @@ namespace WinFormsApp1
                     }
                 }
             }
-            if (e.ColumnIndex == 9)
+            if (e.ColumnIndex == 8)
             {
                 var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (purEmanet != null)
@@ -81,57 +81,47 @@ namespace WinFormsApp1
                 var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
                 if (purEmanet != null)
                 {
-                    e.Value = purEmanet.Imalat.Cins;
-                }
-            }
-            if (e.ColumnIndex == 1)
-            {
-                var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
-                if (purEmanet != null)
-                {
                     e.Value = purEmanet.Imalat.Birim;
                 }
             }
-            if (e.ColumnIndex == 2)
-            {
-                var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
-                if (purEmanet != null)
-                {
-                    if (purEmanet.Imalat.Isim == "Spiral Boru")
-                    {
-                        var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
-                        e.Value = boru!.BirimFiyat.ToString();
-                    }
-                    else
-                    {
-                        e.Value = purEmanet.Imalat.BirimFiyat;
-                    }
-                }
-            }
+            //if (e.ColumnIndex == 2)
+            //{
+            //    var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
+            //    if (purEmanet != null)
+            //    {
+            //        if (purEmanet.Imalat.Isim == "Spiral Boru")
+            //        {
+            //            var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
+            //            e.Value = boru!.BirimFiyat.ToString();
+            //        }
+            //        else
+            //        {
+            //            e.Value = purEmanet.Imalat.BirimFiyat;
+            //        }
+            //    }
+            //}
 
-            if (e.ColumnIndex == 16)
-            {
-                var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
-                string mezralar = string.Empty;
-                _dbContext.PurEmanetMezras.Where(p => p.PurEmanetId == purEmanet.ID).ToList().ForEach(
-                      m => mezralar += m.Mezra.Adi + " ");
-                    e.Value = mezralar;
-            }
+            //if (e.ColumnIndex == 16)
+            //{
+            //    var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
+            //    string mezralar = string.Empty;
+            //    _dbContext.PurEmanetMezras.Where(p => p.PurEmanetId == purEmanet.ID).ToList().ForEach(
+            //          m => mezralar += m.Mezra.Adi + " ");
+            //        e.Value = mezralar;
+            //}
         }
 
         private void OrderColumns()
         {
-            dataGridView1.Columns["Tarih"].DisplayIndex = 1;
-            dataGridView1.Columns["Ilce"].DisplayIndex = 2;
-            dataGridView1.Columns["Koy"].DisplayIndex = 3;
-            dataGridView1.Columns["Imalat"].DisplayIndex = 4;
-            dataGridView1.Columns["Cins"].DisplayIndex = 5;
-            dataGridView1.Columns["Birim"].DisplayIndex = 6;
-            dataGridView1.Columns["Miktar"].DisplayIndex = 7;
-            dataGridView1.Columns["BirimFiyat"].DisplayIndex = 8;
-            dataGridView1.Columns["Tutar"].DisplayIndex = 9;
-            dataGridView1.Columns["Mezralar"].DisplayIndex = 10;
-            dataGridView1.Columns["Sil"].DisplayIndex = 11;
+            dataGridView1.Columns["Tarih"].DisplayIndex = 0;
+            dataGridView1.Columns["Ilce"].DisplayIndex = 1;
+            dataGridView1.Columns["Koy"].DisplayIndex = 2;
+            dataGridView1.Columns["Imalat"].DisplayIndex = 3;
+            dataGridView1.Columns["Birim"].DisplayIndex = 4;
+            dataGridView1.Columns["Miktar"].DisplayIndex = 5;
+            dataGridView1.Columns["Tutar"].DisplayIndex = 6;
+            dataGridView1.Columns["Sil"].DisplayIndex = 7;
+            dataGridView1.Columns["Detay"].DisplayIndex = 8;
             dataGridView1.Columns["SpiralBoru"].Visible = false;
             dataGridView1.Columns["SpiralBoruId"].Visible = false;
             dataGridView1.Columns["Tarih"].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";
@@ -140,7 +130,7 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == dataGridView1.Columns[3].Index 
+            if (e.ColumnIndex == dataGridView1.Columns[1].Index 
                 && e.RowIndex > -1)
             {
                var puremanetId = dataGridView1.CurrentRow.Cells["ID"].Value;
@@ -177,6 +167,16 @@ namespace WinFormsApp1
                 {
                     MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n");
                 }
+            }
+
+            if (e.ColumnIndex == dataGridView1.Columns[2].Index
+                && e.RowIndex > -1)
+            {
+                var puremanetId = dataGridView1.CurrentRow.Cells["ID"].Value;
+
+                using PurEmanetDetay purEmanetDetay = new((int)puremanetId);
+                purEmanetDetay.ShowDialog();
+                this.OnLoad(e);
             }
         }
     }
