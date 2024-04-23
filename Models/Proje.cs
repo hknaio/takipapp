@@ -51,11 +51,7 @@ namespace WinFormsApp1.Models
         [Browsable(false)]
         public int Sure { get; set; }
         public string? Yuklenici { get; set; }
-
-        [Browsable(false)]
         public DateTime? GeciciKabulTarihi { get; set; }
-
-        [Browsable(false)]
         public DateTime? KesinKabulTarihi { get; set; }
         public ProjeDurumu ProjeDurumu { get; set; }
         public double SozlesmeBedeli { get; set; }

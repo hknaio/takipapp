@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Reflection;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
@@ -84,9 +85,13 @@ namespace WinFormsApp1
             dataGridView1.Columns["SozlesmeBedeli"].DisplayIndex = 3;
             dataGridView1.Columns["ProjeDurumu"].DisplayIndex = 4;
             dataGridView1.Columns["Yuklenici"].DisplayIndex = 5;
-            dataGridView1.Columns["Sil"].DisplayIndex = 6;
-            dataGridView1.Columns["Uygulama"].DisplayIndex = 7;
-            dataGridView1.Columns["ID"].DisplayIndex = 8;
+            dataGridView1.Columns["GeciciKabulTarihi"].DisplayIndex = 6;
+            dataGridView1.Columns["KesinKabulTarihi"].DisplayIndex = 7;
+            dataGridView1.Columns["Sil"].DisplayIndex = 8;
+            dataGridView1.Columns["Uygulama"].DisplayIndex = 9;
+            dataGridView1.Columns["ID"].DisplayIndex = 10;
+            dataGridView1.Columns["GeciciKabulTarihi"].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";
+            dataGridView1.Columns["KesinKabulTarihi"].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -95,6 +100,16 @@ namespace WinFormsApp1
             {
                 ProjeDurumu enumValue = (ProjeDurumu)e.Value!;
                 e.Value = ((DescriptionAttribute)typeof(ProjeDurumu).GetMember(enumValue.ToString()).FirstOrDefault().GetCustomAttributes(typeof(DescriptionAttribute)).FirstOrDefault()).Description;
+            }
+
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "KesinKabulTarihi")
+            {
+                var tarih = (DateTime)e.Value!;
+
+                if ((tarih - DateTime.Now.Date).TotalDays < 60)
+                {
+                    dataGridView1.Columns[e.ColumnIndex].DefaultCellStyle.BackColor = Color.Red;
+                }
             }
         }
     }

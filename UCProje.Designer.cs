@@ -40,6 +40,8 @@
             SozlesmeBedeli = new DataGridViewTextBoxColumn();
             ProjeDurumu = new DataGridViewTextBoxColumn();
             Yuklenici = new DataGridViewTextBoxColumn();
+            GeciciKabulTarihi = new DataGridViewTextBoxColumn();
+            KesinKabulTarihi = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             Uygulama = new DataGridViewButtonColumn();
             ID = new DataGridViewTextBoxColumn();
@@ -77,7 +79,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Adi, Aciklama, YaklasikMaliyet, SozlesmeBedeli, ProjeDurumu, Yuklenici, Sil, Uygulama, ID });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Adi, Aciklama, YaklasikMaliyet, SozlesmeBedeli, ProjeDurumu, Yuklenici, GeciciKabulTarihi, KesinKabulTarihi, Sil, Uygulama, ID });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -144,6 +146,22 @@
             Yuklenici.MinimumWidth = 8;
             Yuklenici.Name = "Yuklenici";
             Yuklenici.ReadOnly = true;
+            // 
+            // GeciciKabulTarihi
+            // 
+            GeciciKabulTarihi.DataPropertyName = "GeciciKabulTarihi";
+            GeciciKabulTarihi.HeaderText = "Geçici Kabul Tarihi";
+            GeciciKabulTarihi.MinimumWidth = 8;
+            GeciciKabulTarihi.Name = "GeciciKabulTarihi";
+            GeciciKabulTarihi.ReadOnly = true;
+            // 
+            // KesinKabulTarihi
+            // 
+            KesinKabulTarihi.DataPropertyName = "KesinKabulTarihi";
+            KesinKabulTarihi.HeaderText = "Kesin Kabul Tarihi";
+            KesinKabulTarihi.MinimumWidth = 8;
+            KesinKabulTarihi.Name = "KesinKabulTarihi";
+            KesinKabulTarihi.ReadOnly = true;
             // 
             // Sil
             // 
@@ -212,6 +230,8 @@
         private DataGridViewTextBoxColumn SozlesmeBedeli;
         private DataGridViewTextBoxColumn ProjeDurumu;
         private DataGridViewTextBoxColumn Yuklenici;
+        private DataGridViewTextBoxColumn GeciciKabulTarihi;
+        private DataGridViewTextBoxColumn KesinKabulTarihi;
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Uygulama;
         private DataGridViewTextBoxColumn ID;

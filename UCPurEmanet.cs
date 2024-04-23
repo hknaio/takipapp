@@ -84,31 +84,6 @@ namespace WinFormsApp1
                     e.Value = purEmanet.Imalat.Birim;
                 }
             }
-            //if (e.ColumnIndex == 2)
-            //{
-            //    var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
-            //    if (purEmanet != null)
-            //    {
-            //        if (purEmanet.Imalat.Isim == "Spiral Boru")
-            //        {
-            //            var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
-            //            e.Value = boru!.BirimFiyat.ToString();
-            //        }
-            //        else
-            //        {
-            //            e.Value = purEmanet.Imalat.BirimFiyat;
-            //        }
-            //    }
-            //}
-
-            //if (e.ColumnIndex == 16)
-            //{
-            //    var purEmanet = (PurEmanet)(this.dataGridView1.Rows[e.RowIndex].DataBoundItem);
-            //    string mezralar = string.Empty;
-            //    _dbContext.PurEmanetMezras.Where(p => p.PurEmanetId == purEmanet.ID).ToList().ForEach(
-            //          m => mezralar += m.Mezra.Adi + " ");
-            //        e.Value = mezralar;
-            //}
         }
 
         private void OrderColumns()
