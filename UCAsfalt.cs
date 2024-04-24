@@ -28,7 +28,8 @@ namespace WinFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            UCAsfaltParke ucc = new();
+            addControls(ucc);
         }
     }
 }

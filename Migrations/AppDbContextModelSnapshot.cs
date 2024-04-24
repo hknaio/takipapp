@@ -163,6 +163,64 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("Mezra", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.ParkeBordur", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Malzeme")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StokMiktar")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ParkeBordur", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.ParkeBordurIs", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("AracPlakasi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Birim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GidisTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("KoyAdi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ParkeBordurTip")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TalepEden")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ParkeBordurIs", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Proje", b =>
                 {
                     b.Property<int>("ID")
