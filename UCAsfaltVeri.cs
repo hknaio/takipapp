@@ -15,7 +15,7 @@ namespace WinFormsApp1
         private void UCAsfaltVeri_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            _dbContext.YatirimProgramis.Where(y => (y.Imalat.Contains("Asfalt") || y.Imalat.Contains("asfalt") || y.Imalat.Contains("BSK")) 
+            _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains("1.Kat")
                                                    && y.YatirimDurumu == Models.YatirimDurumu.Uygulaniyor).Load();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
         }

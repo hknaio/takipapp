@@ -52,7 +52,7 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, YaklasikMaliyet, Koy, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak });
-            dataGridView1.Location = new Point(3, 41);
+            dataGridView1.Location = new Point(18, 43);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;

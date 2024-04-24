@@ -37,6 +37,7 @@
             button7 = new Button();
             openFileDialog1 = new OpenFileDialog();
             button5 = new Button();
+            button8 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -129,10 +130,24 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
+            // button8
+            // 
+            button8.BackColor = Color.LightSkyBlue;
+            button8.BackgroundImageLayout = ImageLayout.Center;
+            button8.Image = Properties.Resources.icons8_road_map_49;
+            button8.Location = new Point(686, 241);
+            button8.Name = "button8";
+            button8.Size = new Size(172, 155);
+            button8.TabIndex = 8;
+            button8.Text = "Yol Ağı Tanımlama";
+            button8.TextImageRelation = TextImageRelation.ImageAboveText;
+            button8.UseVisualStyleBackColor = false;
+            // 
             // UCTanimlamalar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button8);
             Controls.Add(button5);
             Controls.Add(button7);
             Controls.Add(button6);
@@ -155,5 +170,6 @@
         private Button button7;
         private OpenFileDialog openFileDialog1;
         private Button button5;
+        private Button button8;
     }
 }

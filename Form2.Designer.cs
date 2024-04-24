@@ -226,7 +226,6 @@
         private PictureBox pictureBox2;
         private Label label1;
         private Button btnAsfaltYapim;
-        private Button button6;
         private Button button5;
         private Button btnRapor;
         private Button btnTanimlama;

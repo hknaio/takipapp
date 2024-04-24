@@ -42,7 +42,7 @@ namespace WinFormsApp1
 
         }
 
-        private async void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 6)
             {

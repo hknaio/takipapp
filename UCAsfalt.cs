@@ -10,7 +10,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UCAsfaltVeri ucc = new();
+            UCAsfaltAna ucc = new();
             addControls(ucc);
         }
         private void addControls(UserControl uc)
@@ -19,6 +19,16 @@ namespace WinFormsApp1
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
             uc.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

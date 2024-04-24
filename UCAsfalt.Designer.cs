@@ -42,6 +42,7 @@
             button2.TabIndex = 3;
             button2.Text = "Sarıçubuk";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -61,6 +62,7 @@
             button3.TabIndex = 4;
             button3.Text = "Parke Fabrikası";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // panelContainer
             // 

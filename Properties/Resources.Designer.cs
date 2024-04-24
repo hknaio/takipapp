@@ -193,6 +193,16 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_road_map_49 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-road-map-49", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_road_roller_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-road-roller-64", resourceCulture);
