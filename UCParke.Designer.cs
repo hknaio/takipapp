@@ -32,12 +32,14 @@
             btnParkeStok = new Button();
             dataGridView1 = new DataGridView();
             Miktar = new DataGridViewTextBoxColumn();
+            Birim = new DataGridViewTextBoxColumn();
             Koy = new DataGridViewTextBoxColumn();
             TalepEden = new DataGridViewTextBoxColumn();
             GidisTarihi = new DataGridViewTextBoxColumn();
             AracPlakasi = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
-            StokGuncelle = new DataGridViewButtonColumn();
+            MiktarGuncelle = new DataGridViewButtonColumn();
+            Sil = new DataGridViewButtonColumn();
             ParkeBordurTip = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -50,6 +52,7 @@
             btnEkle.TabIndex = 0;
             btnEkle.Text = "Parke İşi Ekle";
             btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
             // 
             // btnParkeStok
             // 
@@ -59,6 +62,7 @@
             btnParkeStok.TabIndex = 1;
             btnParkeStok.Text = "Parke Stok";
             btnParkeStok.UseVisualStyleBackColor = true;
+            btnParkeStok.Click += btnParkeStok_Click;
             // 
             // dataGridView1
             // 
@@ -66,7 +70,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Miktar, Koy, TalepEden, GidisTarihi, AracPlakasi, ID, StokGuncelle, ParkeBordurTip });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Miktar, Birim, Koy, TalepEden, GidisTarihi, AracPlakasi, ID, MiktarGuncelle, Sil, ParkeBordurTip });
             dataGridView1.Location = new Point(44, 119);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -74,6 +78,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1265, 530);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // Miktar
             // 
@@ -83,6 +88,15 @@
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
             Miktar.Width = 150;
+            // 
+            // Birim
+            // 
+            Birim.DataPropertyName = "Birim";
+            Birim.HeaderText = "Birim";
+            Birim.MinimumWidth = 8;
+            Birim.Name = "Birim";
+            Birim.ReadOnly = true;
+            Birim.Width = 150;
             // 
             // Koy
             // 
@@ -130,15 +144,27 @@
             ID.Visible = false;
             ID.Width = 150;
             // 
-            // StokGuncelle
+            // MiktarGuncelle
             // 
-            StokGuncelle.HeaderText = "Stok Güncelle";
-            StokGuncelle.MinimumWidth = 8;
-            StokGuncelle.Name = "StokGuncelle";
-            StokGuncelle.ReadOnly = true;
-            StokGuncelle.Resizable = DataGridViewTriState.True;
-            StokGuncelle.SortMode = DataGridViewColumnSortMode.Automatic;
-            StokGuncelle.Width = 150;
+            MiktarGuncelle.HeaderText = "Miktar Güncelle";
+            MiktarGuncelle.MinimumWidth = 8;
+            MiktarGuncelle.Name = "MiktarGuncelle";
+            MiktarGuncelle.ReadOnly = true;
+            MiktarGuncelle.Resizable = DataGridViewTriState.True;
+            MiktarGuncelle.SortMode = DataGridViewColumnSortMode.Automatic;
+            MiktarGuncelle.Text = "Miktar Güncelle";
+            MiktarGuncelle.UseColumnTextForButtonValue = true;
+            MiktarGuncelle.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
             // 
             // ParkeBordurTip
             // 
@@ -171,12 +197,14 @@
         private Button btnParkeStok;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Miktar;
+        private DataGridViewTextBoxColumn Birim;
         private DataGridViewTextBoxColumn Koy;
         private DataGridViewTextBoxColumn TalepEden;
         private DataGridViewTextBoxColumn GidisTarihi;
         private DataGridViewTextBoxColumn AracPlakasi;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewButtonColumn StokGuncelle;
+        private DataGridViewButtonColumn MiktarGuncelle;
+        private DataGridViewButtonColumn Sil;
         private DataGridViewTextBoxColumn ParkeBordurTip;
     }
 }
