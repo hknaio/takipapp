@@ -55,7 +55,7 @@ namespace WinFormsApp1
             {
                 var koy = (Koy)cmbKoy.SelectedValue!;
                 var personel = cmbPersonel.SelectedItem;
-                var parke = _dbContext!.ParkeBordurs.Where(p => p.Malzeme == "Parke").FirstOrDefault();
+                var parkeBordur = _dbContext!.ParkeBordurs.Where(p => p.Malzeme == _malzeme).FirstOrDefault();
 
                 try
                 {
@@ -67,14 +67,14 @@ namespace WinFormsApp1
                         TalepEden = personel.ToString(),
                         GidisTarihi = dtTarih.Value.Date,
                         AracPlakasi = txtPlaka.Text,
-                        ParkeBordurTip = ParkeBordurTip.Parke,
+                        ParkeBordurTip = _malzeme == "Parke" ? ParkeBordurTip.Parke : ParkeBordurTip.Bordur,
                     });
 
-                    parke.StokMiktar -= Convert.ToInt32(txtMiktar.Text);
+                    parkeBordur!.StokMiktar -= Convert.ToInt32(txtMiktar.Text);
 
-                    _dbContext?.Update(parke);
+                    _dbContext?.Update(parkeBordur);
 
-                    _dbContext.SaveChanges();
+                    _dbContext!.SaveChanges();
                     this.Close();
                 }
                 catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }

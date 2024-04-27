@@ -1,0 +1,210 @@
+﻿namespace WinFormsApp1
+{
+    partial class UCBordur
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            btnBordurStok = new Button();
+            btnEkle = new Button();
+            dataGridView1 = new DataGridView();
+            Miktar = new DataGridViewTextBoxColumn();
+            Birim = new DataGridViewTextBoxColumn();
+            Koy = new DataGridViewTextBoxColumn();
+            TalepEden = new DataGridViewTextBoxColumn();
+            GidisTarihi = new DataGridViewTextBoxColumn();
+            AracPlakasi = new DataGridViewTextBoxColumn();
+            ID = new DataGridViewTextBoxColumn();
+            MiktarGuncelle = new DataGridViewButtonColumn();
+            Sil = new DataGridViewButtonColumn();
+            ParkeBordurTip = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // btnBordurStok
+            // 
+            btnBordurStok.Location = new Point(227, 27);
+            btnBordurStok.Name = "btnBordurStok";
+            btnBordurStok.Size = new Size(178, 94);
+            btnBordurStok.TabIndex = 3;
+            btnBordurStok.Text = "Bordür Stok";
+            btnBordurStok.UseVisualStyleBackColor = true;
+            btnBordurStok.Click += btnBordurStok_Click;
+            // 
+            // btnEkle
+            // 
+            btnEkle.Location = new Point(28, 27);
+            btnEkle.Name = "btnEkle";
+            btnEkle.Size = new Size(152, 94);
+            btnEkle.TabIndex = 2;
+            btnEkle.Text = "Bordür İşi Ekle";
+            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Miktar, Birim, Koy, TalepEden, GidisTarihi, AracPlakasi, ID, MiktarGuncelle, Sil, ParkeBordurTip });
+            dataGridView1.Location = new Point(28, 127);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1225, 530);
+            dataGridView1.TabIndex = 4;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // Miktar
+            // 
+            Miktar.DataPropertyName = "Miktar";
+            Miktar.HeaderText = "Miktar";
+            Miktar.MinimumWidth = 8;
+            Miktar.Name = "Miktar";
+            Miktar.ReadOnly = true;
+            Miktar.Width = 150;
+            // 
+            // Birim
+            // 
+            Birim.DataPropertyName = "Birim";
+            Birim.HeaderText = "Birim";
+            Birim.MinimumWidth = 8;
+            Birim.Name = "Birim";
+            Birim.ReadOnly = true;
+            Birim.Width = 150;
+            // 
+            // Koy
+            // 
+            Koy.DataPropertyName = "KoyAdi";
+            Koy.HeaderText = "Köy";
+            Koy.MinimumWidth = 8;
+            Koy.Name = "Koy";
+            Koy.ReadOnly = true;
+            Koy.Width = 150;
+            // 
+            // TalepEden
+            // 
+            TalepEden.DataPropertyName = "TalepEden";
+            TalepEden.HeaderText = "Talep Eden";
+            TalepEden.MinimumWidth = 8;
+            TalepEden.Name = "TalepEden";
+            TalepEden.ReadOnly = true;
+            TalepEden.Width = 150;
+            // 
+            // GidisTarihi
+            // 
+            GidisTarihi.DataPropertyName = "GidisTarihi";
+            GidisTarihi.HeaderText = "GidisTarihi";
+            GidisTarihi.MinimumWidth = 8;
+            GidisTarihi.Name = "GidisTarihi";
+            GidisTarihi.ReadOnly = true;
+            GidisTarihi.Width = 150;
+            // 
+            // AracPlakasi
+            // 
+            AracPlakasi.DataPropertyName = "AracPlakasi";
+            AracPlakasi.HeaderText = "Araç Plaka";
+            AracPlakasi.MinimumWidth = 8;
+            AracPlakasi.Name = "AracPlakasi";
+            AracPlakasi.ReadOnly = true;
+            AracPlakasi.Width = 150;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "ID";
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Visible = false;
+            ID.Width = 150;
+            // 
+            // MiktarGuncelle
+            // 
+            MiktarGuncelle.HeaderText = "Miktar Güncelle";
+            MiktarGuncelle.MinimumWidth = 8;
+            MiktarGuncelle.Name = "MiktarGuncelle";
+            MiktarGuncelle.ReadOnly = true;
+            MiktarGuncelle.Resizable = DataGridViewTriState.True;
+            MiktarGuncelle.SortMode = DataGridViewColumnSortMode.Automatic;
+            MiktarGuncelle.Text = "Miktar Güncelle";
+            MiktarGuncelle.UseColumnTextForButtonValue = true;
+            MiktarGuncelle.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
+            // 
+            // ParkeBordurTip
+            // 
+            ParkeBordurTip.DataPropertyName = "ParkeBordurTip";
+            ParkeBordurTip.HeaderText = "ParkeBordurTip";
+            ParkeBordurTip.MinimumWidth = 8;
+            ParkeBordurTip.Name = "ParkeBordurTip";
+            ParkeBordurTip.ReadOnly = true;
+            ParkeBordurTip.Visible = false;
+            ParkeBordurTip.Width = 150;
+            // 
+            // UCBordur
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dataGridView1);
+            Controls.Add(btnBordurStok);
+            Controls.Add(btnEkle);
+            Name = "UCBordur";
+            Size = new Size(1256, 713);
+            Load += UCBordur_Load;
+            Leave += UCBordur_Leave;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Button btnBordurStok;
+        private Button btnEkle;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Miktar;
+        private DataGridViewTextBoxColumn Birim;
+        private DataGridViewTextBoxColumn Koy;
+        private DataGridViewTextBoxColumn TalepEden;
+        private DataGridViewTextBoxColumn GidisTarihi;
+        private DataGridViewTextBoxColumn AracPlakasi;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewButtonColumn MiktarGuncelle;
+        private DataGridViewButtonColumn Sil;
+        private DataGridViewTextBoxColumn ParkeBordurTip;
+    }
+}
