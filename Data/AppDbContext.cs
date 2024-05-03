@@ -23,6 +23,8 @@ namespace WinFormsApp1.Data
         public DbSet<Hakedis> Hakedis { get; set; }
         public DbSet<ParkeBordur> ParkeBordurs { get; set; }
         public DbSet<ParkeBordurIs> ParkeBordurIs { get; set; }
+        public DbSet<AsfaltUygulamaVeri> AsfaltUygulamaVeris { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Yatirim");
 
@@ -43,6 +45,7 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<ImalatBirimFiyatTarihGecmisi>().ToTable(nameof(ImalatBirimFiyatTarihGecmisi));
             modelBuilder.Entity<ParkeBordur>().ToTable(nameof(ParkeBordur));
             modelBuilder.Entity<ParkeBordurIs>().ToTable(nameof(ParkeBordurIs));
+            modelBuilder.Entity<AsfaltUygulamaVeri>().ToTable(nameof(AsfaltUygulamaVeri));
         }
     }
 }

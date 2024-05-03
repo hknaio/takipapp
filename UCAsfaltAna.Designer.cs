@@ -79,9 +79,9 @@
             panelContainer.Controls.Add(button4);
             panelContainer.Controls.Add(button2);
             panelContainer.Controls.Add(button3);
-            panelContainer.Location = new Point(3, 3);
+            panelContainer.Location = new Point(12, 19);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1283, 678);
+            panelContainer.Size = new Size(1447, 784);
             panelContainer.TabIndex = 4;
             // 
             // UCAsfaltAna
@@ -90,7 +90,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContainer);
             Name = "UCAsfaltAna";
-            Size = new Size(1289, 684);
+            Size = new Size(1447, 715);
             panelContainer.ResumeLayout(false);
             ResumeLayout(false);
         }

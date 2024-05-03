@@ -9,7 +9,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UCAsfaltVeri ucc = new();
+            UCKatliAsfalt ucc = new();
             addControls(ucc);
         }
 

@@ -22,6 +22,33 @@ namespace WinFormsApp1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<DateTime>("BaslangicTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("BitisTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Sure")
+                        .HasColumnType("int");
+
+                    b.Property<int>("YatirimProgramiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("YatirimProgramiID");
+
+                    b.ToTable("AsfaltUygulamaVeri", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Hakedis", b =>
                 {
                     b.Property<int>("ID")
@@ -448,6 +475,17 @@ namespace WinFormsApp1.Migrations
                     b.HasIndex("ProjeID");
 
                     b.ToTable("YatirimProgrami", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.YatirimProgrami", "YatirimProgrami")
+                        .WithMany()
+                        .HasForeignKey("YatirimProgramiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("YatirimProgrami");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Hakedis", b =>
