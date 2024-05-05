@@ -22,6 +22,45 @@ namespace WinFormsApp1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltDokum", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("AsfaltMiktari")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AstarMiktari")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BSKMiktari")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DokumBedeli")
+                        .HasColumnType("float");
+
+                    b.Property<double>("DokumMesafesi")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("DokumTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("YamaMiktari")
+                        .HasColumnType("float");
+
+                    b.Property<int>("YatirimProgramiID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("YatirimProgramiID");
+
+                    b.ToTable("AsfaltDokum", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>
                 {
                     b.Property<int>("ID")
@@ -475,6 +514,17 @@ namespace WinFormsApp1.Migrations
                     b.HasIndex("ProjeID");
 
                     b.ToTable("YatirimProgrami", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltDokum", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.YatirimProgrami", "YatirimProgrami")
+                        .WithMany()
+                        .HasForeignKey("YatirimProgramiID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("YatirimProgrami");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>

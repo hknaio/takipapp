@@ -1,0 +1,253 @@
+﻿namespace WinFormsApp1
+{
+    partial class AsfaltDokumGuncelle
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            label2 = new Label();
+            label1 = new Label();
+            txtYamaMiktari = new MaskedTextBox();
+            label5 = new Label();
+            txtAstarMiktari = new MaskedTextBox();
+            label6 = new Label();
+            txtAsfaltMiktari = new MaskedTextBox();
+            label3 = new Label();
+            txtDokumMesafesi = new MaskedTextBox();
+            label4 = new Label();
+            dtpDokumTarihi = new DateTimePicker();
+            label7 = new Label();
+            txtBskMiktari = new MaskedTextBox();
+            label8 = new Label();
+            txtDokumBedeli = new MaskedTextBox();
+            label9 = new Label();
+            btnIptal = new Button();
+            btnKaydet = new Button();
+            SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(244, 51);
+            label2.Name = "label2";
+            label2.Size = new Size(20, 25);
+            label2.TabIndex = 5;
+            label2.Text = "..";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(84, 51);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 25);
+            label1.TabIndex = 4;
+            label1.Text = "Program : ";
+            // 
+            // txtYamaMiktari
+            // 
+            txtYamaMiktari.Location = new Point(244, 136);
+            txtYamaMiktari.Name = "txtYamaMiktari";
+            txtYamaMiktari.Size = new Size(174, 31);
+            txtYamaMiktari.TabIndex = 14;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(84, 136);
+            label5.Name = "label5";
+            label5.Size = new Size(122, 25);
+            label5.TabIndex = 13;
+            label5.Text = "Yama Miktarı :";
+            // 
+            // txtAstarMiktari
+            // 
+            txtAstarMiktari.Location = new Point(244, 91);
+            txtAstarMiktari.Name = "txtAstarMiktari";
+            txtAstarMiktari.Size = new Size(174, 31);
+            txtAstarMiktari.TabIndex = 16;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(84, 94);
+            label6.Name = "label6";
+            label6.Size = new Size(121, 25);
+            label6.TabIndex = 15;
+            label6.Text = "Astar Miktarı :";
+            // 
+            // txtAsfaltMiktari
+            // 
+            txtAsfaltMiktari.Location = new Point(244, 180);
+            txtAsfaltMiktari.Name = "txtAsfaltMiktari";
+            txtAsfaltMiktari.Size = new Size(174, 31);
+            txtAsfaltMiktari.TabIndex = 18;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(85, 183);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 25);
+            label3.TabIndex = 17;
+            label3.Text = "Asfalt Miktarı :";
+            // 
+            // txtDokumMesafesi
+            // 
+            txtDokumMesafesi.Location = new Point(244, 227);
+            txtDokumMesafesi.Name = "txtDokumMesafesi";
+            txtDokumMesafesi.Size = new Size(174, 31);
+            txtDokumMesafesi.TabIndex = 20;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(84, 230);
+            label4.Name = "label4";
+            label4.Size = new Size(154, 25);
+            label4.TabIndex = 19;
+            label4.Text = "Döküm Mesafesi :";
+            // 
+            // dtpDokumTarihi
+            // 
+            dtpDokumTarihi.Location = new Point(244, 272);
+            dtpDokumTarihi.Name = "dtpDokumTarihi";
+            dtpDokumTarihi.Size = new Size(300, 31);
+            dtpDokumTarihi.TabIndex = 22;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(85, 272);
+            label7.Name = "label7";
+            label7.Size = new Size(125, 25);
+            label7.TabIndex = 21;
+            label7.Text = "Döküm Tarihi :";
+            // 
+            // txtBskMiktari
+            // 
+            txtBskMiktari.Location = new Point(243, 365);
+            txtBskMiktari.Name = "txtBskMiktari";
+            txtBskMiktari.Size = new Size(174, 31);
+            txtBskMiktari.TabIndex = 24;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(85, 368);
+            label8.Name = "label8";
+            label8.Size = new Size(110, 25);
+            label8.TabIndex = 23;
+            label8.Text = "BSK Miktarı :";
+            // 
+            // txtDokumBedeli
+            // 
+            txtDokumBedeli.Location = new Point(243, 319);
+            txtDokumBedeli.Name = "txtDokumBedeli";
+            txtDokumBedeli.Size = new Size(174, 31);
+            txtDokumBedeli.TabIndex = 26;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(84, 322);
+            label9.Name = "label9";
+            label9.Size = new Size(132, 25);
+            label9.TabIndex = 25;
+            label9.Text = "Döküm Bedeli :";
+            // 
+            // btnIptal
+            // 
+            btnIptal.Location = new Point(565, 446);
+            btnIptal.Name = "btnIptal";
+            btnIptal.Size = new Size(141, 49);
+            btnIptal.TabIndex = 28;
+            btnIptal.Text = "İptal";
+            btnIptal.UseVisualStyleBackColor = true;
+            btnIptal.Click += btnIptal_Click;
+            // 
+            // btnKaydet
+            // 
+            btnKaydet.Location = new Point(347, 446);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(141, 49);
+            btnKaydet.TabIndex = 27;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
+            // 
+            // AsfaltDokumGuncelle
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1005, 555);
+            Controls.Add(btnIptal);
+            Controls.Add(btnKaydet);
+            Controls.Add(txtDokumBedeli);
+            Controls.Add(label9);
+            Controls.Add(txtBskMiktari);
+            Controls.Add(label8);
+            Controls.Add(dtpDokumTarihi);
+            Controls.Add(label7);
+            Controls.Add(txtDokumMesafesi);
+            Controls.Add(label4);
+            Controls.Add(txtAsfaltMiktari);
+            Controls.Add(label3);
+            Controls.Add(txtAstarMiktari);
+            Controls.Add(label6);
+            Controls.Add(txtYamaMiktari);
+            Controls.Add(label5);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "AsfaltDokumGuncelle";
+            Text = "Asfalt Döküm Güncelle";
+            FormClosing += AsfaltDokumGuncelle_FormClosing;
+            Load += AsfaltDokumGuncelle_Load;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label label2;
+        private Label label1;
+        private MaskedTextBox txtYamaMiktari;
+        private Label label5;
+        private MaskedTextBox txtAstarMiktari;
+        private Label label6;
+        private MaskedTextBox txtAsfaltMiktari;
+        private Label label3;
+        private MaskedTextBox txtDokumMesafesi;
+        private Label label4;
+        private DateTimePicker dtpDokumTarihi;
+        private Label label7;
+        private MaskedTextBox txtBskMiktari;
+        private Label label8;
+        private MaskedTextBox txtDokumBedeli;
+        private Label label9;
+        private Button btnIptal;
+        private Button btnKaydet;
+    }
+}

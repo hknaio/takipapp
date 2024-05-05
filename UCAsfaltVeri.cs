@@ -18,6 +18,7 @@ namespace WinFormsApp1
         {
             _dbContext = new AppDbContext();
             _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
+                                                   //&& y.Uygulama == 0
                                                    && y.YatirimDurumu == Models.YatirimDurumu.Uygulaniyor).Load();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
