@@ -1,5 +1,6 @@
 ﻿using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WinFormsApp1
 {
@@ -44,10 +45,16 @@ namespace WinFormsApp1
         {
             if (IsModelValid())
             {
-                var selected = _dbContext.YatirimProgramis.Where(s => s.ID == _selected).FirstOrDefault();
+                var selected = _dbContext.YatirimProgramis.Include(p => p.Proje)                  
+                    .Where(s => s.ID == _selected).FirstOrDefault();
+
 
                 if (selected != null)
                 {
+                    var toplamProjeTahakkuk = selected.Proje!.HakedisToplamTahakkuk;
+
+                    var projedekiToplamMiktar = _dbContext.YatirimProgramis.Where(y => y.Proje.ID == selected.Proje.ID).ToList();
+
                     try
                     {
                         if (_dbContext.AsfaltDokums.Where(a => a.YatirimProgrami == selected).Any())
@@ -76,6 +83,7 @@ namespace WinFormsApp1
                                 DokumTarihi = dtpDokumTarihi.Value.Date,
                                 DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text),
                                 BSKMiktari = Convert.ToDouble(txtBskMiktari.Text),
+                                
                                 YatirimProgrami = selected,
                             });
                         }

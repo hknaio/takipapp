@@ -180,7 +180,7 @@
             // 
             // btnIptal
             // 
-            btnIptal.Location = new Point(565, 446);
+            btnIptal.Location = new Point(567, 495);
             btnIptal.Name = "btnIptal";
             btnIptal.Size = new Size(141, 49);
             btnIptal.TabIndex = 28;
@@ -190,7 +190,7 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(347, 446);
+            btnKaydet.Location = new Point(347, 495);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(141, 49);
             btnKaydet.TabIndex = 27;
@@ -202,7 +202,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1005, 555);
+            ClientSize = new Size(1005, 618);
             Controls.Add(btnIptal);
             Controls.Add(btnKaydet);
             Controls.Add(txtDokumBedeli);

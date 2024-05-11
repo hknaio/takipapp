@@ -102,7 +102,8 @@ namespace WinFormsApp1
                 e.Value = ((DescriptionAttribute)typeof(ProjeDurumu).GetMember(enumValue.ToString()).FirstOrDefault().GetCustomAttributes(typeof(DescriptionAttribute)).FirstOrDefault()).Description;
             }
 
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "KesinKabulTarihi")
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "KesinKabulTarihi"
+                && e.Value is not null)
             {
                 var tarih = (DateTime)e.Value!;
 

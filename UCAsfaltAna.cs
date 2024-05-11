@@ -9,7 +9,7 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UCKatliAsfalt ucc = new();
+            UCKatliAsfalt ucc = new("1.");
             addControls(ucc);
         }
 
@@ -19,6 +19,12 @@
             uc.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(uc);
             uc.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UCKatliAsfalt ucc = new("2.");
+            addControls(ucc);
         }
     }
 }

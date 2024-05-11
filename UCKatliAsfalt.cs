@@ -3,14 +3,16 @@ namespace WinFormsApp1
 {
     public partial class UCKatliAsfalt : UserControl
     {
-        public UCKatliAsfalt()
+        private readonly string _asfalt;
+        public UCKatliAsfalt(string asfalt)
         {
             InitializeComponent();
+            _asfalt = asfalt;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UCAsfaltVeri ucc = new("1.");
+            UCAsfaltVeri ucc = new(_asfalt);
             addControls(ucc);
         }
 
@@ -24,7 +26,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UCAsfaltDokum ucc = new("1.");
+            UCAsfaltDokum ucc = new(_asfalt);
             addControls(ucc);
         }
     }

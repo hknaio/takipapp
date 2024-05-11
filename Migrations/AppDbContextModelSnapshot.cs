@@ -426,7 +426,7 @@ namespace WinFormsApp1.Migrations
 
                     b.HasIndex("SpiralBoruID");
 
-                    b.ToTable("SpiralBirimFiyatTarihGecmisis");
+                    b.ToTable("SpiralBirimFiyatTarihGecmisis", (string)null);
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
