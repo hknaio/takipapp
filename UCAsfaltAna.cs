@@ -26,5 +26,17 @@
             UCKatliAsfalt ucc = new("2.");
             addControls(ucc);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UCAsfaltDokum ucc = new("Asfalt Bakım Onarım");
+            addControls(ucc);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UCAsfaltDokum ucc = new("BSK");
+            addControls(ucc);
+        }
     }
 }

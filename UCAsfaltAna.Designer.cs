@@ -64,6 +64,7 @@
             button3.TabIndex = 2;
             button3.Text = "Asfalt Bakım Onarım";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -73,6 +74,7 @@
             button4.TabIndex = 3;
             button4.Text = "BSK (Bitümlü Sıcak Karışım)";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panelContainer
             // 

@@ -16,10 +16,23 @@ namespace WinFormsApp1
 
         private void UCAsfaltDokum_Load(object sender, EventArgs e)
         {
+            var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK" ? true : false;
+
             _dbContext = new AppDbContext();
-            _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
-                                                   && y.Uygulama != 0
+
+            if (uygulama)
+            {
+                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
+                                                   && y.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).Load();
+            }
+
+            else
+            {
+                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
+                                                   && (y.Uygulama != 0)
                                                    && y.YatirimDurumu == Models.YatirimDurumu.Uygulaniyor).Load();
+            }
+            
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
             OrderColumns();

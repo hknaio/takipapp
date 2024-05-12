@@ -50,11 +50,7 @@ namespace WinFormsApp1
 
 
                 if (selected != null)
-                {
-                    var toplamProjeTahakkuk = selected.Proje!.HakedisToplamTahakkuk;
-
-                    var projedekiToplamMiktar = _dbContext.YatirimProgramis.Where(y => y.Proje.ID == selected.Proje.ID).ToList();
-
+                {                   
                     try
                     {
                         if (_dbContext.AsfaltDokums.Where(a => a.YatirimProgrami == selected).Any())
