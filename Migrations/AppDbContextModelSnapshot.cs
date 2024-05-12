@@ -426,7 +426,7 @@ namespace WinFormsApp1.Migrations
 
                     b.HasIndex("SpiralBoruID");
 
-                    b.ToTable("SpiralBirimFiyatTarihGecmisis", (string)null);
+                    b.ToTable("SpiralBirimFiyatTarihGecmisis");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
@@ -456,6 +456,41 @@ namespace WinFormsApp1.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("SpiralBoru", (string)null);
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.TuprasMalzeme", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("Fark")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IlOzelNet")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SiparisNo")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TartimNo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TuprasNet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tur")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("TuprasMalzeme", (string)null);
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.YatirimProgrami", b =>
