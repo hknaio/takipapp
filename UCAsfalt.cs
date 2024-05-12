@@ -23,7 +23,8 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            UCSaricubukAna ucc = new();
+            addControls(ucc);
         }
 
         private void button3_Click(object sender, EventArgs e)
