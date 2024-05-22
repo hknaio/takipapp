@@ -203,6 +203,7 @@
             Controls.Add(label1);
             Name = "TuprasMalzemeEkle";
             Text = "Tüpraş Malzeme Ekle";
+            FormClosing += TuprasMalzemeEkle_FormClosing;
             Load += TuprasMalzemeEkle_Load;
             ResumeLayout(false);
             PerformLayout();

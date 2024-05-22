@@ -32,7 +32,7 @@ namespace WinFormsApp1
                         SiparisNo = Convert.ToInt32(txtSiparis.Text),
                         TuprasNet = Convert.ToInt32(txtTupras.Text),
                         IlOzelNet = Convert.ToInt32(txtOzelIdare.Text),
-                        TartimNo =  Convert.ToInt32(txtTartim.Text),
+                        TartimNo = Convert.ToInt32(txtTartim.Text),
                         Fark = Convert.ToInt32(txtFark.Text)
                     });
 
@@ -60,6 +60,14 @@ namespace WinFormsApp1
             }
 
             return false;
+        }
+
+        private void TuprasMalzemeEkle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            base.OnClosing(e);
+
+            _dbContext?.Dispose();
+            _dbContext = null;
         }
     }
 }

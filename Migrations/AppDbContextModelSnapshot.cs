@@ -61,6 +61,37 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("AsfaltDokum", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltSantiye", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Koy1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Koy2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Koy3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Ton")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("AsfaltSantiye", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>
                 {
                     b.Property<int>("ID")
