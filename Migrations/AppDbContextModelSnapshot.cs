@@ -119,6 +119,34 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("AsfaltUygulamaVeri", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.GidenMalzeme", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Evsaf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Personel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Yer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("GidenMalzeme", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.Hakedis", b =>
                 {
                     b.Property<int>("ID")

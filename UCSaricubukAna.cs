@@ -22,7 +22,8 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            UCGidenMalzeme ucc = new();
+            addControls(ucc);
         }
 
         private void addControls(UserControl uc)
