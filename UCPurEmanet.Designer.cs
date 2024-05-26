@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button1 = new Button();
             dataGridView1 = new DataGridView();
             Tarih = new DataGridViewTextBoxColumn();
@@ -48,12 +52,16 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.GradientActiveCaption;
+            button1.BackgroundImageLayout = ImageLayout.Center;
+            button1.Image = Properties.Resources.icons8_add_64;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);
             button1.Name = "button1";
-            button1.Size = new Size(236, 48);
+            button1.Size = new Size(356, 74);
             button1.TabIndex = 0;
             button1.Text = "Pür Emanet Ekle";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // dataGridView1
@@ -64,14 +72,30 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay });
-            dataGridView1.Location = new Point(3, 57);
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.Location = new Point(3, 83);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1435, 646);
+            dataGridView1.Size = new Size(1435, 620);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -145,7 +169,7 @@
             Imalat.MinimumWidth = 8;
             Imalat.Name = "Imalat";
             Imalat.ReadOnly = true;
-            Imalat.Width = 97;
+            Imalat.Width = 122;
             // 
             // Birim
             // 
@@ -173,6 +197,11 @@
             // 
             // Sil
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Tomato;
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            Sil.DefaultCellStyle = dataGridViewCellStyle2;
+            Sil.FlatStyle = FlatStyle.Flat;
             Sil.HeaderText = "Sil";
             Sil.MinimumWidth = 8;
             Sil.Name = "Sil";
@@ -182,6 +211,11 @@
             // 
             // Detay
             // 
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.LimeGreen;
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            Detay.DefaultCellStyle = dataGridViewCellStyle3;
+            Detay.FlatStyle = FlatStyle.Flat;
             Detay.HeaderText = "Detay";
             Detay.MinimumWidth = 8;
             Detay.Name = "Detay";
@@ -195,6 +229,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "UCPurEmanet";

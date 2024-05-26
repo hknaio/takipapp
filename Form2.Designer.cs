@@ -182,7 +182,7 @@
             panelContainer.Location = new Point(420, 83);
             panelContainer.Margin = new Padding(4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1476, 844);
+            panelContainer.Size = new Size(1511, 844);
             panelContainer.TabIndex = 1;
             // 
             // lblTitle

@@ -20,7 +20,7 @@ namespace WinFormsApp1
         {
             var malzeme = _dbContext.ParkeBordurs.Where(s => s.Malzeme == _malzeme).FirstOrDefault();
 
-            if (malzeme != null)
+            if (malzeme != null && txtYeniMiktar.Text != string.Empty)
             {
                 malzeme.StokMiktar = Convert.ToInt32(txtYeniMiktar.Text);
 

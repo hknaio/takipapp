@@ -37,32 +37,41 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_report_48;
             button1.Location = new Point(708, 82);
             button1.Name = "button1";
             button1.Size = new Size(245, 158);
             button1.TabIndex = 1;
             button1.Text = "Giden Malzeme Listesi";
-            button1.UseVisualStyleBackColor = true;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_production_48;
             button2.Location = new Point(408, 82);
             button2.Name = "button2";
             button2.Size = new Size(238, 158);
             button2.TabIndex = 2;
             button2.Text = "Asfalt Şantiyesi Günlük Üretim";
-            button2.UseVisualStyleBackColor = true;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.LightSkyBlue;
+            button3.Image = Properties.Resources.icons8_purchase_64;
             button3.Location = new Point(103, 82);
             button3.Name = "button3";
             button3.Size = new Size(239, 158);
             button3.TabIndex = 3;
             button3.Text = "Tüpraş Malzeme Alımı";
-            button3.UseVisualStyleBackColor = true;
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // panelContainer

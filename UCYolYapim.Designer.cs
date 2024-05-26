@@ -36,22 +36,26 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_bid_64;
             button1.Location = new Point(97, 22);
             button1.Name = "button1";
-            button1.Size = new Size(233, 107);
+            button1.Size = new Size(233, 148);
             button1.TabIndex = 0;
             button1.Text = "Proje - Yatırım Programı";
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_ownership_64;
             button2.Location = new Point(476, 22);
             button2.Name = "button2";
-            button2.Size = new Size(272, 107);
+            button2.Size = new Size(272, 148);
             button2.TabIndex = 1;
             button2.Text = "Püremanet İşler";
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 

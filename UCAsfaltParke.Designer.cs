@@ -36,22 +36,28 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_sidewalk_48;
             button1.Location = new Point(364, 104);
             button1.Name = "button1";
             button1.Size = new Size(181, 105);
             button1.TabIndex = 1;
             button1.Text = "Bordür";
-            button1.UseVisualStyleBackColor = true;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_parquet_64;
             button2.Location = new Point(70, 104);
             button2.Name = "button2";
             button2.Size = new Size(181, 105);
             button2.TabIndex = 2;
             button2.Text = "Parke";
-            button2.UseVisualStyleBackColor = true;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // panelContainer

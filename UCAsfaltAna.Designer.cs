@@ -38,42 +38,54 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
+            button1.Image = Properties.Resources.icons8_road_roller_64;
             button1.Location = new Point(54, 64);
             button1.Name = "button1";
-            button1.Size = new Size(181, 105);
+            button1.Size = new Size(181, 133);
             button1.TabIndex = 0;
             button1.Text = "1. Kat Asfalt";
-            button1.UseVisualStyleBackColor = true;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_road_roller_64;
             button2.Location = new Point(350, 64);
             button2.Name = "button2";
-            button2.Size = new Size(178, 109);
+            button2.Size = new Size(178, 133);
             button2.TabIndex = 1;
             button2.Text = "2. Kat Asfalt";
-            button2.UseVisualStyleBackColor = true;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.LightSkyBlue;
+            button3.Image = Properties.Resources.icons8_roadwork_64;
             button3.Location = new Point(54, 237);
             button3.Name = "button3";
-            button3.Size = new Size(181, 116);
+            button3.Size = new Size(181, 148);
             button3.TabIndex = 2;
             button3.Text = "Asfalt Bakım Onarım";
-            button3.UseVisualStyleBackColor = true;
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button4
             // 
+            button4.BackColor = Color.LightSkyBlue;
+            button4.Image = Properties.Resources.icons8_bulk_spices_48;
             button4.Location = new Point(350, 237);
             button4.Name = "button4";
-            button4.Size = new Size(181, 116);
+            button4.Size = new Size(181, 148);
             button4.TabIndex = 3;
             button4.Text = "BSK (Bitümlü Sıcak Karışım)";
-            button4.UseVisualStyleBackColor = true;
+            button4.TextImageRelation = TextImageRelation.ImageAboveText;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // panelContainer
@@ -84,7 +96,7 @@
             panelContainer.Controls.Add(button3);
             panelContainer.Location = new Point(12, 19);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1447, 784);
+            panelContainer.Size = new Size(1673, 784);
             panelContainer.TabIndex = 4;
             // 
             // UCAsfaltAna
@@ -93,7 +105,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContainer);
             Name = "UCAsfaltAna";
-            Size = new Size(1447, 715);
+            Size = new Size(1713, 715);
             panelContainer.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -100,6 +100,7 @@ namespace WinFormsApp1
             dataGridView1.Columns["SpiralBoru"].Visible = false;
             dataGridView1.Columns["SpiralBoruId"].Visible = false;
             dataGridView1.Columns["Tarih"].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";
+            dataGridView1.AutoGenerateColumns = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
