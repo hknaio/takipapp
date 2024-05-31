@@ -313,6 +313,16 @@ namespace WinFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_turkish_lira_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-turkish-lira-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_village_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-village-100", resourceCulture);

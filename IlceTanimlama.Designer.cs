@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             txtAdi = new TextBox();
             btnEkle = new Button();
@@ -69,8 +70,18 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Adi, Koyler, ID, btnSil });
             dataGridView1.Location = new Point(98, 95);
@@ -78,18 +89,17 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(305, 294);
+            dataGridView1.Size = new Size(548, 573);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // Adi
             // 
             Adi.DataPropertyName = "Adi";
-            Adi.HeaderText = "Adi";
+            Adi.HeaderText = "Adı";
             Adi.MinimumWidth = 8;
             Adi.Name = "Adi";
             Adi.ReadOnly = true;
-            Adi.Width = 75;
             // 
             // Koyler
             // 
@@ -99,7 +109,6 @@
             Koyler.Name = "Koyler";
             Koyler.ReadOnly = true;
             Koyler.Visible = false;
-            Koyler.Width = 97;
             // 
             // ID
             // 
@@ -109,7 +118,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 66;
             // 
             // btnSil
             // 
@@ -119,13 +127,12 @@
             btnSil.ReadOnly = true;
             btnSil.Text = "Listeden Sil";
             btnSil.UseColumnTextForButtonValue = true;
-            btnSil.Width = 36;
             // 
             // IlceTanimlama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(727, 416);
+            ClientSize = new Size(678, 680);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);
             Controls.Add(txtAdi);

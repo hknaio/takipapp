@@ -24,9 +24,18 @@ namespace WinFormsApp1
 
         private void btnProgramRaporu_Click(object sender, EventArgs e)
         {
-            using (RprProgram programRaporu =new())
+            using (RprProgram programRaporu = new())
             {
                 programRaporu.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (RprButce butce = new())
+            {
+                butce.ShowDialog();
                 this.OnLoad(e);
             }
         }
