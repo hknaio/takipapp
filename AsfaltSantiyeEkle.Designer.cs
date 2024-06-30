@@ -30,16 +30,16 @@
         {
             dtTarih = new DateTimePicker();
             label6 = new Label();
-            txtKoy3 = new MaskedTextBox();
-            label2 = new Label();
-            txtKoy2 = new MaskedTextBox();
-            label1 = new Label();
-            txtKoy1 = new MaskedTextBox();
-            label3 = new Label();
             txtTon = new MaskedTextBox();
             label4 = new Label();
             button2 = new Button();
             button1 = new Button();
+            cmbKoy = new ComboBox();
+            cmbIlce = new ComboBox();
+            label3 = new Label();
+            label2 = new Label();
+            cmbMezra = new ComboBox();
+            chkMezra = new CheckBox();
             SuspendLayout();
             // 
             // dtTarih
@@ -58,57 +58,9 @@
             label6.TabIndex = 27;
             label6.Text = "Tarih :";
             // 
-            // txtKoy3
-            // 
-            txtKoy3.Location = new Point(129, 189);
-            txtKoy3.Name = "txtKoy3";
-            txtKoy3.Size = new Size(300, 31);
-            txtKoy3.TabIndex = 39;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(38, 189);
-            label2.Name = "label2";
-            label2.Size = new Size(66, 25);
-            label2.TabIndex = 38;
-            label2.Text = "Köy 3 :";
-            // 
-            // txtKoy2
-            // 
-            txtKoy2.Location = new Point(129, 145);
-            txtKoy2.Name = "txtKoy2";
-            txtKoy2.Size = new Size(300, 31);
-            txtKoy2.TabIndex = 41;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(38, 145);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 25);
-            label1.TabIndex = 40;
-            label1.Text = "Köy 2 :";
-            // 
-            // txtKoy1
-            // 
-            txtKoy1.Location = new Point(129, 94);
-            txtKoy1.Name = "txtKoy1";
-            txtKoy1.Size = new Size(300, 31);
-            txtKoy1.TabIndex = 43;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(38, 94);
-            label3.Name = "label3";
-            label3.Size = new Size(66, 25);
-            label3.TabIndex = 42;
-            label3.Text = "Köy 1 :";
-            // 
             // txtTon
             // 
-            txtTon.Location = new Point(129, 236);
+            txtTon.Location = new Point(129, 198);
             txtTon.Name = "txtTon";
             txtTon.Size = new Size(300, 31);
             txtTon.TabIndex = 45;
@@ -116,7 +68,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(38, 236);
+            label4.Location = new Point(46, 201);
             label4.Name = "label4";
             label4.Size = new Size(49, 25);
             label4.TabIndex = 44;
@@ -124,7 +76,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(613, 392);
+            button2.Location = new Point(625, 307);
             button2.Name = "button2";
             button2.Size = new Size(122, 51);
             button2.TabIndex = 47;
@@ -134,7 +86,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(407, 392);
+            button1.Location = new Point(407, 307);
             button1.Name = "button1";
             button1.Size = new Size(130, 51);
             button1.TabIndex = 46;
@@ -142,21 +94,77 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // cmbKoy
+            // 
+            cmbKoy.FormattingEnabled = true;
+            cmbKoy.Location = new Point(129, 146);
+            cmbKoy.Name = "cmbKoy";
+            cmbKoy.Size = new Size(300, 33);
+            cmbKoy.TabIndex = 51;
+            cmbKoy.SelectedIndexChanged += cmbKoy_SelectedIndexChanged;
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(129, 96);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 50;
+            cmbIlce.SelectedIndexChanged += cmbIlce_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(43, 146);
+            label3.Name = "label3";
+            label3.Size = new Size(56, 25);
+            label3.TabIndex = 49;
+            label3.Text = "Köy : ";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(43, 96);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 48;
+            label2.Text = "İlçe : ";
+            // 
+            // cmbMezra
+            // 
+            cmbMezra.FormattingEnabled = true;
+            cmbMezra.Location = new Point(558, 146);
+            cmbMezra.Name = "cmbMezra";
+            cmbMezra.Size = new Size(300, 33);
+            cmbMezra.TabIndex = 53;
+            // 
+            // chkMezra
+            // 
+            chkMezra.AutoSize = true;
+            chkMezra.Location = new Point(466, 148);
+            chkMezra.Name = "chkMezra";
+            chkMezra.Size = new Size(86, 29);
+            chkMezra.TabIndex = 54;
+            chkMezra.Text = "Mezra";
+            chkMezra.UseVisualStyleBackColor = true;
+            chkMezra.CheckedChanged += chkMezra_CheckedChanged;
+            // 
             // AsfaltSantiyeEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(867, 553);
+            ClientSize = new Size(927, 479);
+            Controls.Add(chkMezra);
+            Controls.Add(cmbMezra);
+            Controls.Add(cmbKoy);
+            Controls.Add(cmbIlce);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(txtTon);
             Controls.Add(label4);
-            Controls.Add(txtKoy1);
-            Controls.Add(label3);
-            Controls.Add(txtKoy2);
-            Controls.Add(label1);
-            Controls.Add(txtKoy3);
-            Controls.Add(label2);
             Controls.Add(dtTarih);
             Controls.Add(label6);
             Name = "AsfaltSantiyeEkle";
@@ -171,15 +179,15 @@
 
         private DateTimePicker dtTarih;
         private Label label6;
-        private MaskedTextBox txtKoy3;
-        private Label label2;
-        private MaskedTextBox txtKoy2;
-        private Label label1;
-        private MaskedTextBox txtKoy1;
-        private Label label3;
         private MaskedTextBox txtTon;
         private Label label4;
         private Button button2;
         private Button button1;
+        private ComboBox cmbKoy;
+        private ComboBox cmbIlce;
+        private Label label3;
+        private Label label2;
+        private ComboBox cmbMezra;
+        private CheckBox chkMezra;
     }
 }

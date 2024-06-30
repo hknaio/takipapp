@@ -4,9 +4,12 @@
     {
         public int ID { get; set; }
         public DateTime Tarih { get; set; }
-        public string Koy1 { get; set; }
-        public string Koy2 { get; set;}
-        public string Koy3 { get; set;}
         public int Ton { get; set; }
+        public int IlceId { get; set; }
+        public Ilce Ilce { get; set; }
+        public int KoyId { get; set; }
+        public Koy Koy { get; set; }
+        public int? MezraId { get; set; }
+        public Mezra? Mezra { get; set; }
     }
 }

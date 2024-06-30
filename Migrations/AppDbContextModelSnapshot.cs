@@ -69,17 +69,14 @@ namespace WinFormsApp1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("Koy1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IlceId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Koy2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("KoyId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Koy3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("MezraId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");
@@ -88,6 +85,12 @@ namespace WinFormsApp1.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("IlceId");
+
+                    b.HasIndex("KoyId");
+
+                    b.HasIndex("MezraId");
 
                     b.ToTable("AsfaltSantiye", (string)null);
                 });
@@ -619,6 +622,31 @@ namespace WinFormsApp1.Migrations
                         .IsRequired();
 
                     b.Navigation("YatirimProgrami");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.AsfaltSantiye", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
+                        .WithMany()
+                        .HasForeignKey("IlceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WinFormsApp1.Models.Koy", "Koy")
+                        .WithMany()
+                        .HasForeignKey("KoyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WinFormsApp1.Models.Mezra", "Mezra")
+                        .WithMany()
+                        .HasForeignKey("MezraId");
+
+                    b.Navigation("Ilce");
+
+                    b.Navigation("Koy");
+
+                    b.Navigation("Mezra");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltUygulamaVeri", b =>

@@ -114,7 +114,7 @@
             // cmbEvsaf
             // 
             cmbEvsaf.FormattingEnabled = true;
-            cmbEvsaf.Items.AddRange(new object[] { "Kırmataş", "BSK", "Asfalt", "Diğer" });
+            cmbEvsaf.Items.AddRange(new object[] { "Kırmataş", "BSK", "Asfalt", "CRS-1", "CRS-2", "Diğer" });
             cmbEvsaf.Location = new Point(299, 52);
             cmbEvsaf.Name = "cmbEvsaf";
             cmbEvsaf.Size = new Size(300, 33);

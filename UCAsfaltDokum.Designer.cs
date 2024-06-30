@@ -133,7 +133,7 @@
             // 
             // Dokum
             // 
-            Dokum.HeaderText = "Döküm";
+            Dokum.HeaderText = "Döküm Mesafe (km)";
             Dokum.MinimumWidth = 8;
             Dokum.Name = "Dokum";
             Dokum.ReadOnly = true;

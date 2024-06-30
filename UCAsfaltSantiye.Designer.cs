@@ -33,9 +33,12 @@
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
             Tarih = new DataGridViewTextBoxColumn();
-            Koy1 = new DataGridViewTextBoxColumn();
-            Koy2 = new DataGridViewTextBoxColumn();
-            Koy3 = new DataGridViewTextBoxColumn();
+            Ilce = new DataGridViewTextBoxColumn();
+            IlceId = new DataGridViewTextBoxColumn();
+            Koy = new DataGridViewTextBoxColumn();
+            KoyId = new DataGridViewTextBoxColumn();
+            Mezra = new DataGridViewTextBoxColumn();
+            MezraId = new DataGridViewTextBoxColumn();
             Ton = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -67,7 +70,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Tarih, Koy1, Koy2, Koy3, Ton, Sil });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Tarih, Ilce, IlceId, Koy, KoyId, Mezra, MezraId, Ton, Sil });
             dataGridView1.Location = new Point(16, 115);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -76,6 +79,7 @@
             dataGridView1.Size = new Size(1265, 530);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             // 
             // ID
             // 
@@ -96,32 +100,62 @@
             Tarih.ReadOnly = true;
             Tarih.Width = 150;
             // 
-            // Koy1
+            // Ilce
             // 
-            Koy1.DataPropertyName = "Koy1";
-            Koy1.HeaderText = "Koy1";
-            Koy1.MinimumWidth = 8;
-            Koy1.Name = "Koy1";
-            Koy1.ReadOnly = true;
-            Koy1.Width = 150;
+            Ilce.DataPropertyName = "Ilce";
+            Ilce.HeaderText = "İlçe";
+            Ilce.MinimumWidth = 8;
+            Ilce.Name = "Ilce";
+            Ilce.ReadOnly = true;
+            Ilce.Width = 150;
             // 
-            // Koy2
+            // IlceId
             // 
-            Koy2.DataPropertyName = "Koy2";
-            Koy2.HeaderText = "Koy2";
-            Koy2.MinimumWidth = 8;
-            Koy2.Name = "Koy2";
-            Koy2.ReadOnly = true;
-            Koy2.Width = 150;
+            IlceId.DataPropertyName = "IlceId";
+            IlceId.HeaderText = "IlceId";
+            IlceId.MinimumWidth = 8;
+            IlceId.Name = "IlceId";
+            IlceId.ReadOnly = true;
+            IlceId.Visible = false;
+            IlceId.Width = 150;
             // 
-            // Koy3
+            // Koy
             // 
-            Koy3.DataPropertyName = "Koy3";
-            Koy3.HeaderText = "Koy3";
-            Koy3.MinimumWidth = 8;
-            Koy3.Name = "Koy3";
-            Koy3.ReadOnly = true;
-            Koy3.Width = 150;
+            Koy.DataPropertyName = "Koy";
+            Koy.HeaderText = "Köy";
+            Koy.MinimumWidth = 8;
+            Koy.Name = "Koy";
+            Koy.ReadOnly = true;
+            Koy.Width = 150;
+            // 
+            // KoyId
+            // 
+            KoyId.DataPropertyName = "KoyId";
+            KoyId.HeaderText = "KoyId";
+            KoyId.MinimumWidth = 8;
+            KoyId.Name = "KoyId";
+            KoyId.ReadOnly = true;
+            KoyId.Visible = false;
+            KoyId.Width = 150;
+            // 
+            // Mezra
+            // 
+            Mezra.DataPropertyName = "Mezra";
+            Mezra.HeaderText = "Mezra";
+            Mezra.MinimumWidth = 8;
+            Mezra.Name = "Mezra";
+            Mezra.ReadOnly = true;
+            Mezra.Width = 150;
+            // 
+            // MezraId
+            // 
+            MezraId.DataPropertyName = "MezraId";
+            MezraId.HeaderText = "MezraId";
+            MezraId.MinimumWidth = 8;
+            MezraId.Name = "MezraId";
+            MezraId.ReadOnly = true;
+            MezraId.Visible = false;
+            MezraId.Width = 150;
             // 
             // Ton
             // 
@@ -165,9 +199,12 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Tarih;
-        private DataGridViewTextBoxColumn Koy1;
-        private DataGridViewTextBoxColumn Koy2;
-        private DataGridViewTextBoxColumn Koy3;
+        private DataGridViewTextBoxColumn Ilce;
+        private DataGridViewTextBoxColumn IlceId;
+        private DataGridViewTextBoxColumn Koy;
+        private DataGridViewTextBoxColumn KoyId;
+        private DataGridViewTextBoxColumn Mezra;
+        private DataGridViewTextBoxColumn MezraId;
         private DataGridViewTextBoxColumn Ton;
         private DataGridViewButtonColumn Sil;
     }
