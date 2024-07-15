@@ -613,6 +613,42 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("YatirimProgrami", (string)null);
                 });
 
+            modelBuilder.Entity("WinFormsApp1.Models.YolAgi", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("Asfalt")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BSK")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BetonYol")
+                        .HasColumnType("float");
+
+                    b.Property<int>("IlceID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("KilitParke")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Stabilize")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ToplamAg")
+                        .HasColumnType("float");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IlceID");
+
+                    b.ToTable("YolAgi", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltDokum", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.YatirimProgrami", "YatirimProgrami")
@@ -774,6 +810,17 @@ namespace WinFormsApp1.Migrations
                         .HasForeignKey("ProjeID");
 
                     b.Navigation("Proje");
+                });
+
+            modelBuilder.Entity("WinFormsApp1.Models.YolAgi", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
+                        .WithMany()
+                        .HasForeignKey("IlceID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ilce");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>

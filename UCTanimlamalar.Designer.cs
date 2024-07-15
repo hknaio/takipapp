@@ -142,6 +142,7 @@
             button8.Text = "Yol Ağı Tanımlama";
             button8.TextImageRelation = TextImageRelation.ImageAboveText;
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // UCTanimlamalar
             // 

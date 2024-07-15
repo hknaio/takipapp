@@ -70,5 +70,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            using (YolAgiTanimlama yolAgi = new())
+            {
+                yolAgi.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }
