@@ -15,7 +15,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (ImalatRaporu yeniProje = new())
+            using (FaaliyetRaporu yeniProje = new())
             {
                 yeniProje.ShowDialog();
                 this.OnLoad(e);
