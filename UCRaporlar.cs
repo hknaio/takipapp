@@ -39,5 +39,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (FaaliyetRaporuKoy faaliyetRaporuKoy = new())
+            {
+                faaliyetRaporuKoy.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }

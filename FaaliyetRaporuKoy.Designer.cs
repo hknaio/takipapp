@@ -1,0 +1,202 @@
+﻿namespace WinFormsApp1
+{
+    partial class FaaliyetRaporuKoy
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            dataGridView1 = new DataGridView();
+            cmbYil = new ComboBox();
+            btnGetir = new Button();
+            cmbIlce = new ComboBox();
+            label2 = new Label();
+            label1 = new Label();
+            KoyMezra = new DataGridViewTextBoxColumn();
+            Program = new DataGridViewTextBoxColumn();
+            Imalat = new DataGridViewTextBoxColumn();
+            Uygulama = new DataGridViewTextBoxColumn();
+            Harcama = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyMezra, Program, Imalat, Uygulama, Harcama });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Location = new Point(12, 87);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.Size = new Size(1328, 723);
+            dataGridView1.TabIndex = 45;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(754, 28);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 49;
+            // 
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(12, 26);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 48;
+            btnGetir.Text = "Rapor Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(294, 31);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 52;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(208, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 51;
+            label2.Text = "İlçe : ";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(696, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 25);
+            label1.TabIndex = 53;
+            label1.Text = "Yıl :";
+            // 
+            // KoyMezra
+            // 
+            KoyMezra.DataPropertyName = "koyMezra";
+            KoyMezra.HeaderText = "Köy / Mezra";
+            KoyMezra.MinimumWidth = 8;
+            KoyMezra.Name = "KoyMezra";
+            KoyMezra.ReadOnly = true;
+            // 
+            // Program
+            // 
+            Program.DataPropertyName = "program";
+            Program.HeaderText = "Program";
+            Program.MinimumWidth = 8;
+            Program.Name = "Program";
+            Program.ReadOnly = true;
+            // 
+            // Imalat
+            // 
+            Imalat.DataPropertyName = "imalat";
+            Imalat.HeaderText = "Imalat";
+            Imalat.MinimumWidth = 8;
+            Imalat.Name = "Imalat";
+            Imalat.ReadOnly = true;
+            // 
+            // Uygulama
+            // 
+            Uygulama.DataPropertyName = "miktarUygulama";
+            Uygulama.HeaderText = "Uygulama Miktarı";
+            Uygulama.MinimumWidth = 8;
+            Uygulama.Name = "Uygulama";
+            Uygulama.ReadOnly = true;
+            // 
+            // Harcama
+            // 
+            Harcama.DataPropertyName = "harcama";
+            Harcama.HeaderText = "Harcama";
+            Harcama.MinimumWidth = 8;
+            Harcama.Name = "Harcama";
+            Harcama.ReadOnly = true;
+            // 
+            // FaaliyetRaporuKoy
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1352, 810);
+            Controls.Add(label1);
+            Controls.Add(cmbIlce);
+            Controls.Add(label2);
+            Controls.Add(cmbYil);
+            Controls.Add(btnGetir);
+            Controls.Add(dataGridView1);
+            Name = "FaaliyetRaporuKoy";
+            Text = "Faaliyet Raporu (Köy)";
+            FormClosing += FaaliyetRaporuKoy_FormClosing;
+            Load += FaaliyetRaporuKoy_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private DataGridView dataGridView1;
+        private ComboBox cmbYil;
+        private Button btnGetir;
+        private ComboBox cmbIlce;
+        private Label label2;
+        private Label label1;
+        private DataGridViewTextBoxColumn KoyMezra;
+        private DataGridViewTextBoxColumn Program;
+        private DataGridViewTextBoxColumn Imalat;
+        private DataGridViewTextBoxColumn Uygulama;
+        private DataGridViewTextBoxColumn Harcama;
+    }
+}

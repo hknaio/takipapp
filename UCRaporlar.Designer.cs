@@ -31,6 +31,7 @@
             button1 = new Button();
             btnProgramRaporu = new Button();
             button5 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -72,15 +73,29 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.LightSkyBlue;
+            button2.Image = Properties.Resources.icons8_roadwork_64;
+            button2.Location = new Point(777, 41);
+            button2.Name = "button2";
+            button2.Size = new Size(178, 183);
+            button2.TabIndex = 6;
+            button2.Text = "Faaliyet Raporu (Köy)";
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // UCRaporlar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button2);
             Controls.Add(button5);
             Controls.Add(btnProgramRaporu);
             Controls.Add(button1);
             Name = "UCRaporlar";
-            Size = new Size(876, 526);
+            Size = new Size(982, 526);
             ResumeLayout(false);
         }
 
@@ -89,5 +104,6 @@
         private Button button1;
         private Button btnProgramRaporu;
         private Button button5;
+        private Button button2;
     }
 }
