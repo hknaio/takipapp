@@ -25,6 +25,7 @@ namespace WinFormsApp1
             _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
+            dataGridView1.Columns[14].DefaultCellStyle.Format = "N2";
             OrderColumns();
         }
 

@@ -43,7 +43,7 @@
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(756, 35);
+            btnEkle.Location = new Point(417, 91);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(159, 34);
             btnEkle.TabIndex = 9;
@@ -91,13 +91,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Adi, Koy, Sil });
-            dataGridView1.Location = new Point(30, 97);
+            dataGridView1.Location = new Point(30, 150);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1258, 530);
+            dataGridView1.Size = new Size(469, 477);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1300, 656);
+            ClientSize = new Size(758, 656);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);
             Controls.Add(txtMezra);
@@ -153,7 +153,7 @@
             Controls.Add(cmbKoy);
             Controls.Add(label1);
             Name = "MezraTanimlama";
-            Text = "MezraTanimlama";
+            Text = "Mezra Tanımlama";
             FormClosing += MezraTanimlama_FormClosing;
             Load += MezraTanimlama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

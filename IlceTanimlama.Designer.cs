@@ -138,7 +138,7 @@
             Controls.Add(txtAdi);
             Controls.Add(label1);
             Name = "IlceTanimlama";
-            Text = "IlceTanimlama";
+            Text = "İlçe Tanımlama";
             FormClosing += IlceTanimlama_FormClosing;
             Load += IlceTanimlama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

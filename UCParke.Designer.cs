@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCParke));
             btnEkle = new Button();
             btnParkeStok = new Button();
             dataGridView1 = new DataGridView();
@@ -46,22 +47,28 @@
             // 
             // btnEkle
             // 
+            btnEkle.BackColor = SystemColors.GradientActiveCaption;
+            btnEkle.Image = Properties.Resources.icons8_add_642;
             btnEkle.Location = new Point(44, 19);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(152, 94);
+            btnEkle.Size = new Size(242, 94);
             btnEkle.TabIndex = 0;
             btnEkle.Text = "Parke İşi Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEkle.UseVisualStyleBackColor = false;
             btnEkle.Click += btnEkle_Click;
             // 
             // btnParkeStok
             // 
-            btnParkeStok.Location = new Point(243, 19);
+            btnParkeStok.BackColor = SystemColors.GradientActiveCaption;
+            btnParkeStok.Image = (Image)resources.GetObject("btnParkeStok.Image");
+            btnParkeStok.Location = new Point(350, 19);
             btnParkeStok.Name = "btnParkeStok";
-            btnParkeStok.Size = new Size(146, 94);
+            btnParkeStok.Size = new Size(239, 94);
             btnParkeStok.TabIndex = 1;
             btnParkeStok.Text = "Parke Stok";
-            btnParkeStok.UseVisualStyleBackColor = true;
+            btnParkeStok.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnParkeStok.UseVisualStyleBackColor = false;
             btnParkeStok.Click += btnParkeStok_Click;
             // 
             // dataGridView1
@@ -180,6 +187,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(dataGridView1);
             Controls.Add(btnParkeStok);
             Controls.Add(btnEkle);

@@ -48,7 +48,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(252, 45);
+            label1.Location = new Point(312, 15);
             label1.Name = "label1";
             label1.Size = new Size(76, 30);
             label1.TabIndex = 8;
@@ -56,12 +56,15 @@
             // 
             // btnEkle
             // 
+            btnEkle.BackColor = SystemColors.GradientActiveCaption;
+            btnEkle.Image = Properties.Resources.icons8_add_642;
             btnEkle.Location = new Point(16, 15);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(181, 94);
+            btnEkle.Size = new Size(290, 94);
             btnEkle.TabIndex = 7;
             btnEkle.Text = "Asfalt Şantiye Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEkle.UseVisualStyleBackColor = false;
             btnEkle.Click += btnEkle_Click;
             // 
             // dataGridView1
@@ -180,6 +183,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(label1);
             Controls.Add(btnEkle);
             Controls.Add(dataGridView1);

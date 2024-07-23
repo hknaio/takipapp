@@ -154,11 +154,17 @@
   <data name="icons8-bid-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-bid-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-add-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-add-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-pipelines-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-pipelines-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-production-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-production-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-planning-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-planning-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-road-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-road-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,11 +175,8 @@
   <data name="icons8-purchase-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-purchase-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-roadwork-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8-roadwork-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-report-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8-report-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-add-642" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-add-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-add-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,11 +190,17 @@
   <data name="icons8-bulk-spices-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-bulk-spices-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-planning-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8-planning-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-worker-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-worker-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-report-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-report-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-turkish-lira-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-turkish-lira-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-roadwork-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-roadwork-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-village-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-village-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,7 +208,7 @@
   <data name="icons8-parquet-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-parquet-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-turkish-lira-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>icons8-turkish-lira-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-stock-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>icons8-stock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

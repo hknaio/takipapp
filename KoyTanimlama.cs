@@ -92,6 +92,22 @@ namespace WinFormsApp1
                     e.Value = koy.Ilce.Adi;
                 }
             }
+
+            if (e.ColumnIndex == 4)
+            {
+                var koy = (Koy)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                var mezras = _dbContext.Mezras.Where(m => m.Koy.Adi == koy.Adi).ToList();
+                string mezralar = string.Empty;
+                foreach (var mezra in mezras)
+                {
+                    mezralar += mezra.Adi + " ";
+                }
+
+                if (koy is not null || mezras is not null)
+                {
+                    e.Value = mezralar;
+                }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

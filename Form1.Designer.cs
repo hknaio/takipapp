@@ -57,9 +57,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(345, 93);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 94);
+            pictureBox1.Size = new Size(206, 73);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -71,9 +71,9 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(151, 114);
+            groupBox1.Location = new Point(162, 203);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(475, 240);
+            groupBox1.Size = new Size(581, 240);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Login";
@@ -135,11 +135,12 @@
             AutoScaleDimensions = new SizeF(11F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(880, 378);
+            ClientSize = new Size(880, 474);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Font = new Font("Century Gothic", 9F);
+            ForeColor = SystemColors.ActiveCaptionText;
             IsMdiContainer = true;
             Margin = new Padding(2, 3, 2, 3);
             Name = "Form1";

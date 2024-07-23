@@ -34,12 +34,12 @@
             txtKoy = new TextBox();
             btnEkle = new Button();
             dataGridView1 = new DataGridView();
-            btnKoyleriGetir = new Button();
             ID = new DataGridViewTextBoxColumn();
             No = new DataGridViewTextBoxColumn();
             Adi = new DataGridViewTextBoxColumn();
             Ilce = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
+            btnKoyleriGetir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -78,9 +78,9 @@
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(758, 28);
+            btnEkle.Location = new Point(525, 85);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(159, 34);
+            btnEkle.Size = new Size(179, 47);
             btnEkle.TabIndex = 4;
             btnEkle.Text = "Sisteme Ekle";
             btnEkle.UseVisualStyleBackColor = true;
@@ -104,16 +104,6 @@
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             dataGridView1.RowPostPaint += dataGridView1_RowPostPaint;
-            // 
-            // btnKoyleriGetir
-            // 
-            btnKoyleriGetir.Location = new Point(91, 85);
-            btnKoyleriGetir.Name = "btnKoyleriGetir";
-            btnKoyleriGetir.Size = new Size(182, 47);
-            btnKoyleriGetir.TabIndex = 6;
-            btnKoyleriGetir.Text = "İlçe Köylerini Getir";
-            btnKoyleriGetir.UseVisualStyleBackColor = true;
-            btnKoyleriGetir.Click += btnKoyleriGetir_Click;
             // 
             // ID
             // 
@@ -162,11 +152,21 @@
             Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
             // 
+            // btnKoyleriGetir
+            // 
+            btnKoyleriGetir.Location = new Point(91, 85);
+            btnKoyleriGetir.Name = "btnKoyleriGetir";
+            btnKoyleriGetir.Size = new Size(182, 47);
+            btnKoyleriGetir.TabIndex = 6;
+            btnKoyleriGetir.Text = "İlçe Köylerini Getir";
+            btnKoyleriGetir.UseVisualStyleBackColor = true;
+            btnKoyleriGetir.Click += btnKoyleriGetir_Click;
+            // 
             // KoyTanimlama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1319, 699);
+            ClientSize = new Size(738, 699);
             Controls.Add(btnKoyleriGetir);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);
@@ -175,7 +175,7 @@
             Controls.Add(cmbIlce);
             Controls.Add(label1);
             Name = "KoyTanimlama";
-            Text = "KoyTanimlama";
+            Text = "Köy Tanımlama";
             FormClosing += KoyTanimlama_FormClosing;
             Load += KoyTanimlama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

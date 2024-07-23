@@ -20,6 +20,7 @@ namespace WinFormsApp1
             _dbContext.SpiralBorus.Load();
             dataGridView1.DataSource = _dbContext.SpiralBorus.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns[7].DefaultCellStyle.Format = "N2";
             OrderColumns();
         }
 

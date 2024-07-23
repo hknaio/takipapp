@@ -26,6 +26,8 @@ namespace WinFormsApp1
             cmbDurum.DataSource = EnumList.EnumKeyValue<ProjeDurumu>();
             cmbDurum.DisplayMember = "Value";
             cmbDurum.ValueMember = "Key";
+            dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
+
             OrderColumns();
 
             if (_proje is not null)
@@ -36,9 +38,9 @@ namespace WinFormsApp1
                 cmbDurum.SelectedValue = _proje.Yuklenici is null ? ProjeDurumu.IhaleHazirlik : _proje.ProjeDurumu;
                 txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("0.00");
                 txtAciklama.Text = _proje.Aciklama;
-                label13.Text = _proje.YaklasikMaliyet.ToString();
-                lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
-                lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
+                label13.Text = _proje.YaklasikMaliyet.ToString("0.00");
+                lblToplamHakedis.Text = _proje.HakedisToplami.ToString("0.00");
+                lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString("0.00");
 
 
                 formatDtps(_proje);

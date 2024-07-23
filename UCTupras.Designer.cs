@@ -48,32 +48,35 @@
             // 
             // button3
             // 
+            button3.BackColor = Color.LightSkyBlue;
             button3.Location = new Point(115, 100);
             button3.Name = "button3";
             button3.Size = new Size(239, 158);
             button3.TabIndex = 6;
             button3.Text = "50-70 Asfalt";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSkyBlue;
             button1.Location = new Point(720, 100);
             button1.Name = "button1";
             button1.Size = new Size(245, 158);
             button1.TabIndex = 4;
             button1.Text = "FM2B2 Astar (CMC-30)";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.LightSkyBlue;
             button2.Location = new Point(420, 100);
             button2.Name = "button2";
             button2.Size = new Size(238, 158);
             button2.TabIndex = 5;
             button2.Text = "160-220 Asfalt";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // UCTupras

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBordur));
             btnBordurStok = new Button();
             btnEkle = new Button();
             dataGridView1 = new DataGridView();
@@ -46,22 +47,28 @@
             // 
             // btnBordurStok
             // 
-            btnBordurStok.Location = new Point(227, 27);
+            btnBordurStok.BackColor = SystemColors.GradientActiveCaption;
+            btnBordurStok.Image = (Image)resources.GetObject("btnBordurStok.Image");
+            btnBordurStok.Location = new Point(304, 27);
             btnBordurStok.Name = "btnBordurStok";
-            btnBordurStok.Size = new Size(178, 94);
+            btnBordurStok.Size = new Size(238, 94);
             btnBordurStok.TabIndex = 3;
             btnBordurStok.Text = "Bordür Stok";
-            btnBordurStok.UseVisualStyleBackColor = true;
+            btnBordurStok.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnBordurStok.UseVisualStyleBackColor = false;
             btnBordurStok.Click += btnBordurStok_Click;
             // 
             // btnEkle
             // 
+            btnEkle.BackColor = SystemColors.GradientActiveCaption;
+            btnEkle.Image = Properties.Resources.icons8_add_642;
             btnEkle.Location = new Point(28, 27);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(152, 94);
+            btnEkle.Size = new Size(218, 94);
             btnEkle.TabIndex = 2;
             btnEkle.Text = "Bordür İşi Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEkle.UseVisualStyleBackColor = false;
             btnEkle.Click += btnEkle_Click;
             // 
             // dataGridView1
@@ -180,6 +187,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(dataGridView1);
             Controls.Add(btnBordurStok);
             Controls.Add(btnEkle);

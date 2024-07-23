@@ -144,19 +144,22 @@
             // 
             // btnEkle
             // 
+            btnEkle.BackColor = SystemColors.GradientActiveCaption;
+            btnEkle.Image = Properties.Resources.icons8_add_642;
             btnEkle.Location = new Point(32, 3);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(181, 94);
+            btnEkle.Size = new Size(292, 94);
             btnEkle.TabIndex = 4;
             btnEkle.Text = "Malzeme Alımı Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnEkle.UseVisualStyleBackColor = false;
             btnEkle.Click += btnEkle_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(268, 33);
+            label1.Location = new Point(330, 3);
             label1.Name = "label1";
             label1.Size = new Size(76, 30);
             label1.TabIndex = 5;
@@ -166,6 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(label1);
             Controls.Add(btnEkle);
             Controls.Add(dataGridView1);

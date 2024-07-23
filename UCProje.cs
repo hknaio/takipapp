@@ -30,6 +30,8 @@ namespace WinFormsApp1
             _dbContext.Projes.Load();
             dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns[9].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns[10].DefaultCellStyle.Format = "N2";
             OrderColumns();
         }
 

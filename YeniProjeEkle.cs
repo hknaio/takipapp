@@ -95,7 +95,7 @@ namespace WinFormsApp1
                 }
             }
         }
-
+        
         private void YeniProjeEkle_FormClosing(object sender, FormClosingEventArgs e)
         {
             base.OnClosing(e);

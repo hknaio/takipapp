@@ -256,7 +256,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "SpiralBoruTanimlama";
-            Text = "SpiralBoruTanimlama";
+            Text = "Spiral Boru Tanımlama";
             FormClosing += SpiralBoruTanimlama_FormClosing;
             Load += SpiralBoruTanimlama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

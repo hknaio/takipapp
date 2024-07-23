@@ -41,7 +41,7 @@ namespace WinFormsApp1
                 lblBirim.Text = _purEmanet.Imalat.Birim;
                 lblBirimFiyat.Text = BirimFiyat(_purEmanet);
                 lblMiktar.Text = _purEmanet.Miktar.ToString();
-                lblTutar.Text = _purEmanet.Tutar.ToString();
+                lblTutar.Text = _purEmanet.Tutar.ToString("0.00");
                 lblPersonel.Text = "Hakan Aygüzer";
             }
         }
@@ -74,7 +74,7 @@ namespace WinFormsApp1
                 if (purEmanet.Tarih >= imalatFiyatTarih)
                 {
                     var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
-                    birimFiyat = boru!.BirimFiyat.ToString();
+                    birimFiyat = boru!.BirimFiyat.ToString("0.00");
                 }
                 else
                 {
@@ -83,7 +83,7 @@ namespace WinFormsApp1
                         .OrderBy(t => Math.Abs((t.GecerlilikBaslangicTarihi - purEmanet.Tarih).Ticks))
                                  .First();
 
-                    birimFiyat = birimFiyatEski.BirimFiyat.ToString();
+                    birimFiyat = birimFiyatEski.BirimFiyat.ToString("0.00");
                 }
             }
 
@@ -91,7 +91,7 @@ namespace WinFormsApp1
             {
                 if (purEmanet.Tarih >= imalatFiyatTarih)
                 {
-                    birimFiyat = purEmanet.Imalat.BirimFiyat.ToString();
+                    birimFiyat = purEmanet.Imalat.BirimFiyat.ToString("0.00");
                 }
                 else
                 {
@@ -100,7 +100,7 @@ namespace WinFormsApp1
                         .OrderBy(t => Math.Abs((t.GecerlilikBaslangicTarihi - purEmanet.Tarih).Ticks))
                                  .First();
 
-                    birimFiyat = birimFiyatEski.BirimFiyat.ToString();
+                    birimFiyat = birimFiyatEski.BirimFiyat.ToString("0.00");
                 }
             }
 

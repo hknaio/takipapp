@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            Kaynak = new DataGridViewTextBoxColumn();
+            Yil = new DataGridViewTextBoxColumn();
+            Detay = new DataGridViewButtonColumn();
+            Sil = new DataGridViewButtonColumn();
             label1 = new Label();
             btnEkle = new Button();
             label2 = new Label();
@@ -36,10 +40,6 @@
             cmbKaynak = new ComboBox();
             txtYil = new MaskedTextBox();
             label4 = new Label();
-            Kaynak = new DataGridViewTextBoxColumn();
-            Yil = new DataGridViewTextBoxColumn();
-            Detay = new DataGridViewButtonColumn();
-            Sil = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -55,9 +55,49 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(667, 288);
+            dataGridView1.Size = new Size(608, 489);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // Kaynak
+            // 
+            Kaynak.DataPropertyName = "Kaynak";
+            Kaynak.HeaderText = "Kaynak";
+            Kaynak.MinimumWidth = 8;
+            Kaynak.Name = "Kaynak";
+            Kaynak.ReadOnly = true;
+            Kaynak.Width = 150;
+            // 
+            // Yil
+            // 
+            Yil.DataPropertyName = "Yil";
+            Yil.HeaderText = "Yıl";
+            Yil.MinimumWidth = 8;
+            Yil.Name = "Yil";
+            Yil.ReadOnly = true;
+            Yil.Width = 150;
+            // 
+            // Detay
+            // 
+            Detay.HeaderText = "Detay";
+            Detay.MinimumWidth = 8;
+            Detay.Name = "Detay";
+            Detay.ReadOnly = true;
+            Detay.Text = "Program Detay";
+            Detay.ToolTipText = "Program Detayı";
+            Detay.UseColumnTextForButtonValue = true;
+            Detay.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Sil";
+            Sil.ToolTipText = "Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
             // 
             // label1
             // 
@@ -121,51 +161,11 @@
             label4.TabIndex = 9;
             label4.Text = "Seçilen Dosya :";
             // 
-            // Kaynak
-            // 
-            Kaynak.DataPropertyName = "Kaynak";
-            Kaynak.HeaderText = "Kaynak";
-            Kaynak.MinimumWidth = 8;
-            Kaynak.Name = "Kaynak";
-            Kaynak.ReadOnly = true;
-            Kaynak.Width = 150;
-            // 
-            // Yil
-            // 
-            Yil.DataPropertyName = "Yil";
-            Yil.HeaderText = "Yıl";
-            Yil.MinimumWidth = 8;
-            Yil.Name = "Yil";
-            Yil.ReadOnly = true;
-            Yil.Width = 150;
-            // 
-            // Detay
-            // 
-            Detay.HeaderText = "Detay";
-            Detay.MinimumWidth = 8;
-            Detay.Name = "Detay";
-            Detay.ReadOnly = true;
-            Detay.Text = "Program Detay";
-            Detay.ToolTipText = "Program Detayı";
-            Detay.UseColumnTextForButtonValue = true;
-            Detay.Width = 150;
-            // 
-            // Sil
-            // 
-            Sil.HeaderText = "Sil";
-            Sil.MinimumWidth = 8;
-            Sil.Name = "Sil";
-            Sil.ReadOnly = true;
-            Sil.Text = "Sil";
-            Sil.ToolTipText = "Sil";
-            Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
-            // 
             // YatirimTanimlama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1216, 457);
+            ClientSize = new Size(939, 658);
             Controls.Add(label4);
             Controls.Add(txtYil);
             Controls.Add(cmbKaynak);
@@ -175,8 +175,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "YatirimTanimlama";
-            Text = "YatirimTanimlama";
-            WindowState = FormWindowState.Maximized;
+            Text = "Yatırım  Programı Tanmlama";
             FormClosing += YatirimTanimlama_FormClosing;
             Load += YatirimTanimlama_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

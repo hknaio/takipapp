@@ -18,6 +18,7 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             _dbContext.Imalats.Load();
             dataGridView1.DataSource = _dbContext.Imalats.Local.ToBindingList();
+            dataGridView1.Columns[6].DefaultCellStyle.Format = "N2";
         }
 
         private void button1_Click(object sender, EventArgs e)
