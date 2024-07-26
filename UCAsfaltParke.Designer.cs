@@ -37,7 +37,7 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Image = Properties.Resources.icons8_sidewalk_48;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_sidewalk_48;
             button1.Location = new Point(364, 104);
             button1.Name = "button1";
             button1.Size = new Size(181, 105);
@@ -50,7 +50,7 @@
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
-            button2.Image = Properties.Resources.icons8_parquet_64;
+            button2.Image = YatirimTakip.Properties.Resources.icons8_parquet_64;
             button2.Location = new Point(70, 104);
             button2.Name = "button2";
             button2.Size = new Size(181, 105);

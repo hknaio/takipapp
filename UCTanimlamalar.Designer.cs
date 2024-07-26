@@ -43,7 +43,7 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Image = Properties.Resources.icons8_roadwork_64;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
             button1.Location = new Point(83, 34);
             button1.Name = "button1";
             button1.Size = new Size(160, 183);
@@ -56,7 +56,7 @@
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
-            button2.Image = Properties.Resources.icons8_village_100;
+            button2.Image = YatirimTakip.Properties.Resources.icons8_village_100;
             button2.Location = new Point(490, 34);
             button2.Name = "button2";
             button2.Size = new Size(160, 183);
@@ -82,7 +82,7 @@
             // button4
             // 
             button4.BackColor = Color.LightSkyBlue;
-            button4.Image = Properties.Resources.icons8_pipelines_48;
+            button4.Image = YatirimTakip.Properties.Resources.icons8_pipelines_48;
             button4.Location = new Point(289, 241);
             button4.Name = "button4";
             button4.Size = new Size(160, 155);
@@ -95,7 +95,7 @@
             // button6
             // 
             button6.BackColor = Color.LightSkyBlue;
-            button6.Image = Properties.Resources.icons8_worker_64;
+            button6.Image = YatirimTakip.Properties.Resources.icons8_worker_64;
             button6.Location = new Point(490, 241);
             button6.Name = "button6";
             button6.Size = new Size(160, 155);
@@ -107,7 +107,7 @@
             // button7
             // 
             button7.BackColor = Color.LightSkyBlue;
-            button7.Image = Properties.Resources.icons8_council_64;
+            button7.Image = YatirimTakip.Properties.Resources.icons8_council_64;
             button7.Location = new Point(83, 241);
             button7.Name = "button7";
             button7.Size = new Size(160, 155);
@@ -120,7 +120,7 @@
             // button5
             // 
             button5.BackColor = Color.LightSkyBlue;
-            button5.Image = Properties.Resources.icons8_farm_2_100;
+            button5.Image = YatirimTakip.Properties.Resources.icons8_farm_2_100;
             button5.Location = new Point(686, 33);
             button5.Name = "button5";
             button5.Size = new Size(172, 185);
@@ -134,7 +134,7 @@
             // 
             button8.BackColor = Color.LightSkyBlue;
             button8.BackgroundImageLayout = ImageLayout.Center;
-            button8.Image = Properties.Resources.icons8_road_map_49;
+            button8.Image = YatirimTakip.Properties.Resources.icons8_road_map_49;
             button8.Location = new Point(686, 241);
             button8.Name = "button8";
             button8.Size = new Size(172, 155);

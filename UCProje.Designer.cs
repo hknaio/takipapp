@@ -52,7 +52,7 @@
             // 
             btnNewProject.BackColor = SystemColors.GradientActiveCaption;
             btnNewProject.BackgroundImageLayout = ImageLayout.Center;
-            btnNewProject.Image = Properties.Resources.icons8_add_64;
+            btnNewProject.Image = YatirimTakip.Properties.Resources.icons8_add_64;
             btnNewProject.ImageAlign = ContentAlignment.MiddleLeft;
             btnNewProject.Location = new Point(0, 0);
             btnNewProject.Name = "btnNewProject";

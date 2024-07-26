@@ -54,7 +54,7 @@
             // 
             button1.BackColor = SystemColors.GradientActiveCaption;
             button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.Image = Properties.Resources.icons8_add_64;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_add_64;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
             button1.Location = new Point(3, 3);
             button1.Name = "button1";

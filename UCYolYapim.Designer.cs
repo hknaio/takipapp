@@ -36,7 +36,7 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Image = Properties.Resources.icons8_bid_64;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_bid_64;
             button1.Location = new Point(97, 22);
             button1.Name = "button1";
             button1.Size = new Size(233, 148);
@@ -49,7 +49,7 @@
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
-            button2.Image = Properties.Resources.icons8_ownership_64;
+            button2.Image = YatirimTakip.Properties.Resources.icons8_ownership_64;
             button2.Location = new Point(476, 22);
             button2.Name = "button2";
             button2.Size = new Size(272, 148);

@@ -37,7 +37,7 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Image = Properties.Resources.icons8_roadwork_64;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
             button1.Location = new Point(536, 41);
             button1.Name = "button1";
             button1.Size = new Size(178, 183);
@@ -50,7 +50,7 @@
             // btnProgramRaporu
             // 
             btnProgramRaporu.BackColor = Color.LightSkyBlue;
-            btnProgramRaporu.Image = Properties.Resources.icons8_planning_64;
+            btnProgramRaporu.Image = YatirimTakip.Properties.Resources.icons8_planning_64;
             btnProgramRaporu.Location = new Point(33, 41);
             btnProgramRaporu.Name = "btnProgramRaporu";
             btnProgramRaporu.Size = new Size(182, 186);
@@ -63,7 +63,7 @@
             // button5
             // 
             button5.BackColor = Color.LightSkyBlue;
-            button5.Image = Properties.Resources.icons8_turkish_lira_100;
+            button5.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
             button5.Location = new Point(286, 44);
             button5.Name = "button5";
             button5.Size = new Size(178, 183);
@@ -76,7 +76,7 @@
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
-            button2.Image = Properties.Resources.icons8_roadwork_64;
+            button2.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
             button2.Location = new Point(777, 41);
             button2.Name = "button2";
             button2.Size = new Size(178, 183);

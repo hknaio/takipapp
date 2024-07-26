@@ -145,7 +145,7 @@
             // btnEkle
             // 
             btnEkle.BackColor = SystemColors.GradientActiveCaption;
-            btnEkle.Image = Properties.Resources.icons8_add_642;
+            btnEkle.Image = YatirimTakip.Properties.Resources.icons8_add_642;
             btnEkle.Location = new Point(32, 3);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(292, 94);

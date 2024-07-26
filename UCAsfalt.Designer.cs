@@ -37,7 +37,7 @@
             // button2
             // 
             button2.BackColor = Color.LightSkyBlue;
-            button2.Image = Properties.Resources.icons8_asphalt_road_50;
+            button2.Image = YatirimTakip.Properties.Resources.icons8_asphalt_road_50;
             button2.Location = new Point(464, 15);
             button2.Name = "button2";
             button2.Size = new Size(272, 134);
@@ -50,7 +50,7 @@
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
-            button1.Image = Properties.Resources.icons8_council_64;
+            button1.Image = YatirimTakip.Properties.Resources.icons8_council_64;
             button1.Location = new Point(95, 13);
             button1.Name = "button1";
             button1.Size = new Size(233, 136);
@@ -63,7 +63,7 @@
             // button3
             // 
             button3.BackColor = Color.LightSkyBlue;
-            button3.Image = Properties.Resources.icons8_parquet_64;
+            button3.Image = YatirimTakip.Properties.Resources.icons8_parquet_64;
             button3.Location = new Point(843, 15);
             button3.Name = "button3";
             button3.Size = new Size(272, 134);
