@@ -81,7 +81,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1563, 424);
+            dataGridView1.Size = new Size(1460, 482);
             dataGridView1.TabIndex = 41;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -238,7 +238,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dataGridView1);
             Name = "UCAsfaltDokum";
-            Size = new Size(1579, 698);
+            Size = new Size(1579, 806);
             Load += UCAsfaltDokum_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

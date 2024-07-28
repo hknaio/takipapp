@@ -37,6 +37,7 @@
             DevamEden = new DataGridViewTextBoxColumn();
             Biten = new DataGridViewTextBoxColumn();
             Baslamamis = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -123,11 +124,22 @@
             Baslamamis.Name = "Baslamamis";
             Baslamamis.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(593, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 4;
+            button1.Text = "PDF Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // RprProgram
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1037, 628);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(btnGetir);
             Controls.Add(cmbKaynak);
@@ -150,5 +162,6 @@
         private DataGridViewTextBoxColumn DevamEden;
         private DataGridViewTextBoxColumn Biten;
         private DataGridViewTextBoxColumn Baslamamis;
+        private Button button1;
     }
 }

@@ -31,16 +31,17 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            cmbYil = new ComboBox();
-            btnGetir = new Button();
-            cmbIlce = new ComboBox();
-            label2 = new Label();
-            label1 = new Label();
             KoyMezra = new DataGridViewTextBoxColumn();
             Program = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
             Harcama = new DataGridViewTextBoxColumn();
+            cmbYil = new ComboBox();
+            btnGetir = new Button();
+            cmbIlce = new ComboBox();
+            label2 = new Label();
+            label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -78,6 +79,46 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1328, 723);
             dataGridView1.TabIndex = 45;
+            // 
+            // KoyMezra
+            // 
+            KoyMezra.DataPropertyName = "koyMezra";
+            KoyMezra.HeaderText = "Köy / Mezra";
+            KoyMezra.MinimumWidth = 8;
+            KoyMezra.Name = "KoyMezra";
+            KoyMezra.ReadOnly = true;
+            // 
+            // Program
+            // 
+            Program.DataPropertyName = "program";
+            Program.HeaderText = "Program";
+            Program.MinimumWidth = 8;
+            Program.Name = "Program";
+            Program.ReadOnly = true;
+            // 
+            // Imalat
+            // 
+            Imalat.DataPropertyName = "imalat";
+            Imalat.HeaderText = "Imalat";
+            Imalat.MinimumWidth = 8;
+            Imalat.Name = "Imalat";
+            Imalat.ReadOnly = true;
+            // 
+            // Uygulama
+            // 
+            Uygulama.DataPropertyName = "miktarUygulama";
+            Uygulama.HeaderText = "Uygulama Miktarı";
+            Uygulama.MinimumWidth = 8;
+            Uygulama.Name = "Uygulama";
+            Uygulama.ReadOnly = true;
+            // 
+            // Harcama
+            // 
+            Harcama.DataPropertyName = "harcama";
+            Harcama.HeaderText = "Harcama";
+            Harcama.MinimumWidth = 8;
+            Harcama.Name = "Harcama";
+            Harcama.ReadOnly = true;
             // 
             // cmbYil
             // 
@@ -125,51 +166,22 @@
             label1.TabIndex = 53;
             label1.Text = "Yıl :";
             // 
-            // KoyMezra
+            // button1
             // 
-            KoyMezra.DataPropertyName = "koyMezra";
-            KoyMezra.HeaderText = "Köy / Mezra";
-            KoyMezra.MinimumWidth = 8;
-            KoyMezra.Name = "KoyMezra";
-            KoyMezra.ReadOnly = true;
-            // 
-            // Program
-            // 
-            Program.DataPropertyName = "program";
-            Program.HeaderText = "Program";
-            Program.MinimumWidth = 8;
-            Program.Name = "Program";
-            Program.ReadOnly = true;
-            // 
-            // Imalat
-            // 
-            Imalat.DataPropertyName = "imalat";
-            Imalat.HeaderText = "Imalat";
-            Imalat.MinimumWidth = 8;
-            Imalat.Name = "Imalat";
-            Imalat.ReadOnly = true;
-            // 
-            // Uygulama
-            // 
-            Uygulama.DataPropertyName = "miktarUygulama";
-            Uygulama.HeaderText = "Uygulama Miktarı";
-            Uygulama.MinimumWidth = 8;
-            Uygulama.Name = "Uygulama";
-            Uygulama.ReadOnly = true;
-            // 
-            // Harcama
-            // 
-            Harcama.DataPropertyName = "harcama";
-            Harcama.HeaderText = "Harcama";
-            Harcama.MinimumWidth = 8;
-            Harcama.Name = "Harcama";
-            Harcama.ReadOnly = true;
+            button1.Location = new Point(1168, 26);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 54;
+            button1.Text = "PDF Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // FaaliyetRaporuKoy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1352, 810);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(cmbIlce);
             Controls.Add(label2);
@@ -198,5 +210,6 @@
         private DataGridViewTextBoxColumn Imalat;
         private DataGridViewTextBoxColumn Uygulama;
         private DataGridViewTextBoxColumn Harcama;
+        private Button button1;
     }
 }

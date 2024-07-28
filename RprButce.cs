@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WinFormsApp1.Data;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -32,20 +33,20 @@ namespace WinFormsApp1
 
             foreach (var item in projeler)
             {
-               var list = item.Programis.Select(s => new ToplamUygulama
-                (
-                   s.ID,
-                    s.Ilce,
-                    s.Imalat,
-                    item.HakedisToplamTahakkuk,
-                    item.Programis.Sum(p => p.Uygulama),
-                    s.Uygulama,
-                   (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk) 
-                   + AsfaltDokumBedel(s.ID)
-                )).ToList();
+                var list = item.Programis.Select(s => new ToplamUygulama
+                 (
+                    s.ID,
+                     s.Ilce,
+                     s.Imalat,
+                     item.HakedisToplamTahakkuk,
+                     item.Programis.Sum(p => p.Uygulama),
+                     s.Uygulama,
+                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                    + AsfaltDokumBedel(s.ID)
+                 )).ToList();
 
                 _toplamUygulamaList.AddRange(list);
-                
+
             }
 
             var toplamUygulamaGrouped = _toplamUygulamaList.GroupBy(t => t.ilce).Select(t => new IlceButce
@@ -58,7 +59,7 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Stabilize")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("Onarım")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("Köprü") &&
-                    t.imalat.Contains("Menfez")).Sum(t => t.oransalTahakkuk)                    
+                    t.imalat.Contains("Menfez")).Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
             dataGridView1.DataSource = toplamUygulamaGrouped;
@@ -70,6 +71,13 @@ namespace WinFormsApp1
                 .Select(a => a.DokumBedeli).FirstOrDefault();
 
             return asfaltBedel;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PDFCreator pDF = new();
+
+            pDF.CreatePdf(dataGridView1, "Bütçe");
         }
 
         private void RprButce_FormClosing(object sender, FormClosingEventArgs e)

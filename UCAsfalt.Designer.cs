@@ -77,7 +77,7 @@
             // 
             panelContainer.Location = new Point(3, 164);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1951, 578);
+            panelContainer.Size = new Size(1951, 629);
             panelContainer.TabIndex = 5;
             // 
             // UCAsfalt
@@ -89,7 +89,7 @@
             Controls.Add(button2);
             Controls.Add(panelContainer);
             Name = "UCAsfalt";
-            Size = new Size(2025, 773);
+            Size = new Size(2025, 976);
             ResumeLayout(false);
         }
 

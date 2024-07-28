@@ -1,6 +1,7 @@
 ﻿using WinFormsApp1.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -90,7 +91,7 @@ namespace WinFormsApp1
 
                     t.Where(t => t.imalat.Contains("Istinat") || t.imalat.Contains("Ist.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.uygulama),
-                    t.Where(t => t.imalat.Contains("Koruge")).Sum(t => t.uygulama),                   
+                    t.Where(t => t.imalat.Contains("Koruge")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Yeni Yol")).Sum(t => t.uygulama),
                     t.Sum(t => t.oransalTahakkuk)
@@ -126,6 +127,13 @@ namespace WinFormsApp1
 
             return asfaltBedel;
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PDFCreator pDF = new();
+
+            pDF.CreatePdf(dataGridView1, "Faaliyet Raporu");
+        }
+
         private void FaaliyetRaporu_FormClosing(object sender, FormClosingEventArgs e)
         {
             base.OnClosing(e);
@@ -133,7 +141,6 @@ namespace WinFormsApp1
             _dbContext?.Dispose();
             _dbContext = null;
         }
-
 
 
 

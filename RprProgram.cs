@@ -1,5 +1,7 @@
 ﻿using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using WinFormsApp1.Helpers;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -25,6 +27,13 @@ namespace WinFormsApp1
                 }).ToList();
 
             dataGridView1.DataSource = programlar;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PDFCreator pDF = new();
+
+            pDF.CreatePdf(dataGridView1, "Program");
         }
     }
 }

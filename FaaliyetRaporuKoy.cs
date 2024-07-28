@@ -1,6 +1,7 @@
 ﻿using WinFormsApp1.Data;
 using Microsoft.EntityFrameworkCore;
 using WinFormsApp1.Models;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -30,7 +31,7 @@ namespace WinFormsApp1
 
                 var purEmanets = _dbContext.PurEmanets
                     .Include(p => p.Koy)
-                    .Include(p => p.Imalat) 
+                    .Include(p => p.Imalat)
                     .Where(p => p.Tarih.Year == yil
                 && p.Ilce.Adi == ilce.Adi).ToList();
 
@@ -46,7 +47,7 @@ namespace WinFormsApp1
                      (
                         s.Koy,
                          s.Kaynak,
-                         s.Imalat,                       
+                         s.Imalat,
                          s.Uygulama,
                         (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                         + AsfaltDokumBedel(s.ID)
@@ -67,7 +68,7 @@ namespace WinFormsApp1
                     )).ToList();
 
                     _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).ToList();
-                }               
+                }
 
                 dataGridView1.DataSource = _toplamUygulamaList;
             }
@@ -80,6 +81,12 @@ namespace WinFormsApp1
                 .Select(a => a.DokumBedeli).FirstOrDefault();
 
             return asfaltBedel;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PDFCreator pDF = new();
+            var ilce = (Ilce)cmbIlce.SelectedValue!;
+            pDF.CreatePdf(dataGridView1,ilce.Adi + " Köyler Faaliyet Raporu");
         }
 
         private void FaaliyetRaporuKoy_FormClosing(object sender, FormClosingEventArgs e)
