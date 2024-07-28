@@ -103,13 +103,23 @@ namespace WinFormsApp1
                         }
                     }
 
-                    _dbContext!.YatirimProgramis.AddRange(records);
-                    _dbContext.SaveChanges();
-                    dataGridView1.Refresh();
-                    this.OnLoad(e);
-                    ClearTexts();
+                    if (records.Count == 0)
+                    {
+                        MessageBox.Show("Kayıt eklenemedi. Excel'i inceleyip tekrar deneyiniz.");
+                        txtYil.Focus();
+                        
+                    }
 
-                    MessageBox.Show($"Başarılı.\n\nKayıtlar eklendi.");
+                    else
+                    {
+                        _dbContext!.YatirimProgramis.AddRange(records);
+                        _dbContext.SaveChanges();
+                        dataGridView1.Refresh();
+                        this.OnLoad(e);
+                        ClearTexts();
+
+                        MessageBox.Show($"Başarılı.\n\nKayıtlar eklendi.");
+                    }
                 }
                 catch (Exception ex)
                 {
