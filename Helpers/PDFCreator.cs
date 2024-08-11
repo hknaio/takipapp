@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text.pdf;
 using iTextSharp.text;
+using System.Linq.Expressions;
 
 namespace YatirimTakip.Helpers
 {
@@ -10,6 +11,8 @@ namespace YatirimTakip.Helpers
             iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
 
             iTextSharp.text.Font fontNormal = new iTextSharp.text.Font(STF_Helvetica_Turkish, 12, iTextSharp.text.Font.NORMAL);
+
+            iTextSharp.text.Font fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 13, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.RED);
 
             if (dataGrid.Rows.Count > 0)
             {
@@ -41,7 +44,7 @@ namespace YatirimTakip.Helpers
                             pTable.HorizontalAlignment = Element.ALIGN_LEFT;
                             foreach (DataGridViewColumn col in dataGrid.Columns)
                             {
-                                PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText, fontNormal));
+                                PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText, fontBold));
                                 pTable.AddCell(pCell);
                             }
                             foreach (DataGridViewRow viewRow in dataGrid.Rows)
@@ -57,9 +60,10 @@ namespace YatirimTakip.Helpers
                             }
                             using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
                             {
-                                Document document = new Document(PageSize.A4, 8f, 16f, 16f, 8f);
+                                Document document = new Document(PageSize.A3, 8f, 16f, 16f, 8f);
                                 PdfWriter.GetInstance(document, fileStream);
                                 document.Open();
+                                document.Add(TextData(name));
                                 document.Add(pTable);
                                 document.Close();
                                 fileStream.Close();
@@ -77,6 +81,26 @@ namespace YatirimTakip.Helpers
             {
                 MessageBox.Show("Kayıt bulunamadı..", "Info");
             }
+        }
+
+        private Paragraph TextData(string name)
+        {
+            iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+
+
+            iTextSharp.text.Font fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY);
+
+
+            Chunk c1 = new(" \t\t\t\t\t\t\t\t\t" + name, fontBold);
+            Chunk space = new("\n\n");
+
+
+            var para = new Paragraph()
+            {
+                c1,space,space
+            };
+
+            return para;
         }
 
         private bool formatData(string data)

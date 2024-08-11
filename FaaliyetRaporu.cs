@@ -131,7 +131,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
 
-            pDF.CreatePdf(dataGridView1, "Faaliyet Raporu");
+            pDF.CreatePdf(dataGridView1, "Faaliyet Raporu " + cmbYil.Text);
         }
 
         private void FaaliyetRaporu_FormClosing(object sender, FormClosingEventArgs e)

@@ -31,17 +31,18 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            KoyMezra = new DataGridViewTextBoxColumn();
-            Program = new DataGridViewTextBoxColumn();
-            Imalat = new DataGridViewTextBoxColumn();
-            Uygulama = new DataGridViewTextBoxColumn();
-            Harcama = new DataGridViewTextBoxColumn();
             cmbYil = new ComboBox();
             btnGetir = new Button();
             cmbIlce = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             button1 = new Button();
+            KoyMezra = new DataGridViewTextBoxColumn();
+            Program = new DataGridViewTextBoxColumn();
+            Imalat = new DataGridViewTextBoxColumn();
+            Tarih = new DataGridViewTextBoxColumn();
+            Uygulama = new DataGridViewTextBoxColumn();
+            Harcama = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyMezra, Program, Imalat, Uygulama, Harcama });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { KoyMezra, Program, Imalat, Tarih, Uygulama, Harcama });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -79,46 +80,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1328, 723);
             dataGridView1.TabIndex = 45;
-            // 
-            // KoyMezra
-            // 
-            KoyMezra.DataPropertyName = "koyMezra";
-            KoyMezra.HeaderText = "Köy / Mezra";
-            KoyMezra.MinimumWidth = 8;
-            KoyMezra.Name = "KoyMezra";
-            KoyMezra.ReadOnly = true;
-            // 
-            // Program
-            // 
-            Program.DataPropertyName = "program";
-            Program.HeaderText = "Program";
-            Program.MinimumWidth = 8;
-            Program.Name = "Program";
-            Program.ReadOnly = true;
-            // 
-            // Imalat
-            // 
-            Imalat.DataPropertyName = "imalat";
-            Imalat.HeaderText = "Imalat";
-            Imalat.MinimumWidth = 8;
-            Imalat.Name = "Imalat";
-            Imalat.ReadOnly = true;
-            // 
-            // Uygulama
-            // 
-            Uygulama.DataPropertyName = "miktarUygulama";
-            Uygulama.HeaderText = "Uygulama Miktarı";
-            Uygulama.MinimumWidth = 8;
-            Uygulama.Name = "Uygulama";
-            Uygulama.ReadOnly = true;
-            // 
-            // Harcama
-            // 
-            Harcama.DataPropertyName = "harcama";
-            Harcama.HeaderText = "Harcama";
-            Harcama.MinimumWidth = 8;
-            Harcama.Name = "Harcama";
-            Harcama.ReadOnly = true;
             // 
             // cmbYil
             // 
@@ -176,6 +137,54 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // KoyMezra
+            // 
+            KoyMezra.DataPropertyName = "koyMezra";
+            KoyMezra.HeaderText = "Köy / Mezra";
+            KoyMezra.MinimumWidth = 8;
+            KoyMezra.Name = "KoyMezra";
+            KoyMezra.ReadOnly = true;
+            // 
+            // Program
+            // 
+            Program.DataPropertyName = "program";
+            Program.HeaderText = "Program";
+            Program.MinimumWidth = 8;
+            Program.Name = "Program";
+            Program.ReadOnly = true;
+            // 
+            // Imalat
+            // 
+            Imalat.DataPropertyName = "imalat";
+            Imalat.HeaderText = "Imalat";
+            Imalat.MinimumWidth = 8;
+            Imalat.Name = "Imalat";
+            Imalat.ReadOnly = true;
+            // 
+            // Tarih
+            // 
+            Tarih.DataPropertyName = "Tarih";
+            Tarih.HeaderText = "Tarih";
+            Tarih.MinimumWidth = 8;
+            Tarih.Name = "Tarih";
+            Tarih.ReadOnly = true;
+            // 
+            // Uygulama
+            // 
+            Uygulama.DataPropertyName = "miktarUygulama";
+            Uygulama.HeaderText = "Uygulama Miktarı";
+            Uygulama.MinimumWidth = 8;
+            Uygulama.Name = "Uygulama";
+            Uygulama.ReadOnly = true;
+            // 
+            // Harcama
+            // 
+            Harcama.DataPropertyName = "harcama";
+            Harcama.HeaderText = "Harcama";
+            Harcama.MinimumWidth = 8;
+            Harcama.Name = "Harcama";
+            Harcama.ReadOnly = true;
+            // 
             // FaaliyetRaporuKoy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -205,11 +214,12 @@
         private ComboBox cmbIlce;
         private Label label2;
         private Label label1;
+        private Button button1;
         private DataGridViewTextBoxColumn KoyMezra;
         private DataGridViewTextBoxColumn Program;
         private DataGridViewTextBoxColumn Imalat;
+        private DataGridViewTextBoxColumn Tarih;
         private DataGridViewTextBoxColumn Uygulama;
         private DataGridViewTextBoxColumn Harcama;
-        private Button button1;
     }
 }

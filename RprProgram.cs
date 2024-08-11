@@ -33,7 +33,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
 
-            pDF.CreatePdf(dataGridView1, "Program");
+            pDF.CreatePdf(dataGridView1, "Program " + cmbKaynak.Text);
         }
     }
 }

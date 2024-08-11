@@ -77,7 +77,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
 
-            pDF.CreatePdf(dataGridView1, "Bütçe");
+            pDF.CreatePdf(dataGridView1, "Bütçe " + cmbYil.Text);
         }
 
         private void RprButce_FormClosing(object sender, FormClosingEventArgs e)

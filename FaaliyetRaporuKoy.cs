@@ -5,7 +5,7 @@ using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
-    internal record FaaliyetRaporKoy(string koyMezra, string program, string imalat, double miktarUygulama, double harcama);
+    internal record FaaliyetRaporKoy(string koyMezra, string program, string imalat,DateTime? tarih,double miktarUygulama, double harcama);
     public partial class FaaliyetRaporuKoy : Form
     {
         private AppDbContext _dbContext;
@@ -18,7 +18,7 @@ namespace WinFormsApp1
         {
             _dbContext = new AppDbContext();
             _dbContext.Ilces.Load();
-            dataGridView1.Columns[4].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns[5].DefaultCellStyle.Format = "N2";
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
         }
@@ -39,15 +39,17 @@ namespace WinFormsApp1
                     .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi))
                     .ToList();
 
+
                 List<FaaliyetRaporKoy> _toplamUygulamaList = [];
 
                 foreach (var item in projeler)
                 {
-                    var list = item.Programis.Select(s => new FaaliyetRaporKoy
+                    var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi).Select(s => new FaaliyetRaporKoy
                      (
                         s.Koy,
                          s.Kaynak,
                          s.Imalat,
+                         item.KesinKabulTarihi is null ? new DateTime(1970,01,01) : item.KesinKabulTarihi.Value.Date,
                          s.Uygulama,
                         (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                         + AsfaltDokumBedel(s.ID)
@@ -63,6 +65,7 @@ namespace WinFormsApp1
                         s.Koy.Adi,
                         "Püremanet",
                         s.Imalat.Isim,
+                        s.Tarih.Date,
                         s.Miktar,
                         s.Tutar
                     )).ToList();
@@ -86,7 +89,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
             var ilce = (Ilce)cmbIlce.SelectedValue!;
-            pDF.CreatePdf(dataGridView1,ilce.Adi + " Köyler Faaliyet Raporu");
+            pDF.CreatePdf(dataGridView1,ilce.Adi + " Köyler Faaliyet Raporu " + cmbYil.Text);
         }
 
         private void FaaliyetRaporuKoy_FormClosing(object sender, FormClosingEventArgs e)
