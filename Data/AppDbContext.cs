@@ -31,7 +31,7 @@ namespace WinFormsApp1.Data
         public DbSet<YolAgi> YolAgis { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Yatirim");
+    => optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2\SQLEXPRESS01;Initial Catalog=Yatirim;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

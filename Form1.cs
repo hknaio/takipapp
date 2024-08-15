@@ -13,7 +13,7 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            _dbContext.Database.EnsureCreated();
+            //_dbContext.Database.EnsureCreated();
         } 
         private void button1_Click(object sender, EventArgs e)
         {
