@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using System.Data.Entity;
+using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
@@ -17,15 +18,19 @@ namespace WinFormsApp1
         private void UCPurEmanet_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            _dbContext.Koys.Load();            
+            _dbContext.Koys.Load();
             _dbContext.Ilces.Load();
             _dbContext.Mezras.Load();
             _dbContext.Imalats.Load();
-            _dbContext.PurEmanets.Load();
+            _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text 
+                                          && p.Tarih.Month == dtTarih.Value.Month).Load();
             _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
             dataGridView1.Columns[14].DefaultCellStyle.Format = "N2";
+            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+            dtTarih.CustomFormat = "MMMM yyyy";
             OrderColumns();
         }
 
@@ -107,10 +112,10 @@ namespace WinFormsApp1
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == dataGridView1.Columns[1].Index 
+            if (e.ColumnIndex == dataGridView1.Columns[1].Index
                 && e.RowIndex > -1)
             {
-               var puremanetId = dataGridView1.CurrentRow.Cells["ID"].Value;
+                var puremanetId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
                 var purEmanet = _dbContext!.PurEmanets.Where(p => p.ID == (int)puremanetId).FirstOrDefault();
 
@@ -138,7 +143,7 @@ namespace WinFormsApp1
                         _dbContext.SaveChanges();
                         dataGridView1.Refresh();
                         this.OnLoad(e);
-                    }                    
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -155,6 +160,14 @@ namespace WinFormsApp1
                 purEmanetDetay.ShowDialog();
                 this.OnLoad(e);
             }
+        }
+
+        private void btnGetir_Click(object sender, EventArgs e)
+        {
+            var puremanets = _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
+                                          && p.Tarih.Month == dtTarih.Value.Month).ToList();
+
+            dataGridView1.DataSource = puremanets;
         }
     }
 }

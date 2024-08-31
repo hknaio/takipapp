@@ -47,6 +47,11 @@
             Miktar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             Detay = new DataGridViewButtonColumn();
+            cmbIlce = new ComboBox();
+            label1 = new Label();
+            dtTarih = new DateTimePicker();
+            label2 = new Label();
+            btnGetir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -223,6 +228,52 @@
             Detay.Text = "Detay";
             Detay.UseColumnTextForButtonValue = true;
             // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Location = new Point(491, 25);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(182, 33);
+            cmbIlce.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(438, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 25);
+            label1.TabIndex = 2;
+            label1.Text = "İlçe :";
+            // 
+            // dtTarih
+            // 
+            dtTarih.Format = DateTimePickerFormat.Custom;
+            dtTarih.Location = new Point(764, 27);
+            dtTarih.Name = "dtTarih";
+            dtTarih.Size = new Size(300, 31);
+            dtTarih.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(696, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Tarih : ";
+            // 
+            // btnGetir
+            // 
+            btnGetir.BackColor = SystemColors.GradientActiveCaption;
+            btnGetir.ForeColor = SystemColors.ControlText;
+            btnGetir.Location = new Point(1089, 3);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(224, 74);
+            btnGetir.TabIndex = 7;
+            btnGetir.Text = "Getir";
+            btnGetir.UseVisualStyleBackColor = false;
+            btnGetir.Click += btnGetir_Click;
+            // 
             // UCPurEmanet
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -230,6 +281,11 @@
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.GradientActiveCaption;
+            Controls.Add(btnGetir);
+            Controls.Add(dtTarih);
+            Controls.Add(label2);
+            Controls.Add(cmbIlce);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "UCPurEmanet";
@@ -238,6 +294,7 @@
             Leave += UCPurEmanet_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -258,5 +315,10 @@
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Detay;
+        private ComboBox cmbIlce;
+        private Label label1;
+        private DateTimePicker dtTarih;
+        private Label label2;
+        private Button btnGetir;
     }
 }

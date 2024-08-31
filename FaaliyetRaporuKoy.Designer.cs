@@ -31,18 +31,18 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            cmbYil = new ComboBox();
-            btnGetir = new Button();
-            cmbIlce = new ComboBox();
-            label2 = new Label();
-            label1 = new Label();
-            button1 = new Button();
             KoyMezra = new DataGridViewTextBoxColumn();
             Program = new DataGridViewTextBoxColumn();
             Imalat = new DataGridViewTextBoxColumn();
             Tarih = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
             Harcama = new DataGridViewTextBoxColumn();
+            cmbYil = new ComboBox();
+            btnGetir = new Button();
+            cmbIlce = new ComboBox();
+            label2 = new Label();
+            label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -80,62 +80,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1328, 723);
             dataGridView1.TabIndex = 45;
-            // 
-            // cmbYil
-            // 
-            cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(754, 28);
-            cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
-            cmbYil.TabIndex = 49;
-            // 
-            // btnGetir
-            // 
-            btnGetir.Location = new Point(12, 26);
-            btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
-            btnGetir.TabIndex = 48;
-            btnGetir.Text = "Rapor Getir";
-            btnGetir.UseVisualStyleBackColor = true;
-            btnGetir.Click += btnGetir_Click;
-            // 
-            // cmbIlce
-            // 
-            cmbIlce.FormattingEnabled = true;
-            cmbIlce.Items.AddRange(new object[] { "--" });
-            cmbIlce.Location = new Point(294, 31);
-            cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(300, 33);
-            cmbIlce.TabIndex = 52;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(208, 31);
-            label2.Name = "label2";
-            label2.Size = new Size(52, 25);
-            label2.TabIndex = 51;
-            label2.Text = "İlçe : ";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(696, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 25);
-            label1.TabIndex = 53;
-            label1.Text = "Yıl :";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(1168, 26);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 34);
-            button1.TabIndex = 54;
-            button1.Text = "PDF Aktar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // KoyMezra
             // 
@@ -184,6 +128,62 @@
             Harcama.MinimumWidth = 8;
             Harcama.Name = "Harcama";
             Harcama.ReadOnly = true;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(67, 28);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 49;
+            // 
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(661, 23);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 48;
+            btnGetir.Text = "Rapor Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(331, 28);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 52;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(273, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 51;
+            label2.Text = "İlçe : ";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(22, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 25);
+            label1.TabIndex = 53;
+            label1.Text = "Yıl :";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(911, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 54;
+            button1.Text = "PDF Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // FaaliyetRaporuKoy
             // 

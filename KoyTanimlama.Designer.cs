@@ -93,13 +93,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, No, Adi, Ilce, Sil });
-            dataGridView1.Location = new Point(38, 157);
+            dataGridView1.Location = new Point(12, 157);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1258, 530);
+            dataGridView1.Size = new Size(1213, 588);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -166,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(738, 699);
+            ClientSize = new Size(1237, 757);
             Controls.Add(btnKoyleriGetir);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);

@@ -147,7 +147,7 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(12, 25);
+            btnGetir.Location = new Point(301, 20);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(179, 41);
             btnGetir.TabIndex = 43;
@@ -159,7 +159,7 @@
             // 
             cmbYil.FormattingEnabled = true;
             cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(329, 30);
+            cmbYil.Location = new Point(77, 25);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
             cmbYil.TabIndex = 45;
@@ -167,7 +167,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(274, 33);
+            label1.Location = new Point(22, 28);
             label1.Name = "label1";
             label1.Size = new Size(39, 25);
             label1.TabIndex = 44;
@@ -175,7 +175,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(910, 32);
+            button1.Location = new Point(582, 24);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 46;

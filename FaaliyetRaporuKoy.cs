@@ -70,7 +70,7 @@ namespace WinFormsApp1
                         s.Tutar
                     )).ToList();
 
-                    _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).ToList();
+                    _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).OrderBy(u => u.koyMezra).ToList();
                 }
 
                 dataGridView1.DataSource = _toplamUygulamaList;

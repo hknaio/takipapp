@@ -6,7 +6,7 @@ using YatirimTakip.Helpers;
 namespace WinFormsApp1
 {
     internal record FaaliyetRapor(string ilce, int isAdet,double kat1, double kat2, double bsk, double asfaltOnarim ,double kilitliParke, double stabilize,
-        double yolOnarim ,double menfez, double istinat, double kopru, double koruge, double beton, double yeniYol, double miktar);
+        double yolOnarim ,double menfez, double istinat, double kopru, double reglaj, double kar,double beton, double yeniYol, double diger, double miktar);
 
     public partial class FaaliyetRaporu : Form
     {
@@ -65,14 +65,17 @@ namespace WinFormsApp1
                     t.Where(t => t.Imalat.Isim.Contains("Kilitli")).Sum(t => t.Miktar),
 
                     t.Where(t => t.Imalat.Isim.Contains("Stabilize")).Sum(t => t.Miktar),
-                    t.Where(t => t.Imalat.Isim.Contains("Yol Ona")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("Yol Ona") 
+                              || t.Imalat.Isim.Contains("Onarım")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Menfez")).Sum(t => t.Miktar),
 
                     t.Where(t => t.Imalat.Isim.Contains("Istinat") || t.Imalat.Isim.Contains("Ist.")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Köprü")).Sum(t => t.Miktar),
-                    t.Where(t => t.Imalat.Isim.Contains("Koruge")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("Reglaj")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("Kar")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Beton Yol")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Yeni Yol")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Miktar),
                     t.Sum(t => t.Tutar)
                 ));
 
@@ -91,9 +94,11 @@ namespace WinFormsApp1
 
                     t.Where(t => t.imalat.Contains("Istinat") || t.imalat.Contains("Ist.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.uygulama),
-                    t.Where(t => t.imalat.Contains("Koruge")).Sum(t => t.uygulama),
+                    t.Where(t => t.imalat.Contains("Reglaj")).Sum(t => t.uygulama),
+                    t.Where(t => t.imalat.Contains("Kar")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Yeni Yol")).Sum(t => t.uygulama),
+                    t.Where(t => t.imalat.Contains("Diğer İmalatlar")).Sum(t => t.uygulama),
                     t.Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
@@ -112,9 +117,11 @@ namespace WinFormsApp1
                 f.Sum(i => i.menfez),
                 f.Sum(i => i.istinat),
                 f.Sum(i => i.kopru),
-                f.Sum(i => i.koruge),
+                f.Sum(i => i.reglaj),
+                f.Sum(i => i.kar),
                 f.Sum(i => i.beton),
                 f.Sum(i => i.yeniYol),
+                f.Sum(i => i.diger),
                 f.Sum(i => i.miktar)
                 )).ToList();
 

@@ -33,8 +33,8 @@ namespace WinFormsApp1.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //=> optionsBuilder.UseSqlServer(@"Data Source=PERSONEL1;Initial Catalog=Yatirim;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //=> optionsBuilder.UseSqlServer(@"Data Source=PERSONEL1;Initial Catalog=Yatirim;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

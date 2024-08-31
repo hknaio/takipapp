@@ -97,7 +97,7 @@
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(469, 477);
+            dataGridView1.Size = new Size(895, 477);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(758, 656);
+            ClientSize = new Size(937, 656);
             Controls.Add(dataGridView1);
             Controls.Add(btnEkle);
             Controls.Add(txtMezra);

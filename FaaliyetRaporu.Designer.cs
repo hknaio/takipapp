@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             Ilce = new DataGridViewTextBoxColumn();
             IsAdet = new DataGridViewTextBoxColumn();
@@ -43,9 +43,11 @@
             Menfez = new DataGridViewTextBoxColumn();
             Istinat = new DataGridViewTextBoxColumn();
             Kopru = new DataGridViewTextBoxColumn();
-            Koruge = new DataGridViewTextBoxColumn();
-            YeniYol = new DataGridViewTextBoxColumn();
+            Reglaj = new DataGridViewTextBoxColumn();
+            Kar = new DataGridViewTextBoxColumn();
             Beton = new DataGridViewTextBoxColumn();
+            YeniYol = new DataGridViewTextBoxColumn();
+            Diger = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
             cmbYil = new ComboBox();
             btnGetir = new Button();
@@ -61,24 +63,24 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Koruge, YeniYol, Beton, Miktar });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Window;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, Diger, Miktar });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Location = new Point(27, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -184,13 +186,29 @@
             Kopru.Name = "Kopru";
             Kopru.ReadOnly = true;
             // 
-            // Koruge
+            // Reglaj
             // 
-            Koruge.DataPropertyName = "koruge";
-            Koruge.HeaderText = "Koruge";
-            Koruge.MinimumWidth = 8;
-            Koruge.Name = "Koruge";
-            Koruge.ReadOnly = true;
+            Reglaj.DataPropertyName = "reglaj";
+            Reglaj.HeaderText = "Reglaj";
+            Reglaj.MinimumWidth = 8;
+            Reglaj.Name = "Reglaj";
+            Reglaj.ReadOnly = true;
+            // 
+            // Kar
+            // 
+            Kar.DataPropertyName = "kar";
+            Kar.HeaderText = "Kar";
+            Kar.MinimumWidth = 8;
+            Kar.Name = "Kar";
+            Kar.ReadOnly = true;
+            // 
+            // Beton
+            // 
+            Beton.DataPropertyName = "beton";
+            Beton.HeaderText = "Beton";
+            Beton.MinimumWidth = 8;
+            Beton.Name = "Beton";
+            Beton.ReadOnly = true;
             // 
             // YeniYol
             // 
@@ -200,13 +218,13 @@
             YeniYol.Name = "YeniYol";
             YeniYol.ReadOnly = true;
             // 
-            // Beton
+            // Diger
             // 
-            Beton.DataPropertyName = "beton";
-            Beton.HeaderText = "Beton";
-            Beton.MinimumWidth = 8;
-            Beton.Name = "Beton";
-            Beton.ReadOnly = true;
+            Diger.DataPropertyName = "diger";
+            Diger.HeaderText = "Diğer";
+            Diger.MinimumWidth = 8;
+            Diger.Name = "Diger";
+            Diger.ReadOnly = true;
             // 
             // Miktar
             // 
@@ -220,14 +238,14 @@
             // 
             cmbYil.FormattingEnabled = true;
             cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(344, 17);
+            cmbYil.Location = new Point(27, 22);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
             cmbYil.TabIndex = 47;
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(27, 12);
+            btnGetir.Location = new Point(286, 17);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(179, 41);
             btnGetir.TabIndex = 46;
@@ -237,7 +255,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(758, 17);
+            button1.Location = new Point(691, 20);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 48;
@@ -267,6 +285,8 @@
         private DataGridView dataGridView1;
         private ComboBox cmbYil;
         private Button btnGetir;
+        private Button button1;
+        private DataGridViewTextBoxColumn Koruge;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn IsAdet;
         private DataGridViewTextBoxColumn Kat1;
@@ -279,10 +299,11 @@
         private DataGridViewTextBoxColumn Menfez;
         private DataGridViewTextBoxColumn Istinat;
         private DataGridViewTextBoxColumn Kopru;
-        private DataGridViewTextBoxColumn Koruge;
-        private DataGridViewTextBoxColumn YeniYol;
+        private DataGridViewTextBoxColumn Reglaj;
+        private DataGridViewTextBoxColumn Kar;
         private DataGridViewTextBoxColumn Beton;
+        private DataGridViewTextBoxColumn YeniYol;
+        private DataGridViewTextBoxColumn Diger;
         private DataGridViewTextBoxColumn Miktar;
-        private Button button1;
     }
 }
