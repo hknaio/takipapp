@@ -48,6 +48,9 @@ namespace WinFormsApp1.Migrations
                     b.Property<DateTime>("DokumTarihi")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("Emisyon")
+                        .HasColumnType("float");
+
                     b.Property<double>("YamaMiktari")
                         .HasColumnType("float");
 

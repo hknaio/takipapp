@@ -64,6 +64,7 @@ namespace WinFormsApp1
                             asfaltDokum!.DokumTarihi = dtpDokumTarihi.Value.Date;
                             asfaltDokum!.DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text);
                             asfaltDokum!.BSKMiktari = Convert.ToDouble(txtBskMiktari.Text);
+                            asfaltDokum!.Emisyon = Convert.ToDouble(txtEmisyon.Text);
 
                             _dbContext.Update(asfaltDokum);
                         }

@@ -14,7 +14,6 @@ namespace WinFormsApp1
 
         private void PurEmanetEkle_Load(object sender, EventArgs e)
         {
-            txtMiktar.Mask = "0000";
             txtMiktar.Text = "0";
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();

@@ -46,6 +46,13 @@
             label9 = new Label();
             btnIptal = new Button();
             btnKaydet = new Button();
+            label10 = new Label();
+            txtEmisyon = new MaskedTextBox();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
             SuspendLayout();
             // 
             // label2
@@ -198,11 +205,79 @@
             btnKaydet.UseVisualStyleBackColor = true;
             btnKaydet.Click += btnKaydet_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(85, 418);
+            label10.Name = "label10";
+            label10.Size = new Size(88, 25);
+            label10.TabIndex = 29;
+            label10.Text = "Emisyon :";
+            // 
+            // txtEmisyon
+            // 
+            txtEmisyon.Location = new Point(244, 412);
+            txtEmisyon.Name = "txtEmisyon";
+            txtEmisyon.Size = new Size(174, 31);
+            txtEmisyon.TabIndex = 30;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(436, 94);
+            label11.Name = "label11";
+            label11.Size = new Size(40, 25);
+            label11.TabIndex = 31;
+            label11.Text = "Ton";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(436, 368);
+            label12.Name = "label12";
+            label12.Size = new Size(40, 25);
+            label12.TabIndex = 32;
+            label12.Text = "Ton";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(436, 186);
+            label13.Name = "label13";
+            label13.Size = new Size(40, 25);
+            label13.TabIndex = 33;
+            label13.Text = "Ton";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(436, 136);
+            label14.Name = "label14";
+            label14.Size = new Size(40, 25);
+            label14.TabIndex = 34;
+            label14.Text = "Ton";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(436, 319);
+            label15.Name = "label15";
+            label15.Size = new Size(29, 25);
+            label15.TabIndex = 35;
+            label15.Text = "TL";
+            // 
             // AsfaltDokumGuncelle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1005, 618);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(label12);
+            Controls.Add(label11);
+            Controls.Add(txtEmisyon);
+            Controls.Add(label10);
             Controls.Add(btnIptal);
             Controls.Add(btnKaydet);
             Controls.Add(txtDokumBedeli);
@@ -249,5 +324,12 @@
         private Label label9;
         private Button btnIptal;
         private Button btnKaydet;
+        private Label label10;
+        private MaskedTextBox txtEmisyon;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
     }
 }

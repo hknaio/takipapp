@@ -11,6 +11,7 @@ namespace WinFormsApp1.Models
         public DateTime DokumTarihi { get; set; }
         public double DokumBedeli { get; set; }
         public double BSKMiktari { get; set; }
+        public double Emisyon { get; set; }
         public YatirimProgrami YatirimProgrami { get; set; }
     }
 }
