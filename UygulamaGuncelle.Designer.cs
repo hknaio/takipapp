@@ -40,14 +40,14 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 44);
             label1.Name = "label1";
-            label1.Size = new Size(134, 25);
+            label1.Size = new Size(141, 25);
             label1.TabIndex = 0;
-            label1.Text = "Güncel Miktar : ";
+            label1.Text = "Güncel Maliyet : ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(152, 44);
+            label2.Location = new Point(170, 44);
             label2.Name = "label2";
             label2.Size = new Size(20, 25);
             label2.TabIndex = 1;
@@ -58,13 +58,13 @@
             label3.AutoSize = true;
             label3.Location = new Point(21, 94);
             label3.Name = "label3";
-            label3.Size = new Size(107, 25);
+            label3.Size = new Size(114, 25);
             label3.TabIndex = 2;
-            label3.Text = "Yeni Miktar :";
+            label3.Text = "Yeni Maliyet :";
             // 
             // txtYeniMiktar
             // 
-            txtYeniMiktar.Location = new Point(143, 94);
+            txtYeniMiktar.Location = new Point(170, 91);
             txtYeniMiktar.Name = "txtYeniMiktar";
             txtYeniMiktar.Size = new Size(150, 31);
             txtYeniMiktar.TabIndex = 4;

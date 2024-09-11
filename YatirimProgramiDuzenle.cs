@@ -23,7 +23,7 @@ namespace WinFormsApp1
             {
                 lblDurum.Text = _yatirimProgrami.YatirimDurumu.ToString();
                 lblIlce.Text = _yatirimProgrami.Ilce;
-                lblKoy.Text = _yatirimProgrami.Koy;
+                txtKoyler.Text = _yatirimProgrami.Koy;
                 lblBirim.Text = _yatirimProgrami.Birim;
                 lblImalat.Text = _yatirimProgrami.Imalat;
                 txtMiktar.Text = _yatirimProgrami.Miktar;
@@ -40,18 +40,34 @@ namespace WinFormsApp1
 
         private void btnDegistir_Click(object sender, EventArgs e)
         {
-            if (txtMiktar.Text != _yatirimProgrami.Miktar)
+            DialogResult result = new();
+
+            if (txtMiktar.Text != _yatirimProgrami.Miktar || txtKoyler.Text != _yatirimProgrami.Koy)
             {
                 try
                 {
-                    var buttons = MessageBoxButtons.YesNo;
-                    var result = MessageBox.Show("Miktar : " + _yatirimProgrami.Miktar + " ile " + txtMiktar.Text + "\n" +
+                    if (txtMiktar.Text != _yatirimProgrami.Miktar)
+                    {
+                        var buttons = MessageBoxButtons.YesNo;
+
+                        result = MessageBox.Show("Miktar : " + _yatirimProgrami.Miktar + " ile " + txtMiktar.Text + "\n" +
                                                 "\nDeğiştirmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Information);
+
+                    }
+
+                    else if (txtKoyler.Text != _yatirimProgrami.Koy)
+                    {
+                        var buttons = MessageBoxButtons.YesNo;
+
+                        result = MessageBox.Show("Köy : " + _yatirimProgrami.Koy + " ile " + txtKoyler.Text + "\n" +
+                                                "\nDeğiştirmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Information);
+
+                    }
 
                     if (result == DialogResult.Yes)
                     {
                         _yatirimProgrami.Miktar = txtMiktar.Text;
-
+                        _yatirimProgrami.Koy = txtKoyler.Text;
                         _dbContext.Update(_yatirimProgrami);
                         _dbContext.SaveChanges();
 

@@ -27,6 +27,8 @@ namespace WinFormsApp1
             cmbDurum.DisplayMember = "Value";
             cmbDurum.ValueMember = "Key";
             dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns[11].DefaultCellStyle.Format = "N2";
+
 
             OrderColumns();
 
@@ -36,11 +38,11 @@ namespace WinFormsApp1
                 txtSure.Text = _proje.Sure.ToString() == "0" ? "" : _proje.Sure.ToString();
                 txtYuklenici.Text = _proje.Yuklenici;
                 cmbDurum.SelectedValue = _proje.Yuklenici is null ? ProjeDurumu.IhaleHazirlik : _proje.ProjeDurumu;
-                txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("0.00");
+                txtSozlesmeBedeli.Text = _proje.SozlesmeBedeli.ToString("N2");
                 txtAciklama.Text = _proje.Aciklama;
-                label13.Text = _proje.YaklasikMaliyet.ToString("0.00");
-                lblToplamHakedis.Text = _proje.HakedisToplami.ToString("0.00");
-                lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString("0.00");
+                label13.Text = _proje.YaklasikMaliyet.ToString("N2");
+                lblToplamHakedis.Text = _proje.HakedisToplami.ToString("N2");
+                lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString("N2");
 
 
                 formatDtps(_proje);
@@ -109,7 +111,7 @@ namespace WinFormsApp1
             if (dtpIseBaslama.Value.Date.Year > 1970)
             {
                 dtpIseBaslama.CustomFormat = "dd MMMM yyyy dddd";
-                dtpBitisTarihi.Value = dtpIseBaslama.Value.AddDays(Convert.ToDouble(txtSure.Text));
+                dtpBitisTarihi.Value = dtpIseBaslama.Value.AddDays(Convert.ToDouble(txtSure.Text) - 1);
                 dtpBitisTarihi.CustomFormat = "dd MMMM yyyy dddd";
             }
 
@@ -169,8 +171,8 @@ namespace WinFormsApp1
                     _dbContext.SaveChanges();
                     dataGridView2.Refresh();
 
-                    lblToplamHakedis.Text = _proje.HakedisToplami.ToString();
-                    lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString();
+                    lblToplamHakedis.Text = _proje.HakedisToplami.ToString("N2");
+                    lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString("N2");
                     txtHakedis.Text = txtHakedisMiktar.Text = string.Empty;
                 }
 

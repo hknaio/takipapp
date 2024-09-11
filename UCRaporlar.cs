@@ -1,4 +1,6 @@
 ﻿
+using YatirimTakip;
+
 namespace WinFormsApp1
 {
     public partial class UCRaporlar : UserControl
@@ -45,6 +47,15 @@ namespace WinFormsApp1
             using (FaaliyetRaporuKoy faaliyetRaporuKoy = new())
             {
                 faaliyetRaporuKoy.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            using (RprIlceYatirimIcmal rprIlceYatirim = new())
+            {
+                rprIlceYatirim.ShowDialog();
                 this.OnLoad(e);
             }
         }

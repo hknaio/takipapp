@@ -37,11 +37,11 @@
             lblDurum = new Label();
             lblImalat = new Label();
             lblBirim = new Label();
-            lblKoy = new Label();
             lblIlce = new Label();
             txtMiktar = new TextBox();
             btnDegistir = new Button();
             button1 = new Button();
+            txtKoyler = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -125,15 +125,6 @@
             lblBirim.TabIndex = 9;
             lblBirim.Text = "..";
             // 
-            // lblKoy
-            // 
-            lblKoy.AutoSize = true;
-            lblKoy.Location = new Point(167, 107);
-            lblKoy.Name = "lblKoy";
-            lblKoy.Size = new Size(20, 25);
-            lblKoy.TabIndex = 10;
-            lblKoy.Text = "..";
-            // 
             // lblIlce
             // 
             lblIlce.AutoSize = true;
@@ -170,16 +161,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // txtKoyler
+            // 
+            txtKoyler.Location = new Point(168, 107);
+            txtKoyler.Name = "txtKoyler";
+            txtKoyler.Size = new Size(150, 31);
+            txtKoyler.TabIndex = 15;
+            // 
             // YatirimProgramiDuzenle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(612, 550);
+            Controls.Add(txtKoyler);
             Controls.Add(button1);
             Controls.Add(btnDegistir);
             Controls.Add(txtMiktar);
             Controls.Add(lblIlce);
-            Controls.Add(lblKoy);
             Controls.Add(lblBirim);
             Controls.Add(lblImalat);
             Controls.Add(lblDurum);
@@ -208,10 +206,10 @@
         private Label lblDurum;
         private Label lblImalat;
         private Label lblBirim;
-        private Label lblKoy;
         private Label lblIlce;
         private TextBox txtMiktar;
         private Button btnDegistir;
         private Button button1;
+        private TextBox txtKoyler;
     }
 }

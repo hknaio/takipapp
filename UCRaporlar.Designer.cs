@@ -32,6 +32,7 @@
             btnProgramRaporu = new Button();
             button5 = new Button();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -86,10 +87,24 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.BackColor = Color.LightSkyBlue;
+            button3.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
+            button3.Location = new Point(37, 273);
+            button3.Name = "button3";
+            button3.Size = new Size(178, 183);
+            button3.TabIndex = 7;
+            button3.Text = "İlçe Yatırım İcmal";
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
+            // 
             // UCRaporlar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button5);
             Controls.Add(btnProgramRaporu);
@@ -105,5 +120,6 @@
         private Button btnProgramRaporu;
         private Button button5;
         private Button button2;
+        private Button button3;
     }
 }
