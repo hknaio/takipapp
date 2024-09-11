@@ -66,7 +66,6 @@
             label15 = new Label();
             lblHakedisTahakkuk = new Label();
             dataGridView1 = new DataGridView();
-            btnYeniProgram = new Button();
             Ilce = new DataGridViewTextBoxColumn();
             ProgramId = new DataGridViewTextBoxColumn();
             Uygulama = new DataGridViewTextBoxColumn();
@@ -82,6 +81,8 @@
             Proje = new DataGridViewTextBoxColumn();
             Kaynak = new DataGridViewTextBoxColumn();
             ProjedenCikar = new DataGridViewButtonColumn();
+            btnYeniProgram = new Button();
+            btnTarihleriSifirla = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -295,7 +296,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(12, 282);
+            label9.Location = new Point(17, 335);
             label9.Name = "label9";
             label9.Size = new Size(148, 25);
             label9.TabIndex = 21;
@@ -317,7 +318,7 @@
             dtpIseBaslama.Name = "dtpIseBaslama";
             dtpIseBaslama.Size = new Size(300, 31);
             dtpIseBaslama.TabIndex = 24;
-            dtpIseBaslama.Value = new DateTime(2024, 3, 24, 0, 0, 0, 0);
+            dtpIseBaslama.Value = new DateTime(2024, 9, 11, 0, 0, 0, 0);
             dtpIseBaslama.ValueChanged += dtpIseBaslama_ValueChanged;
             // 
             // dtpBitisTarihi
@@ -366,7 +367,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(12, 337);
+            label12.Location = new Point(17, 383);
             label12.Name = "label12";
             label12.Size = new Size(143, 25);
             label12.TabIndex = 31;
@@ -376,7 +377,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label13.Location = new Point(194, 333);
+            label13.Location = new Point(194, 378);
             label13.Name = "label13";
             label13.Size = new Size(58, 30);
             label13.TabIndex = 32;
@@ -391,7 +392,7 @@
             // 
             // txtSozlesmeBedeli
             // 
-            txtSozlesmeBedeli.Location = new Point(194, 282);
+            txtSozlesmeBedeli.Location = new Point(194, 329);
             txtSozlesmeBedeli.Name = "txtSozlesmeBedeli";
             txtSozlesmeBedeli.Size = new Size(300, 31);
             txtSozlesmeBedeli.TabIndex = 34;
@@ -400,7 +401,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(15, 394);
+            label14.Location = new Point(12, 430);
             label14.Name = "label14";
             label14.Size = new Size(151, 25);
             label14.TabIndex = 35;
@@ -410,7 +411,7 @@
             // 
             lblToplamHakedis.AutoSize = true;
             lblToplamHakedis.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblToplamHakedis.Location = new Point(194, 390);
+            lblToplamHakedis.Location = new Point(194, 425);
             lblToplamHakedis.Name = "lblToplamHakedis";
             lblToplamHakedis.Size = new Size(58, 30);
             lblToplamHakedis.TabIndex = 36;
@@ -419,7 +420,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(320, 394);
+            label15.Location = new Point(306, 429);
             label15.Name = "label15";
             label15.Size = new Size(161, 25);
             label15.TabIndex = 37;
@@ -429,7 +430,7 @@
             // 
             lblHakedisTahakkuk.AutoSize = true;
             lblHakedisTahakkuk.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblHakedisTahakkuk.Location = new Point(487, 390);
+            lblHakedisTahakkuk.Location = new Point(483, 426);
             lblHakedisTahakkuk.Name = "lblHakedisTahakkuk";
             lblHakedisTahakkuk.Size = new Size(58, 30);
             lblHakedisTahakkuk.TabIndex = 38;
@@ -452,16 +453,6 @@
             dataGridView1.Size = new Size(1852, 404);
             dataGridView1.TabIndex = 39;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // btnYeniProgram
-            // 
-            btnYeniProgram.Location = new Point(175, 471);
-            btnYeniProgram.Name = "btnYeniProgram";
-            btnYeniProgram.Size = new Size(161, 45);
-            btnYeniProgram.TabIndex = 40;
-            btnYeniProgram.Text = "Program Ekle";
-            btnYeniProgram.UseVisualStyleBackColor = true;
-            btnYeniProgram.Click += btnYeniProgram_Click;
             // 
             // Ilce
             // 
@@ -600,11 +591,32 @@
             ProjedenCikar.UseColumnTextForButtonValue = true;
             ProjedenCikar.Width = 150;
             // 
+            // btnYeniProgram
+            // 
+            btnYeniProgram.Location = new Point(175, 471);
+            btnYeniProgram.Name = "btnYeniProgram";
+            btnYeniProgram.Size = new Size(161, 45);
+            btnYeniProgram.TabIndex = 40;
+            btnYeniProgram.Text = "Program Ekle";
+            btnYeniProgram.UseVisualStyleBackColor = true;
+            btnYeniProgram.Click += btnYeniProgram_Click;
+            // 
+            // btnTarihleriSifirla
+            // 
+            btnTarihleriSifirla.Location = new Point(194, 268);
+            btnTarihleriSifirla.Name = "btnTarihleriSifirla";
+            btnTarihleriSifirla.Size = new Size(142, 44);
+            btnTarihleriSifirla.TabIndex = 41;
+            btnTarihleriSifirla.Text = "Tarihleri Sıfırla";
+            btnTarihleriSifirla.UseVisualStyleBackColor = true;
+            btnTarihleriSifirla.Click += btnTarihleriSifirla_Click;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1890, 1050);
+            Controls.Add(btnTarihleriSifirla);
             Controls.Add(btnYeniProgram);
             Controls.Add(dataGridView1);
             Controls.Add(lblHakedisTahakkuk);
@@ -704,5 +716,6 @@
         private DataGridViewTextBoxColumn Proje;
         private DataGridViewTextBoxColumn Kaynak;
         private DataGridViewButtonColumn ProjedenCikar;
+        private Button btnTarihleriSifirla;
     }
 }

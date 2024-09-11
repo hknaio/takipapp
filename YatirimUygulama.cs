@@ -57,7 +57,7 @@ namespace WinFormsApp1
                 dtpIseBaslama.Format = DateTimePickerFormat.Custom;
             }
 
-            else
+            else if (proje.IseBaslamaTarihi is not null && proje.KesinKabulTarihi is not null)
             {
                 dtpIseBaslama.Value = proje.IseBaslamaTarihi.Value;
                 dtpKesinKabul.Value = proje.KesinKabulTarihi.Value;
@@ -286,7 +286,7 @@ namespace WinFormsApp1
                 }
             }
 
-            if (e.ColumnIndex == 
+            if (e.ColumnIndex ==
                 dataGridView1.Columns[2].Index && e.RowIndex > -1)
             {
                 var id = (int)dataGridView1.CurrentRow.Cells["ProgramId"].Value;
@@ -295,7 +295,7 @@ namespace WinFormsApp1
                 var result = MessageBox.Show("Çıkarmak İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
 
                 try
-                {                   
+                {
                     if (result == DialogResult.Yes)
                     {
                         program.YatirimDurumu = Models.YatirimDurumu.Uygulanmadi;
@@ -381,6 +381,31 @@ namespace WinFormsApp1
             }
 
             dataGridView1.Refresh();
+        }
+
+        private void btnTarihleriSifirla_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_proje.GeciciKabulTarihi is not null)
+                {
+                    _proje.GeciciKabulTarihi = null;
+                    dtpGeciciKabul.CustomFormat = "          ";
+                    dtpGeciciKabul.Format = DateTimePickerFormat.Custom;
+                }
+
+                if (_proje.KesinKabulTarihi is not null)
+                {
+                    _proje.KesinKabulTarihi = null;
+                    dtpKesinKabul.CustomFormat = "          ";
+                    dtpKesinKabul.Format = DateTimePickerFormat.Custom;
+                }
+
+                _dbContext.Update(_proje);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
+
         }
     }
 }
