@@ -10,10 +10,12 @@ namespace WinFormsApp1
         private readonly int _id;
         private AppDbContext _dbContext;
         private Proje _proje;
+        private bool _tarihleriSifirla;
         public YatirimUygulama(int id)
         {
             InitializeComponent();
             _id = id;
+            _tarihleriSifirla = false;
         }
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
@@ -125,11 +127,15 @@ namespace WinFormsApp1
         private void dtpGeciciKabul_ValueChanged(object sender, EventArgs e)
         {
             dtpGeciciKabul.CustomFormat = "dd MMMM yyyy dddd";
+            dtpKesinKabul.Value = dtpGeciciKabul.Value.AddYears(1);
+            dtpKesinKabul.CustomFormat = "dd MMMM yyyy dddd";
+            _tarihleriSifirla = false;
         }
 
         private void dtpKesinKabul_ValueChanged(object sender, EventArgs e)
         {
             dtpKesinKabul.CustomFormat = "dd MMMM yyyy dddd";
+            _tarihleriSifirla = false;
         }
 
         private void YatirimUygulama_FormClosing(object sender, FormClosingEventArgs e)
@@ -142,11 +148,11 @@ namespace WinFormsApp1
 
         private void txtSozlesmeBedeli_Leave(object sender, EventArgs e)
         {
-            double value;
-            if (double.TryParse(txtSozlesmeBedeli.Text, out value))
-                txtSozlesmeBedeli.Text = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", value);
-            else
-                txtSozlesmeBedeli.Text = string.Empty;
+            //double value;
+            //if (double.TryParse(txtSozlesmeBedeli.Text, out value))
+            //    txtSozlesmeBedeli.Text = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", value);
+            //else
+            //    txtSozlesmeBedeli.Text = string.Empty;
         }
 
         private void btnHakedisEkle_Click(object sender, EventArgs e)
@@ -320,12 +326,13 @@ namespace WinFormsApp1
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
+            
             {
                 _proje.IseBaslamaTarihi = dtpIseBaslama.Value;
                 _proje.Sure = Convert.ToInt32(txtSure.Text == string.Empty ? "0" : txtSure.Text);
                 _proje.IsBitisTarihi = dtpBitisTarihi.Value;
-                _proje.GeciciKabulTarihi = dtpGeciciKabul.Value;
-                _proje.KesinKabulTarihi = dtpKesinKabul.Value;
+                _proje.GeciciKabulTarihi = _tarihleriSifirla ? null : dtpGeciciKabul.Value;
+                _proje.KesinKabulTarihi = _tarihleriSifirla ? null : dtpKesinKabul.Value;
                 _proje.Yuklenici = txtYuklenici.Text;
                 _proje.ProjeDurumu = (ProjeDurumu)cmbDurum.SelectedValue!;
                 if (_proje.ProjeDurumu == ProjeDurumu.Bitti)
@@ -401,9 +408,12 @@ namespace WinFormsApp1
                     dtpKesinKabul.Format = DateTimePickerFormat.Custom;
                 }
 
+                _tarihleriSifirla = true;
+
                 _dbContext.Update(_proje);
                 _dbContext.SaveChanges();
             }
+
             catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
 
         }

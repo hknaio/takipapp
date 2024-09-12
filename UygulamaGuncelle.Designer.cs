@@ -40,9 +40,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 44);
             label1.Name = "label1";
-            label1.Size = new Size(141, 25);
+            label1.Size = new Size(164, 25);
             label1.TabIndex = 0;
-            label1.Text = "Güncel Maliyet : ";
+            label1.Text = "Güncel Uygulama : ";
             // 
             // label2
             // 
@@ -56,11 +56,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(21, 94);
+            label3.Location = new Point(12, 94);
             label3.Name = "label3";
-            label3.Size = new Size(114, 25);
+            label3.Size = new Size(137, 25);
             label3.TabIndex = 2;
-            label3.Text = "Yeni Maliyet :";
+            label3.Text = "Yeni Uygulama :";
             // 
             // txtYeniMiktar
             // 
@@ -90,7 +90,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "UygulamaGuncelle";
-            Text = "UygulamaGuncelle";
+            Text = "Güncelle";
             FormClosing += UygulamaGuncelle_FormClosing;
             ResumeLayout(false);
             PerformLayout();

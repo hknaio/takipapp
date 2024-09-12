@@ -137,6 +137,7 @@
             // 
             // dtpKesinKabul
             // 
+            dtpKesinKabul.Enabled = false;
             dtpKesinKabul.Location = new Point(194, 221);
             dtpKesinKabul.Name = "dtpKesinKabul";
             dtpKesinKabul.Size = new Size(300, 31);
