@@ -31,7 +31,7 @@ namespace WinFormsApp1
             dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[11].DefaultCellStyle.Format = "N2";
 
-
+           
             OrderColumns();
 
             if (_proje is not null)
@@ -45,7 +45,7 @@ namespace WinFormsApp1
                 label13.Text = _proje.YaklasikMaliyet.ToString("N2");
                 lblToplamHakedis.Text = _proje.HakedisToplami.ToString("N2");
                 lblHakedisTahakkuk.Text = _proje.HakedisToplamTahakkuk.ToString("N2");
-
+                _tarihleriSifirla = _proje.KesinKabulTarihi == null ? true : false;
 
                 formatDtps(_proje);
             }
