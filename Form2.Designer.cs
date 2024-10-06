@@ -126,6 +126,7 @@
             btnSanatYapilari.TabIndex = 3;
             btnSanatYapilari.Text = "Sanat Yapıları";
             btnSanatYapilari.UseVisualStyleBackColor = false;
+            btnSanatYapilari.Click += btnSanatYapilari_Click;
             // 
             // btnAsfaltYapim
             // 

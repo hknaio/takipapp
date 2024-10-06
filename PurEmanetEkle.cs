@@ -18,7 +18,10 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
             _dbContext.Ilces.Load();
-            _dbContext.Imalats.Load();
+            _dbContext.Imalats.Where(i => !i.Isim.Contains("Menfez") ||
+                                          !i.Isim.Contains("Spiral Boru") ||
+                                          !i.Isim.Contains("Taş Duvar") ||
+                                          !i.Isim.Contains("Köprü")).Load();
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
@@ -143,6 +146,12 @@ namespace WinFormsApp1
                 {
                     cmbSpiral.DataSource = spiralBoruList;
                 }
+            }
+
+            else
+            {
+                txtMiktar.Visible = true;
+                cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = false;
             }
         }
 

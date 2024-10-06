@@ -61,5 +61,13 @@ namespace WinFormsApp1
             UCAsfalt ucc = new();
             addControls(ucc);
         }
+
+        private void btnSanatYapilari_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "SANAT YAPILARI";
+            slidePanel(button1);
+            UCYolYapimSanat ucc = new();
+            addControls(ucc);
+        }
     }
 }

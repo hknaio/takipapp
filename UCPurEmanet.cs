@@ -21,10 +21,15 @@ namespace WinFormsApp1
             _dbContext.Koys.Load();
             _dbContext.Ilces.Load();
             _dbContext.Mezras.Load();
+            _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
+                                          && p.Tarih.Month == dtTarih.Value.Month
+                                          && !p.Imalat.Isim.Contains("Menfez") &&
+                                          !p.Imalat.Isim.Contains("Spiral Boru") &&
+                                          !p.Imalat.Isim.Contains("Taş Duvar") &&
+                                          !p.Imalat.Isim.Contains("Köprü")).Load();
+
             _dbContext.Imalats.Load();
-            _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text 
-                                          && p.Tarih.Month == dtTarih.Value.Month).Load();
-            _dbContext.SpiralBorus.Load();
+             _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
             dataGridView1.Columns[14].DefaultCellStyle.Format = "N2";
@@ -165,7 +170,11 @@ namespace WinFormsApp1
         private void btnGetir_Click(object sender, EventArgs e)
         {
             var puremanets = _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
-                                          && p.Tarih.Month == dtTarih.Value.Month).ToList();
+                                          && p.Tarih.Month == dtTarih.Value.Month
+                                          && (!p.Imalat.Isim.Contains("Menfez") &&
+                                          !p.Imalat.Isim.Contains("Spiral Boru") &&
+                                          !p.Imalat.Isim.Contains("Taş Duvar") &&
+                                          !p.Imalat.Isim.Contains("Köprü"))).ToList();
 
             dataGridView1.DataSource = puremanets;
         }
