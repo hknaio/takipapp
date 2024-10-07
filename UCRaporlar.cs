@@ -59,5 +59,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (RprBilgiNotu rprBilgiNotu = new())
+            {
+                rprBilgiNotu.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }

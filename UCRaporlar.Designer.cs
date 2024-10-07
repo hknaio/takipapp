@@ -33,6 +33,7 @@
             button5 = new Button();
             button2 = new Button();
             button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -100,10 +101,24 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click_1;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.LightSkyBlue;
+            button4.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
+            button4.Location = new Point(286, 273);
+            button4.Name = "button4";
+            button4.Size = new Size(178, 183);
+            button4.TabIndex = 8;
+            button4.Text = "Bilgi Notu";
+            button4.TextImageRelation = TextImageRelation.ImageAboveText;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // UCRaporlar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button5);
@@ -121,5 +136,6 @@
         private Button button5;
         private Button button2;
         private Button button3;
+        private Button button4;
     }
 }

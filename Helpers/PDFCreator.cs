@@ -1,6 +1,6 @@
 ﻿using iTextSharp.text.pdf;
 using iTextSharp.text;
-using System.Linq.Expressions;
+using WinFormsApp1.Models;
 
 namespace YatirimTakip.Helpers
 {
@@ -112,6 +112,139 @@ namespace YatirimTakip.Helpers
             }
 
             return false;
+        }
+
+        public Paragraph BilgiNotu(YolAgi yolAgi, List<YatirimProgrami> programs)
+        {
+            iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+
+            iTextSharp.text.Font fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.DARK_GRAY);
+
+
+            Chunk yolagi = new(" " + yolAgi.Ilce.Adi + "  İlçesi Yol Ağımız " + yolAgi.ToplamAg + " km’dir." +
+                " Bunun; " + yolAgi.BSK + "  km si BSK, " + yolAgi.Asfalt + "  km’si Sathi Kaplama " + yolAgi.Stabilize + " km’si stabilize " +
+                " " + yolAgi.KilitParke + " km’si kilit parke ile kaplama türüne sahiptir. \t\t\t\t\t\t\t\t\t", fontBold);
+            Chunk space = new("\n\n");
+
+
+            var para = new Paragraph()
+            {
+                yolagi,space,space
+            };
+
+            Chunk araParagraph = new(yolAgi.Ilce.Adi.ToUpper() +" İLÇESİ İÇİN 2024 YILI ELAZIĞ İL ÖZEL İDARESİ YOL VE ULAŞIM HİZMETLERİ MÜDÜRLÜĞÜ BÜNYESİNDE YAPILAN İŞLER:", fontBold);
+
+            var para2 = new Paragraph()
+            {
+                araParagraph,space,space
+            };
+
+            Chunk bsk = new("BİTÜMLÜ SICAK ASFALT ÇALIŞMASI : " + 
+                programs.Where(p => p.Imalat.Contains("BSK")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para3 = new Paragraph()
+            {
+                bsk, space, space, space
+            };
+
+            Chunk kat1 = new("SATHİ KAPLAMA 1. KAT ASFALT ÇALIŞMASI : " +
+               programs.Where(p => p.Imalat.Contains("1.")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para4 = new Paragraph()
+            {
+                kat1, space, space, space
+            };
+
+            Chunk kat2 = new("SATHİ KAPLAMA 2. KAT ASFALT ÇALIŞMASI : " +
+               programs.Where(p => p.Imalat.Contains("2.")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para5 = new Paragraph()
+            {
+                kat2, space, space, space
+            };
+
+            Chunk asfaltbakim = new("ASFALT BAKIM ONARIM ÇALIŞMASI : " +
+               programs.Where(p => p.Imalat.Contains("asfalt bakım") ||
+               p.Imalat.Contains("Asfalt Bakım")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para6 = new Paragraph()
+            {
+                asfaltbakim, space, space, space
+            };
+
+            Chunk kilitli = new("KİLİTLİ PARKE ÇALIŞMASI : " +
+               programs.Where(p => p.Imalat.Contains("ilitli")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para7 = new Paragraph()
+            {
+                kilitli, space, space, space
+            };
+
+            Chunk stabilize = new("STABİLİZE ÇALIŞMASI : " +
+               programs.Where(p => p.Imalat.Contains("stabilize")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+
+            var para8 = new Paragraph()
+            {
+                stabilize, space, space, space
+            };
+
+            try
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.Filter = "PDF (*.pdf)|*.pdf";
+                save.FileName = yolAgi.Ilce.Adi + " Bilgi Notu" + ".pdf";
+                bool ErrorMessage = false;
+
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(save.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(save.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            ErrorMessage = true;
+                            MessageBox.Show("Diske yazılamadı." + ex.Message);
+                        }
+                    }
+                    if (!ErrorMessage)
+                    {
+                        try
+                        {
+                            using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
+                            {
+                                Document document = new Document(PageSize.A3, 8f, 16f, 16f, 8f);
+                                PdfWriter.GetInstance(document, fileStream);
+                                document.Open();
+                                document.Add(para);
+                                document.Add(para2);
+                                document.Add(para3);
+                                document.Add(para4);
+                                document.Add(para5);
+                                document.Add(para6);
+                                document.Add(para7);
+                                document.Add(para8);
+                                document.Close();
+                                fileStream.Close();
+                            }
+                            MessageBox.Show("PDF Başarıyla oluştu.", "info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("PDF Oluşturulamadı." + ex.Message);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }           
+
+            return para;
         }
     }    
 }
