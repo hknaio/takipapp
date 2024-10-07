@@ -50,7 +50,6 @@ namespace WinFormsApp1
                  )).ToList();
 
                 _toplamUygulamaList.AddRange(list);
-
             }
 
             var toplamUygulamaGrouped = _toplamUygulamaList.GroupBy(t => t.ilce).Select(t => new IlceButce

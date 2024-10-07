@@ -54,6 +54,7 @@
             button1.TabIndex = 58;
             button1.Text = "PDF Aktar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // cmbIlce
             // 
@@ -81,6 +82,7 @@
             btnGetir.TabIndex = 55;
             btnGetir.Text = "Rapor Getir";
             btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
             // 
             // dataGridView1
             // 
@@ -119,7 +121,7 @@
             // 
             // KoyMezra
             // 
-            KoyMezra.DataPropertyName = "koyMezra";
+            KoyMezra.DataPropertyName = "koy";
             KoyMezra.HeaderText = "Köy / Mezra";
             KoyMezra.MinimumWidth = 8;
             KoyMezra.Name = "KoyMezra";
@@ -143,6 +145,7 @@
             // 
             // Koydes
             // 
+            Koydes.DataPropertyName = "koydes";
             Koydes.HeaderText = "KÖYDES";
             Koydes.MinimumWidth = 8;
             Koydes.Name = "Koydes";
@@ -150,6 +153,7 @@
             // 
             // IlOzelIdare
             // 
+            IlOzelIdare.DataPropertyName = "ilozel";
             IlOzelIdare.HeaderText = "İl Özel İdare";
             IlOzelIdare.MinimumWidth = 8;
             IlOzelIdare.Name = "IlOzelIdare";
@@ -157,6 +161,7 @@
             // 
             // Ilbank
             // 
+            Ilbank.DataPropertyName = "ilbank";
             Ilbank.HeaderText = "İlbank";
             Ilbank.MinimumWidth = 8;
             Ilbank.Name = "Ilbank";
@@ -164,6 +169,7 @@
             // 
             // Diger
             // 
+            Diger.DataPropertyName = "diger";
             Diger.HeaderText = "Diğer";
             Diger.MinimumWidth = 8;
             Diger.Name = "Diger";
@@ -171,6 +177,7 @@
             // 
             // Genel
             // 
+            Genel.DataPropertyName = "toplam";
             Genel.HeaderText = "Genel Toplam";
             Genel.MinimumWidth = 8;
             Genel.Name = "Genel";
@@ -188,6 +195,8 @@
             Controls.Add(btnGetir);
             Name = "RprIlceYatirimIcmal";
             Text = "İlçe Yatırım İcmal";
+            Load += RprIlceYatirimIcmal_Load;
+            Leave += RprIlceYatirimIcmal_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
