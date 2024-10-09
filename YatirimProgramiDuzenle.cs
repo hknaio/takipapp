@@ -22,11 +22,11 @@ namespace WinFormsApp1
             if (_yatirimProgrami is not null)
             {
                 lblDurum.Text = _yatirimProgrami.YatirimDurumu.ToString();
-                lblIlce.Text = _yatirimProgrami.Ilce;
+                txtIlce.Text = _yatirimProgrami.Ilce;
                 txtKoyler.Text = _yatirimProgrami.Koy;
                 lblBirim.Text = _yatirimProgrami.Birim;
-                lblImalat.Text = _yatirimProgrami.Imalat;
                 txtMiktar.Text = _yatirimProgrami.Miktar;
+                txtImalat.Text = _yatirimProgrami.Imalat;
             }
         }
 
@@ -42,7 +42,8 @@ namespace WinFormsApp1
         {
             DialogResult result = new();
 
-            if (txtMiktar.Text != _yatirimProgrami.Miktar || txtKoyler.Text != _yatirimProgrami.Koy)
+            if (txtMiktar.Text != _yatirimProgrami.Miktar || txtKoyler.Text != _yatirimProgrami.Koy
+                || txtImalat.Text != _yatirimProgrami.Imalat || txtIlce.Text != _yatirimProgrami.Ilce)
             {
                 try
                 {
@@ -64,10 +65,30 @@ namespace WinFormsApp1
 
                     }
 
+                    else if (txtIlce.Text != _yatirimProgrami.Ilce)
+                    {
+                        var buttons = MessageBoxButtons.YesNo;
+
+                        result = MessageBox.Show("İlçe : " + _yatirimProgrami.Ilce + " ile " + txtIlce.Text + "\n" +
+                                                "\nDeğiştirmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Information);
+
+                    }
+
+                    else if (txtImalat.Text != _yatirimProgrami.Imalat)
+                    {
+                        var buttons = MessageBoxButtons.YesNo;
+
+                        result = MessageBox.Show("İmalat : " + _yatirimProgrami.Imalat + " ile " + txtImalat.Text + "\n" +
+                                                "\nDeğiştirmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Information);
+
+                    }
+
                     if (result == DialogResult.Yes)
                     {
                         _yatirimProgrami.Miktar = txtMiktar.Text;
                         _yatirimProgrami.Koy = txtKoyler.Text;
+                        _yatirimProgrami.Ilce = txtIlce.Text;
+                        _yatirimProgrami.Imalat = txtImalat.Text;
                         _dbContext.Update(_yatirimProgrami);
                         _dbContext.SaveChanges();
 

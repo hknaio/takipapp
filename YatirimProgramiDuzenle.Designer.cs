@@ -35,13 +35,13 @@
             label5 = new Label();
             label6 = new Label();
             lblDurum = new Label();
-            lblImalat = new Label();
             lblBirim = new Label();
-            lblIlce = new Label();
             txtMiktar = new TextBox();
             btnDegistir = new Button();
             button1 = new Button();
             txtKoyler = new TextBox();
+            txtImalat = new TextBox();
+            txtIlce = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -107,15 +107,6 @@
             lblDurum.TabIndex = 6;
             lblDurum.Text = "..";
             // 
-            // lblImalat
-            // 
-            lblImalat.AutoSize = true;
-            lblImalat.Location = new Point(167, 186);
-            lblImalat.Name = "lblImalat";
-            lblImalat.Size = new Size(20, 25);
-            lblImalat.TabIndex = 8;
-            lblImalat.Text = "..";
-            // 
             // lblBirim
             // 
             lblBirim.AutoSize = true;
@@ -124,15 +115,6 @@
             lblBirim.Size = new Size(20, 25);
             lblBirim.TabIndex = 9;
             lblBirim.Text = "..";
-            // 
-            // lblIlce
-            // 
-            lblIlce.AutoSize = true;
-            lblIlce.Location = new Point(167, 67);
-            lblIlce.Name = "lblIlce";
-            lblIlce.Size = new Size(20, 25);
-            lblIlce.TabIndex = 11;
-            lblIlce.Text = "..";
             // 
             // txtMiktar
             // 
@@ -165,21 +147,35 @@
             // 
             txtKoyler.Location = new Point(168, 107);
             txtKoyler.Name = "txtKoyler";
-            txtKoyler.Size = new Size(150, 31);
+            txtKoyler.Size = new Size(331, 31);
             txtKoyler.TabIndex = 15;
+            // 
+            // txtImalat
+            // 
+            txtImalat.Location = new Point(167, 186);
+            txtImalat.Name = "txtImalat";
+            txtImalat.Size = new Size(150, 31);
+            txtImalat.TabIndex = 16;
+            // 
+            // txtIlce
+            // 
+            txtIlce.Location = new Point(168, 67);
+            txtIlce.Name = "txtIlce";
+            txtIlce.Size = new Size(150, 31);
+            txtIlce.TabIndex = 17;
             // 
             // YatirimProgramiDuzenle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(612, 550);
+            Controls.Add(txtIlce);
+            Controls.Add(txtImalat);
             Controls.Add(txtKoyler);
             Controls.Add(button1);
             Controls.Add(btnDegistir);
             Controls.Add(txtMiktar);
-            Controls.Add(lblIlce);
             Controls.Add(lblBirim);
-            Controls.Add(lblImalat);
             Controls.Add(lblDurum);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -204,12 +200,12 @@
         private Label label5;
         private Label label6;
         private Label lblDurum;
-        private Label lblImalat;
         private Label lblBirim;
-        private Label lblIlce;
         private TextBox txtMiktar;
         private Button btnDegistir;
         private Button button1;
         private TextBox txtKoyler;
+        private TextBox txtImalat;
+        private TextBox txtIlce;
     }
 }
