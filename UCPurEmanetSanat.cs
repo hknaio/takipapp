@@ -10,6 +10,7 @@ namespace WinFormsApp1
     public partial class UCPurEmanetSanat : UserControl
     {
         private AppDbContext _dbContext;
+        private List<SpiralBoru> _spiralBorus;
         public UCPurEmanetSanat()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace WinFormsApp1
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             dtTarih.CustomFormat = "MMMM yyyy";
             OrderColumns();
+            _spiralBorus = _dbContext.SpiralBorus.ToList();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -69,7 +71,7 @@ namespace WinFormsApp1
                 {
                     if (purEmanet.Imalat.Isim == "Spiral Boru")
                     {
-                        var boru = _dbContext.SpiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
+                        var boru = _spiralBorus.Where(s => s.ID == purEmanet.SpiralBoruId).FirstOrDefault();
                         e.Value = purEmanet.Imalat.Isim + " - " + boru!.Cap.ToString();
                     }
                     else
