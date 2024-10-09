@@ -61,6 +61,46 @@ namespace YatirimTakip.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Ağın {
+            get {
+                object obj = ResourceManager.GetObject("Ağın", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Alacakaya {
+            get {
+                object obj = ResourceManager.GetObject("Alacakaya", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Arıcak {
+            get {
+                object obj = ResourceManager.GetObject("Arıcak", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Baskil {
+            get {
+                object obj = ResourceManager.GetObject("Baskil", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap elazig_ilozelidare_logo {
@@ -367,6 +407,76 @@ namespace YatirimTakip.Properties {
             get {
                 object obj = ResourceManager.GetObject("icons8-worker-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Karakoçan {
+            get {
+                object obj = ResourceManager.GetObject("Karakoçan", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Keban {
+            get {
+                object obj = ResourceManager.GetObject("Keban", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Kovancılar {
+            get {
+                object obj = ResourceManager.GetObject("Kovancılar", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Maden {
+            get {
+                object obj = ResourceManager.GetObject("Maden", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Merkez {
+            get {
+                object obj = ResourceManager.GetObject("Merkez", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Palu {
+            get {
+                object obj = ResourceManager.GetObject("Palu", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Sivrice {
+            get {
+                object obj = ResourceManager.GetObject("Sivrice", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

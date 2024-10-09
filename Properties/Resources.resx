@@ -211,4 +211,37 @@
   <data name="icons8-stock-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icons8-stock-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Sivrice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sivrice.png;System.Byte[]</value>
+  </data>
+  <data name="Palu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Palu.png;System.Byte[]</value>
+  </data>
+  <data name="Merkez" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Merkez.png;System.Byte[]</value>
+  </data>
+  <data name="Maden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maden.png;System.Byte[]</value>
+  </data>
+  <data name="Kovancılar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Kovancılar.png;System.Byte[]</value>
+  </data>
+  <data name="Keban" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Keban.png;System.Byte[]</value>
+  </data>
+  <data name="Karakoçan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Karakoçan.png;System.Byte[]</value>
+  </data>
+  <data name="Baskil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Baskil.png;System.Byte[]</value>
+  </data>
+  <data name="Arıcak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arıcak.png;System.Byte[]</value>
+  </data>
+  <data name="Alacakaya" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Alacakaya.png;System.Byte[]</value>
+  </data>
+  <data name="Ağın" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ağın.png;System.Byte[]</value>
+  </data>
 </root>

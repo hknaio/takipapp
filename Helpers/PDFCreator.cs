@@ -82,7 +82,62 @@ namespace YatirimTakip.Helpers
                 MessageBox.Show("Kayıt bulunamadı..", "Info");
             }
         }
+        private void AddDistrictImageByName(Document document, string districtName)
+        {
+            try
+            {
+                // Uygulamanın çalıştığı dizine eriş
+                string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
+                // Resim klasörü (örneğin Resources klasörü) uygulama dizininde olmalı
+                string imageFolderPath = Path.Combine(appDirectory, "Resources");
+
+                // Resim dosya yolunu oluştur
+                string imagePath = Path.Combine(imageFolderPath, districtName + ".png"); // Resimler .png formatında
+
+                if (File.Exists(imagePath))
+                {
+                    iTextSharp.text.Image districtImage = iTextSharp.text.Image.GetInstance(imagePath);
+                    districtImage.ScaleToFit(250f, 250f); // Resim boyutunu ayarla
+                    districtImage.Alignment = Element.ALIGN_CENTER; // Ortaya hizalama
+                    document.Add(districtImage); // PDF'e resmi ekler
+
+                    // Resimden sonra iki satır boşluk ekle
+                    Paragraph spaceAfterImage = new Paragraph();
+                    spaceAfterImage.Add(new Chunk("\n\n"));
+                    document.Add(spaceAfterImage);
+                }
+                else
+                {
+                    MessageBox.Show("Resim bulunamadı: " + imagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Resim eklenirken hata oluştu: " + ex.Message);
+            }
+        }
+
+
+        private Paragraph CreateTitle(string districtName)
+        {
+            iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+
+            iTextSharp.text.Font fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 20, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK);
+
+            string title = $"{districtName} İlçesi Bilgi Notu"; // İlçe adı dinamik olarak başlığa ekleniyor
+            Chunk titleChunk = new Chunk(title, fontBold);
+
+            Paragraph titleParagraph = new Paragraph(titleChunk)
+            {
+                Alignment = Element.ALIGN_CENTER // Başlığı ortalayın
+            };
+
+            titleParagraph.Add(new Chunk("\n\n")); // İki satır boşluk ekliyoruz
+
+
+            return titleParagraph;
+        }
         private Paragraph TextData(string name)
         {
             iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
@@ -218,7 +273,11 @@ namespace YatirimTakip.Helpers
                                 Document document = new Document(PageSize.A3, 8f, 16f, 16f, 8f);
                                 PdfWriter.GetInstance(document, fileStream);
                                 document.Open();
+
+                                document.Add(CreateTitle(yolAgi.Ilce.Adi));
+
                                 document.Add(para);
+                                AddDistrictImageByName(document, yolAgi.Ilce.Adi);
                                 document.Add(para2);
                                 document.Add(para3);
                                 document.Add(para4);
