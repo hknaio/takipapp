@@ -194,49 +194,61 @@ namespace YatirimTakip.Helpers
                 araParagraph,space,space
             };
 
-            Chunk bsk = new("BİTÜMLÜ SICAK ASFALT ÇALIŞMASI : " + 
-                programs.Where(p => p.Imalat.Contains("BSK")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var bskToplam = programs.Where(p => p.Imalat.Contains("BSK")).Sum(p => p.Uygulama);
+
+            Chunk bsk = new("BİTÜMLÜ SICAK ASFALT ÇALIŞMASI : " + bskToplam
+                .ToString() + " km", fontBold);
 
             var para3 = new Paragraph()
             {
                 bsk, space, space, space
             };
 
-            Chunk kat1 = new("SATHİ KAPLAMA 1. KAT ASFALT ÇALIŞMASI : " +
-               programs.Where(p => p.Imalat.Contains("1.")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var kat1Toplam = programs.Where(p => p.Imalat.Contains("1.")).Sum(p => p.Uygulama);
+
+            Chunk kat1 = new("SATHİ KAPLAMA 1. KAT ASFALT ÇALIŞMASI : " + kat1Toplam
+               .ToString() + " km", fontBold);
 
             var para4 = new Paragraph()
             {
                 kat1, space, space, space
             };
 
-            Chunk kat2 = new("SATHİ KAPLAMA 2. KAT ASFALT ÇALIŞMASI : " +
-               programs.Where(p => p.Imalat.Contains("2.")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var kat2Toplam = programs.Where(p => p.Imalat.Contains("2.")).Sum(p => p.Uygulama);
+
+            Chunk kat2 = new("SATHİ KAPLAMA 2. KAT ASFALT ÇALIŞMASI : " + kat2Toplam
+               .ToString() + " km", fontBold);
 
             var para5 = new Paragraph()
             {
                 kat2, space, space, space
             };
 
-            Chunk asfaltbakim = new("ASFALT BAKIM ONARIM ÇALIŞMASI : " +
-               programs.Where(p => p.Imalat.Contains("asfalt bakım") ||
-               p.Imalat.Contains("Asfalt Bakım")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var asfaltbakimToplam = programs.Where(p => p.Imalat.Contains("asfalt bakım") ||
+               p.Imalat.Contains("Asfalt Bakım")).Sum(p => p.Uygulama);
+
+            Chunk asfaltbakim = new("ASFALT BAKIM ONARIM ÇALIŞMASI : " + asfaltbakimToplam
+               .ToString() + " km", fontBold);
 
             var para6 = new Paragraph()
             {
                 asfaltbakim, space, space, space
             };
 
-            Chunk kilitli = new("KİLİTLİ PARKE ÇALIŞMASI : " +
-               programs.Where(p => p.Imalat.Contains("ilitli")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var kilitliToplam = programs.Where(p => p.Imalat.Contains("ilitli")).Sum(p => p.Uygulama);
+
+            Chunk kilitli = new("KİLİTLİ PARKE ÇALIŞMASI : " + kilitliToplam
+               .ToString() + " km", fontBold);
 
             var para7 = new Paragraph()
             {
                 kilitli, space, space, space
             };
 
-            Chunk stabilize = new("STABİLİZE ÇALIŞMASI : " +
-               programs.Where(p => p.Imalat.Contains("stabilize")).Sum(p => p.Uygulama).ToString() + " km", fontBold);
+            var stabilizeToplam = programs.Where(p => p.Imalat.Contains("stabilize")).Sum(p => p.Uygulama);
+
+            Chunk stabilize = new("STABİLİZE ÇALIŞMASI : " + stabilizeToplam
+               .ToString() + " km", fontBold);
 
             var para8 = new Paragraph()
             {
@@ -279,12 +291,36 @@ namespace YatirimTakip.Helpers
                                 document.Add(para);
                                 AddDistrictImageByName(document, yolAgi.Ilce.Adi);
                                 document.Add(para2);
-                                document.Add(para3);
-                                document.Add(para4);
-                                document.Add(para5);
-                                document.Add(para6);
-                                document.Add(para7);
-                                document.Add(para8);
+                                if (bskToplam > 0)
+                                {
+                                    document.Add(para3);
+                                }
+
+                                if (kat1Toplam > 0)
+                                {
+                                    document.Add(para4);
+                                }
+
+                                if (kat2Toplam > 0)
+                                {
+                                    document.Add(para5);
+                                }
+
+                                if (asfaltbakimToplam > 0)
+                                {
+                                    document.Add(para6);
+                                }
+
+                                if (kilitliToplam > 0)
+                                {
+                                    document.Add(para7);
+                                }
+
+                                if (stabilizeToplam > 0)
+                                {
+                                    document.Add(para8);
+                                }                                
+                                
                                 document.Close();
                                 fileStream.Close();
                             }
