@@ -64,10 +64,10 @@ namespace WinFormsApp1
                         IlceId = ilce!.ID,
                         KoyId = koy!.ID,
                         ImalatId = imalat!.ID,
-                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToInt32(txtBoruMetre.Text)
-                        : Convert.ToInt32(txtMiktar.Text),
-                        Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToInt32(txtBoruMetre.Text)
-                        : imalat.BirimFiyat * Convert.ToInt32(txtMiktar.Text),
+                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToDouble(txtBoruMetre.Text)
+                        : Convert.ToDouble(txtMiktar.Text),
+                        Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text)
+                        : imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
                         SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null
                     };
 

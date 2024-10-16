@@ -25,7 +25,7 @@ namespace YatirimTakip
             var yolAgi = _dbContext.YolAgis.Where(x => x.Ilce.Adi == cmbIlce.Text).FirstOrDefault();
             var programs = _dbContext.YatirimProgramis.Where(x => x.Ilce == cmbIlce.Text
             && x.YatirimDurumu == WinFormsApp1.Models.YatirimDurumu.Uygulandi).ToList();
-
+                   
             pDFCreator.BilgiNotu(yolAgi, programs);
         }
     }
