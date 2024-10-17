@@ -43,6 +43,8 @@
             label2 = new Label();
             label1 = new Label();
             button1 = new Button();
+            cmbKoy = new ComboBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -140,7 +142,7 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(661, 23);
+            btnGetir.Location = new Point(994, 22);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(179, 41);
             btnGetir.TabIndex = 48;
@@ -154,8 +156,9 @@
             cmbIlce.Items.AddRange(new object[] { "--" });
             cmbIlce.Location = new Point(331, 28);
             cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.Size = new Size(210, 33);
             cmbIlce.TabIndex = 52;
+            cmbIlce.SelectedIndexChanged += cmbIlce_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -177,7 +180,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(911, 27);
+            button1.Location = new Point(1194, 25);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 54;
@@ -185,11 +188,31 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // cmbKoy
+            // 
+            cmbKoy.FormattingEnabled = true;
+            cmbKoy.Items.AddRange(new object[] { "Hepsi" });
+            cmbKoy.Location = new Point(619, 28);
+            cmbKoy.Name = "cmbKoy";
+            cmbKoy.Size = new Size(300, 33);
+            cmbKoy.TabIndex = 56;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(557, 31);
+            label4.Name = "label4";
+            label4.Size = new Size(56, 25);
+            label4.TabIndex = 57;
+            label4.Text = "Köy : ";
+            // 
             // FaaliyetRaporuKoy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1352, 810);
+            Controls.Add(label4);
+            Controls.Add(cmbKoy);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(cmbIlce);
@@ -221,5 +244,7 @@
         private DataGridViewTextBoxColumn Tarih;
         private DataGridViewTextBoxColumn Uygulama;
         private DataGridViewTextBoxColumn Harcama;
+        private ComboBox cmbKoy;
+        private Label label4;
     }
 }

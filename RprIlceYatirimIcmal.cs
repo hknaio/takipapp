@@ -5,7 +5,7 @@ using YatirimTakip.Helpers;
 
 namespace YatirimTakip
 {
-    internal record YatirimIcmal(string koy, int yil, string imalat, double koydes, double ilozel, double ilbank, double diger, double toplam);
+    internal record YatirimIcmal(string koy, int yil, string imalat, double ilozel, double koydes, double ilbank, double diger, double toplam);
     internal record ToplamUygulama(int programId, string koy, string imalat, double tahakkkuk, double toplamUygulama, double uygulama, double oransalTahakkuk);
     public partial class RprIlceYatirimIcmal : Form
     {
