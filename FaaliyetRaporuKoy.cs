@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using WinFormsApp1.Models;
 using YatirimTakip.Helpers;
-using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
@@ -19,6 +18,7 @@ namespace WinFormsApp1
         {
             _dbContext = new AppDbContext();
             _dbContext.Ilces.Load();
+
             dataGridView1.Columns[5].DefaultCellStyle.Format = "N2";
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
@@ -27,83 +27,113 @@ namespace WinFormsApp1
         {
             if (cmbYil.Text != string.Empty)
             {
-                dataGridView1.DataSource = new List<FaaliyetRaporKoy>();
-
-                var yil = Convert.ToInt32(cmbYil.Text);
-                var ilce = (Ilce)cmbIlce.SelectedValue!;
-                var koy = cmbKoy.Text;
-
-                List<PurEmanet> purEmanets = new();
-                List<Proje> projeler = new();
-
-                if (cmbKoy.Text == "Hepsi")
+                if (cmbKaynak.Text != string.Empty)
                 {
-                    purEmanets = _dbContext.PurEmanets
-                   .Include(p => p.Koy)
-                   .Include(p => p.Imalat)
-                   .Where(p => p.Tarih.Year == yil
-               && p.Ilce.Adi == ilce.Adi).ToList();
+                    dataGridView1.DataSource = new List<FaaliyetRaporKoy>();
 
-                    projeler = _dbContext.Projes
-                        .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi))
-                        .ToList();
+                    var yil = Convert.ToInt32(cmbYil.Text);
+                    var ilce = (Ilce)cmbIlce.SelectedValue!;
+                    var koy = cmbKoy.Text;
 
+                    List<PurEmanet> purEmanets = new();
+                    List<Proje> projeler = new();
+
+                    if (cmbKoy.Text == "Hepsi")
+                    {
+                        if (cmbKaynak.Text == "Hepsi")
+                        {
+                            purEmanets = _dbContext.PurEmanets
+                      .Include(p => p.Koy)
+                      .Include(p => p.Imalat)
+                      .Where(p => p.Tarih.Year == yil
+                  && p.Ilce.Adi == ilce.Adi).ToList();
+
+                            projeler = _dbContext.Projes
+                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi))
+                            .ToList();
+                        }
+
+                        else
+                        {
+                            projeler = _dbContext.Projes.AsNoTracking()
+                            .Include(p => p.Programis.Where(p => p.Kaynak == cmbKaynak.Text
+                                                              && p.Yil == yil && p.Ilce == ilce.Adi
+                                                              ))
+                            .ToList();
+                        }
+                    }
+
+                    else
+                    {                        
+
+                        if (cmbKaynak.Text == "Hepsi")
+                        {
+                            purEmanets = _dbContext.PurEmanets
+                       .Include(p => p.Koy)
+                       .Include(p => p.Imalat)
+                       .Where(p => p.Tarih.Year == yil
+                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text).ToList();
+
+
+                            projeler = _dbContext.Projes
+                            .Include(p => p.Programis.Where(p => p.Yil == yil
+                                                              && p.Koy.Contains(koy)
+                                                              && p.Ilce == ilce.Adi
+                                                              ))
+                            .ToList();
+                        }
+
+                        else
+                        {
+                            projeler = _dbContext.Projes.AsNoTracking()
+                            .Include(p => p.Programis.Where(p => p.Kaynak == cmbKaynak.Text
+                                                              && p.Yil == yil
+                                                              && p.Koy.Contains(koy)
+                                                              && p.Ilce == ilce.Adi
+                                                              ))
+                            .ToList();
+                        }
+                    }
+
+                    List<FaaliyetRaporKoy> _toplamUygulamaList = [];
+
+                    foreach (var item in projeler)
+                    {
+                        var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
+                                                          && (koy == "Hepsi") || p.Koy.Contains(koy))
+                            .Select(s => new FaaliyetRaporKoy
+                         (
+                            s.Koy,
+                             s.Kaynak,
+                             s.Imalat,
+                             item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
+                             s.Uygulama,
+                            (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                            + AsfaltDokumBedel(s.ID)
+                         )).ToList();
+
+                        _toplamUygulamaList.AddRange(list);
+                    }
+
+                    if (purEmanets is not null)
+                    {
+                        var purEmanetGrouped = purEmanets.Select(s => new FaaliyetRaporKoy
+                        (
+                            s.Koy.Adi,
+                            "Püremanet",
+                            s.Imalat.Isim,
+                            s.Tarih.Date,
+                            s.Miktar,
+                            s.Tutar
+                        )).ToList();
+
+                        _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).OrderBy(u => u.koyMezra).ToList();
+                    }
+
+                    dataGridView1.DataSource = _toplamUygulamaList;
                 }
 
-                else
-                {
-                    purEmanets = _dbContext.PurEmanets
-                   .Include(p => p.Koy)
-                   .Include(p => p.Imalat)
-                   .Where(p => p.Tarih.Year == yil
-               && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text).ToList();
-                                       
-
-                    projeler = _dbContext.Projes
-                        .Include(p => p.Programis.Where(p => p.Yil == yil
-                                                          && p.Koy.Contains(koy)
-                                                          && p.Ilce == ilce.Adi                                                          
-                                                          ))
-                        .ToList();
-
-                }
-
-                List<FaaliyetRaporKoy> _toplamUygulamaList = [];
-
-                foreach (var item in projeler)
-                {
-                    var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi 
-                                                      && (koy == "Hepsi") || p.Koy.Contains(koy))
-                        .Select(s => new FaaliyetRaporKoy
-                     (
-                        s.Koy,
-                         s.Kaynak,
-                         s.Imalat,
-                         item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                         s.Uygulama,
-                        (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
-                        + AsfaltDokumBedel(s.ID)
-                     )).ToList();
-
-                    _toplamUygulamaList.AddRange(list);
-                }
-
-                if (purEmanets is not null)
-                {
-                    var purEmanetGrouped = purEmanets.Select(s => new FaaliyetRaporKoy
-                    (
-                        s.Koy.Adi,
-                        "Püremanet",
-                        s.Imalat.Isim,
-                        s.Tarih.Date,
-                        s.Miktar,
-                        s.Tutar
-                    )).ToList();
-
-                    _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).OrderBy(u => u.koyMezra).ToList();
-                }
-
-                dataGridView1.DataSource = _toplamUygulamaList;
+                cmbKaynak.Focus();               
             }
 
             cmbYil.Focus();

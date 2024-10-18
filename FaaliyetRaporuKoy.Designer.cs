@@ -45,6 +45,8 @@
             button1 = new Button();
             cmbKoy = new ComboBox();
             label4 = new Label();
+            cmbKaynak = new ComboBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1328, 723);
+            dataGridView1.Size = new Size(1689, 723);
             dataGridView1.TabIndex = 45;
             // 
             // KoyMezra
@@ -142,7 +144,7 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(994, 22);
+            btnGetir.Location = new Point(1349, 24);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(179, 41);
             btnGetir.TabIndex = 48;
@@ -180,7 +182,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1194, 25);
+            button1.Location = new Point(1544, 27);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 54;
@@ -206,11 +208,31 @@
             label4.TabIndex = 57;
             label4.Text = "Köy : ";
             // 
+            // cmbKaynak
+            // 
+            cmbKaynak.FormattingEnabled = true;
+            cmbKaynak.Items.AddRange(new object[] { "Hepsi", "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
+            cmbKaynak.Location = new Point(1060, 29);
+            cmbKaynak.Name = "cmbKaynak";
+            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.TabIndex = 59;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(951, 32);
+            label3.Name = "label3";
+            label3.Size = new Size(77, 25);
+            label3.TabIndex = 58;
+            label3.Text = "Kaynak :";
+            // 
             // FaaliyetRaporuKoy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1352, 810);
+            ClientSize = new Size(1745, 810);
+            Controls.Add(cmbKaynak);
+            Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(cmbKoy);
             Controls.Add(button1);
@@ -246,5 +268,7 @@
         private DataGridViewTextBoxColumn Harcama;
         private ComboBox cmbKoy;
         private Label label4;
+        private ComboBox cmbKaynak;
+        private Label label3;
     }
 }
