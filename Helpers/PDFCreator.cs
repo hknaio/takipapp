@@ -63,6 +63,7 @@ namespace YatirimTakip.Helpers
                                 Document document = new Document(PageSize.A3, 8f, 16f, 16f, 8f);
                                 PdfWriter.GetInstance(document, fileStream);
                                 document.Open();
+                                document.Add(AppName(document));
                                 document.Add(TextData(name));
                                 document.Add(pTable);
                                 document.Close();
@@ -133,7 +134,7 @@ namespace YatirimTakip.Helpers
                 Alignment = Element.ALIGN_CENTER // Başlığı ortalayın
             };
 
-            titleParagraph.Add(new Chunk("\n\n")); // İki satır boşluk ekliyoruz
+            titleParagraph.Add(new Chunk("\n")); // İki satır boşluk ekliyoruz
 
 
             return titleParagraph;
@@ -147,13 +148,66 @@ namespace YatirimTakip.Helpers
 
 
             Chunk c1 = new(" \t\t\t\t\t\t\t\t\t" + name, fontBold);
-            Chunk space = new("\n\n");
+            Chunk space = new("\n");
 
 
             var para = new Paragraph()
             {
                 c1,space,space
             };
+
+            return para;
+        }
+
+        private Paragraph AppName(Document document)
+        {
+            iTextSharp.text.pdf.BaseFont STF_Helvetica_Turkish = iTextSharp.text.pdf.BaseFont.CreateFont("Helvetica", "CP1254", iTextSharp.text.pdf.BaseFont.NOT_EMBEDDED);
+
+
+            iTextSharp.text.Font fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.RED);
+
+
+            Chunk c1 = new(" \t\t\t\t\t\t\t\t\t" + "YATIRIM TAKİP YÖNETİM SİSTEMİ", fontBold);
+            Chunk space = new("\n");
+
+
+            var para = new Paragraph()
+            {
+                c1,space,space
+            };
+
+            try
+            {
+                // Uygulamanın çalıştığı dizine eriş
+                string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Resim klasörü (örneğin Resources klasörü) uygulama dizininde olmalı
+                string imageFolderPath = Path.Combine(appDirectory, "Resources");
+
+                // Resim dosya yolunu oluştur
+                string imagePath = Path.Combine(imageFolderPath,"yatirimtakiplogo.png"); // Resimler .png formatında
+
+                if (File.Exists(imagePath))
+                {
+                    iTextSharp.text.Image districtImage = iTextSharp.text.Image.GetInstance(imagePath);
+                    districtImage.ScaleToFit(70f, 70f); // Resim boyutunu ayarla
+                    districtImage.Alignment = Element.ALIGN_LEFT; // Ortaya hizalama
+                    document.Add(districtImage); // PDF'e resmi ekler
+
+                    // Resimden sonra iki satır boşluk ekle
+                    Paragraph spaceAfterImage = new Paragraph();
+                    spaceAfterImage.Add(new Chunk("\n\n"));
+                    document.Add(spaceAfterImage);
+                }
+                else
+                {
+                    MessageBox.Show("Resim bulunamadı: " + imagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Resim eklenirken hata oluştu: " + ex.Message);
+            }
 
             return para;
         }
