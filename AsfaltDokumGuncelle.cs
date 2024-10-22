@@ -65,6 +65,7 @@ namespace WinFormsApp1
                             asfaltDokum!.DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text);
                             asfaltDokum!.BSKMiktari = Convert.ToDouble(txtBskMiktari.Text);
                             asfaltDokum!.Emisyon = Convert.ToDouble(txtEmisyon.Text);
+                            selected.YatirimDurumu = YatirimDurumu.Uygulandi;
 
                             _dbContext.Update(asfaltDokum);
                         }
