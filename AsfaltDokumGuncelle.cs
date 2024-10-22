@@ -60,7 +60,7 @@ namespace WinFormsApp1
                             asfaltDokum!.AstarMiktari = Convert.ToDouble(txtAstarMiktari.Text);
                             asfaltDokum!.YamaMiktari = Convert.ToDouble(txtYamaMiktari.Text);
                             asfaltDokum!.AsfaltMiktari = Convert.ToDouble(txtAsfaltMiktari.Text);
-                            asfaltDokum!.DokumMesafesi = Convert.ToDouble(txtAstarMiktari.Text);
+                            asfaltDokum!.DokumMesafesi = Convert.ToDouble(txtDokumMesafesi.Text);
                             asfaltDokum!.DokumTarihi = dtpDokumTarihi.Value.Date;
                             asfaltDokum!.DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text);
                             asfaltDokum!.BSKMiktari = Convert.ToDouble(txtBskMiktari.Text);
