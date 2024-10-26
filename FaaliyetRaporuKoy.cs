@@ -130,6 +130,23 @@ namespace WinFormsApp1
                         _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).OrderBy(u => u.koyMezra).ToList();
                     }
 
+                    var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                        p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil)
+                        .Select(p => new FaaliyetRaporKoy
+                        (
+                            p.YatirimProgrami.Koy,
+                            p.YatirimProgrami.Kaynak,
+                            p.YatirimProgrami.Imalat,
+                            p.DokumTarihi,
+                            p.BSKMiktari,
+                            p.DokumBedeli
+                        )).ToList();
+
+                    _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                        .ThenBy(u => u.imalat).ToList();
+
+
                     dataGridView1.DataSource = _toplamUygulamaList;
                 }
 

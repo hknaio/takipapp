@@ -22,8 +22,7 @@ namespace WinFormsApp1
 
             if (uygulama)
             {
-                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
-                                                   && y.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).Load();
+                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)).Load();
             }
 
             else

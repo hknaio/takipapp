@@ -83,6 +83,9 @@
             ProjedenCikar = new DataGridViewButtonColumn();
             btnYeniProgram = new Button();
             btnTarihleriSifirla = new Button();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -421,7 +424,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(306, 429);
+            label15.Location = new Point(398, 434);
             label15.Name = "label15";
             label15.Size = new Size(161, 25);
             label15.TabIndex = 37;
@@ -431,7 +434,7 @@
             // 
             lblHakedisTahakkuk.AutoSize = true;
             lblHakedisTahakkuk.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblHakedisTahakkuk.Location = new Point(483, 426);
+            lblHakedisTahakkuk.Location = new Point(565, 430);
             lblHakedisTahakkuk.Name = "lblHakedisTahakkuk";
             lblHakedisTahakkuk.Size = new Size(58, 30);
             lblHakedisTahakkuk.TabIndex = 38;
@@ -612,11 +615,44 @@
             btnTarihleriSifirla.UseVisualStyleBackColor = true;
             btnTarihleriSifirla.Click += btnTarihleriSifirla_Click;
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label16.Location = new Point(352, 378);
+            label16.Name = "label16";
+            label16.Size = new Size(26, 30);
+            label16.TabIndex = 42;
+            label16.Text = "₺";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label17.Location = new Point(352, 425);
+            label17.Name = "label17";
+            label17.Size = new Size(26, 30);
+            label17.TabIndex = 43;
+            label17.Text = "₺";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            label18.Location = new Point(713, 430);
+            label18.Name = "label18";
+            label18.Size = new Size(26, 30);
+            label18.TabIndex = 44;
+            label18.Text = "₺";
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1890, 1050);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(label16);
             Controls.Add(btnTarihleriSifirla);
             Controls.Add(btnYeniProgram);
             Controls.Add(dataGridView1);
@@ -718,5 +754,8 @@
         private DataGridViewTextBoxColumn Kaynak;
         private DataGridViewButtonColumn ProjedenCikar;
         private Button btnTarihleriSifirla;
+        private Label label16;
+        private Label label17;
+        private Label label18;
     }
 }

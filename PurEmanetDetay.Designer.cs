@@ -50,6 +50,8 @@
             lblCins = new Label();
             lblMezralar = new Label();
             lblTutar = new Label();
+            label12 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -250,11 +252,31 @@
             lblTutar.TabIndex = 21;
             lblTutar.Text = ".. ";
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(270, 402);
+            label12.Name = "label12";
+            label12.Size = new Size(22, 25);
+            label12.TabIndex = 22;
+            label12.Text = "₺";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(270, 314);
+            label13.Name = "label13";
+            label13.Size = new Size(22, 25);
+            label13.TabIndex = 23;
+            label13.Text = "₺";
+            // 
             // PurEmanetDetay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1003, 525);
+            Controls.Add(label13);
+            Controls.Add(label12);
             Controls.Add(lblTutar);
             Controls.Add(lblMezralar);
             Controls.Add(lblCins);
@@ -309,5 +331,7 @@
         private Label lblCins;
         private Label lblMezralar;
         private Label lblTutar;
+        private Label label12;
+        private Label label13;
     }
 }

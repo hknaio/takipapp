@@ -42,6 +42,7 @@ namespace WinFormsApp1
                     {
                         Cap = Convert.ToInt32(txtCap.Text),
                         Birim = txtBirim.Text,
+                        BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text),
                         StokMiktar = Convert.ToInt32(txtStok.Text),
                     });
                     _dbContext.SaveChanges();
@@ -60,7 +61,7 @@ namespace WinFormsApp1
         private bool IsModelValid()
         {
             if (txtCap.Text != string.Empty && txtBirim.Text != string.Empty
-                && txtStok.Text != string.Empty)
+                && txtStok.Text != string.Empty && txtBirimFiyat.Text != string.Empty)
             {
                 return true;
             }
