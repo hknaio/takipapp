@@ -26,7 +26,8 @@ namespace WinFormsApp1
                                           && !p.Imalat.Isim.Contains("Menfez") &&
                                           !p.Imalat.Isim.Contains("Spiral Boru") &&
                                           !p.Imalat.Isim.Contains("Taş Duvar") &&
-                                          !p.Imalat.Isim.Contains("Köprü")).Load();
+                                          !p.Imalat.Isim.Contains("Köprü")).
+                                          OrderBy(p => p.Tarih).Load();
 
             _dbContext.Imalats.Load();
              _dbContext.SpiralBorus.Load();

@@ -28,7 +28,8 @@ namespace WinFormsApp1
                                           && (p.Imalat.Isim.Contains("Menfez") ||
                                           p.Imalat.Isim.Contains("Spiral Boru") ||
                                           p.Imalat.Isim.Contains("Taş Duvar") ||
-                                          p.Imalat.Isim.Contains("Köprü"))).Load();
+                                          p.Imalat.Isim.Contains("İstinat Duvarı") ||
+                                          p.Imalat.Isim.Contains("Köprü"))).OrderBy(p => p.Tarih).Load();
             _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();

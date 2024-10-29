@@ -21,6 +21,7 @@ namespace WinFormsApp1
             _dbContext.Imalats.Where(i => i.Isim.Contains("Menfez") || 
                                           i.Isim.Contains("Spiral Boru") ||
                                           i.Isim.Contains("Taş Duvar") ||
+                                          i.Isim.Contains("İstinat Duvarı") ||
                                           i.Isim.Contains("Köprü")).Load();
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
