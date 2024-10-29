@@ -251,7 +251,7 @@ namespace YatirimTakip.Helpers
             var bskToplam = programs.Where(p => p.Imalat.Contains("BSK")).Sum(p => p.Uygulama);
 
             Chunk bsk = new("BİTÜMLÜ SICAK ASFALT ÇALIŞMASI : " + bskToplam
-                .ToString() + " km", fontBold);
+                .ToString() + " m", fontBold);
 
             var para3 = new Paragraph()
             {
