@@ -74,6 +74,7 @@ namespace WinFormsApp1
             else
             {
                 dtpBitisTarihi.Value = proje.IsBitisTarihi.Value;
+                dtpIseBaslama.Value = proje.IseBaslamaTarihi.Value;
             }
 
             if (proje.GeciciKabulTarihi is null)
