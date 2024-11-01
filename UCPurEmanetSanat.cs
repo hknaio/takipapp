@@ -130,6 +130,8 @@ namespace WinFormsApp1
                 {
                     var imalat = (Imalat)dataGridView1.CurrentRow.Cells["Imalat"].Value;
 
+                    var miktar = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Miktar"].Value);
+
                     var buttons = MessageBoxButtons.YesNo;
                     var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
 
@@ -141,7 +143,7 @@ namespace WinFormsApp1
 
                             if (spiralBoru != null)
                             {
-                                spiralBoru.StokMiktar++;
+                                spiralBoru.StokMiktar += miktar;
                                 _dbContext?.Update(spiralBoru);
                             }
                         }
