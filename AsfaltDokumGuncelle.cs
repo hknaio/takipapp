@@ -36,6 +36,7 @@ namespace WinFormsApp1
                     dtpDokumTarihi.Value = asfaltDokum.DokumTarihi.Date;
                     txtDokumBedeli.Text = asfaltDokum.DokumBedeli.ToString();
                     txtBskMiktari.Text = asfaltDokum.BSKMiktari.ToString();
+                    txtEmisyon.Text = asfaltDokum.Emisyon.ToString();
                 }
             }
 
@@ -77,10 +78,11 @@ namespace WinFormsApp1
                                 AstarMiktari = Convert.ToDouble(txtAstarMiktari.Text),
                                 YamaMiktari = Convert.ToDouble(txtYamaMiktari.Text),
                                 AsfaltMiktari = Convert.ToDouble(txtAsfaltMiktari.Text),
-                                DokumMesafesi = Convert.ToDouble(txtAstarMiktari.Text),
+                                DokumMesafesi = Convert.ToDouble(txtDokumMesafesi.Text),
                                 DokumTarihi = dtpDokumTarihi.Value.Date,
                                 DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text),
                                 BSKMiktari = Convert.ToDouble(txtBskMiktari.Text),
+                                Emisyon = Convert.ToInt32(txtEmisyon.Text),                                
                                 
                                 YatirimProgrami = selected,
                             });

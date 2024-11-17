@@ -38,5 +38,11 @@
             UCAsfaltDokum ucc = new("BSK");
             addControls(ucc);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            UCAsfaltDokum ucc = new("Asfalt Döküm İhalesi");
+            addControls(ucc);
+        }
     }
 }

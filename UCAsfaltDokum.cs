@@ -16,8 +16,9 @@ namespace WinFormsApp1
 
         private void UCAsfaltDokum_Load(object sender, EventArgs e)
         {
-            var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK" ? true : false;
-
+            var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK" 
+                || _asfalt == "Asfalt Döküm İhalesi" ? true : false;
+             
             _dbContext = new AppDbContext();
 
             if (uygulama)
@@ -74,8 +75,8 @@ namespace WinFormsApp1
             {
                 var id = (int)dataGridView1.Rows[e.RowIndex].Cells["ProgramId"].Value;
                 var asfaltDokum = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id).FirstOrDefault();
-                e.Value = asfaltDokum is null ? 0 : asfaltDokum.AsfaltMiktari;
-            }
+                e.Value = asfaltDokum is null ? 0 : asfaltDokum.DokumMesafesi;
+            }            
         }
     }
 }

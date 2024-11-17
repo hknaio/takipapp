@@ -33,6 +33,7 @@
             button3 = new Button();
             button4 = new Button();
             panelContainer = new Panel();
+            button5 = new Button();
             panelContainer.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             // 
             // panelContainer
             // 
+            panelContainer.Controls.Add(button5);
             panelContainer.Controls.Add(button1);
             panelContainer.Controls.Add(button4);
             panelContainer.Controls.Add(button2);
@@ -98,6 +100,19 @@
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(1673, 784);
             panelContainer.TabIndex = 4;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.LightSkyBlue;
+            button5.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
+            button5.Location = new Point(655, 64);
+            button5.Name = "button5";
+            button5.Size = new Size(181, 133);
+            button5.TabIndex = 4;
+            button5.Text = "Asfalt Döküm İhalesi";
+            button5.TextImageRelation = TextImageRelation.ImageAboveText;
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // UCAsfaltAna
             // 
@@ -117,5 +132,6 @@
         private Button button3;
         private Button button4;
         private Panel panelContainer;
+        private Button button5;
     }
 }

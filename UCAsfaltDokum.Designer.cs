@@ -116,7 +116,7 @@
             // Miktar
             // 
             Miktar.DataPropertyName = "Miktar";
-            Miktar.HeaderText = "Miktar";
+            Miktar.HeaderText = "Miktar (Program)";
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
@@ -133,6 +133,7 @@
             // 
             // Dokum
             // 
+            Dokum.DataPropertyName = "Dokum";
             Dokum.HeaderText = "Döküm Mesafe (km)";
             Dokum.MinimumWidth = 8;
             Dokum.Name = "Dokum";
@@ -219,6 +220,7 @@
             // 
             // AsfaltDokum
             // 
+            AsfaltDokum.DataPropertyName = "AsfaltDokum";
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.LimeGreen;
             dataGridViewCellStyle2.ForeColor = Color.White;
