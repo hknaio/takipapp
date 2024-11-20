@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.Entity;
 using WinFormsApp1.Data;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -84,6 +85,13 @@ namespace WinFormsApp1
                     this.OnLoad(e);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PDFCreator pDF = new();
+
+            pDF.CreatePdf(dataGridView1, "Program Detay " + _kaynak + " " + _yil);
         }
     }
 }

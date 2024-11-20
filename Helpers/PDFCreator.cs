@@ -38,24 +38,31 @@ namespace YatirimTakip.Helpers
                     {
                         try
                         {
-                            PdfPTable pTable = new PdfPTable(dataGrid.Columns.Count);
+                            var colCount = name.Contains("Program Detay") ? dataGrid.Columns.Count - 4 : dataGrid.Columns.Count;
+                            PdfPTable pTable = new PdfPTable(colCount);
                             pTable.DefaultCell.Padding = 2;
                             pTable.WidthPercentage = 100;
                             pTable.HorizontalAlignment = Element.ALIGN_LEFT;
                             foreach (DataGridViewColumn col in dataGrid.Columns)
                             {
-                                PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText, fontBold));
-                                pTable.AddCell(pCell);
+                                if (col.HeaderText != "Düzenle" && col.HeaderText != "Sil" && col.HeaderText != "ID" && col.HeaderText != "Proje")
+                                {
+                                    PdfPCell pCell = new PdfPCell(new Phrase(col.HeaderText, fontBold));
+                                    pTable.AddCell(pCell);
+                                }
                             }
                             foreach (DataGridViewRow viewRow in dataGrid.Rows)
                             {
                                 foreach (DataGridViewCell dcell in viewRow.Cells)
                                 {
-                                    var value = formatData(dcell.Value.ToString()) ? Convert.ToDouble(dcell.Value).ToString("N2") : dcell.Value.ToString();
+                                    if (dcell.Displayed && dcell.ToolTipText != "Sil" && dcell.ToolTipText != "Düzenle")
+                                    {
+                                        var value = formatData(dcell.Value.ToString()) ? Convert.ToDouble(dcell.Value).ToString("N2") : dcell.Value.ToString();
 
-                                    pTable.AddCell(new Phrase(
-                                         value
-                                        , fontNormal));
+                                        pTable.AddCell(new Phrase(
+                                             value
+                                            , fontNormal));
+                                    }                                                   
                                 }
                             }
                             using (FileStream fileStream = new FileStream(save.FileName, FileMode.Create))
