@@ -31,6 +31,9 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
+            cmbYil = new ComboBox();
+            btnGetir = new Button();
+            button1 = new Button();
             Ilce = new DataGridViewTextBoxColumn();
             IsAdet = new DataGridViewTextBoxColumn();
             Kat1 = new DataGridViewTextBoxColumn();
@@ -47,11 +50,13 @@
             Kar = new DataGridViewTextBoxColumn();
             Beton = new DataGridViewTextBoxColumn();
             YeniYol = new DataGridViewTextBoxColumn();
+            AracKira = new DataGridViewTextBoxColumn();
+            Spiral = new DataGridViewTextBoxColumn();
+            Icme = new DataGridViewTextBoxColumn();
+            Tarimsal = new DataGridViewTextBoxColumn();
+            Kaya = new DataGridViewTextBoxColumn();
             Diger = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
-            cmbYil = new ComboBox();
-            btnGetir = new Button();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -72,7 +77,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, Diger, Miktar });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, AracKira, Spiral, Icme, Tarimsal, Kaya, Diger, Miktar });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -89,6 +94,35 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1885, 843);
             dataGridView1.TabIndex = 44;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(27, 22);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 47;
+            // 
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(286, 17);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 46;
+            btnGetir.Text = "Rapor Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(691, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 48;
+            button1.Text = "PDF Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Ilce
             // 
@@ -218,6 +252,46 @@
             YeniYol.Name = "YeniYol";
             YeniYol.ReadOnly = true;
             // 
+            // AracKira
+            // 
+            AracKira.DataPropertyName = "arac";
+            AracKira.HeaderText = "Araç Kira.";
+            AracKira.MinimumWidth = 8;
+            AracKira.Name = "AracKira";
+            AracKira.ReadOnly = true;
+            // 
+            // Spiral
+            // 
+            Spiral.DataPropertyName = "spiral";
+            Spiral.HeaderText = "Spiral";
+            Spiral.MinimumWidth = 8;
+            Spiral.Name = "Spiral";
+            Spiral.ReadOnly = true;
+            // 
+            // Icme
+            // 
+            Icme.DataPropertyName = "icme";
+            Icme.HeaderText = "İçme Suyu";
+            Icme.MinimumWidth = 8;
+            Icme.Name = "Icme";
+            Icme.ReadOnly = true;
+            // 
+            // Tarimsal
+            // 
+            Tarimsal.DataPropertyName = "tarim";
+            Tarimsal.HeaderText = "Tarımsal Su";
+            Tarimsal.MinimumWidth = 8;
+            Tarimsal.Name = "Tarimsal";
+            Tarimsal.ReadOnly = true;
+            // 
+            // Kaya
+            // 
+            Kaya.DataPropertyName = "kaya";
+            Kaya.HeaderText = "Kaya T.";
+            Kaya.MinimumWidth = 8;
+            Kaya.Name = "Kaya";
+            Kaya.ReadOnly = true;
+            // 
             // Diger
             // 
             Diger.DataPropertyName = "diger";
@@ -233,35 +307,6 @@
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
-            // 
-            // cmbYil
-            // 
-            cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(27, 22);
-            cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
-            cmbYil.TabIndex = 47;
-            // 
-            // btnGetir
-            // 
-            btnGetir.Location = new Point(286, 17);
-            btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
-            btnGetir.TabIndex = 46;
-            btnGetir.Text = "Rapor Getir";
-            btnGetir.UseVisualStyleBackColor = true;
-            btnGetir.Click += btnGetir_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(691, 20);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 34);
-            button1.TabIndex = 48;
-            button1.Text = "PDF Aktar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // FaaliyetRaporu
             // 
@@ -303,6 +348,11 @@
         private DataGridViewTextBoxColumn Kar;
         private DataGridViewTextBoxColumn Beton;
         private DataGridViewTextBoxColumn YeniYol;
+        private DataGridViewTextBoxColumn AracKira;
+        private DataGridViewTextBoxColumn Spiral;
+        private DataGridViewTextBoxColumn Icme;
+        private DataGridViewTextBoxColumn Tarimsal;
+        private DataGridViewTextBoxColumn Kaya;
         private DataGridViewTextBoxColumn Diger;
         private DataGridViewTextBoxColumn Miktar;
     }
