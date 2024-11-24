@@ -100,7 +100,7 @@ namespace WinFormsApp1
                     foreach (var item in projeler)
                     {
                         var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                          && (koy == "Hepsi") || p.Koy.Contains(koy))
+                                                          && p.Koy.Contains(koy))
                             .Select(s => new FaaliyetRaporKoy
                          (
                             s.Koy,
@@ -130,9 +130,12 @@ namespace WinFormsApp1
                         _toplamUygulamaList = _toplamUygulamaList.Concat(purEmanetGrouped).OrderBy(u => u.koyMezra).ToList();
                     }
 
-                    var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                    if (koy != "Hepsi")
+                    {
+                        var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
                         p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
-                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil)
+                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                             && p.YatirimProgrami.Koy == koy)
                         .Select(p => new FaaliyetRaporKoy
                         (
                             p.YatirimProgrami.Koy,
@@ -143,9 +146,29 @@ namespace WinFormsApp1
                             p.DokumBedeli
                         )).ToList();
 
-                    _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
-                        .ThenBy(u => u.imalat).ToList();
+                        _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                            .ThenBy(u => u.imalat).ToList();
+                    }
 
+                    else
+                    {
+                        var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                        p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                            )
+                        .Select(p => new FaaliyetRaporKoy
+                        (
+                            p.YatirimProgrami.Koy,
+                            p.YatirimProgrami.Kaynak,
+                            p.YatirimProgrami.Imalat,
+                            p.DokumTarihi,
+                            p.BSKMiktari,
+                            p.DokumBedeli
+                        )).ToList();
+
+                        _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                            .ThenBy(u => u.imalat).ToList();
+                    }
 
                     dataGridView1.DataSource = _toplamUygulamaList;
                 }

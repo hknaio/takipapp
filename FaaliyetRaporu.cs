@@ -5,7 +5,7 @@ using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
-    internal record FaaliyetRapor(string ilce, int isAdet,double kat1, double kat2, double bsk, double asfaltOnarim ,double kilitliParke, double stabilize,
+    internal record FaaliyetRapor(string ilce, double isAdet,double kat1, double kat2, double bsk, double asfaltOnarim ,double kilitliParke, double stabilize,
         double yolOnarim ,double menfez, double istinat, double kopru, double reglaj, double kar,double beton, double yeniYol,
         double arac, double spiral, double icme, double tarim, double kaya, double diger, double miktar);
 
@@ -58,7 +58,7 @@ namespace WinFormsApp1
             var puremanetsGrouped = purEmanets.GroupBy(p => p.Ilce).Select(t => new FaaliyetRapor
                (
                     t.Key.Adi,
-                    t.Where(c => c.Ilce.Adi == t.Key.Adi).Count(),
+                    t.Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("1.")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("2.")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("BSK")).Sum(t => t.Miktar),
@@ -88,7 +88,7 @@ namespace WinFormsApp1
             var toplamUygulamaGrouped = _toplamUygulamaList.GroupBy(t => t.ilce).Select(t => new FaaliyetRapor
                  (
                     t.Key,
-                     t.Where(c => c.ilce == t.Key).Count(),
+                    t.Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("1.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("2.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("BSK")).Sum(t => t.uygulama),
