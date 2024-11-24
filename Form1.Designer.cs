@@ -144,8 +144,8 @@
             IsMdiContainer = true;
             Margin = new Padding(2, 3, 2, 3);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Yatırım Takip Yönetim Sistemi";
-            WindowState = FormWindowState.Minimized;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);

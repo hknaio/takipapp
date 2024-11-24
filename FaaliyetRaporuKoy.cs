@@ -25,6 +25,8 @@ namespace WinFormsApp1
         }
         private void btnGetir_Click(object sender, EventArgs e)
         {
+            List<FaaliyetRaporKoy> _toplamUygulamaList = [];
+
             if (cmbYil.Text != string.Empty)
             {
                 if (cmbKaynak.Text != string.Empty)
@@ -51,6 +53,24 @@ namespace WinFormsApp1
                             projeler = _dbContext.Projes
                             .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi))
                             .ToList();
+
+                            foreach (var item in projeler)
+                            {
+                                var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
+                                                                  )
+                                    .Select(s => new FaaliyetRaporKoy
+                                 (
+                                    s.Koy,
+                                     s.Kaynak,
+                                     s.Imalat,
+                                     item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
+                                     s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID)
+                                 )).ToList();
+
+                                _toplamUygulamaList.AddRange(list);
+                            }
                         }
 
                         else
@@ -60,12 +80,29 @@ namespace WinFormsApp1
                                                               && p.Yil == yil && p.Ilce == ilce.Adi
                                                               ))
                             .ToList();
+
+                            foreach (var item in projeler)
+                            {
+                                var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
+                                                                  && p.Kaynak == cmbKaynak.Text)
+                                    .Select(s => new FaaliyetRaporKoy
+                                 (
+                                    s.Koy,
+                                     s.Kaynak,
+                                     s.Imalat,
+                                     item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
+                                     s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID)
+                                 )).ToList();
+
+                                _toplamUygulamaList.AddRange(list);
+                            }
                         }
                     }
 
                     else
                     {                        
-
                         if (cmbKaynak.Text == "Hepsi")
                         {
                             purEmanets = _dbContext.PurEmanets
@@ -81,6 +118,24 @@ namespace WinFormsApp1
                                                               && p.Ilce == ilce.Adi
                                                               ))
                             .ToList();
+
+                            foreach (var item in projeler)
+                            {
+                                var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
+                                                                  && p.Koy.Contains(koy))
+                                    .Select(s => new FaaliyetRaporKoy
+                                 (
+                                    s.Koy,
+                                     s.Kaynak,
+                                     s.Imalat,
+                                     item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
+                                     s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID)
+                                 )).ToList();
+
+                                _toplamUygulamaList.AddRange(list);
+                            }
                         }
 
                         else
@@ -92,28 +147,27 @@ namespace WinFormsApp1
                                                               && p.Ilce == ilce.Adi
                                                               ))
                             .ToList();
+
+                            foreach (var item in projeler)
+                            {
+                                var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
+                                                                  && p.Koy.Contains(koy))
+                                    .Select(s => new FaaliyetRaporKoy
+                                 (
+                                    s.Koy,
+                                     s.Kaynak,
+                                     s.Imalat,
+                                     item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
+                                     s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID)
+                                 )).ToList();
+
+                                _toplamUygulamaList.AddRange(list);
+                            }
                         }
                     }
-
-                    List<FaaliyetRaporKoy> _toplamUygulamaList = [];
-
-                    foreach (var item in projeler)
-                    {
-                        var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                          && p.Koy.Contains(koy))
-                            .Select(s => new FaaliyetRaporKoy
-                         (
-                            s.Koy,
-                             s.Kaynak,
-                             s.Imalat,
-                             item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                             s.Uygulama,
-                            (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
-                            + AsfaltDokumBedel(s.ID)
-                         )).ToList();
-
-                        _toplamUygulamaList.AddRange(list);
-                    }
+                   
 
                     if (purEmanets is not null)
                     {
@@ -132,42 +186,92 @@ namespace WinFormsApp1
 
                     if (koy != "Hepsi")
                     {
-                        var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                        p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
-                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
-                             && p.YatirimProgrami.Koy == koy)
-                        .Select(p => new FaaliyetRaporKoy
-                        (
-                            p.YatirimProgrami.Koy,
-                            p.YatirimProgrami.Kaynak,
-                            p.YatirimProgrami.Imalat,
-                            p.DokumTarihi,
-                            p.BSKMiktari,
-                            p.DokumBedeli
-                        )).ToList();
+                        if (cmbKaynak.Text == "Hepsi")
+                        {
+                            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                       p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                            && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                            && p.YatirimProgrami.Koy == koy)
+                       .Select(p => new FaaliyetRaporKoy
+                       (
+                           p.YatirimProgrami.Koy,
+                           p.YatirimProgrami.Kaynak,
+                           p.YatirimProgrami.Imalat,
+                           p.DokumTarihi,
+                           p.BSKMiktari,
+                           p.DokumBedeli
+                       )).ToList();
 
-                        _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
-                            .ThenBy(u => u.imalat).ToList();
+                            _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                                .ThenBy(u => u.imalat).ToList();
+                        }
+
+                        else
+                        {
+                            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                       p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                            && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                            && p.YatirimProgrami.Koy == koy
+                            && p.YatirimProgrami.Kaynak == cmbKaynak.Text)
+                       .Select(p => new FaaliyetRaporKoy
+                       (
+                           p.YatirimProgrami.Koy,
+                           p.YatirimProgrami.Kaynak,
+                           p.YatirimProgrami.Imalat,
+                           p.DokumTarihi,
+                           p.BSKMiktari,
+                           p.DokumBedeli
+                       )).ToList();
+
+                            _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                                .ThenBy(u => u.imalat).ToList();
+                        }
                     }
 
                     else
                     {
-                        var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                        p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
-                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
-                            )
-                        .Select(p => new FaaliyetRaporKoy
-                        (
-                            p.YatirimProgrami.Koy,
-                            p.YatirimProgrami.Kaynak,
-                            p.YatirimProgrami.Imalat,
-                            p.DokumTarihi,
-                            p.BSKMiktari,
-                            p.DokumBedeli
-                        )).ToList();
+                        if (cmbKaynak.Text == "Hepsi")
+                        {
 
-                        _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
-                            .ThenBy(u => u.imalat).ToList();
+                            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                            p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                                 && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                                )
+                            .Select(p => new FaaliyetRaporKoy
+                            (
+                                p.YatirimProgrami.Koy,
+                                p.YatirimProgrami.Kaynak,
+                                p.YatirimProgrami.Imalat,
+                                p.DokumTarihi,
+                                p.BSKMiktari,
+                                p.DokumBedeli
+                            )).ToList();
+
+                            _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                                .ThenBy(u => u.imalat).ToList();
+                        }
+
+                        else
+                        {
+
+                            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                            p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                                 && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                                 && p.YatirimProgrami.Kaynak == cmbKaynak.Text
+                                )
+                            .Select(p => new FaaliyetRaporKoy
+                            (
+                                p.YatirimProgrami.Koy,
+                                p.YatirimProgrami.Kaynak,
+                                p.YatirimProgrami.Imalat,
+                                p.DokumTarihi,
+                                p.BSKMiktari,
+                                p.DokumBedeli
+                            )).ToList();
+
+                            _toplamUygulamaList = _toplamUygulamaList.Concat(onarimVeBsk).OrderBy(u => u.koyMezra)
+                                .ThenBy(u => u.imalat).ToList();
+                        }
                     }
 
                     dataGridView1.DataSource = _toplamUygulamaList;
