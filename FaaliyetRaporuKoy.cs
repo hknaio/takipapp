@@ -66,6 +66,7 @@ namespace WinFormsApp1
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
                                      s.Uygulama,
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID) == double.NaN ? 0 : (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
                                  )).ToList();
 
@@ -92,6 +93,8 @@ namespace WinFormsApp1
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
                                      s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID) == double.NaN ? 0 :
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
                                  )).ToList();
@@ -131,6 +134,7 @@ namespace WinFormsApp1
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
                                      s.Uygulama,
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID) == double.NaN ? 0 : (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
                                  )).ToList();
 
@@ -159,6 +163,8 @@ namespace WinFormsApp1
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
                                      s.Uygulama,
+                                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                                    + AsfaltDokumBedel(s.ID) == double.NaN ? 0 :
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
                                  )).ToList();
