@@ -1,6 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
@@ -11,14 +9,15 @@ namespace WinFormsApp1
     {
         private AppDbContext _dbContext;
         private List<SpiralBoru> _spiralBorus;
+        private List<PurEmanet> _purEmanets;
         public UCPurEmanetSanat()
         {
+            _dbContext = new AppDbContext();
             InitializeComponent();
         }
 
         private void UCPurEmanet_Load(object sender, EventArgs e)
         {
-            _dbContext = new AppDbContext();
             _dbContext.Koys.Load();
             _dbContext.Ilces.Load();
             _dbContext.Mezras.Load();
@@ -52,7 +51,8 @@ namespace WinFormsApp1
 
         private void UCPurEmanet_Leave(object sender, EventArgs e)
         {
-
+            _dbContext?.Dispose();
+            _dbContext = null;
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
