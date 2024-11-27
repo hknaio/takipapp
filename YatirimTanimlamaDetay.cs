@@ -91,7 +91,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
 
-            pDF.CreatePdf(dataGridView1, "Program Detay " + _kaynak + " " + _yil);
+            pDF.CreatePdfProgram(dataGridView1, "Program Detay " + _kaynak + " " + _yil);
         }
     }
 }

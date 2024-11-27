@@ -58,7 +58,7 @@ namespace WinFormsApp1
             var puremanetsGrouped = purEmanets.GroupBy(p => p.Ilce).Select(t => new FaaliyetRapor
                (
                     t.Key.Adi,
-                    t.Sum(t => t.Miktar),
+                    t.Where(c => c.Ilce.Adi == t.Key.Adi).Count(),
                     t.Where(t => t.Imalat.Isim.Contains("1.")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("2.")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("BSK")).Sum(t => t.Miktar),
@@ -82,13 +82,14 @@ namespace WinFormsApp1
 
 
                     t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Miktar),
+                    double.IsNaN(t.Sum(t => t.Tutar)) ? 0 :
                     t.Sum(t => t.Tutar)
                 ));
 
             var toplamUygulamaGrouped = _toplamUygulamaList.GroupBy(t => t.ilce).Select(t => new FaaliyetRapor
                  (
                     t.Key,
-                    t.Sum(t => t.uygulama),
+                    t.Where(c => c.ilce == t.Key).Count(),
                     t.Where(t => t.imalat.Contains("1.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("2.")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("BSK")).Sum(t => t.uygulama),
@@ -111,6 +112,7 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Kaya Tahkimat")).Sum(t => t.uygulama),
 
                     t.Where(t => t.imalat.Contains("Diğer İmalatlar")).Sum(t => t.uygulama),
+                    double.IsNaN(t.Sum(t => t.oransalTahakkuk)) ? 0 : 
                     t.Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
