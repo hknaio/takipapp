@@ -54,14 +54,35 @@ namespace YatirimTakip
                          s.Koy,
                          s.Yil,
                          s.Imalat,
+                        double.IsNaN(
                         double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İl Özel İdaresi").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "İl Özel İdaresi").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ) ? 0
+                        : double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İl Özel İdaresi").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
                         : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "İl Özel İdaresi").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk),
+
+                        double.IsNaN(
                         double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
-                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk),
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ) ? 0 : 
+                        double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ,
+                        double.IsNaN(
                         double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İlbank").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "İlbank").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ) ? 0 :
+                         double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İlbank").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
                         : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "İlbank").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk),
+
+                        double.IsNaN(
                         double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "Diğer").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
-                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "Diğer").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk),
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "Diğer").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ) ? 0 :
+                        double.IsInfinity((s.Uygulama / item.Programis.Where(r => r.Kaynak == "Diğer").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
+                        : (s.Uygulama / item.Programis.Where(r => r.Kaynak == "Diğer").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                        ,
+
                         CheckInfinite((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İl Özel İdaresi").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) +
                         CheckInfinite((s.Uygulama / item.Programis.Where(r => r.Kaynak == "KÖYDES").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) +
                         CheckInfinite((s.Uygulama / item.Programis.Where(r => r.Kaynak == "İlbank").Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) +
@@ -84,7 +105,7 @@ namespace YatirimTakip
 
         private double CheckInfinite(double value)
         {
-            return double.IsInfinity(value) ? 0 : value;
+            return  double.IsInfinity(value) ? 0 : double.IsNaN(value) ? 0 : value;
         }
     }
 }
