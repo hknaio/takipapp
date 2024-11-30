@@ -47,6 +47,11 @@
             Yil = new DataGridViewTextBoxColumn();
             Program = new DataGridViewTextBoxColumn();
             AsfaltDokum = new DataGridViewButtonColumn();
+            cmbIlce = new ComboBox();
+            label2 = new Label();
+            cmbKaynak = new ComboBox();
+            label1 = new Label();
+            btnGetir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -75,13 +80,13 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.Location = new Point(13, 45);
+            dataGridView1.Location = new Point(13, 92);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1460, 482);
+            dataGridView1.Size = new Size(1460, 435);
             dataGridView1.TabIndex = 41;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -234,16 +239,68 @@
             AsfaltDokum.UseColumnTextForButtonValue = true;
             AsfaltDokum.Width = 200;
             // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(105, 43);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 51;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(27, 46);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 52;
+            label2.Text = "İlçe : ";
+            // 
+            // cmbKaynak
+            // 
+            cmbKaynak.FormattingEnabled = true;
+            cmbKaynak.Items.AddRange(new object[] { "Hepsi", "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
+            cmbKaynak.Location = new Point(613, 43);
+            cmbKaynak.Name = "cmbKaynak";
+            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.TabIndex = 53;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(480, 46);
+            label1.Name = "label1";
+            label1.Size = new Size(77, 25);
+            label1.TabIndex = 54;
+            label1.Text = "Kaynak :";
+            // 
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(926, 38);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 55;
+            btnGetir.Text = "Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
             // UCAsfaltDokum
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnGetir);
+            Controls.Add(label1);
+            Controls.Add(cmbKaynak);
+            Controls.Add(label2);
+            Controls.Add(cmbIlce);
             Controls.Add(dataGridView1);
             Name = "UCAsfaltDokum";
             Size = new Size(1579, 806);
             Load += UCAsfaltDokum_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -264,5 +321,10 @@
         private DataGridViewTextBoxColumn Yil;
         private DataGridViewTextBoxColumn Program;
         private DataGridViewButtonColumn AsfaltDokum;
+        private ComboBox cmbIlce;
+        private Label label2;
+        private ComboBox cmbKaynak;
+        private Label label1;
+        private Button btnGetir;
     }
 }

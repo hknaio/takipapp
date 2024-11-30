@@ -54,6 +54,7 @@
             label14 = new Label();
             label15 = new Label();
             label16 = new Label();
+            label17 = new Label();
             SuspendLayout();
             // 
             // label2
@@ -276,11 +277,21 @@
             label16.TabIndex = 36;
             label16.Text = "Km";
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(436, 418);
+            label17.Name = "label17";
+            label17.Size = new Size(40, 25);
+            label17.TabIndex = 37;
+            label17.Text = "Ton";
+            // 
             // AsfaltDokumGuncelle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1005, 618);
+            Controls.Add(label17);
             Controls.Add(label16);
             Controls.Add(label15);
             Controls.Add(label14);
@@ -343,5 +354,6 @@
         private Label label14;
         private Label label15;
         private Label label16;
+        private Label label17;
     }
 }

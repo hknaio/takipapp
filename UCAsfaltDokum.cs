@@ -16,25 +16,24 @@ namespace WinFormsApp1
 
         private void UCAsfaltDokum_Load(object sender, EventArgs e)
         {
-            var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK" 
+            var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK"
                 || _asfalt == "Asfalt Döküm İhalesi" ? true : false;
-             
+
             _dbContext = new AppDbContext();
+            _dbContext.Ilces.Load();
+            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+
+            _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt) &&
+                                                   y.Yil == DateTime.Now.Year).Load();
+            dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
+            dataGridView1.AutoGenerateColumns = false;
 
             if (uygulama)
             {
-                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)).Load();
+                dataGridView1.Columns["Uygulama"].Visible = false;
             }
 
-            else
-            {
-                _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
-                                                   && (y.Uygulama != 0)
-                                                   && y.YatirimDurumu == Models.YatirimDurumu.Uygulaniyor).Load();
-            }
-            
-            dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
-            dataGridView1.AutoGenerateColumns = false;
             OrderColumns();
         }
         private void OrderColumns()
@@ -76,7 +75,33 @@ namespace WinFormsApp1
                 var id = (int)dataGridView1.Rows[e.RowIndex].Cells["ProgramId"].Value;
                 var asfaltDokum = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id).FirstOrDefault();
                 e.Value = asfaltDokum is null ? 0 : asfaltDokum.DokumMesafesi;
-            }            
+            }
+        }
+
+        private void btnGetir_Click(object sender, EventArgs e)
+        {
+            if (cmbKaynak.Text != string.Empty)
+            {
+                if (cmbKaynak.Text == "Hepsi")
+                {
+                    var programs = _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
+                                                  && y.Yil == DateTime.Now.Year && y.Ilce == cmbIlce.Text
+                                                 ).ToList();
+
+                    dataGridView1.DataSource = programs;
+                }
+
+                else
+                {
+                    var programs = _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
+                                                  && y.Yil == DateTime.Now.Year && y.Ilce == cmbIlce.Text
+                                                  && y.Kaynak == cmbKaynak.Text).ToList();
+
+                    dataGridView1.DataSource = programs;
+                }                
+            }
+
+            cmbKaynak.Focus();
         }
     }
 }

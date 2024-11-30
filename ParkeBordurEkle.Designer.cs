@@ -37,13 +37,13 @@
             cmbIlce = new ComboBox();
             label1 = new Label();
             label4 = new Label();
-            cmbPersonel = new ComboBox();
             dtTarih = new DateTimePicker();
             label6 = new Label();
             label7 = new Label();
             txtPlaka = new TextBox();
             button2 = new Button();
             button1 = new Button();
+            txtPersonel = new TextBox();
             SuspendLayout();
             // 
             // txtMiktar
@@ -124,15 +124,6 @@
             label4.TabIndex = 21;
             label4.Text = "Talep Eden :";
             // 
-            // cmbPersonel
-            // 
-            cmbPersonel.FormattingEnabled = true;
-            cmbPersonel.Items.AddRange(new object[] { "Hakan Aygüzer - Şantiye Mühendis" });
-            cmbPersonel.Location = new Point(169, 207);
-            cmbPersonel.Name = "cmbPersonel";
-            cmbPersonel.Size = new Size(300, 33);
-            cmbPersonel.TabIndex = 22;
-            // 
             // dtTarih
             // 
             dtTarih.Location = new Point(169, 261);
@@ -184,18 +175,25 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // txtPersonel
+            // 
+            txtPersonel.Location = new Point(167, 207);
+            txtPersonel.Name = "txtPersonel";
+            txtPersonel.Size = new Size(302, 31);
+            txtPersonel.TabIndex = 29;
+            // 
             // ParkeBordurEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(843, 571);
+            Controls.Add(txtPersonel);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(txtPlaka);
             Controls.Add(label7);
             Controls.Add(dtTarih);
             Controls.Add(label6);
-            Controls.Add(cmbPersonel);
             Controls.Add(label4);
             Controls.Add(cmbIlce);
             Controls.Add(label1);
@@ -224,12 +222,12 @@
         private ComboBox cmbIlce;
         private Label label1;
         private Label label4;
-        private ComboBox cmbPersonel;
         private DateTimePicker dtTarih;
         private Label label6;
         private Label label7;
         private TextBox txtPlaka;
         private Button button2;
         private Button button1;
+        private TextBox txtPersonel;
     }
 }

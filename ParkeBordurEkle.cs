@@ -54,7 +54,6 @@ namespace WinFormsApp1
             if (IsModelValid())
             {
                 var koy = (Koy)cmbKoy.SelectedValue!;
-                var personel = cmbPersonel.SelectedItem;
                 var parkeBordur = _dbContext!.ParkeBordurs.Where(p => p.Malzeme == _malzeme).FirstOrDefault();
 
                 try
@@ -64,7 +63,7 @@ namespace WinFormsApp1
                         Miktar = Convert.ToInt32(txtMiktar.Text),
                         Birim = lblBirim.Text,
                         KoyAdi = koy.Adi,
-                        TalepEden = personel.ToString(),
+                        TalepEden = txtPersonel.Text,
                         GidisTarihi = dtTarih.Value.Date,
                         AracPlakasi = txtPlaka.Text,
                         ParkeBordurTip = _malzeme == "Parke" ? ParkeBordurTip.Parke : ParkeBordurTip.Bordur,
@@ -87,7 +86,7 @@ namespace WinFormsApp1
 
         private bool IsModelValid()
         {
-            if (cmbPersonel.Text != string.Empty && cmbIlce.Text != string.Empty
+            if (txtPersonel.Text != string.Empty && cmbIlce.Text != string.Empty
                 && cmbKoy.Text != string.Empty && txtMiktar.Text != "0"
                 && txtPlaka.Text != string.Empty)
             {
