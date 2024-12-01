@@ -64,7 +64,7 @@ namespace WinFormsApp1
                                      s.Kaynak,
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                                     s.Uygulama,
+                                     AsfaltDokumMesafe(s.ID, s.Uygulama),
 double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)) ? 0 : (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
@@ -92,7 +92,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                                      s.Kaynak,
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                                     s.Uygulama,
+                                     AsfaltDokumMesafe(s.ID,s.Uygulama),
 double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)) ? 0 :
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
@@ -131,7 +131,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                                      s.Kaynak,
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                                     s.Uygulama,
+                                     AsfaltDokumMesafe(s.ID, s.Uygulama),
 double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)) ? 0 : (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)
@@ -153,14 +153,15 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             foreach (var item in projeler)
                             {
                                 var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                                  && p.Koy.Contains(koy))
+                                                
+                                && p.Koy.Contains(koy))
                                     .Select(s => new FaaliyetRaporKoy
                                  (
                                     s.Koy,
                                      s.Kaynak,
                                      s.Imalat,
                                      item.KesinKabulTarihi is null ? new DateTime(1970, 01, 01) : item.KesinKabulTarihi.Value.Date,
-                                     s.Uygulama,
+                                     AsfaltDokumMesafe(s.ID, s.Uygulama),
 double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                                     + AsfaltDokumBedel(s.ID)) ? 0 :
                                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
@@ -292,6 +293,22 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                 .Select(a => a.DokumBedeli).FirstOrDefault();
 
             return asfaltBedel;
+        }
+
+        private double AsfaltDokumMesafe(int id, double uygulama)
+        {
+            var asfaltMesafe = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id)
+                .Select(a => a.DokumMesafesi).FirstOrDefault();
+
+            if (asfaltMesafe == 0)
+            {
+                return uygulama;
+            }
+
+            else
+            {
+                return asfaltMesafe;
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
