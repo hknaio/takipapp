@@ -279,7 +279,16 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         }
                     }
 
-                    dataGridView1.DataSource = _toplamUygulamaList;
+                    var finalUygulamaList = _toplamUygulamaList.Select(f => new FaaliyetRaporKoy(
+                        f.koyMezra,
+                        f.program,
+                        f.imalat + " (" + _dbContext.Imalats.Where(i => i.Isim == f.imalat).Select(i => i.Birim).FirstOrDefault() + ")",
+                        f.tarih,
+                        f.miktarUygulama,
+                        f.harcama
+                        )).ToList();
+
+                    dataGridView1.DataSource = finalUygulamaList;
                 }
 
                 cmbKaynak.Focus();               
