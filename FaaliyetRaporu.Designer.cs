@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
             cmbYil = new ComboBox();
             btnGetir = new Button();
@@ -68,24 +68,24 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, AracKira, Spiral, Icme, Tarimsal, Kaya, Diger, Miktar });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Window;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Location = new Point(27, 77);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -126,6 +126,7 @@
             // 
             // Ilce
             // 
+            Ilce.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Ilce.DataPropertyName = "Ilce";
             Ilce.HeaderText = "İlçe";
             Ilce.MinimumWidth = 8;
@@ -143,7 +144,7 @@
             // Kat1
             // 
             Kat1.DataPropertyName = "kat1";
-            Kat1.HeaderText = "1.Kat Asf.";
+            Kat1.HeaderText = "1.Kat (km)";
             Kat1.MinimumWidth = 8;
             Kat1.Name = "Kat1";
             Kat1.ReadOnly = true;
@@ -151,7 +152,7 @@
             // Kat2
             // 
             Kat2.DataPropertyName = "kat2";
-            Kat2.HeaderText = "2.Kat Asf.";
+            Kat2.HeaderText = "2.Kat (km)";
             Kat2.MinimumWidth = 8;
             Kat2.Name = "Kat2";
             Kat2.ReadOnly = true;
@@ -159,7 +160,7 @@
             // BSK
             // 
             BSK.DataPropertyName = "bsk";
-            BSK.HeaderText = "BSK";
+            BSK.HeaderText = "BSK (km)";
             BSK.MinimumWidth = 8;
             BSK.Name = "BSK";
             BSK.ReadOnly = true;
@@ -167,7 +168,7 @@
             // AsfaltOnarim
             // 
             AsfaltOnarim.DataPropertyName = "asfaltOnarim";
-            AsfaltOnarim.HeaderText = "Asf. Onarım";
+            AsfaltOnarim.HeaderText = "Asf. Onarım (km)";
             AsfaltOnarim.MinimumWidth = 8;
             AsfaltOnarim.Name = "AsfaltOnarim";
             AsfaltOnarim.ReadOnly = true;
@@ -175,7 +176,7 @@
             // KilitliParke
             // 
             KilitliParke.DataPropertyName = "kilitliParke";
-            KilitliParke.HeaderText = "Kilitli Parke";
+            KilitliParke.HeaderText = "Kilitli Parke (m2)";
             KilitliParke.MinimumWidth = 8;
             KilitliParke.Name = "KilitliParke";
             KilitliParke.ReadOnly = true;
@@ -183,15 +184,16 @@
             // Stabilize
             // 
             Stabilize.DataPropertyName = "stabilize";
-            Stabilize.HeaderText = "Stabilize";
+            Stabilize.HeaderText = "Stabilize (km)";
             Stabilize.MinimumWidth = 10;
             Stabilize.Name = "Stabilize";
             Stabilize.ReadOnly = true;
             // 
             // YolOnarim
             // 
+            YolOnarim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             YolOnarim.DataPropertyName = "yolOnarim";
-            YolOnarim.HeaderText = "Yol Onarım";
+            YolOnarim.HeaderText = "Yol Onarım (km)";
             YolOnarim.MinimumWidth = 8;
             YolOnarim.Name = "YolOnarim";
             YolOnarim.ReadOnly = true;
@@ -199,7 +201,7 @@
             // Menfez
             // 
             Menfez.DataPropertyName = "menfez";
-            Menfez.HeaderText = "Menfez";
+            Menfez.HeaderText = "Menfez (ad)";
             Menfez.MinimumWidth = 8;
             Menfez.Name = "Menfez";
             Menfez.ReadOnly = true;
@@ -207,7 +209,7 @@
             // Istinat
             // 
             Istinat.DataPropertyName = "istinat";
-            Istinat.HeaderText = "Istinat";
+            Istinat.HeaderText = "Istinat (mt)";
             Istinat.MinimumWidth = 8;
             Istinat.Name = "Istinat";
             Istinat.ReadOnly = true;
@@ -215,7 +217,7 @@
             // Kopru
             // 
             Kopru.DataPropertyName = "kopru";
-            Kopru.HeaderText = "Köprü";
+            Kopru.HeaderText = "Köprü (ad)";
             Kopru.MinimumWidth = 8;
             Kopru.Name = "Kopru";
             Kopru.ReadOnly = true;
@@ -223,7 +225,7 @@
             // Reglaj
             // 
             Reglaj.DataPropertyName = "reglaj";
-            Reglaj.HeaderText = "Reglaj";
+            Reglaj.HeaderText = "Reglaj (km)";
             Reglaj.MinimumWidth = 8;
             Reglaj.Name = "Reglaj";
             Reglaj.ReadOnly = true;
@@ -231,7 +233,7 @@
             // Kar
             // 
             Kar.DataPropertyName = "kar";
-            Kar.HeaderText = "Kar";
+            Kar.HeaderText = "Kar (km)";
             Kar.MinimumWidth = 8;
             Kar.Name = "Kar";
             Kar.ReadOnly = true;
@@ -243,11 +245,12 @@
             Beton.MinimumWidth = 8;
             Beton.Name = "Beton";
             Beton.ReadOnly = true;
+            Beton.Visible = false;
             // 
             // YeniYol
             // 
             YeniYol.DataPropertyName = "yeniYol";
-            YeniYol.HeaderText = "Yeni Yol";
+            YeniYol.HeaderText = "Yeni Yol (km)";
             YeniYol.MinimumWidth = 8;
             YeniYol.Name = "YeniYol";
             YeniYol.ReadOnly = true;
@@ -263,7 +266,7 @@
             // Spiral
             // 
             Spiral.DataPropertyName = "spiral";
-            Spiral.HeaderText = "Spiral";
+            Spiral.HeaderText = "Spiral (mt)";
             Spiral.MinimumWidth = 8;
             Spiral.Name = "Spiral";
             Spiral.ReadOnly = true;
@@ -271,7 +274,7 @@
             // Icme
             // 
             Icme.DataPropertyName = "icme";
-            Icme.HeaderText = "İçme Suyu";
+            Icme.HeaderText = "İçme Suyu (saat)";
             Icme.MinimumWidth = 8;
             Icme.Name = "Icme";
             Icme.ReadOnly = true;
@@ -279,7 +282,7 @@
             // Tarimsal
             // 
             Tarimsal.DataPropertyName = "tarim";
-            Tarimsal.HeaderText = "Tarımsal Su";
+            Tarimsal.HeaderText = "Tarımsal Su (saat)";
             Tarimsal.MinimumWidth = 8;
             Tarimsal.Name = "Tarimsal";
             Tarimsal.ReadOnly = true;
@@ -287,7 +290,7 @@
             // Kaya
             // 
             Kaya.DataPropertyName = "kaya";
-            Kaya.HeaderText = "Kaya T.";
+            Kaya.HeaderText = "Kaya T. (ton)";
             Kaya.MinimumWidth = 8;
             Kaya.Name = "Kaya";
             Kaya.ReadOnly = true;
@@ -299,11 +302,12 @@
             Diger.MinimumWidth = 8;
             Diger.Name = "Diger";
             Diger.ReadOnly = true;
+            Diger.Visible = false;
             // 
             // Miktar
             // 
             Miktar.DataPropertyName = "miktar";
-            Miktar.HeaderText = "Miktar";
+            Miktar.HeaderText = "Miktar (tl)";
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;

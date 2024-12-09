@@ -144,6 +144,34 @@ namespace WinFormsApp1
                 f.Sum(i => i.miktar)
                 )).ToList();
 
+            var butunIl = finalList.GroupBy(f => f.diger).Select(f => new FaaliyetRapor(
+                "Tümü",
+                f.Sum(i => i.isAdet),
+                f.Sum(i => i.kat1),
+                f.Sum(i => i.kat2),
+                f.Sum(i => i.bsk),
+                f.Sum(i => i.asfaltOnarim),
+                f.Sum(i => i.kilitliParke),
+                f.Sum(i => i.stabilize),
+                f.Sum(i => i.yolOnarim),
+                f.Sum(i => i.menfez),
+                f.Sum(i => i.istinat),
+                f.Sum(i => i.kopru),
+                f.Sum(i => i.reglaj),
+                f.Sum(i => i.kar),
+                f.Sum(i => i.beton),
+                f.Sum(i => i.yeniYol),
+                f.Sum(i => i.arac),
+                f.Sum(i => i.spiral),
+                f.Sum(i => i.icme),
+                f.Sum(i => i.tarim),
+                f.Sum(i => i.kaya),
+                f.Sum(i => i.diger),
+                f.Sum(i => i.miktar)
+                )).ToList();
+
+            finalList = finalList.Concat(butunIl).ToList();
+
             dataGridView1.DataSource = finalList;
         }
         private double AsfaltDokumBedel(int id)
@@ -157,7 +185,7 @@ namespace WinFormsApp1
         {
             PDFCreator pDF = new();
 
-            pDF.CreatePdf(dataGridView1, "Faaliyet Raporu " + cmbYil.Text);
+            pDF.CreatePdfFaaliyet(dataGridView1, "Faaliyet Raporu " + cmbYil.Text);
         }
 
         private void FaaliyetRaporu_FormClosing(object sender, FormClosingEventArgs e)
