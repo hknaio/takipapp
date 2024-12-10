@@ -82,10 +82,12 @@ namespace WinFormsApp1
                                 DokumTarihi = dtpDokumTarihi.Value.Date,
                                 DokumBedeli = Convert.ToDouble(txtDokumBedeli.Text),
                                 BSKMiktari = Convert.ToDouble(txtBskMiktari.Text),
-                                Emisyon = Convert.ToDouble(txtEmisyon.Text),                                
+                                Emisyon = Convert.ToDouble(txtEmisyon.Text),                                       
                                 
                                 YatirimProgrami = selected,
                             });
+
+                            selected.YatirimDurumu = YatirimDurumu.Uygulandi;
                         }
 
                         _dbContext.Update(selected);

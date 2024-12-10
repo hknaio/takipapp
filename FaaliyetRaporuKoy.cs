@@ -203,7 +203,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                            p.YatirimProgrami.Kaynak,
                            p.YatirimProgrami.Imalat,
                            p.DokumTarihi,
-                           p.BSKMiktari,
+                           p.DokumMesafesi,
                            p.DokumBedeli
                        )).ToList();
 
@@ -224,7 +224,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                            p.YatirimProgrami.Kaynak,
                            p.YatirimProgrami.Imalat,
                            p.DokumTarihi,
-                           p.BSKMiktari,
+                           p.DokumMesafesi,
                            p.DokumBedeli
                        )).ToList();
 
@@ -248,7 +248,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                                 p.YatirimProgrami.Kaynak,
                                 p.YatirimProgrami.Imalat,
                                 p.DokumTarihi,
-                                p.BSKMiktari,
+                                p.DokumMesafesi,
                                 p.DokumBedeli
                             )).ToList();
 
@@ -270,7 +270,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                                 p.YatirimProgrami.Kaynak,
                                 p.YatirimProgrami.Imalat,
                                 p.DokumTarihi,
-                                p.BSKMiktari,
+                                p.DokumMesafesi,
                                 p.DokumBedeli
                             )).ToList();
 

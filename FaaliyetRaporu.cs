@@ -144,7 +144,7 @@ namespace WinFormsApp1
                 f.Sum(i => i.miktar)
                 )).ToList();
 
-            var butunIl = finalList.GroupBy(f => f.diger).Select(f => new FaaliyetRapor(
+            var butunIl = finalList.GroupBy(f => 1).Select(f => new FaaliyetRapor(
                 "Tümü",
                 f.Sum(i => i.isAdet),
                 f.Sum(i => i.kat1),

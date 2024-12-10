@@ -302,7 +302,6 @@
             Diger.MinimumWidth = 8;
             Diger.Name = "Diger";
             Diger.ReadOnly = true;
-            Diger.Visible = false;
             // 
             // Miktar
             // 
