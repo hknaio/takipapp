@@ -73,14 +73,11 @@ namespace WinFormsApp1
                     t.Where(t => t.Imalat.Isim.Contains("Karla Mücadele")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Beton Yol")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Yeni Yol")).Sum(t => t.Miktar),
-
                     t.Where(t => t.Imalat.Isim.Contains("Araç Kiralama")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Spiral Boru")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Kaya Tahkimat")).Sum(t => t.Miktar),
-
-
                     t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Miktar),
                     double.IsNaN(t.Sum(t => t.Tutar)) ? 0 :
                     t.Sum(t => t.Tutar)

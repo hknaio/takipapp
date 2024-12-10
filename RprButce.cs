@@ -5,7 +5,9 @@ using YatirimTakip.Helpers;
 namespace WinFormsApp1
 {
     internal record ToplamUygulama(int programId,string ilce, string imalat, double tahakkkuk, double toplamUygulama, double uygulama, double oransalTahakkuk);
-    internal record IlceButce(string ilce, double kat1, double kat2, double bsk, double kilitliParke, double stabilize, double onarim, double sanat);
+    internal record IlceButce(string ilce, double kat1, double kat2, double bsk, double asfaltOnarim, double kilitliParke, double stabilize,
+        double yolOnarim, double menfez, double istinat, double kopru, double reglaj, double kar, double beton, double yeniYol,
+        double arac, double spiral, double icme, double tarim, double kaya, double diger);
     public partial class RprButce : Form
     {
         private AppDbContext _dbContext;
@@ -58,11 +60,23 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("1.")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("2.")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("BSK")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Kilit")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Asfalt Bakım Onarım")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Kilitli Parke")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("Stabilize")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Onarım")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Köprü") || t.imalat.Contains("İstinat") ||
-                    t.imalat.Contains("Menfez")).Sum(t => t.oransalTahakkuk)
+                    t.Where(t => t.imalat.Contains("Yol Onarım")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Menfez")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Istinat Duvarı")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Reglaj")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Karla Mücadele")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Yeni Yol")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Araç Kiralama")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Spiral Boru")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Kaya Tahkimat")).Sum(t => t.oransalTahakkuk),
+                    t.Where(t => t.imalat.Contains("Diğer İmalatlar")).Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
             var puremanetsGrouped = purEmanets.GroupBy(p => p.Ilce).Select(t => new IlceButce
@@ -71,24 +85,50 @@ namespace WinFormsApp1
                    t.Where(t => t.Imalat.Isim.Contains("1.")).Sum(t => t.Tutar),
                    t.Where(t => t.Imalat.Isim.Contains("2.")).Sum(t => t.Tutar),
                    t.Where(t => t.Imalat.Isim.Contains("BSK")).Sum(t => t.Tutar),                   
-                   t.Where(t => t.Imalat.Isim.Contains("Kilit")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Asfalt Bakım Onarım")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Kilitli Parke")).Sum(t => t.Tutar),
                    t.Where(t => t.Imalat.Isim.Contains("Stabilize")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Yol Ona") || t.Imalat.Isim.Contains("Onarım")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Köprü") || t.Imalat.Isim.Contains("Menfez")).Sum(t => t.Tutar)
+                   t.Where(t => t.Imalat.Isim.Contains("Yol Onarım")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Menfez")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Istinat Duvarı")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Köprü")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Reglaj")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Karla Mücadele")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Beton Yol")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Yeni Yol")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Araç Kiralama")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Spiral Boru")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Kaya Tahkimat")).Sum(t => t.Tutar),
+                   t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Tutar)
                ));
 
             toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(puremanetsGrouped).ToList();
 
             var finalList = toplamUygulamaGrouped.GroupBy(f => f.ilce).Select(s => new IlceButce
             (
-                 s.Key,
-                s.Sum(i => i.kat1),
-                s.Sum(i => i.kat2),
-                s.Sum(i => i.bsk),
-                s.Sum(i => i.kilitliParke),
-                s.Sum(i => i.stabilize),
-                s.Sum(i => i.onarim),
-                s.Sum(i => i.sanat)
+                s.Key,
+                double.IsNaN(s.Sum(i => i.kat1)) ? 0 : s.Sum(i => i.kat1),
+                double.IsNaN(s.Sum(i => i.kat2)) ? 0 : s.Sum(i => i.kat2),
+                double.IsNaN(s.Sum(i => i.bsk)) ? 0 : s.Sum(i => i.bsk),
+                double.IsNaN(s.Sum(i => i.asfaltOnarim)) ? 0 : s.Sum(i => i.asfaltOnarim),
+                double.IsNaN(s.Sum(i => i.kilitliParke)) ? 0 : s.Sum(i => i.kilitliParke),
+                double.IsNaN(s.Sum(i => i.stabilize)) ? 0 : s.Sum(i => i.stabilize),
+                double.IsNaN(s.Sum(i => i.yolOnarim)) ? 0 : s.Sum(i => i.yolOnarim),
+                double.IsNaN(s.Sum(i => i.menfez)) ? 0 : s.Sum(i => i.menfez),
+                double.IsNaN(s.Sum(i => i.istinat)) ? 0 : s.Sum(i => i.istinat),
+                double.IsNaN(s.Sum(i => i.kopru)) ? 0 : s.Sum(i => i.kopru),
+                double.IsNaN(s.Sum(i => i.reglaj)) ? 0 : s.Sum(i => i.reglaj),
+                double.IsNaN(s.Sum(i => i.kar)) ? 0 : s.Sum(i => i.kar),
+                double.IsNaN(s.Sum(i => i.beton)) ? 0 : s.Sum(i => i.beton),
+                double.IsNaN(s.Sum(i => i.yeniYol)) ? 0 : s.Sum(i => i.yeniYol),
+                double.IsNaN(s.Sum(i => i.arac)) ? 0 : s.Sum(i => i.arac),
+                double.IsNaN(s.Sum(i => i.spiral)) ? 0 : s.Sum(i => i.spiral),
+                double.IsNaN(s.Sum(i => i.icme)) ? 0 : s.Sum(i => i.icme),
+                double.IsNaN(s.Sum(i => i.tarim)) ? 0 : s.Sum(i => i.tarim),
+                double.IsNaN(s.Sum(i => i.kaya)) ? 0 : s.Sum(i => i.kaya),
+                double.IsNaN(s.Sum(i => i.diger)) ? 0 : s.Sum(i => i.diger)
              )).ToList();
 
             dataGridView1.DataSource = finalList;
