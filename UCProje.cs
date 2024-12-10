@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
-using System.Data.Entity;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Reflection;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WinFormsApp1
 {
@@ -27,11 +26,20 @@ namespace WinFormsApp1
         private void UCProje_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            _dbContext.Projes.Load();
+            //_dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == "Alacakaya")).Load();
+            _dbContext.Ilces.Load();
             dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns[9].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[10].DefaultCellStyle.Format = "N2";
+
+            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+
+            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text)).ToList();
+
+            dataGridView1.DataSource = projesFilter;
+
             OrderColumns();
         }
 
@@ -114,6 +122,17 @@ namespace WinFormsApp1
                     dataGridView1.Columns[e.ColumnIndex].DefaultCellStyle.BackColor = Color.Red;
                 }
             }
+        }
+
+        private void btnGetir_Click(object sender, EventArgs e)
+        {
+            if (cmbIlce.Text != string.Empty)
+            {
+                var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text)).ToList();
+                dataGridView1.DataSource = projesFilter;
+            }
+
+            cmbIlce.Focus();
         }
     }
 }
