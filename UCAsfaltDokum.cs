@@ -24,8 +24,11 @@ namespace WinFormsApp1
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
 
+            var ilce = cmbIlce.Text;
+
             _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt) &&
-                                                   y.Yil == DateTime.Now.Year).Load();
+                                                   y.Yil == DateTime.Now.Year &&
+                                                   y.Ilce == ilce).Load();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
 
@@ -63,8 +66,15 @@ namespace WinFormsApp1
 
                 using (AsfaltDokumGuncelle asfaltDokum = new(programId))
                 {
-                    asfaltDokum.ShowDialog();
+                    asfaltDokum.ShowDialog();                    
                     this.OnLoad(e);
+                    cmbIlce.Text = asfaltDokum.Ilce;
+
+                    var list = _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt) &&
+                                                   y.Yil == DateTime.Now.Year &&
+                                                   y.Ilce == asfaltDokum.Ilce).ToList();
+
+                    dataGridView1.DataSource = list;
                 }
             }
         }

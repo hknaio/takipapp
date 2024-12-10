@@ -8,6 +8,7 @@ namespace WinFormsApp1
     {
         private AppDbContext _dbContext;
         private readonly int _selected;
+        public string Ilce { get; set; }
         public AsfaltDokumGuncelle(int selected)
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace WinFormsApp1
 
             var program = _dbContext.YatirimProgramis.Where(y => y.ID == _selected).FirstOrDefault();
             var asfaltDokum = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami == program).FirstOrDefault();
+            Ilce = program.Ilce;
 
             if (program is not null)
             {
