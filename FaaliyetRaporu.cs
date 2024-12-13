@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using YatirimTakip.Helpers;
+using WinFormsApp1.Models;
 
 namespace WinFormsApp1
 {
@@ -20,6 +21,7 @@ namespace WinFormsApp1
         private void FaaliyetRaporu_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
+            _dbContext.AsfaltDokums.Load();
 
             for (int i = 1; i < dataGridView1.Columns.Count; i++)
                 dataGridView1.Columns[i].DefaultCellStyle.Format = "N2";
@@ -47,7 +49,7 @@ namespace WinFormsApp1
                      s.Imalat,
                      item.HakedisToplamTahakkuk,
                      item.Programis.Sum(p => p.Uygulama),
-                     s.Uygulama,
+                     s.Imalat.Contains("1.") || s.Imalat.Contains("2.") ? 0 : s.Uygulama,
                     (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                     + AsfaltDokumBedel(s.ID)
                  )).ToList();
@@ -78,7 +80,7 @@ namespace WinFormsApp1
                     t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Kaya Tahkimat")).Sum(t => t.Miktar),
-                    t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("Çevre Düzenleme İşleri")).Sum(t => t.Miktar),
                     double.IsNaN(t.Sum(t => t.Tutar)) ? 0 :
                     t.Sum(t => t.Tutar)
                 ));
@@ -97,6 +99,7 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Menfez")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Istinat Duvarı")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.uygulama),
+             
                     t.Where(t => t.imalat.Contains("Reglaj")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Karla Mücadele")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.uygulama),
@@ -108,12 +111,49 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Kaya Tahkimat")).Sum(t => t.uygulama),
 
-                    t.Where(t => t.imalat.Contains("Diğer İmalatlar")).Sum(t => t.uygulama),
+                    t.Where(t => t.imalat.Contains("Çevre Düzenleme İşleri")).Sum(t => t.uygulama),
                     double.IsNaN(t.Sum(t => t.oransalTahakkuk)) ? 0 : 
                     t.Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
             toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(puremanetsGrouped).ToList();
+
+            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
+                      p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")
+                                                   || p.YatirimProgrami.Imalat.Contains("1.") || p.YatirimProgrami.Imalat.Contains("2.")))
+                      .GroupBy(p => new { ilce = p.YatirimProgrami.Ilce, imalat = p.YatirimProgrami.Imalat })                      
+                      .Select(t => new FaaliyetRapor
+                      (
+                          t.Key.ilce,
+                    t.Where(c => c.YatirimProgrami.Ilce == t.Key.ilce).Count(),
+                    t.Where(t => t.YatirimProgrami.Imalat.Contains("1.")).Sum(t => t.DokumMesafesi),
+                    t.Where(t => t.YatirimProgrami.Imalat.Contains("2.")).Sum(t => t.DokumMesafesi),
+                    t.Where(t => t.YatirimProgrami.Imalat.Contains("BSK")).Sum(t => t.DokumMesafesi),
+                    t.Where(t => t.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")).Sum(t => t.DokumMesafesi),
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+
+                    0,
+                    0,
+                    0,
+                    0,
+
+                    0,
+                    
+                    t.Sum(t => t.DokumBedeli)
+                      )).ToList();
+
+            toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(onarimVeBsk).ToList();
 
             var finalList = toplamUygulamaGrouped.GroupBy(f => f.ilce).Select(f => new FaaliyetRapor(
                 f.Key,
@@ -173,10 +213,18 @@ namespace WinFormsApp1
         }
         private double AsfaltDokumBedel(int id)
         {
-            var asfaltBedel = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id)
-                .Select(a => a.DokumBedeli).FirstOrDefault();
+            var asfaltBedel = _dbContext.Database.SqlQuery<double>($"SELECT DokumBedeli as [VALUE] FROM AsfaltDokum WHERE YatirimProgramiID = {id}")
+                           .FirstOrDefault();
 
             return asfaltBedel;
+        }
+        private double AsfaltDokumMesafe(int id)
+        {
+            var asfaltMesafe = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id)
+                .Select(a => a.DokumMesafesi).FirstOrDefault();
+
+          
+                return asfaltMesafe;
         }
         private void button1_Click(object sender, EventArgs e)
         {

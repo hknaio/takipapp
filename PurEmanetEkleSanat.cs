@@ -52,7 +52,7 @@ namespace WinFormsApp1
 
                     if (spiralBoru != null)
                     {
-                        spiralBoru.StokMiktar -= Convert.ToInt32(txtMiktar.Text); ;
+                        spiralBoru.StokMiktar -= Convert.ToInt32(txtBoruMetre.Text); ;
                         _dbContext?.Update(spiralBoru);
                     }
                 }

@@ -76,7 +76,7 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
                     t.Where(t => t.imalat.Contains("Kaya Tahkimat")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Diğer İmalatlar")).Sum(t => t.oransalTahakkuk)
+                    t.Where(t => t.imalat.Contains("Çevre Düzenleme İşleri")).Sum(t => t.oransalTahakkuk)
                  )).ToList();
 
             var puremanetsGrouped = purEmanets.GroupBy(p => p.Ilce).Select(t => new IlceButce
@@ -101,7 +101,7 @@ namespace WinFormsApp1
                    t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
                    t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
                    t.Where(t => t.Imalat.Isim.Contains("Kaya Tahkimat")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Diğer İmalatlar")).Sum(t => t.Tutar)
+                   t.Where(t => t.Imalat.Isim.Contains("Çevre Düzenleme İşleri")).Sum(t => t.Tutar)
                ));
 
             toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(puremanetsGrouped).ToList();

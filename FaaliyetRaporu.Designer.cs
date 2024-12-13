@@ -262,11 +262,12 @@
             AracKira.MinimumWidth = 8;
             AracKira.Name = "AracKira";
             AracKira.ReadOnly = true;
+            AracKira.Visible = false;
             // 
             // Spiral
             // 
             Spiral.DataPropertyName = "spiral";
-            Spiral.HeaderText = "Spiral (mt)";
+            Spiral.HeaderText = "Spiral Boru (mt)";
             Spiral.MinimumWidth = 8;
             Spiral.Name = "Spiral";
             Spiral.ReadOnly = true;
@@ -282,7 +283,7 @@
             // Tarimsal
             // 
             Tarimsal.DataPropertyName = "tarim";
-            Tarimsal.HeaderText = "Tarımsal Su (saat)";
+            Tarimsal.HeaderText = "Tarımsal Sulama (saat)";
             Tarimsal.MinimumWidth = 8;
             Tarimsal.Name = "Tarimsal";
             Tarimsal.ReadOnly = true;
@@ -290,7 +291,7 @@
             // Kaya
             // 
             Kaya.DataPropertyName = "kaya";
-            Kaya.HeaderText = "Kaya T. (ton)";
+            Kaya.HeaderText = "Kaya Tahkimat (ton)";
             Kaya.MinimumWidth = 8;
             Kaya.Name = "Kaya";
             Kaya.ReadOnly = true;
@@ -298,7 +299,7 @@
             // Diger
             // 
             Diger.DataPropertyName = "diger";
-            Diger.HeaderText = "Diğer";
+            Diger.HeaderText = "Çevre Düzenleme (saat)";
             Diger.MinimumWidth = 8;
             Diger.Name = "Diger";
             Diger.ReadOnly = true;
