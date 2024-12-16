@@ -30,10 +30,10 @@ namespace WinFormsApp1
                         Tur = _tur,
                         Tarih = dtTarih.Value.Date,
                         SiparisNo = Convert.ToInt32(txtSiparis.Text),
-                        TuprasNet = Convert.ToInt32(txtTupras.Text),
-                        IlOzelNet = Convert.ToInt32(txtOzelIdare.Text),
+                        TuprasNet = Convert.ToDouble(txtTupras.Text),
+                        IlOzelNet = Convert.ToDouble(txtOzelIdare.Text),
                         TartimNo = Convert.ToInt32(txtTartim.Text),
-                        Fark = Convert.ToInt32(txtFark.Text)
+                        Fark = Convert.ToDouble(txtFark.Text)
                     });
 
                     _dbContext.SaveChanges();

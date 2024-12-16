@@ -83,7 +83,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1265, 530);
+            dataGridView1.Size = new Size(1802, 530);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -192,7 +192,7 @@
             Controls.Add(btnParkeStok);
             Controls.Add(btnEkle);
             Name = "UCParke";
-            Size = new Size(1309, 652);
+            Size = new Size(1849, 652);
             Load += UCParke_Load;
             Leave += UCParke_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

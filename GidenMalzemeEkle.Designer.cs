@@ -37,8 +37,8 @@
             label1 = new Label();
             label2 = new Label();
             cmbEvsaf = new ComboBox();
-            cmbPersonel = new ComboBox();
             txtDiger = new MaskedTextBox();
+            txtxPersonel = new MaskedTextBox();
             SuspendLayout();
             // 
             // button2
@@ -121,15 +121,6 @@
             cmbEvsaf.TabIndex = 57;
             cmbEvsaf.SelectedIndexChanged += cmbEvsaf_SelectedIndexChanged;
             // 
-            // cmbPersonel
-            // 
-            cmbPersonel.FormattingEnabled = true;
-            cmbPersonel.Items.AddRange(new object[] { "Hakan Aygüzer - Şantiye Şefi" });
-            cmbPersonel.Location = new Point(299, 106);
-            cmbPersonel.Name = "cmbPersonel";
-            cmbPersonel.Size = new Size(300, 33);
-            cmbPersonel.TabIndex = 58;
-            // 
             // txtDiger
             // 
             txtDiger.Location = new Point(648, 52);
@@ -137,13 +128,20 @@
             txtDiger.Size = new Size(300, 31);
             txtDiger.TabIndex = 59;
             // 
+            // txtxPersonel
+            // 
+            txtxPersonel.Location = new Point(299, 106);
+            txtxPersonel.Name = "txtxPersonel";
+            txtxPersonel.Size = new Size(300, 31);
+            txtxPersonel.TabIndex = 60;
+            // 
             // GidenMalzemeEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 481);
+            Controls.Add(txtxPersonel);
             Controls.Add(txtDiger);
-            Controls.Add(cmbPersonel);
             Controls.Add(cmbEvsaf);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -172,7 +170,7 @@
         private Label label1;
         private Label label2;
         private ComboBox cmbEvsaf;
-        private ComboBox cmbPersonel;
         private MaskedTextBox txtDiger;
+        private MaskedTextBox txtxPersonel;
     }
 }
