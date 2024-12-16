@@ -8,7 +8,7 @@ namespace WinFormsApp1
 {
     internal record FaaliyetRapor(string ilce, double isAdet,double kat1, double kat2, double bsk, double asfaltOnarim ,double kilitliParke, double stabilize,
         double yolOnarim ,double menfez, double istinat, double kopru, double reglaj, double kar,double beton, double yeniYol,
-        double arac, double spiral, double icme, double tarim, double kaya, double diger, double miktar);
+         double spiral, double icme, double tarim, double kaya, double diger, double miktar);
 
     public partial class FaaliyetRaporu : Form
     {
@@ -49,8 +49,9 @@ namespace WinFormsApp1
                      s.Imalat,
                      item.HakedisToplamTahakkuk,
                      item.Programis.Sum(p => p.Uygulama),
-                     s.Imalat.Contains("1.") || s.Imalat.Contains("2.") ? 0 : s.Uygulama,
-                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
+                     s.Imalat.Contains("1.") || s.Imalat.Contains("2.") || s.Imalat.Contains("BSK") ? 0 : s.Uygulama,
+                    double.IsNaN( (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0
+                    : (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
                     + AsfaltDokumBedel(s.ID)
                  )).ToList();
 
@@ -75,7 +76,6 @@ namespace WinFormsApp1
                     t.Where(t => t.Imalat.Isim.Contains("Karla Mücadele")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Beton Yol")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Yeni Yol")).Sum(t => t.Miktar),
-                    t.Where(t => t.Imalat.Isim.Contains("Araç Kiralama")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Spiral Boru")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Miktar),
@@ -104,7 +104,6 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Karla Mücadele")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Yeni Yol")).Sum(t => t.uygulama),
-                    t.Where(t => t.imalat.Contains("Araç Kiralama")).Sum(t => t.uygulama),
 
                     t.Where(t => t.imalat.Contains("Spiral Boru")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.uygulama),
@@ -119,9 +118,9 @@ namespace WinFormsApp1
             toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(puremanetsGrouped).ToList();
 
             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                      p => p.DokumBedeli != 0 && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")
+                      p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")
                                                    || p.YatirimProgrami.Imalat.Contains("1.") || p.YatirimProgrami.Imalat.Contains("2.")))
-                      .GroupBy(p => new { ilce = p.YatirimProgrami.Ilce, imalat = p.YatirimProgrami.Imalat })                      
+                      .GroupBy(p => new { ilce = p.YatirimProgrami.Ilce })                      
                       .Select(t => new FaaliyetRapor
                       (
                           t.Key.ilce,
@@ -138,7 +137,7 @@ namespace WinFormsApp1
                     0,
 
                     0,
-                    0,
+                    
                     0,
                     0,
                     0,
@@ -172,7 +171,6 @@ namespace WinFormsApp1
                 f.Sum(i => i.kar),
                 f.Sum(i => i.beton),
                 f.Sum(i => i.yeniYol),
-                f.Sum(i => i.arac),
                 f.Sum(i => i.spiral),
                 f.Sum(i => i.icme),
                 f.Sum(i => i.tarim),
@@ -197,8 +195,7 @@ namespace WinFormsApp1
                 f.Sum(i => i.reglaj),
                 f.Sum(i => i.kar),
                 f.Sum(i => i.beton),
-                f.Sum(i => i.yeniYol),
-                f.Sum(i => i.arac),
+                f.Sum(i => i.yeniYol),               
                 f.Sum(i => i.spiral),
                 f.Sum(i => i.icme),
                 f.Sum(i => i.tarim),

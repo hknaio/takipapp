@@ -491,7 +491,7 @@ namespace WinFormsApp1.Migrations
 
                     b.HasIndex("SpiralBoruID");
 
-                    b.ToTable("SpiralBirimFiyatTarihGecmisis", (string)null);
+                    b.ToTable("SpiralBirimFiyatTarihGecmisis");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.SpiralBoru", b =>
@@ -531,11 +531,11 @@ namespace WinFormsApp1.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("Fark")
-                        .HasColumnType("int");
+                    b.Property<double>("Fark")
+                        .HasColumnType("float");
 
-                    b.Property<int>("IlOzelNet")
-                        .HasColumnType("int");
+                    b.Property<double>("IlOzelNet")
+                        .HasColumnType("float");
 
                     b.Property<int>("SiparisNo")
                         .HasColumnType("int");
@@ -546,8 +546,8 @@ namespace WinFormsApp1.Migrations
                     b.Property<int>("TartimNo")
                         .HasColumnType("int");
 
-                    b.Property<int>("TuprasNet")
-                        .HasColumnType("int");
+                    b.Property<double>("TuprasNet")
+                        .HasColumnType("float");
 
                     b.Property<string>("Tur")
                         .IsRequired()

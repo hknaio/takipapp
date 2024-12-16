@@ -194,7 +194,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         if (cmbKaynak.Text == "Hepsi")
                         {
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                       p => p.DokumBedeli != 0 && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                       p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                             && p.YatirimProgrami.Koy == koy)
                        .Select(p => new FaaliyetRaporKoy
@@ -214,7 +214,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         else
                         {
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                       p => p.DokumBedeli != 0 && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                       p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                             && p.YatirimProgrami.Koy == koy
                             && p.YatirimProgrami.Kaynak == cmbKaynak.Text)
@@ -239,7 +239,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         {
 
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                            p => p.DokumBedeli != 0 && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                            p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                                  && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                                 )
                             .Select(p => new FaaliyetRaporKoy
@@ -260,7 +260,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         {
 
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                            p => p.DokumBedeli != 0 && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
+                            p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                                  && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                                  && p.YatirimProgrami.Kaynak == cmbKaynak.Text
                                 )

@@ -50,7 +50,6 @@
             Kar = new DataGridViewTextBoxColumn();
             Beton = new DataGridViewTextBoxColumn();
             YeniYol = new DataGridViewTextBoxColumn();
-            AracKira = new DataGridViewTextBoxColumn();
             Spiral = new DataGridViewTextBoxColumn();
             Icme = new DataGridViewTextBoxColumn();
             Tarimsal = new DataGridViewTextBoxColumn();
@@ -77,7 +76,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, AracKira, Spiral, Icme, Tarimsal, Kaya, Diger, Miktar });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, IsAdet, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, Spiral, Icme, Tarimsal, Kaya, Diger, Miktar });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -255,15 +254,6 @@
             YeniYol.Name = "YeniYol";
             YeniYol.ReadOnly = true;
             // 
-            // AracKira
-            // 
-            AracKira.DataPropertyName = "arac";
-            AracKira.HeaderText = "Araç Kira.";
-            AracKira.MinimumWidth = 8;
-            AracKira.Name = "AracKira";
-            AracKira.ReadOnly = true;
-            AracKira.Visible = false;
-            // 
             // Spiral
             // 
             Spiral.DataPropertyName = "spiral";
@@ -352,7 +342,6 @@
         private DataGridViewTextBoxColumn Kar;
         private DataGridViewTextBoxColumn Beton;
         private DataGridViewTextBoxColumn YeniYol;
-        private DataGridViewTextBoxColumn AracKira;
         private DataGridViewTextBoxColumn Spiral;
         private DataGridViewTextBoxColumn Icme;
         private DataGridViewTextBoxColumn Tarimsal;
