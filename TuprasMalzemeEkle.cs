@@ -69,5 +69,15 @@ namespace WinFormsApp1
             _dbContext?.Dispose();
             _dbContext = null;
         }
+
+        private void txtOzelIdare_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTupras.Text != string.Empty)
+            {
+                var fark = Math.Round(Convert.ToDouble(txtTupras.Text) - Convert.ToDouble(txtOzelIdare.Text), 2);
+
+                txtFark.Text = fark.ToString();
+            }
+        }
     }
 }

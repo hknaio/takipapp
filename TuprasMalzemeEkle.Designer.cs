@@ -156,9 +156,11 @@
             txtOzelIdare.Name = "txtOzelIdare";
             txtOzelIdare.Size = new Size(150, 31);
             txtOzelIdare.TabIndex = 36;
+            txtOzelIdare.TextChanged += txtOzelIdare_TextChanged;
             // 
             // txtFark
             // 
+            txtFark.Enabled = false;
             txtFark.Location = new Point(198, 325);
             txtFark.Name = "txtFark";
             txtFark.Size = new Size(150, 31);
