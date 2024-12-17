@@ -39,7 +39,8 @@ namespace WinFormsApp1
                         Evsaf = cmbEvsaf.Text == "Diğer" ? txtDiger.Text : cmbEvsaf.Text,
                         Yer = txtYer.Text,
                         Personel = txtxPersonel.Text,
-                        Tarih = dtTarih.Value.Date,                       
+                        Tarih = dtTarih.Value.Date,
+                        Miktar = Convert.ToDouble(txtMiktar.Text)
                     });
 
                     _dbContext.SaveChanges();
@@ -60,7 +61,7 @@ namespace WinFormsApp1
         private bool IsModelValid()
         {
             if (cmbEvsaf.Text != string.Empty && txtxPersonel.Text != string.Empty && txtYer.Text != string.Empty
-                )
+                && txtMiktar.Text != string.Empty)
             {
                 return true;
             }

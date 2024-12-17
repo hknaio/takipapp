@@ -6,6 +6,7 @@
         public string Evsaf { get; set; }
         public string Personel { get; set; }
         public string Yer { get; set; }
+        public double Miktar { get; set; }
         public DateTime Tarih { get; set; }
     }
 }

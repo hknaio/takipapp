@@ -39,6 +39,8 @@
             cmbEvsaf = new ComboBox();
             txtDiger = new MaskedTextBox();
             txtxPersonel = new MaskedTextBox();
+            txtMiktar = new MaskedTextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // button2
@@ -135,11 +137,29 @@
             txtxPersonel.Size = new Size(300, 31);
             txtxPersonel.TabIndex = 60;
             // 
+            // txtMiktar
+            // 
+            txtMiktar.Location = new Point(299, 268);
+            txtMiktar.Name = "txtMiktar";
+            txtMiktar.Size = new Size(300, 31);
+            txtMiktar.TabIndex = 61;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(76, 274);
+            label4.Name = "label4";
+            label4.Size = new Size(71, 25);
+            label4.TabIndex = 62;
+            label4.Text = "Miktar :";
+            // 
             // GidenMalzemeEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(997, 481);
+            Controls.Add(label4);
+            Controls.Add(txtMiktar);
             Controls.Add(txtxPersonel);
             Controls.Add(txtDiger);
             Controls.Add(cmbEvsaf);
@@ -172,5 +192,7 @@
         private ComboBox cmbEvsaf;
         private MaskedTextBox txtDiger;
         private MaskedTextBox txtxPersonel;
+        private MaskedTextBox txtMiktar;
+        private Label label4;
     }
 }

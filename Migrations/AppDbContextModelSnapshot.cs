@@ -137,6 +137,9 @@ namespace WinFormsApp1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Miktar")
+                        .HasColumnType("float");
+
                     b.Property<string>("Personel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
