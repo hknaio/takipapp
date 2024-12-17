@@ -140,6 +140,29 @@ namespace WinFormsApp1
 
             toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(onarimVeBsk).ToList();
 
+            var toplam = toplamUygulamaGrouped.GroupBy(f => 1).Select(s => new IlceButce(
+                "Tümü",
+                double.IsNaN(s.Sum(i => i.kat1)) ? 0 : s.Sum(i => i.kat1),
+                double.IsNaN(s.Sum(i => i.kat2)) ? 0 : s.Sum(i => i.kat2),
+                double.IsNaN(s.Sum(i => i.bsk)) ? 0 : s.Sum(i => i.bsk),
+                double.IsNaN(s.Sum(i => i.asfaltOnarim)) ? 0 : s.Sum(i => i.asfaltOnarim),
+                double.IsNaN(s.Sum(i => i.kilitliParke)) ? 0 : s.Sum(i => i.kilitliParke),
+                double.IsNaN(s.Sum(i => i.stabilize)) ? 0 : s.Sum(i => i.stabilize),
+                double.IsNaN(s.Sum(i => i.yolOnarim)) ? 0 : s.Sum(i => i.yolOnarim),
+                double.IsNaN(s.Sum(i => i.menfez)) ? 0 : s.Sum(i => i.menfez),
+                double.IsNaN(s.Sum(i => i.istinat)) ? 0 : s.Sum(i => i.istinat),
+                double.IsNaN(s.Sum(i => i.kopru)) ? 0 : s.Sum(i => i.kopru),
+                double.IsNaN(s.Sum(i => i.reglaj)) ? 0 : s.Sum(i => i.reglaj),
+                double.IsNaN(s.Sum(i => i.kar)) ? 0 : s.Sum(i => i.kar),
+                double.IsNaN(s.Sum(i => i.beton)) ? 0 : s.Sum(i => i.beton),
+                double.IsNaN(s.Sum(i => i.yeniYol)) ? 0 : s.Sum(i => i.yeniYol),
+                double.IsNaN(s.Sum(i => i.spiral)) ? 0 : s.Sum(i => i.spiral),
+                double.IsNaN(s.Sum(i => i.icme)) ? 0 : s.Sum(i => i.icme),
+                double.IsNaN(s.Sum(i => i.tarim)) ? 0 : s.Sum(i => i.tarim),
+                double.IsNaN(s.Sum(i => i.kaya)) ? 0 : s.Sum(i => i.kaya),
+                double.IsNaN(s.Sum(i => i.diger)) ? 0 : s.Sum(i => i.diger)
+                ));
+
             var finalList = toplamUygulamaGrouped.GroupBy(f => f.ilce).Select(s => new IlceButce
             (
                 s.Key,
@@ -163,6 +186,8 @@ namespace WinFormsApp1
                 double.IsNaN(s.Sum(i => i.kaya)) ? 0 : s.Sum(i => i.kaya),
                 double.IsNaN(s.Sum(i => i.diger)) ? 0 : s.Sum(i => i.diger)
              )).ToList();
+
+            finalList.AddRange(toplam);
 
             dataGridView1.DataSource = finalList;
         }
