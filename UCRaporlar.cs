@@ -68,5 +68,14 @@ namespace WinFormsApp1
                 this.OnLoad(e);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (PuremanetRapor rprPuremanet = new())
+            {
+                rprPuremanet.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
     }
 }

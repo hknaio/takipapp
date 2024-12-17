@@ -34,6 +34,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -92,7 +93,7 @@
             // 
             button3.BackColor = Color.LightSkyBlue;
             button3.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
-            button3.Location = new Point(37, 273);
+            button3.Location = new Point(286, 273);
             button3.Name = "button3";
             button3.Size = new Size(178, 183);
             button3.TabIndex = 7;
@@ -105,7 +106,7 @@
             // 
             button4.BackColor = Color.LightSkyBlue;
             button4.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
-            button4.Location = new Point(286, 273);
+            button4.Location = new Point(536, 273);
             button4.Name = "button4";
             button4.Size = new Size(178, 183);
             button4.TabIndex = 8;
@@ -114,10 +115,24 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // button6
+            // 
+            button6.BackColor = Color.LightSkyBlue;
+            button6.Image = YatirimTakip.Properties.Resources.icons8_ownership_64;
+            button6.Location = new Point(37, 273);
+            button6.Name = "button6";
+            button6.Size = new Size(178, 183);
+            button6.TabIndex = 9;
+            button6.Text = "Püremanet Rapor";
+            button6.TextImageRelation = TextImageRelation.ImageAboveText;
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // UCRaporlar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button6);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -137,5 +152,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Button button6;
     }
 }

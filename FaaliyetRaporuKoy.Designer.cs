@@ -76,7 +76,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(12, 87);
+            dataGridView1.Location = new Point(9, 87);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
@@ -137,7 +137,7 @@
             // 
             cmbYil.FormattingEnabled = true;
             cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(67, 28);
+            cmbYil.Location = new Point(64, 28);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
             cmbYil.TabIndex = 49;
@@ -156,7 +156,7 @@
             // 
             cmbIlce.FormattingEnabled = true;
             cmbIlce.Items.AddRange(new object[] { "--" });
-            cmbIlce.Location = new Point(331, 28);
+            cmbIlce.Location = new Point(328, 28);
             cmbIlce.Name = "cmbIlce";
             cmbIlce.Size = new Size(210, 33);
             cmbIlce.TabIndex = 52;
@@ -165,7 +165,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(273, 31);
+            label2.Location = new Point(270, 31);
             label2.Name = "label2";
             label2.Size = new Size(52, 25);
             label2.TabIndex = 51;
@@ -174,7 +174,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 31);
+            label1.Location = new Point(19, 31);
             label1.Name = "label1";
             label1.Size = new Size(39, 25);
             label1.TabIndex = 53;
@@ -194,7 +194,7 @@
             // 
             cmbKoy.FormattingEnabled = true;
             cmbKoy.Items.AddRange(new object[] { "Hepsi" });
-            cmbKoy.Location = new Point(619, 28);
+            cmbKoy.Location = new Point(616, 28);
             cmbKoy.Name = "cmbKoy";
             cmbKoy.Size = new Size(300, 33);
             cmbKoy.TabIndex = 56;
@@ -202,7 +202,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(557, 31);
+            label4.Location = new Point(554, 31);
             label4.Name = "label4";
             label4.Size = new Size(56, 25);
             label4.TabIndex = 57;
