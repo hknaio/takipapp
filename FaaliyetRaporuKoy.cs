@@ -22,6 +22,14 @@ namespace WinFormsApp1
             dataGridView1.Columns[5].DefaultCellStyle.Format = "N2";
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+
+            List<Imalat> imalatsDb = new List<Imalat> { new Imalat { Isim = "Hepsi" } };
+
+            var imalats = _dbContext.Imalats.ToList();
+            List<Imalat> imalatList = [.. imalatsDb, .. imalats];
+
+            cmbImalat.DataSource = imalatList;
+            cmbImalat.DisplayMember = "Isim"; cmbImalat.Invalidate();
         }
         private void btnGetir_Click(object sender, EventArgs e)
         {
@@ -48,16 +56,17 @@ namespace WinFormsApp1
                       .Include(p => p.Koy)
                       .Include(p => p.Imalat)
                       .Where(p => p.Tarih.Year == yil
-                  && p.Ilce.Adi == ilce.Adi).ToList();
+                  && p.Ilce.Adi == ilce.Adi
+                  && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
                             projeler = _dbContext.Projes
-                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi))
+                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi) )
                             .ToList();
 
                             foreach (var item in projeler)
                             {
                                 var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                                  )
+                                            && (cmbImalat.Text == "Hepsi" || p.Imalat == cmbImalat.Text))
                                     .Select(s => new FaaliyetRaporKoy
                                  (
                                     s.Koy,
@@ -85,7 +94,8 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             foreach (var item in projeler)
                             {
                                 var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                                  && p.Kaynak == cmbKaynak.Text)
+                                                                  && p.Kaynak == cmbKaynak.Text
+                                                                  && (cmbImalat.Text == "Hepsi" || p.Imalat == cmbImalat.Text))
                                     .Select(s => new FaaliyetRaporKoy
                                  (
                                     s.Koy,
@@ -112,7 +122,8 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                        .Include(p => p.Koy)
                        .Include(p => p.Imalat)
                        .Where(p => p.Tarih.Year == yil
-                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text).ToList();
+                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text
+                   && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
 
                             projeler = _dbContext.Projes
@@ -124,7 +135,8 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             foreach (var item in projeler)
                             {
                                 var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                                  && p.Koy.Contains(koy))
+                                                                  && p.Koy.Contains(koy)
+                                                                  && (cmbImalat.Text == "Hepsi" || p.Imalat == cmbImalat.Text))
                                     .Select(s => new FaaliyetRaporKoy
                                  (
                                     s.Koy,
@@ -153,7 +165,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             foreach (var item in projeler)
                             {
                                 var list = item.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi
-                                                
+                                && (cmbImalat.Text == "Hepsi" || p.Imalat == cmbImalat.Text)
                                 && p.Koy.Contains(koy))
                                     .Select(s => new FaaliyetRaporKoy
                                  (
@@ -196,7 +208,8 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
                        p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
-                            && p.YatirimProgrami.Koy == koy)
+                            && p.YatirimProgrami.Koy == koy
+                            && (cmbImalat.Text == "Hepsi"))
                        .Select(p => new FaaliyetRaporKoy
                        (
                            p.YatirimProgrami.Koy,
@@ -217,7 +230,8 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                        p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                             && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                             && p.YatirimProgrami.Koy == koy
-                            && p.YatirimProgrami.Kaynak == cmbKaynak.Text)
+                            && p.YatirimProgrami.Kaynak == cmbKaynak.Text
+                            && (cmbImalat.Text == "Hepsi"))
                        .Select(p => new FaaliyetRaporKoy
                        (
                            p.YatirimProgrami.Koy,
@@ -241,6 +255,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
                             p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                                  && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
+                                 && (cmbImalat.Text == "Hepsi")
                                 )
                             .Select(p => new FaaliyetRaporKoy
                             (
@@ -263,6 +278,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                             p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Proje == null && p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım"))
                                  && p.YatirimProgrami.Ilce == ilce.Adi && p.YatirimProgrami.Yil == yil
                                  && p.YatirimProgrami.Kaynak == cmbKaynak.Text
+                                 && (cmbImalat.Text == "Hepsi")
                                 )
                             .Select(p => new FaaliyetRaporKoy
                             (

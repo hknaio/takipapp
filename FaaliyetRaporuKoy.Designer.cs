@@ -47,6 +47,8 @@
             label4 = new Label();
             cmbKaynak = new ComboBox();
             label3 = new Label();
+            label5 = new Label();
+            cmbImalat = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1689, 723);
+            dataGridView1.Size = new Size(1914, 723);
             dataGridView1.TabIndex = 45;
             // 
             // KoyMezra
@@ -144,7 +146,7 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(1349, 24);
+            btnGetir.Location = new Point(1501, 23);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(179, 41);
             btnGetir.TabIndex = 48;
@@ -182,7 +184,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1544, 27);
+            button1.Location = new Point(1686, 27);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 54;
@@ -212,7 +214,7 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "Hepsi", "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(1060, 29);
+            cmbKaynak.Location = new Point(1011, 29);
             cmbKaynak.Name = "cmbKaynak";
             cmbKaynak.Size = new Size(182, 33);
             cmbKaynak.TabIndex = 59;
@@ -220,17 +222,37 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(951, 32);
+            label3.Location = new Point(937, 32);
             label3.Name = "label3";
             label3.Size = new Size(77, 25);
             label3.TabIndex = 58;
             label3.Text = "Kaynak :";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(1199, 32);
+            label5.Name = "label5";
+            label5.Size = new Size(70, 25);
+            label5.TabIndex = 64;
+            label5.Text = "İmalat :";
+            // 
+            // cmbImalat
+            // 
+            cmbImalat.FormattingEnabled = true;
+            cmbImalat.Items.AddRange(new object[] { "Hepsi" });
+            cmbImalat.Location = new Point(1275, 31);
+            cmbImalat.Name = "cmbImalat";
+            cmbImalat.Size = new Size(220, 33);
+            cmbImalat.TabIndex = 65;
+            // 
             // FaaliyetRaporuKoy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1745, 810);
+            ClientSize = new Size(1924, 810);
+            Controls.Add(cmbImalat);
+            Controls.Add(label5);
             Controls.Add(cmbKaynak);
             Controls.Add(label3);
             Controls.Add(label4);
@@ -270,5 +292,7 @@
         private Label label4;
         private ComboBox cmbKaynak;
         private Label label3;
+        private Label label5;
+        private ComboBox cmbImalat;
     }
 }
