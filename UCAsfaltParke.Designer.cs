@@ -66,7 +66,7 @@
             panelContainer.Controls.Add(button1);
             panelContainer.Location = new Point(3, 3);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1625, 535);
+            panelContainer.Size = new Size(1625, 782);
             panelContainer.TabIndex = 3;
             // 
             // UCAsfaltParke
@@ -75,7 +75,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContainer);
             Name = "UCAsfaltParke";
-            Size = new Size(1631, 552);
+            Size = new Size(1631, 835);
             panelContainer.ResumeLayout(false);
             ResumeLayout(false);
         }
