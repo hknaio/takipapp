@@ -70,7 +70,7 @@ namespace WinFormsApp1
                     t.Where(t => t.Imalat.Isim.Contains("Stabilize")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Yol Onarım")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Menfez")).Sum(t => t.Miktar),
-                    t.Where(t => t.Imalat.Isim.Contains("Istinat Duvarı")).Sum(t => t.Miktar),
+                    t.Where(t => t.Imalat.Isim.Contains("İstinat Duvarı")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Köprü")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Reglaj")).Sum(t => t.Miktar),
                     t.Where(t => t.Imalat.Isim.Contains("Karla Mücadele")).Sum(t => t.Miktar),
@@ -97,7 +97,7 @@ namespace WinFormsApp1
                     t.Where(t => t.imalat.Contains("Stabilize")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Yol Onarım")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Menfez")).Sum(t => t.uygulama),
-                    t.Where(t => t.imalat.Contains("Istinat Duvarı")).Sum(t => t.uygulama),
+                    t.Where(t => t.imalat.Contains("İstinat Duvarı")).Sum(t => t.uygulama),
                     t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.uygulama),
              
                     t.Where(t => t.imalat.Contains("Reglaj")).Sum(t => t.uygulama),
