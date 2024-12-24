@@ -34,7 +34,7 @@ namespace WinFormsApp1
             {
                selected.YaklasikMaliyet = Convert.ToDouble(txtYeniMiktar.Text);
                                
-               proje.YaklasikMaliyet -= Convert.ToInt32(lblGuncelMiktar.Text);
+               proje.YaklasikMaliyet -= Convert.ToDouble(lblGuncelMiktar.Text);
                proje.YaklasikMaliyet += selected.YaklasikMaliyet; 
 
                 try
