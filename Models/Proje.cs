@@ -26,11 +26,7 @@ namespace WinFormsApp1.Models
         [Description("İhale Aşaması")]
         IhaleAsamasi,
         [Description("Devam Ediyor")]
-        DevamEdiyor,
-        [Description("Geçici Kabul")]
-        GeciciKabul,
-        [Description("Kesin Kabul")]
-        KesinKabul,
+        DevamEdiyor,       
         [Description("Bitti (Geçici)")]
         Bitti,
         [Description("Sonuçlandı (Kesin)")]
