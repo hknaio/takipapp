@@ -30,9 +30,7 @@ namespace WinFormsApp1
         {
             var yil = Convert.ToInt32(cmbYil.Text);
 
-            var projeler = _dbContext.Projes
-                .Include(p => p.Programis.Where(p => p.Yil == yil))
-                .ToList();
+            var projeler = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Yil == yil)).ToList();
 
             var purEmanets = _dbContext.PurEmanets
                 .Include(p => p.Imalat)

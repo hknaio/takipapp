@@ -10,11 +10,11 @@ namespace WinFormsApp1
         }
         private void AnaEkran_Load(object sender, EventArgs e)
         {
-            if (DateTime.Now.Day == 31 && DateTime.Now.Month == 12)
-            {
-                var devir = new YatirimProgramiDevir();
-                devir.ProgramDevret();
-            }
+            //if (DateTime.Now.Day == 31 && DateTime.Now.Month == 12)
+            //{
+            //    var devir = new YatirimProgramiDevir();
+            //    devir.ProgramDevret();
+            //}
         }
         private void slidePanel(Button btn)
         {
