@@ -64,6 +64,7 @@
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2023", "2024", "2025", "2026" });
             cmbYil.Location = new Point(137, 38);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
@@ -253,7 +254,7 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // ProgramlarSec
+            // ProgramlarSecSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -266,7 +267,7 @@
             Controls.Add(label2);
             Controls.Add(cmbYil);
             Controls.Add(label1);
-            Name = "ProgramlarSec";
+            Name = "ProgramlarSecSanat";
             Text = "ProgramlarSec";
             Load += ProgramlarSec_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

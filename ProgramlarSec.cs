@@ -17,7 +17,6 @@ namespace WinFormsApp1
         private void ProgramlarSec_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            cmbYil.Text = DateTime.Now.Year.ToString();
         }
 
         private void btnGetir_Click(object sender, EventArgs e)

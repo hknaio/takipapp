@@ -64,6 +64,7 @@
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2023", "2024", "2025", "2026" });
             cmbYil.Location = new Point(137, 38);
             cmbYil.Name = "cmbYil";
             cmbYil.Size = new Size(182, 33);
