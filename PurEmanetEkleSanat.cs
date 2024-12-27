@@ -1,12 +1,17 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel;
+using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 
 namespace WinFormsApp1
 {
+    internal record Spiral(string cap, double miktar);
     public partial class PurEmanetEkleSanat : Form
     {
         private AppDbContext? _dbContext;
+        private BindingList<Spiral> spiralList = new();
         public PurEmanetEkleSanat()
         {
             InitializeComponent();
@@ -18,7 +23,7 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
             _dbContext.Ilces.Load();
-            _dbContext.Imalats.Where(i => i.Isim.Contains("Menfez") || 
+            _dbContext.Imalats.Where(i => i.Isim.Contains("Menfez") ||
                                           i.Isim.Contains("Spiral Boru") ||
                                           i.Isim.Contains("Taş Duvar") ||
                                           i.Isim.Contains("İstinat Duvarı") ||
@@ -34,12 +39,14 @@ namespace WinFormsApp1
             txtBoruMetre.Visible = false;
             label6.Visible = false;
             chkMezraList.Visible = false;
+            btnBoruEkle.Visible = false;
+            dgBoru.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (IsModelValid())
-            {
+            {                
                 var ilce = (Ilce)cmbIlce.SelectedValue!;
                 var koy = (Koy)cmbKoy.SelectedValue!;
                 var imalat = (Imalat)cmbImalat.SelectedValue!;
@@ -48,46 +55,83 @@ namespace WinFormsApp1
 
                 if (cmbImalat.Text == "Spiral Boru")
                 {
-                    spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cmbSpiral.Text)).FirstOrDefault();
-
-                    if (spiralBoru != null)
+                    foreach (DataGridViewRow item in dgBoru.Rows)
                     {
-                        spiralBoru.StokMiktar -= Convert.ToInt32(txtBoruMetre.Text); ;
-                        _dbContext?.Update(spiralBoru);
-                    }
-                }
+                        var cap = item.Cells["Cap"].Value;
+                        var miktar = item.Cells["Miktar"].Value;
 
-                try
-                {
-                    var purEmanet = new PurEmanet
-                    {
-                        Tarih = dtTarih.Value,
-                        IlceId = ilce!.ID,
-                        KoyId = koy!.ID,
-                        ImalatId = imalat!.ID,
-                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToDouble(txtBoruMetre.Text)
-                        : Convert.ToDouble(txtMiktar.Text),
-                        Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text)
-                        : imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
-                        SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null
-                    };
+                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap)).FirstOrDefault();
 
-                    foreach (var mezra in chkMezraList.CheckedItems)
-                    {
-                        var purEmanetMezra = new PurEmanetMezra
+                        if (spiralBoru != null)
                         {
-                            PurEmanet = purEmanet,
-                            Mezra = (Mezra)mezra,
+                            spiralBoru.StokMiktar -= Convert.ToInt32(miktar);
+                            _dbContext?.Update(spiralBoru);
+                        }
+
+                        var purEmanet = new PurEmanet
+                        {
+                            Tarih = dtTarih.Value,
+                            IlceId = ilce!.ID,
+                            KoyId = koy!.ID,
+                            ImalatId = imalat!.ID,
+                            Miktar = Convert.ToDouble(miktar),
+                            Tutar = spiralBoru!.BirimFiyat ,
+                            SpiralBoruId = spiralBoru!.ID
                         };
-                        _dbContext!.PurEmanetMezras.Add(purEmanetMezra);
+
+                        foreach (var mezra in chkMezraList.CheckedItems)
+                        {
+                            var purEmanetMezra = new PurEmanetMezra
+                            {
+                                PurEmanet = purEmanet,
+                                Mezra = (Mezra)mezra,
+                            };
+                            _dbContext!.PurEmanetMezras.Add(purEmanetMezra);
+                        }
+
+                        _dbContext!.PurEmanets.Add(purEmanet);
                     }
 
-                    _dbContext!.PurEmanets.Add(purEmanet);
-
-                    _dbContext.SaveChanges();
-                    this.Close();
+                    try
+                    {
+                        _dbContext.SaveChanges();
+                        this.Close();
+                    }
+                    catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
                 }
-                catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
+
+                else
+                {
+                    try
+                    {
+                        var purEmanet = new PurEmanet
+                        {
+                            Tarih = dtTarih.Value,
+                            IlceId = ilce!.ID,
+                            KoyId = koy!.ID,
+                            ImalatId = imalat!.ID,
+                            Miktar = Convert.ToDouble(txtMiktar.Text),
+                            Tutar =  imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
+                            SpiralBoruId = null
+                        };
+
+                        foreach (var mezra in chkMezraList.CheckedItems)
+                        {
+                            var purEmanetMezra = new PurEmanetMezra
+                            {
+                                PurEmanet = purEmanet,
+                                Mezra = (Mezra)mezra,
+                            };
+                            _dbContext!.PurEmanetMezras.Add(purEmanetMezra);
+                        }
+
+                        _dbContext!.PurEmanets.Add(purEmanet);
+
+                        _dbContext.SaveChanges();
+                        this.Close();
+                    }
+                    catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
+                }                
             }
 
             txtMiktar.Focus();
@@ -141,6 +185,8 @@ namespace WinFormsApp1
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
                 cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();
                 txtMiktar.Visible = false;
+                btnBoruEkle.Visible = true;
+                dgBoru.Visible = true;
 
                 var spiralBoruList = _dbContext?.SpiralBorus.ToList();
 
@@ -154,6 +200,8 @@ namespace WinFormsApp1
             {
                 txtMiktar.Visible = true;
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = false;
+                btnBoruEkle.Visible = false;
+                dgBoru.Visible = false;
             }
         }
 
@@ -180,6 +228,34 @@ namespace WinFormsApp1
             chkMezra.Checked = false;
             chkMezraList.Visible = false;
 
+        }
+
+        private void btnBoruEkle_Click(object sender, EventArgs e)
+        {
+            if (cmbSpiral.Text != string.Empty && txtBoruMetre.Text != string.Empty)
+            {
+                var spiral = new Spiral(cmbSpiral.Text, Convert.ToDouble(txtBoruMetre.Text));
+                spiralList.Add(spiral);
+                dgBoru.DataSource = null;
+                dgBoru.DataSource = spiralList;
+                OrderColumns();
+                txtBoruMetre.Clear();
+            }
+        }
+        private void OrderColumns()
+        {
+            dgBoru.Columns["Cap"].DisplayIndex = 0;
+            dgBoru.Columns["Miktar"].DisplayIndex = 1;
+            dgBoru.Columns["Sil"].DisplayIndex = 2;
+        }
+
+        private void dgBoru_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex ==
+           dgBoru.Columns[0].Index)
+            {
+                dgBoru.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

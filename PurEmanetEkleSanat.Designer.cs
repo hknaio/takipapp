@@ -45,6 +45,12 @@
             label6 = new Label();
             chkMezra = new CheckBox();
             chkMezraList = new CheckedListBox();
+            btnBoruEkle = new Button();
+            dgBoru = new DataGridView();
+            Cap = new DataGridViewTextBoxColumn();
+            Miktar = new DataGridViewTextBoxColumn();
+            Sil = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)dgBoru).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -128,7 +134,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(436, 490);
+            button1.Location = new Point(686, 849);
             button1.Name = "button1";
             button1.Size = new Size(130, 51);
             button1.TabIndex = 10;
@@ -138,7 +144,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(642, 490);
+            button2.Location = new Point(865, 849);
             button2.Name = "button2";
             button2.Size = new Size(122, 51);
             button2.TabIndex = 11;
@@ -156,14 +162,14 @@
             // cmbSpiral
             // 
             cmbSpiral.FormattingEnabled = true;
-            cmbSpiral.Location = new Point(212, 335);
+            cmbSpiral.Location = new Point(213, 427);
             cmbSpiral.Name = "cmbSpiral";
             cmbSpiral.Size = new Size(96, 33);
             cmbSpiral.TabIndex = 13;
             // 
             // txtBoruMetre
             // 
-            txtBoruMetre.Location = new Point(337, 335);
+            txtBoruMetre.Location = new Point(337, 427);
             txtBoruMetre.Name = "txtBoruMetre";
             txtBoruMetre.Size = new Size(142, 31);
             txtBoruMetre.TabIndex = 14;
@@ -171,7 +177,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(45, 338);
+            label6.Location = new Point(35, 430);
             label6.Name = "label6";
             label6.Size = new Size(161, 25);
             label6.TabIndex = 15;
@@ -196,11 +202,67 @@
             chkMezraList.Size = new Size(313, 256);
             chkMezraList.TabIndex = 17;
             // 
-            // PurEmanetEkle
+            // btnBoruEkle
+            // 
+            btnBoruEkle.Location = new Point(517, 425);
+            btnBoruEkle.Name = "btnBoruEkle";
+            btnBoruEkle.Size = new Size(193, 34);
+            btnBoruEkle.TabIndex = 18;
+            btnBoruEkle.Text = "Listeye Ekle";
+            btnBoruEkle.UseVisualStyleBackColor = true;
+            btnBoruEkle.Click += btnBoruEkle_Click;
+            // 
+            // dgBoru
+            // 
+            dgBoru.AllowUserToAddRows = false;
+            dgBoru.AllowUserToDeleteRows = false;
+            dgBoru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgBoru.Columns.AddRange(new DataGridViewColumn[] { Cap, Miktar, Sil });
+            dgBoru.Location = new Point(45, 485);
+            dgBoru.Name = "dgBoru";
+            dgBoru.ReadOnly = true;
+            dgBoru.RowHeadersVisible = false;
+            dgBoru.RowHeadersWidth = 62;
+            dgBoru.Size = new Size(573, 415);
+            dgBoru.TabIndex = 19;
+            dgBoru.CellClick += dgBoru_CellClick;
+            // 
+            // Cap
+            // 
+            Cap.DataPropertyName = "cap";
+            Cap.HeaderText = "Cap";
+            Cap.MinimumWidth = 8;
+            Cap.Name = "Cap";
+            Cap.ReadOnly = true;
+            Cap.Width = 150;
+            // 
+            // Miktar
+            // 
+            Miktar.DataPropertyName = "miktar";
+            Miktar.HeaderText = "Miktar";
+            Miktar.MinimumWidth = 8;
+            Miktar.Name = "Miktar";
+            Miktar.ReadOnly = true;
+            Miktar.Width = 150;
+            // 
+            // Sil
+            // 
+            Sil.HeaderText = "Sil";
+            Sil.MinimumWidth = 8;
+            Sil.Name = "Sil";
+            Sil.ReadOnly = true;
+            Sil.Text = "Listeden Sil";
+            Sil.ToolTipText = "Listeden Sil";
+            Sil.UseColumnTextForButtonValue = true;
+            Sil.Width = 150;
+            // 
+            // PurEmanetEkleSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(923, 629);
+            ClientSize = new Size(1021, 956);
+            Controls.Add(dgBoru);
+            Controls.Add(btnBoruEkle);
             Controls.Add(chkMezraList);
             Controls.Add(chkMezra);
             Controls.Add(label6);
@@ -218,9 +280,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "PurEmanetEkle";
+            Name = "PurEmanetEkleSanat";
             Text = "Pür Emanet Ekle";
             Load += PurEmanetEkle_Load;
+            ((System.ComponentModel.ISupportInitialize)dgBoru).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +307,10 @@
         private Label label6;
         private CheckBox chkMezra;
         private CheckedListBox chkMezraList;
+        private Button btnBoruEkle;
+        private DataGridView dgBoru;
+        private DataGridViewTextBoxColumn Cap;
+        private DataGridViewTextBoxColumn Miktar;
+        private DataGridViewButtonColumn Sil;
     }
 }
