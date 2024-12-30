@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panelContainer = new Panel();
+            button4 = new Button();
             button3 = new Button();
             button1 = new Button();
             button2 = new Button();
-            button4 = new Button();
             panelContainer.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,6 +47,17 @@
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(1303, 665);
             panelContainer.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.LightSkyBlue;
+            button4.Location = new Point(1019, 100);
+            button4.Name = "button4";
+            button4.Size = new Size(245, 158);
+            button4.TabIndex = 7;
+            button4.Text = "FM3B2 Astar (CMC-30)";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -80,17 +91,6 @@
             button2.Text = "160-220 Asfalt";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.LightSkyBlue;
-            button4.Location = new Point(1019, 100);
-            button4.Name = "button4";
-            button4.Size = new Size(245, 158);
-            button4.TabIndex = 7;
-            button4.Text = "FM2B2 Astar (CMC-30)";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // UCTupras
             // 

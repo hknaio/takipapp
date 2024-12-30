@@ -35,7 +35,7 @@
 
         private void button4_Click(object sender, EventArgs e)
         {
-            UCTuprasDetay ucc = new("FM2B2 Astar (MC-30)");
+            UCTuprasDetay ucc = new("FM3B2 Astar (MC-30)");
             addControls(ucc);
         }
     }
