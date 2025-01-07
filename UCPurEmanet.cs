@@ -23,6 +23,7 @@ namespace WinFormsApp1
             _dbContext.Mezras.Load();
             _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
                                           && p.Tarih.Month == dtTarih.Value.Month
+                                          && p.Tarih.Year == dtTarih.Value.Year
                                           && !p.Imalat.Isim.Contains("Menfez") &&
                                           !p.Imalat.Isim.Contains("Spiral Boru") &&
                                           !p.Imalat.Isim.Contains("Taş Duvar") &&
@@ -174,6 +175,7 @@ namespace WinFormsApp1
         {
             var puremanets = _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
                                           && p.Tarih.Month == dtTarih.Value.Month
+                                          && p.Tarih.Year == dtTarih.Value.Year
                                           && (!p.Imalat.Isim.Contains("Menfez") &&
                                           !p.Imalat.Isim.Contains("Spiral Boru") &&
                                           !p.Imalat.Isim.Contains("Taş Duvar") &&
