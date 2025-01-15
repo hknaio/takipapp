@@ -32,7 +32,19 @@
     <Compile Update="PurEmanetEkleSanat.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UCProjeSu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCProjeTarimsal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UCProjeSanat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCPurEmanetSu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCPurEmanetTarimsal.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UCPurEmanetSanat.cs">

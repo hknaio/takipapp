@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaEkran));
             panelLeft = new Panel();
+            btnSu = new Button();
+            button3 = new Button();
             panelSide = new Panel();
             button1 = new Button();
             btnRapor = new Button();
@@ -41,6 +43,7 @@
             pictureBox2 = new PictureBox();
             panelContainer = new Panel();
             lblTitle = new Label();
+            label2 = new Label();
             panelLeft.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -50,6 +53,8 @@
             // 
             panelLeft.BackColor = SystemColors.GradientActiveCaption;
             panelLeft.BorderStyle = BorderStyle.Fixed3D;
+            panelLeft.Controls.Add(btnSu);
+            panelLeft.Controls.Add(button3);
             panelLeft.Controls.Add(panelSide);
             panelLeft.Controls.Add(button1);
             panelLeft.Controls.Add(btnRapor);
@@ -60,8 +65,38 @@
             panelLeft.Location = new Point(10, 14);
             panelLeft.Margin = new Padding(4);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(402, 913);
+            panelLeft.Size = new Size(402, 987);
             panelLeft.TabIndex = 0;
+            // 
+            // btnSu
+            // 
+            btnSu.BackColor = Color.LightSkyBlue;
+            btnSu.Image = YatirimTakip.Properties.Resources.icons8_water_100;
+            btnSu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSu.Location = new Point(26, 629);
+            btnSu.Margin = new Padding(4);
+            btnSu.Name = "btnSu";
+            btnSu.Size = new Size(359, 104);
+            btnSu.TabIndex = 3;
+            btnSu.Text = "Su ve Kanal";
+            btnSu.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSu.UseVisualStyleBackColor = false;
+            btnSu.Click += btnSu_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.LightSkyBlue;
+            button3.Image = YatirimTakip.Properties.Resources.icons8_agricultural_64;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(26, 517);
+            button3.Margin = new Padding(4);
+            button3.Name = "button3";
+            button3.Size = new Size(359, 104);
+            button3.TabIndex = 4;
+            button3.Text = "Tarımsal Hizmetler";
+            button3.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // panelSide
             // 
@@ -91,7 +126,7 @@
             btnRapor.BackColor = Color.LightSkyBlue;
             btnRapor.Image = (Image)resources.GetObject("btnRapor.Image");
             btnRapor.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRapor.Location = new Point(26, 623);
+            btnRapor.Location = new Point(26, 847);
             btnRapor.Margin = new Padding(4);
             btnRapor.Name = "btnRapor";
             btnRapor.Size = new Size(359, 92);
@@ -105,7 +140,7 @@
             btnTanimlama.BackColor = Color.LightSkyBlue;
             btnTanimlama.Image = (Image)resources.GetObject("btnTanimlama.Image");
             btnTanimlama.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTanimlama.Location = new Point(26, 517);
+            btnTanimlama.Location = new Point(26, 741);
             btnTanimlama.Margin = new Padding(4);
             btnTanimlama.Name = "btnTanimlama";
             btnTanimlama.Size = new Size(359, 98);
@@ -183,7 +218,7 @@
             panelContainer.Location = new Point(420, 83);
             panelContainer.Margin = new Padding(4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1511, 844);
+            panelContainer.Size = new Size(1511, 918);
             panelContainer.TabIndex = 1;
             // 
             // lblTitle
@@ -197,12 +232,24 @@
             lblTitle.Size = new Size(0, 41);
             lblTitle.TabIndex = 2;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(1667, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(145, 32);
+            label2.TabIndex = 3;
+            label2.Text = "USERNAME";
+            // 
             // AnaEkran
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1924, 940);
+            ClientSize = new Size(1924, 1014);
+            Controls.Add(label2);
             Controls.Add(lblTitle);
             Controls.Add(panelContainer);
             Controls.Add(panelLeft);
@@ -235,5 +282,8 @@
         private Panel panelContainer;
         private Panel panelSide;
         private Label lblTitle;
+        private Label label2;
+        private Button btnSu;
+        private Button button3;
     }
 }

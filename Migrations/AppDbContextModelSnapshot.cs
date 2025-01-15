@@ -655,6 +655,66 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("YolAgi", (string)null);
                 });
 
+            modelBuilder.Entity("YatirimTakip.Models.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Birim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Isim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Soyisim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("User", (string)null);
+                });
+
+            modelBuilder.Entity("YatirimTakip.Models.UserIlce", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("IlceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IlceId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserIlce", (string)null);
+                });
+
             modelBuilder.Entity("WinFormsApp1.Models.AsfaltDokum", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.YatirimProgrami", "YatirimProgrami")
@@ -827,6 +887,25 @@ namespace WinFormsApp1.Migrations
                         .IsRequired();
 
                     b.Navigation("Ilce");
+                });
+
+            modelBuilder.Entity("YatirimTakip.Models.UserIlce", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
+                        .WithMany()
+                        .HasForeignKey("IlceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("YatirimTakip.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ilce");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.Ilce", b =>

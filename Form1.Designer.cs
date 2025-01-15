@@ -32,11 +32,12 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
+            linkLabel1 = new LinkLabel();
             button1 = new Button();
             label4 = new Label();
-            textBox2 = new TextBox();
+            txtPassword = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtUsername = new TextBox();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -65,11 +66,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(linkLabel1);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtUsername);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(162, 203);
             groupBox1.Name = "groupBox1";
@@ -78,11 +80,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Login";
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(222, 191);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(112, 21);
+            linkLabel1.TabIndex = 6;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Şifre Değiştir";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // button1
             // 
             button1.BackColor = SystemColors.ControlLight;
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(154, 152);
+            button1.Location = new Point(154, 140);
             button1.Name = "button1";
             button1.Size = new Size(235, 34);
             button1.TabIndex = 5;
@@ -99,12 +112,13 @@
             label4.TabIndex = 4;
             label4.Text = "Şifre :";
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(154, 91);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(235, 30);
-            textBox2.TabIndex = 3;
+            txtPassword.Location = new Point(154, 91);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(235, 30);
+            txtPassword.TabIndex = 3;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -114,12 +128,12 @@
             label3.Size = new Size(0, 21);
             label3.TabIndex = 2;
             // 
-            // textBox1
+            // txtUsername
             // 
-            textBox1.Location = new Point(154, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(235, 30);
-            textBox1.TabIndex = 1;
+            txtUsername.Location = new Point(154, 54);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(235, 30);
+            txtUsername.TabIndex = 1;
             // 
             // label2
             // 
@@ -160,10 +174,11 @@
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtUsername;
+        private TextBox txtPassword;
         private Label label3;
         private Label label4;
         private Button button1;
+        private LinkLabel linkLabel1;
     }
 }

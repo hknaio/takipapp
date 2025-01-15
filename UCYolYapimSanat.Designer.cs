@@ -68,7 +68,7 @@
             panelContainer.Size = new Size(0, 0);
             panelContainer.TabIndex = 2;
             // 
-            // UCYolYapim
+            // UCYolYapimSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -76,8 +76,8 @@
             Controls.Add(panelContainer);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "UCYolYapim";
-            Size = new Size(1370, 502);
+            Name = "UCYolYapimSanat";
+            Size = new Size(1089, 517);
             ResumeLayout(false);
             PerformLayout();
         }

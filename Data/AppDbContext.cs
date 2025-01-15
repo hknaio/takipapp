@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1.Data
 {
@@ -29,10 +30,12 @@ namespace WinFormsApp1.Data
         public DbSet<AsfaltSantiye> AsfaltSantiyes { get; set; }
         public DbSet<GidenMalzeme> GidenMalzemes { get; set; }
         public DbSet<YolAgi> YolAgis { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserIlce> UserIlces { get; set; }
 
       //  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
-      // => optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+    // => optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseSqlServer(@"Data Source=10.1.3.200,5004;Initial Catalog=Yatirim;User ID=yatirim; Password=ElazYS26*;TrustServerCertificate=true");
@@ -61,6 +64,8 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<AsfaltSantiye>().ToTable(nameof(AsfaltSantiye));
             modelBuilder.Entity<GidenMalzeme>().ToTable(nameof(GidenMalzeme));
             modelBuilder.Entity<YolAgi>().ToTable(nameof(YolAgi));
+            modelBuilder.Entity<User>().ToTable(nameof(User));
+            modelBuilder.Entity<UserIlce>().ToTable(nameof(UserIlce));
         }
     }
 }

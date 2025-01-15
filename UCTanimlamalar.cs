@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using YatirimTakip;
 
 namespace WinFormsApp1
 {
@@ -76,6 +77,15 @@ namespace WinFormsApp1
             using (YolAgiTanimlama yolAgi = new())
             {
                 yolAgi.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (PersonelTanimlama pers = new())
+            {
+                pers.ShowDialog();
                 this.OnLoad(e);
             }
         }

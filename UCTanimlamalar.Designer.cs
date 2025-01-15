@@ -103,6 +103,7 @@
             button6.Text = "Personel Tanımlama";
             button6.TextImageRelation = TextImageRelation.ImageAboveText;
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button7
             // 

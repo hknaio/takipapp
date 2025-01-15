@@ -2,6 +2,7 @@
 using CsvHelper;
 using CsvHelper.Excel;
 using WinFormsApp1.Models;
+using YatirimTakip;
 
 namespace WinFormsApp1
 {
@@ -18,13 +19,32 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             //_dbContext.Database.EnsureCreated();
             //IlceKoyMezraKayit();
-        } 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            using (AnaEkran main = new AnaEkran())
+            var user = _dbContext.Users.Where(s => s.UserName == txtUsername.Text && s.Password == txtPassword.Text).FirstOrDefault();
+
+            if (txtUsername.Text != string.Empty && txtPassword.Text != string.Empty)
             {
-                main.ShowDialog();
+                if (user is not null)
+                {
+                    //using (AnaEkran main = new AnaEkran())
+                    //{
+                    //    main.ShowDialog();
+
+                    //}
+                    AnaEkran anaEkran = new AnaEkran(user);
+                    this.Hide();
+                    anaEkran.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Kullanıcı adı veya şifre hatalı!");
+                }
             }
+
+            txtUsername.Focus();
         }
 
         private void IlceKoyMezraKayit()
@@ -32,11 +52,11 @@ namespace WinFormsApp1
             using var reader = new CsvReader(
                 new ExcelParser("C:\\Users\\Hakan Aygüzer\\Documents\\imalat.xlsx"));
 
-            reader.Read(); 
+            reader.Read();
             while (reader.Read())
             {
-                var tarih = reader.GetField(0);                
-                                
+                var tarih = reader.GetField(0);
+
                 var ilce = reader.GetField(1);
                 var ilcep = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(ilce.ToLower());
 
@@ -83,7 +103,16 @@ namespace WinFormsApp1
 
                     _dbContext.PurEmanets.Add(purEmanet);
                     _dbContext.SaveChanges();
-                }                
+                }
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (SifreDegistir degistir = new())
+            {
+                degistir.ShowDialog();
+                this.OnLoad(e);
             }
         }
     }

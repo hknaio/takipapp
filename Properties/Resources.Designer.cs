@@ -143,6 +143,16 @@ namespace YatirimTakip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_agricultural_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-agricultural-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_asphalt_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-asphalt-50", resourceCulture);
@@ -396,6 +406,16 @@ namespace YatirimTakip.Properties {
         internal static System.Drawing.Bitmap icons8_village_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-village-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_water_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-water-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
