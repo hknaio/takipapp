@@ -1,14 +1,17 @@
 ﻿using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class YeniProjeEkleSanat : Form
+    internal partial class YeniProjeEkleSanat : Form
     {
         private AppDbContext _dbContext;
-        public YeniProjeEkleSanat()
+        private readonly User _user;
+        public YeniProjeEkleSanat(User user)
         {
             InitializeComponent();
+            _user = user;
         }
         private void YeniProjeEkle_Load(object sender, EventArgs e)
         {
@@ -23,7 +26,7 @@ namespace WinFormsApp1
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            using (ProgramlarSecSanat programlar = new(this))
+            using (ProgramlarSecSanat programlar = new(this, _user))
             {
                 programlar.ShowDialog();
                 this.OnLoad(e);

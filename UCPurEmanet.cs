@@ -4,22 +4,24 @@ using System.Data.Entity;
 using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class UCPurEmanet : UserControl
+    internal partial class UCPurEmanet : UserControl
     {
         private AppDbContext _dbContext;
-        public UCPurEmanet()
+        private User _user;
+        public UCPurEmanet(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void UCPurEmanet_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
             _dbContext.Koys.Load();
-            _dbContext.Ilces.Load();
             _dbContext.Mezras.Load();
             _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
                                           && p.Tarih.Month == dtTarih.Value.Month
@@ -30,12 +32,19 @@ namespace WinFormsApp1
                                           !p.Imalat.Isim.Contains("Köprü")).
                                           OrderBy(p => p.Tarih).Load();
 
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+
+
             _dbContext.Imalats.Load();
              _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
             dataGridView1.Columns[14].DefaultCellStyle.Format = "N2";
-            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+            cmbIlce.DataSource = ilceList;
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             dtTarih.CustomFormat = "MMMM yyyy";
             OrderColumns();
@@ -43,7 +52,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (PurEmanetEkle purEmanet = new())
+            using (PurEmanetEkle purEmanet = new(_user))
             {
                 purEmanet.ShowDialog();
                 this.OnLoad(e);

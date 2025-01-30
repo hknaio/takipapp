@@ -1,15 +1,18 @@
 ﻿using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class PurEmanetEkle : Form
+    internal partial class PurEmanetEkle : Form
     {
         private AppDbContext? _dbContext;
-        public PurEmanetEkle()
+        private User _user;
+        public PurEmanetEkle(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void PurEmanetEkle_Load(object sender, EventArgs e)
@@ -17,12 +20,18 @@ namespace WinFormsApp1
             txtMiktar.Text = "0";
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
-            _dbContext.Ilces.Load();
             _dbContext.Imalats.Where(i => !i.Isim.Contains("Menfez") ||
                                           !i.Isim.Contains("Spiral Boru") ||
                                           !i.Isim.Contains("Taş Duvar") ||
                                           !i.Isim.Contains("Köprü")).Load();
-            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+
+            cmbIlce.DataSource = ilceList;
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
             cmbKoy.DisplayMember = "Adi"; cmbKoy.Invalidate();

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             btnNewProject = new Button();
             dataGridView1 = new DataGridView();
             Adi = new DataGridViewTextBoxColumn();
@@ -45,6 +45,9 @@
             Sil = new DataGridViewButtonColumn();
             Uygulama = new DataGridViewButtonColumn();
             ID = new DataGridViewTextBoxColumn();
+            btnGetir = new Button();
+            label2 = new Label();
+            cmbIlce = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -70,24 +73,24 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlDarkDark;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlDarkDark;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Adi, Aciklama, YaklasikMaliyet, SozlesmeBedeli, ProjeDurumu, Yuklenici, GeciciKabulTarihi, KesinKabulTarihi, Sil, Uygulama, ID });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Window;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Window;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(3, 66);
             dataGridView1.Name = "dataGridView1";
@@ -166,10 +169,10 @@
             // Sil
             // 
             Sil.DataPropertyName = "Sil";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.Tomato;
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            Sil.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.Tomato;
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            Sil.DefaultCellStyle = dataGridViewCellStyle6;
             Sil.FlatStyle = FlatStyle.Flat;
             Sil.HeaderText = "Sil";
             Sil.MinimumWidth = 8;
@@ -183,10 +186,10 @@
             // Uygulama
             // 
             Uygulama.DataPropertyName = "Uygulama";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.LimeGreen;
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            Uygulama.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.LimeGreen;
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            Uygulama.DefaultCellStyle = dataGridViewCellStyle7;
             Uygulama.FlatStyle = FlatStyle.Flat;
             Uygulama.HeaderText = "Uygulama";
             Uygulama.MinimumWidth = 8;
@@ -204,20 +207,52 @@
             ID.ReadOnly = true;
             ID.Visible = false;
             // 
-            // UCProje
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(867, 14);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 59;
+            btnGetir.Text = "Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(430, 22);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 58;
+            label2.Text = "İlçe : ";
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(508, 19);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 57;
+            // 
+            // UCProjeTarimsal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
             BackColor = SystemColors.GradientActiveCaption;
+            Controls.Add(btnGetir);
+            Controls.Add(label2);
+            Controls.Add(cmbIlce);
             Controls.Add(dataGridView1);
             Controls.Add(btnNewProject);
-            Name = "UCProje";
+            Name = "UCProjeTarimsal";
             Size = new Size(1411, 667);
-            Load += UCProje_Load;
+            Load += UCProjeTarimsal_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -235,5 +270,8 @@
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Uygulama;
         private DataGridViewTextBoxColumn ID;
+        private Button btnGetir;
+        private Label label2;
+        private ComboBox cmbIlce;
     }
 }

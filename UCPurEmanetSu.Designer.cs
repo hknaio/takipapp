@@ -300,8 +300,8 @@
             Controls.Add(button1);
             Name = "UCPurEmanetSanat";
             Size = new Size(1441, 706);
-            Load += UCPurEmanet_Load;
-            Leave += UCPurEmanet_Leave;
+            Load += UCPurEmanetSu_Load;
+            Leave += UCPurEmanetSu_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

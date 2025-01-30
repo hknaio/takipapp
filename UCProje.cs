@@ -3,20 +3,23 @@ using System.Reflection;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using Microsoft.EntityFrameworkCore;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class UCProje : UserControl
+    internal partial class UCProje : UserControl
     {
         private AppDbContext _dbContext;
-        public UCProje()
+        private readonly User _user;
+        public UCProje(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void btnNewProject_Click(object sender, EventArgs e)
         {
-            using (YeniProjeEkle yeniProje = new())
+            using (YeniProjeEkle yeniProje = new(_user))
             {
                 yeniProje.ShowDialog();
                 this.OnLoad(e);
@@ -26,17 +29,21 @@ namespace WinFormsApp1
         private void UCProje_Load(object sender, EventArgs e)
         {
             _dbContext = new AppDbContext();
-            //_dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == "Alacakaya")).Load();
-            _dbContext.Ilces.Load();
-            dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+            
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+            cmbIlce.DataSource = ilceList;
+            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns[9].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[10].DefaultCellStyle.Format = "N2";
 
-            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
-            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+            
 
-            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text)).ToList();
+            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım")).ToList();
 
             dataGridView1.DataSource = projesFilter;
 
@@ -45,19 +52,19 @@ namespace WinFormsApp1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns[1].Index
+            if (e.ColumnIndex == dataGridView1.Columns[9].Index
                 && e.RowIndex > -1)
             {
                 var projeId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
-                using (YatirimUygulama yatirim = new((int)projeId))
+                using (YatirimUygulama yatirim = new((int)projeId, _user))
                 {
                     yatirim.ShowDialog();
                     this.OnLoad(e);
                 }
             }
 
-            if (e.ColumnIndex == dataGridView1.Columns[0].Index
+            if (e.ColumnIndex == dataGridView1.Columns[8].Index
                 && e.RowIndex > -1)
             {
                 var projeId = (int)dataGridView1.CurrentRow.Cells["ID"].Value;
@@ -128,7 +135,7 @@ namespace WinFormsApp1
         {
             if (cmbIlce.Text != string.Empty)
             {
-                var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text)).ToList();
+                var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım")).ToList();
                 dataGridView1.DataSource = projesFilter;
             }
 

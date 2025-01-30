@@ -2,18 +2,21 @@
 using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class UCPurEmanetSanat : UserControl
+    internal partial class UCPurEmanetSanat : UserControl
     {
         private AppDbContext _dbContext;
         private List<SpiralBoru> _spiralBorus;
         private List<PurEmanet> _purEmanets;
-        public UCPurEmanetSanat()
+        private readonly User _user;
+        public UCPurEmanetSanat(User user)
         {
             _dbContext = new AppDbContext();
             InitializeComponent();
+            _user = user;
         }
 
         private void UCPurEmanet_Load(object sender, EventArgs e)
@@ -30,11 +33,17 @@ namespace WinFormsApp1
                                           p.Imalat.Isim.Contains("Taş Duvar") ||
                                           p.Imalat.Isim.Contains("İstinat Duvarı") ||
                                           p.Imalat.Isim.Contains("Köprü"))).OrderBy(p => p.Tarih).Load();
+
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
             _dbContext.SpiralBorus.Load();
             _dbContext.PurEmanetMezras.Load();
             dataGridView1.DataSource = _dbContext.PurEmanets.Local.ToBindingList();
             dataGridView1.Columns[14].DefaultCellStyle.Format = "N2";
-            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+            cmbIlce.DataSource = ilceList;
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             dtTarih.CustomFormat = "MMMM yyyy";
             OrderColumns();
@@ -43,7 +52,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (PurEmanetEkleSanat purEmanet = new())
+            using (PurEmanetEkleSanat purEmanet = new(_user))
             {
                 purEmanet.ShowDialog();
                 this.OnLoad(e);

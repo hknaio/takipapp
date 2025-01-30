@@ -4,20 +4,23 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Reflection;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class UCProjeSanat : UserControl
+    internal partial class UCProjeSanat : UserControl
     {
         private AppDbContext _dbContext;
-        public UCProjeSanat()
+        private readonly User _user;
+        public UCProjeSanat(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void btnNewProject_Click(object sender, EventArgs e)
         {
-            using (YeniProjeEkleSanat yeniProje = new())
+            using (YeniProjeEkleSanat yeniProje = new(_user))
             {
                 yeniProje.ShowDialog();
                 this.OnLoad(e);
@@ -28,8 +31,20 @@ namespace WinFormsApp1
         {
             _dbContext = new AppDbContext();
 
-            _dbContext.Projes.Where(p => p.Programis.Select(p => p.Imalat).ToList().Contains("Menfez")).Load();
-            dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+            cmbIlce.DataSource = ilceList;
+            cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+
+            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Imalat.Contains("Menfez"))).ToList();
+
+            dataGridView1.DataSource = projesFilter;
+
+            //_dbContext.Projes.Where(p => p.Programis.Select(p => p.Imalat).ToList().Contains("Menfez")).Load();
+            //dataGridView1.DataSource = _dbContext.Projes.Local.ToBindingList();
                         
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns[9].DefaultCellStyle.Format = "N2";
@@ -44,7 +59,7 @@ namespace WinFormsApp1
             {
                 var projeId = dataGridView1.CurrentRow.Cells["ID"].Value;
 
-                using (YatirimUygulama yatirim = new((int)projeId))
+                using (YatirimUygulama yatirim = new((int)projeId, _user))
                 {
                     yatirim.ShowDialog();
                     this.OnLoad(e);

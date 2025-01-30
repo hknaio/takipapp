@@ -39,7 +39,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "YOL YAPIM BAKIM ONARIM";
             slidePanel(button1);
-            UCYolYapim ucc = new();
+            UCYolYapim ucc = new(_user);
             addControls(ucc);
         }
 
@@ -71,7 +71,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "SANAT YAPILARI";
             slidePanel(button1);
-            UCYolYapimSanat ucc = new();
+            UCYolYapimSanat ucc = new(_user);
             addControls(ucc);
         }
 
@@ -151,7 +151,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "TARIMSAL HİZMETLER";
             slidePanel(button1);
-            UCTarimsal ucc = new();
+            UCTarimsal ucc = new(_user);
             addControls(ucc);
         }
 
@@ -159,7 +159,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "SU VE KANALİZASYON";
             slidePanel(button1);
-            UCSu ucc = new();
+            UCSu ucc = new(_user);
             addControls(ucc);
         }
     }

@@ -2,20 +2,23 @@
 using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class YatirimUygulama : Form
+    internal partial class YatirimUygulama : Form
     {
         private readonly int _id;
         private AppDbContext _dbContext;
         private Proje _proje;
         private bool _tarihleriSifirla;
-        public YatirimUygulama(int id)
+        private readonly User _user;
+        public YatirimUygulama(int id, User user)
         {
             InitializeComponent();
             _id = id;
             _tarihleriSifirla = false;
+            _user = user;
         }
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
@@ -365,7 +368,7 @@ namespace WinFormsApp1
 
         private void btnYeniProgram_Click(object sender, EventArgs e)
         {
-            using (ProgramlarSec programlar = new(this))
+            using (ProgramlarSec programlar = new(this, _user))
             {
                 programlar.ShowDialog();
                 this.OnLoad(e);

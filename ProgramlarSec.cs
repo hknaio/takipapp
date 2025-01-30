@@ -1,17 +1,21 @@
 ﻿using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class ProgramlarSec : Form
+    internal partial class ProgramlarSec : Form
     {
         private AppDbContext _dbContext;
         private object _parent;
-        public ProgramlarSec(object parent)
+        private readonly User _user;
+
+        public ProgramlarSec(object parent, User user)
         {
             InitializeComponent();
             _parent = parent;
+            _user = user;
         }
 
         private void ProgramlarSec_Load(object sender, EventArgs e)
@@ -21,10 +25,20 @@ namespace WinFormsApp1
 
         private void btnGetir_Click(object sender, EventArgs e)
         {
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            //_dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == "Alacakaya")).Load();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+            var ilceNames = ilceList.Select(i => i.Adi).ToList();
             if (cmbKaynak.Text != string.Empty && cmbYil.Text != string.Empty)
             {
                 var programlar = _dbContext.YatirimProgramis.Where(p => p.Yil == Convert.ToInt32(cmbYil.Text)
+                && p.Birim == "Yol ve Ulaşım" 
                 && p.Kaynak == cmbKaynak.Text && p.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).OrderBy(y => y.Ilce).ToList();
+
+                programlar = programlar.Where(p => ilceNames.Contains(p.Ilce)).ToList();
 
                 dataGridView1.DataSource = programlar;
             }

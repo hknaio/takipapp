@@ -1,17 +1,20 @@
 ﻿using WinFormsApp1;
+using YatirimTakip.Models;
 
 namespace YatirimTakip
 {
-    public partial class UCSu : UserControl
+    internal partial class UCSu : UserControl
     {
-        public UCSu()
+        private User _user;
+        public UCSu(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void btnProje_Click(object sender, EventArgs e)
         {
-            UCProjeSu ucc = new();
+            UCProjeSu ucc = new(_user);
             addControls(ucc);
         }
         private void addControls(UserControl uc)
@@ -24,7 +27,7 @@ namespace YatirimTakip
 
         private void btnPuremanet_Click(object sender, EventArgs e)
         {
-            UCPurEmanetSu ucc = new();
+            UCPurEmanetSu ucc = new(_user);
             addControls(ucc);
         }
     }

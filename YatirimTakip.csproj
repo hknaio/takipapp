@@ -21,6 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ProgramlarSecTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ProgramlarSecSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProgramlarSecSanat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -28,6 +34,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PurEmanetEkleTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PurEmanetEkleSu.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="PurEmanetEkleSanat.cs">
       <SubType>Form</SubType>
@@ -52,6 +64,12 @@
     </Compile>
     <Compile Update="UCYolYapimSanat.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="YeniProjeEkleTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="YeniProjeEkleSu.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="YeniProjeEkleSanat.cs">
       <SubType>Form</SubType>

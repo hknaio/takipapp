@@ -4,17 +4,20 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Windows.Forms;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
     internal record Spiral(string cap, double miktar);
-    public partial class PurEmanetEkleSanat : Form
+    internal partial class PurEmanetEkleSanat : Form
     {
         private AppDbContext? _dbContext;
         private BindingList<Spiral> spiralList = new();
-        public PurEmanetEkleSanat()
+        private readonly User _user;
+        public PurEmanetEkleSanat(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void PurEmanetEkle_Load(object sender, EventArgs e)
@@ -28,7 +31,13 @@ namespace WinFormsApp1
                                           i.Isim.Contains("Taş Duvar") ||
                                           i.Isim.Contains("İstinat Duvarı") ||
                                           i.Isim.Contains("Köprü")).Load();
-            cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
+
+            var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
+            List<Ilce> ilceList = new();
+
+            ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+            cmbIlce.DataSource = ilceList;
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
             cmbKoy.DisplayMember = "Adi"; cmbKoy.Invalidate();

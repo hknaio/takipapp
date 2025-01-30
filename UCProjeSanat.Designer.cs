@@ -45,6 +45,9 @@
             Sil = new DataGridViewButtonColumn();
             Uygulama = new DataGridViewButtonColumn();
             ID = new DataGridViewTextBoxColumn();
+            btnGetir = new Button();
+            label2 = new Label();
+            cmbIlce = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -204,20 +207,51 @@
             ID.ReadOnly = true;
             ID.Visible = false;
             // 
-            // UCProje
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(912, 14);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 59;
+            btnGetir.Text = "Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(475, 22);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 25);
+            label2.TabIndex = 58;
+            label2.Text = "İlçe : ";
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Items.AddRange(new object[] { "--" });
+            cmbIlce.Location = new Point(553, 19);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.TabIndex = 57;
+            // 
+            // UCProjeSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
             BackColor = SystemColors.GradientActiveCaption;
+            Controls.Add(btnGetir);
+            Controls.Add(label2);
+            Controls.Add(cmbIlce);
             Controls.Add(dataGridView1);
             Controls.Add(btnNewProject);
-            Name = "UCProje";
+            Name = "UCProjeSanat";
             Size = new Size(1411, 667);
             Load += UCProje_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -235,5 +269,8 @@
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Uygulama;
         private DataGridViewTextBoxColumn ID;
+        private Button btnGetir;
+        private Label label2;
+        private ComboBox cmbIlce;
     }
 }

@@ -1,16 +1,19 @@
-﻿
+﻿using YatirimTakip.Models;
+
 namespace WinFormsApp1
 {
-    public partial class UCYolYapim : UserControl
+    internal partial class UCYolYapim : UserControl
     {
-        public UCYolYapim()
+        private readonly User _user;
+        public UCYolYapim(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UCProje ucc = new();
+            UCProje ucc = new(_user);
             addControls(ucc);
         }
 
@@ -24,7 +27,7 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UCPurEmanet ucc = new();
+            UCPurEmanet ucc = new(_user);
             addControls(ucc);
         }
     }
