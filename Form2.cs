@@ -47,7 +47,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "TANIMLAMALAR";
             slidePanel(button1);
-            UCTanimlamalar ucc = new();
+            UCTanimlamalar ucc = new(_user);
             addControls(ucc);
         }
 

@@ -38,6 +38,7 @@
             openFileDialog1 = new OpenFileDialog();
             button5 = new Button();
             button8 = new Button();
+            button9 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -145,10 +146,24 @@
             button8.UseVisualStyleBackColor = false;
             button8.Click += button8_Click;
             // 
+            // button9
+            // 
+            button9.BackColor = Color.LightSkyBlue;
+            button9.Image = YatirimTakip.Properties.Resources.icons8_crane_100;
+            button9.Location = new Point(894, 34);
+            button9.Name = "button9";
+            button9.Size = new Size(172, 185);
+            button9.TabIndex = 9;
+            button9.Text = "İş Makinesi Tanımlama";
+            button9.TextImageRelation = TextImageRelation.ImageAboveText;
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
+            // 
             // UCTanimlamalar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button5);
             Controls.Add(button7);
@@ -173,5 +188,6 @@
         private OpenFileDialog openFileDialog1;
         private Button button5;
         private Button button8;
+        private Button button9;
     }
 }

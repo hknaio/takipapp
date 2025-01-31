@@ -58,7 +58,7 @@
             // 
             // txtAdi
             // 
-            txtAdi.Location = new Point(77, 18);
+            txtAdi.Location = new Point(77, 24);
             txtAdi.Name = "txtAdi";
             txtAdi.Size = new Size(223, 31);
             txtAdi.TabIndex = 8;
@@ -66,7 +66,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 18);
+            label1.Location = new Point(23, 29);
             label1.Name = "label1";
             label1.Size = new Size(48, 25);
             label1.TabIndex = 7;
@@ -74,7 +74,7 @@
             // 
             // txtSoyadi
             // 
-            txtSoyadi.Location = new Point(444, 21);
+            txtSoyadi.Location = new Point(444, 26);
             txtSoyadi.Name = "txtSoyadi";
             txtSoyadi.Size = new Size(223, 31);
             txtSoyadi.TabIndex = 10;
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(363, 24);
+            label2.Location = new Point(363, 30);
             label2.Name = "label2";
             label2.Size = new Size(75, 25);
             label2.TabIndex = 9;
@@ -101,7 +101,7 @@
             // 
             cmbBirim.FormattingEnabled = true;
             cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanal Hizmetleri", "Yönetim", "Operatör" });
-            cmbBirim.Location = new Point(787, 21);
+            cmbBirim.Location = new Point(787, 26);
             cmbBirim.Name = "cmbBirim";
             cmbBirim.Size = new Size(305, 33);
             cmbBirim.TabIndex = 12;

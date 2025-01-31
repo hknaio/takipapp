@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using YatirimTakip;
+﻿using YatirimTakip;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    public partial class UCTanimlamalar : UserControl
+    internal partial class UCTanimlamalar : UserControl
     {
-        public UCTanimlamalar()
+        private readonly User _user;
+        public UCTanimlamalar(User user)
         {
             InitializeComponent();
+            _user = user;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -86,6 +80,15 @@ namespace WinFormsApp1
             using (PersonelTanimlama pers = new())
             {
                 pers.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            using (MakineTanimlama makine = new(_user))
+            {
+                makine.ShowDialog();
                 this.OnLoad(e);
             }
         }

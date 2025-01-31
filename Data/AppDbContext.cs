@@ -32,6 +32,7 @@ namespace WinFormsApp1.Data
         public DbSet<YolAgi> YolAgis { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserIlce> UserIlces { get; set; }
+        public DbSet<IsMakinesi> IsMakinesis { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
@@ -66,6 +67,7 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<YolAgi>().ToTable(nameof(YolAgi));
             modelBuilder.Entity<User>().ToTable(nameof(User));
             modelBuilder.Entity<UserIlce>().ToTable(nameof(UserIlce));
+            modelBuilder.Entity<IsMakinesi>().ToTable(nameof(IsMakinesi));
         }
     }
 }

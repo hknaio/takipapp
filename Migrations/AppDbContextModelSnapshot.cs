@@ -655,6 +655,27 @@ namespace WinFormsApp1.Migrations
                     b.ToTable("YolAgi", (string)null);
                 });
 
+            modelBuilder.Entity("YatirimTakip.Models.IsMakinesi", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Plaka")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Turu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("IsMakinesi", (string)null);
+                });
+
             modelBuilder.Entity("YatirimTakip.Models.User", b =>
                 {
                     b.Property<int>("ID")
