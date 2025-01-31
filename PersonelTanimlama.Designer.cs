@@ -109,7 +109,7 @@
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Items.AddRange(new object[] { "Admin", "Yol", "Asfalt", "Sanat", "Su", "Tarımsal", "Rapor" });
+            cmbRol.Items.AddRange(new object[] { "Admin", "Yol", "Asfalt", "Sanat", "Su", "Tarımsal", "Rapor", "Operatör" });
             cmbRol.Location = new Point(77, 91);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(223, 33);

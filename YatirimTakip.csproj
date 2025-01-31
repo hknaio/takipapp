@@ -21,6 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FaaliyetRaporuKoyTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FaaliyetRaporuKoySu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FaaliyetRaporuTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FaaliyetRaporuSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProgramlarSecTarimsal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -42,6 +54,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PurEmanetEkleSanat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RprButceTarimsal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RprButceSu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UCProjeSu.cs">

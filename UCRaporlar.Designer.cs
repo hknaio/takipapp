@@ -35,17 +35,23 @@
             button3 = new Button();
             button4 = new Button();
             button6 = new Button();
+            btnTarimsalButce = new Button();
+            btnSuButce = new Button();
+            btnFaaliyetTarimsal = new Button();
+            btnFaaliyetSu = new Button();
+            btnFaaliyetKoyTarimsal = new Button();
+            btnFaaliyetKoySu = new Button();
             SuspendLayout();
             // 
             // button1
             // 
             button1.BackColor = Color.LightSkyBlue;
             button1.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
-            button1.Location = new Point(536, 41);
+            button1.Location = new Point(271, 273);
             button1.Name = "button1";
             button1.Size = new Size(178, 183);
             button1.TabIndex = 0;
-            button1.Text = "Faaliyet Raporu";
+            button1.Text = "Faaliyet Raporu (Yol)";
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
@@ -67,11 +73,11 @@
             // 
             button5.BackColor = Color.LightSkyBlue;
             button5.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
-            button5.Location = new Point(286, 44);
+            button5.Location = new Point(33, 273);
             button5.Name = "button5";
             button5.Size = new Size(178, 183);
             button5.TabIndex = 5;
-            button5.Text = "Bütçe Takip";
+            button5.Text = "Bütçe Takip (Yol)";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
@@ -80,11 +86,11 @@
             // 
             button2.BackColor = Color.LightSkyBlue;
             button2.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
-            button2.Location = new Point(777, 41);
+            button2.Location = new Point(510, 273);
             button2.Name = "button2";
             button2.Size = new Size(178, 183);
             button2.TabIndex = 6;
-            button2.Text = "Faaliyet Raporu (Köy)";
+            button2.Text = "Faaliyet Raporu Köy (Yol)";
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -93,7 +99,7 @@
             // 
             button3.BackColor = Color.LightSkyBlue;
             button3.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
-            button3.Location = new Point(286, 273);
+            button3.Location = new Point(510, 43);
             button3.Name = "button3";
             button3.Size = new Size(178, 183);
             button3.TabIndex = 7;
@@ -106,7 +112,7 @@
             // 
             button4.BackColor = Color.LightSkyBlue;
             button4.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
-            button4.Location = new Point(536, 273);
+            button4.Location = new Point(737, 273);
             button4.Name = "button4";
             button4.Size = new Size(178, 183);
             button4.TabIndex = 8;
@@ -119,7 +125,7 @@
             // 
             button6.BackColor = Color.LightSkyBlue;
             button6.Image = YatirimTakip.Properties.Resources.icons8_ownership_64;
-            button6.Location = new Point(37, 273);
+            button6.Location = new Point(271, 44);
             button6.Name = "button6";
             button6.Size = new Size(178, 183);
             button6.TabIndex = 9;
@@ -128,10 +134,94 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
+            // btnTarimsalButce
+            // 
+            btnTarimsalButce.BackColor = Color.LightSkyBlue;
+            btnTarimsalButce.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
+            btnTarimsalButce.Location = new Point(33, 477);
+            btnTarimsalButce.Name = "btnTarimsalButce";
+            btnTarimsalButce.Size = new Size(178, 183);
+            btnTarimsalButce.TabIndex = 10;
+            btnTarimsalButce.Text = "Bütçe Takip (Tarımsal)";
+            btnTarimsalButce.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnTarimsalButce.UseVisualStyleBackColor = false;
+            btnTarimsalButce.Click += btnTarimsalButce_Click;
+            // 
+            // btnSuButce
+            // 
+            btnSuButce.BackColor = Color.LightSkyBlue;
+            btnSuButce.Image = YatirimTakip.Properties.Resources.icons8_turkish_lira_100;
+            btnSuButce.Location = new Point(37, 685);
+            btnSuButce.Name = "btnSuButce";
+            btnSuButce.Size = new Size(178, 183);
+            btnSuButce.TabIndex = 11;
+            btnSuButce.Text = "Bütçe Takip (Su)";
+            btnSuButce.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSuButce.UseVisualStyleBackColor = false;
+            btnSuButce.Click += btnSuButce_Click;
+            // 
+            // btnFaaliyetTarimsal
+            // 
+            btnFaaliyetTarimsal.BackColor = Color.LightSkyBlue;
+            btnFaaliyetTarimsal.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
+            btnFaaliyetTarimsal.Location = new Point(271, 477);
+            btnFaaliyetTarimsal.Name = "btnFaaliyetTarimsal";
+            btnFaaliyetTarimsal.Size = new Size(178, 183);
+            btnFaaliyetTarimsal.TabIndex = 12;
+            btnFaaliyetTarimsal.Text = "Faaliyet Raporu (Tarımsal)";
+            btnFaaliyetTarimsal.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFaaliyetTarimsal.UseVisualStyleBackColor = false;
+            btnFaaliyetTarimsal.Click += btnFaaliyetTarimsal_Click;
+            // 
+            // btnFaaliyetSu
+            // 
+            btnFaaliyetSu.BackColor = Color.LightSkyBlue;
+            btnFaaliyetSu.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
+            btnFaaliyetSu.Location = new Point(271, 685);
+            btnFaaliyetSu.Name = "btnFaaliyetSu";
+            btnFaaliyetSu.Size = new Size(178, 183);
+            btnFaaliyetSu.TabIndex = 13;
+            btnFaaliyetSu.Text = "Faaliyet Raporu (Su)";
+            btnFaaliyetSu.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFaaliyetSu.UseVisualStyleBackColor = false;
+            btnFaaliyetSu.Click += btnFaaliyetSu_Click;
+            // 
+            // btnFaaliyetKoyTarimsal
+            // 
+            btnFaaliyetKoyTarimsal.BackColor = Color.LightSkyBlue;
+            btnFaaliyetKoyTarimsal.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
+            btnFaaliyetKoyTarimsal.Location = new Point(510, 477);
+            btnFaaliyetKoyTarimsal.Name = "btnFaaliyetKoyTarimsal";
+            btnFaaliyetKoyTarimsal.Size = new Size(178, 183);
+            btnFaaliyetKoyTarimsal.TabIndex = 14;
+            btnFaaliyetKoyTarimsal.Text = "Faaliyet Raporu Köy (Tarımsal)";
+            btnFaaliyetKoyTarimsal.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFaaliyetKoyTarimsal.UseVisualStyleBackColor = false;
+            btnFaaliyetKoyTarimsal.Click += btnFaaliyetKoyTarimsal_Click;
+            // 
+            // btnFaaliyetKoySu
+            // 
+            btnFaaliyetKoySu.BackColor = Color.LightSkyBlue;
+            btnFaaliyetKoySu.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
+            btnFaaliyetKoySu.Location = new Point(510, 685);
+            btnFaaliyetKoySu.Name = "btnFaaliyetKoySu";
+            btnFaaliyetKoySu.Size = new Size(178, 183);
+            btnFaaliyetKoySu.TabIndex = 15;
+            btnFaaliyetKoySu.Text = "Faaliyet Raporu Köy (Su)";
+            btnFaaliyetKoySu.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnFaaliyetKoySu.UseVisualStyleBackColor = false;
+            btnFaaliyetKoySu.Click += btnFaaliyetKoySu_Click;
+            // 
             // UCRaporlar
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnFaaliyetKoySu);
+            Controls.Add(btnFaaliyetKoyTarimsal);
+            Controls.Add(btnFaaliyetSu);
+            Controls.Add(btnFaaliyetTarimsal);
+            Controls.Add(btnSuButce);
+            Controls.Add(btnTarimsalButce);
             Controls.Add(button6);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -140,7 +230,8 @@
             Controls.Add(btnProgramRaporu);
             Controls.Add(button1);
             Name = "UCRaporlar";
-            Size = new Size(982, 526);
+            Size = new Size(982, 902);
+            Load += UCRaporlar_Load;
             ResumeLayout(false);
         }
 
@@ -153,5 +244,11 @@
         private Button button3;
         private Button button4;
         private Button button6;
+        private Button btnTarimsalButce;
+        private Button btnSuButce;
+        private Button btnFaaliyetTarimsal;
+        private Button btnFaaliyetSu;
+        private Button btnFaaliyetKoyTarimsal;
+        private Button btnFaaliyetKoySu;
     }
 }

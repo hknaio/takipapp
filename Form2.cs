@@ -55,7 +55,7 @@ namespace WinFormsApp1
         {
             lblTitle.Text = "RAPORLAR";
             slidePanel(button1);
-            UCRaporlar ucc = new();
+            UCRaporlar ucc = new(_user);
             addControls(ucc);
         }
 
