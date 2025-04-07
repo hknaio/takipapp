@@ -32,6 +32,7 @@ namespace WinFormsApp1
                         Isim = txtAdi.Text,
                         Birim = txtBirim.Text,
                         Cins = txtCins.Text,
+                        Mudurluk = cmbMudurluk.Text,
                         FiyatGecerlilikBaslangicTarihi = dtpBaslangic.Value.Date,
                         BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text)
                     });

@@ -14,30 +14,33 @@ namespace WinFormsApp1
         }
         private void UCRaporlar_Load(object sender, EventArgs e)
         {
-            if (_user.Role == "Yol" || _user.Role == "Admin" || _user.Role == "Asfalt" || _user.Role == "Sanat"
+            if (_user.Role != "Admin" && _user.Role != "Rapor")
+            {
+                if (_user.Role == "Yol" || _user.Role == "Admin" || _user.Role == "Asfalt" || _user.Role == "Sanat"
              || _user.Role == "Yonetim" || _user.Role == "Rapor")
-            {
-                btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
-                btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
-            }
+                {
+                    btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
+                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
+                }
 
-            if (_user.Role == "Su" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
-            {
-                button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
-                btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
-                btnSuButce.Location = button5.Location;
-                btnFaaliyetSu.Location = button1.Location;
-                btnFaaliyetKoySu.Location = button2.Location;
-            }
+                if (_user.Role == "Su" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
+                {
+                    button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
+                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
+                    btnSuButce.Location = button5.Location;
+                    btnFaaliyetSu.Location = button1.Location;
+                    btnFaaliyetKoySu.Location = button2.Location;
+                }
 
-            if (_user.Role == "Tarımsal" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
-            {
-                button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
-                btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
-                btnTarimsalButce.Location = button5.Location;
-                btnFaaliyetTarimsal.Location = button1.Location;
-                btnFaaliyetKoyTarimsal.Location = button2.Location;
-            }
+                if (_user.Role == "Tarımsal" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
+                {
+                    button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
+                    btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
+                    btnTarimsalButce.Location = button5.Location;
+                    btnFaaliyetTarimsal.Location = button1.Location;
+                    btnFaaliyetKoyTarimsal.Location = button2.Location;
+                }
+            }            
         }
 
         private void button3_Click(object sender, EventArgs e)
