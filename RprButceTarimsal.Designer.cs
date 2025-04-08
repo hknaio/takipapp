@@ -35,26 +35,6 @@
             label1 = new Label();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            Ilce = new DataGridViewTextBoxColumn();
-            Kat1 = new DataGridViewTextBoxColumn();
-            Kat2 = new DataGridViewTextBoxColumn();
-            BSK = new DataGridViewTextBoxColumn();
-            AsfaltOnarim = new DataGridViewTextBoxColumn();
-            KilitliParke = new DataGridViewTextBoxColumn();
-            Stabilize = new DataGridViewTextBoxColumn();
-            YolOnarim = new DataGridViewTextBoxColumn();
-            Menfez = new DataGridViewTextBoxColumn();
-            Istinat = new DataGridViewTextBoxColumn();
-            Kopru = new DataGridViewTextBoxColumn();
-            Reglaj = new DataGridViewTextBoxColumn();
-            Kar = new DataGridViewTextBoxColumn();
-            Beton = new DataGridViewTextBoxColumn();
-            YeniYol = new DataGridViewTextBoxColumn();
-            Spiral = new DataGridViewTextBoxColumn();
-            Icme = new DataGridViewTextBoxColumn();
-            Tarimsal = new DataGridViewTextBoxColumn();
-            Kaya = new DataGridViewTextBoxColumn();
-            Diger = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -113,7 +93,6 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, Kat1, Kat2, BSK, AsfaltOnarim, KilitliParke, Stabilize, YolOnarim, Menfez, Istinat, Kopru, Reglaj, Kar, Beton, YeniYol, Spiral, Icme, Tarimsal, Kaya, Diger });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -131,170 +110,7 @@
             dataGridView1.Size = new Size(1885, 843);
             dataGridView1.TabIndex = 47;
             // 
-            // Ilce
-            // 
-            Ilce.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Ilce.DataPropertyName = "Ilce";
-            Ilce.HeaderText = "İlçe";
-            Ilce.MinimumWidth = 8;
-            Ilce.Name = "Ilce";
-            Ilce.ReadOnly = true;
-            // 
-            // Kat1
-            // 
-            Kat1.DataPropertyName = "kat1";
-            Kat1.HeaderText = "1.Kat";
-            Kat1.MinimumWidth = 8;
-            Kat1.Name = "Kat1";
-            Kat1.ReadOnly = true;
-            // 
-            // Kat2
-            // 
-            Kat2.DataPropertyName = "kat2";
-            Kat2.HeaderText = "2.Kat";
-            Kat2.MinimumWidth = 8;
-            Kat2.Name = "Kat2";
-            Kat2.ReadOnly = true;
-            // 
-            // BSK
-            // 
-            BSK.DataPropertyName = "bsk";
-            BSK.HeaderText = "BSK";
-            BSK.MinimumWidth = 8;
-            BSK.Name = "BSK";
-            BSK.ReadOnly = true;
-            // 
-            // AsfaltOnarim
-            // 
-            AsfaltOnarim.DataPropertyName = "asfaltOnarim";
-            AsfaltOnarim.HeaderText = "Asf. Onarım";
-            AsfaltOnarim.MinimumWidth = 8;
-            AsfaltOnarim.Name = "AsfaltOnarim";
-            AsfaltOnarim.ReadOnly = true;
-            // 
-            // KilitliParke
-            // 
-            KilitliParke.DataPropertyName = "kilitliParke";
-            KilitliParke.HeaderText = "Kilitli Parke";
-            KilitliParke.MinimumWidth = 8;
-            KilitliParke.Name = "KilitliParke";
-            KilitliParke.ReadOnly = true;
-            // 
-            // Stabilize
-            // 
-            Stabilize.DataPropertyName = "stabilize";
-            Stabilize.HeaderText = "Stabilize";
-            Stabilize.MinimumWidth = 10;
-            Stabilize.Name = "Stabilize";
-            Stabilize.ReadOnly = true;
-            // 
-            // YolOnarim
-            // 
-            YolOnarim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            YolOnarim.DataPropertyName = "yolOnarim";
-            YolOnarim.HeaderText = "Yol Onarım";
-            YolOnarim.MinimumWidth = 8;
-            YolOnarim.Name = "YolOnarim";
-            YolOnarim.ReadOnly = true;
-            // 
-            // Menfez
-            // 
-            Menfez.DataPropertyName = "menfez";
-            Menfez.HeaderText = "Menfez";
-            Menfez.MinimumWidth = 8;
-            Menfez.Name = "Menfez";
-            Menfez.ReadOnly = true;
-            // 
-            // Istinat
-            // 
-            Istinat.DataPropertyName = "istinat";
-            Istinat.HeaderText = "Istinat";
-            Istinat.MinimumWidth = 8;
-            Istinat.Name = "Istinat";
-            Istinat.ReadOnly = true;
-            // 
-            // Kopru
-            // 
-            Kopru.DataPropertyName = "kopru";
-            Kopru.HeaderText = "Köprü";
-            Kopru.MinimumWidth = 8;
-            Kopru.Name = "Kopru";
-            Kopru.ReadOnly = true;
-            // 
-            // Reglaj
-            // 
-            Reglaj.DataPropertyName = "reglaj";
-            Reglaj.HeaderText = "Reglaj";
-            Reglaj.MinimumWidth = 8;
-            Reglaj.Name = "Reglaj";
-            Reglaj.ReadOnly = true;
-            // 
-            // Kar
-            // 
-            Kar.DataPropertyName = "kar";
-            Kar.HeaderText = "Kar";
-            Kar.MinimumWidth = 8;
-            Kar.Name = "Kar";
-            Kar.ReadOnly = true;
-            // 
-            // Beton
-            // 
-            Beton.DataPropertyName = "beton";
-            Beton.HeaderText = "Beton";
-            Beton.MinimumWidth = 8;
-            Beton.Name = "Beton";
-            Beton.ReadOnly = true;
-            Beton.Visible = false;
-            // 
-            // YeniYol
-            // 
-            YeniYol.DataPropertyName = "yeniYol";
-            YeniYol.HeaderText = "Yeni Yol";
-            YeniYol.MinimumWidth = 8;
-            YeniYol.Name = "YeniYol";
-            YeniYol.ReadOnly = true;
-            // 
-            // Spiral
-            // 
-            Spiral.DataPropertyName = "spiral";
-            Spiral.HeaderText = "Spiral Boru";
-            Spiral.MinimumWidth = 8;
-            Spiral.Name = "Spiral";
-            Spiral.ReadOnly = true;
-            // 
-            // Icme
-            // 
-            Icme.DataPropertyName = "icme";
-            Icme.HeaderText = "İçme Suyu ";
-            Icme.MinimumWidth = 8;
-            Icme.Name = "Icme";
-            Icme.ReadOnly = true;
-            // 
-            // Tarimsal
-            // 
-            Tarimsal.DataPropertyName = "tarim";
-            Tarimsal.HeaderText = "Tarımsal Sulama";
-            Tarimsal.MinimumWidth = 8;
-            Tarimsal.Name = "Tarimsal";
-            Tarimsal.ReadOnly = true;
-            // 
-            // Kaya
-            // 
-            Kaya.DataPropertyName = "kaya";
-            Kaya.HeaderText = "Kaya Tahkimat";
-            Kaya.MinimumWidth = 8;
-            Kaya.Name = "Kaya";
-            Kaya.ReadOnly = true;
-            // 
-            // Diger
-            // 
-            Diger.DataPropertyName = "diger";
-            Diger.HeaderText = "Çevre Düzenleme";
-            Diger.MinimumWidth = 8;
-            Diger.Name = "Diger";
-            Diger.ReadOnly = true;
-            // 
-            // RprButce
+            // RprButceTarimsal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -304,7 +120,7 @@
             Controls.Add(cmbYil);
             Controls.Add(label1);
             Controls.Add(btnGetir);
-            Name = "RprButce";
+            Name = "RprButceTarimsal";
             Text = "Bütçe Takip";
             FormClosing += RprButceTarimsal_FormClosing;
             Load += RprButceTarimsal_Load;
@@ -319,25 +135,5 @@
         private Label label1;
         private Button button1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Ilce;
-        private DataGridViewTextBoxColumn Kat1;
-        private DataGridViewTextBoxColumn Kat2;
-        private DataGridViewTextBoxColumn BSK;
-        private DataGridViewTextBoxColumn AsfaltOnarim;
-        private DataGridViewTextBoxColumn KilitliParke;
-        private DataGridViewTextBoxColumn Stabilize;
-        private DataGridViewTextBoxColumn YolOnarim;
-        private DataGridViewTextBoxColumn Menfez;
-        private DataGridViewTextBoxColumn Istinat;
-        private DataGridViewTextBoxColumn Kopru;
-        private DataGridViewTextBoxColumn Reglaj;
-        private DataGridViewTextBoxColumn Kar;
-        private DataGridViewTextBoxColumn Beton;
-        private DataGridViewTextBoxColumn YeniYol;
-        private DataGridViewTextBoxColumn Spiral;
-        private DataGridViewTextBoxColumn Icme;
-        private DataGridViewTextBoxColumn Tarimsal;
-        private DataGridViewTextBoxColumn Kaya;
-        private DataGridViewTextBoxColumn Diger;
     }
 }
