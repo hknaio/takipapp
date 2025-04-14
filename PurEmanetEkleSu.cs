@@ -20,7 +20,7 @@ namespace WinFormsApp1
             txtMiktar.Text = "0";
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
-            _dbContext.Imalats.Where(i => i.Mudurluk == "Su ve Kanalizasyon" && (!i.Isim.Contains("Menfez") ||
+            _dbContext.Imalats.Where(i => i.Mudurluk == "Su ve Kanal Hizmetleri" && (!i.Isim.Contains("Menfez") ||
                                           !i.Isim.Contains("Spiral Boru") ||
                                           !i.Isim.Contains("Taş Duvar") ||
                                           !i.Isim.Contains("Köprü"))).Load();

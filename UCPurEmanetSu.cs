@@ -28,11 +28,7 @@ namespace WinFormsApp1
             _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text 
                                           && p.Tarih.Month == dtTarih.Value.Month
                                           && p.Tarih.Year == dtTarih.Value.Year
-                                          && (p.Imalat.Isim.Contains("Menfez") ||
-                                          p.Imalat.Isim.Contains("Spiral Boru") ||
-                                          p.Imalat.Isim.Contains("Taş Duvar") ||
-                                          p.Imalat.Isim.Contains("İstinat Duvarı") ||
-                                          p.Imalat.Isim.Contains("Köprü"))).OrderBy(p => p.Tarih).Load();
+                                          && p.Imalat.Mudurluk == "Su ve Kanal Hizmetleri").OrderBy(p => p.Tarih).Load();
 
             var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
             List<Ilce> ilceList = new();
