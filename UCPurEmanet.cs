@@ -185,7 +185,7 @@ namespace WinFormsApp1
             var puremanets = _dbContext.PurEmanets.Where(p => p.Ilce.Adi == cmbIlce.Text
                                           && p.Tarih.Month == dtTarih.Value.Month
                                           && p.Tarih.Year == dtTarih.Value.Year
-                                          && (!p.Imalat.Isim.Contains("Menfez") &&
+                                          && p.Imalat.Mudurluk == "Yol ve Ulaşım Hizmetleri" && (!p.Imalat.Isim.Contains("Menfez") &&
                                           !p.Imalat.Isim.Contains("Spiral Boru") &&
                                           !p.Imalat.Isim.Contains("Taş Duvar") &&
                                           !p.Imalat.Isim.Contains("Köprü"))).ToList();
