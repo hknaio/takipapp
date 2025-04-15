@@ -35,7 +35,7 @@ namespace WinFormsApp1
             if (cmbKaynak.Text != string.Empty && cmbYil.Text != string.Empty)
             {
                 var programlar = _dbContext.YatirimProgramis.Where(p => p.Yil == Convert.ToInt32(cmbYil.Text)
-                && p.Birim == "Yol ve Ulaşım" 
+                && p.Birim == "Yol ve Ulaşım Hizmetleri" 
                 && p.Kaynak == cmbKaynak.Text && p.YatirimDurumu == Models.YatirimDurumu.Uygulanmadi).OrderBy(y => y.Ilce).ToList();
 
                 programlar = programlar.Where(p => ilceNames.Contains(p.Ilce)).ToList();

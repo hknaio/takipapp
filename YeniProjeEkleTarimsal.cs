@@ -26,7 +26,7 @@ namespace WinFormsApp1
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            using (ProgramlarSec programlar = new(this, _user))
+            using (ProgramlarSecTarimsal programlar = new(this, _user))
             {
                 programlar.ShowDialog();
                 this.OnLoad(e);

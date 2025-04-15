@@ -84,9 +84,7 @@ namespace WinFormsApp1
                     var records = new List<YatirimProgrami>();
                     reader.Read(); reader.Read(); reader.Read();
                     while (reader.Read())
-                    {
-                        if (reader.GetField(3) == "Yol ve Ulaşım")
-                        {
+                    {                        
                             var record = new YatirimProgrami
                             {
                                 Ilce = reader.GetField(1),
@@ -100,7 +98,6 @@ namespace WinFormsApp1
                                 YatirimDurumu = YatirimDurumu.Uygulanmadi,
                             };
                             records.Add(record);
-                        }
                     }
 
                     if (records.Count == 0)
