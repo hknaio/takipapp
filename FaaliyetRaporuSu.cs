@@ -148,7 +148,7 @@ namespace WinFormsApp1
                             worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
                             
-                            FileInfo excelFile = new FileInfo("Faaliyet Raporu Su " + cmbYil.Text);
+                            FileInfo excelFile = new FileInfo(filePath);
                             excelPackage.SaveAs(excelFile);
 
                             MessageBox.Show("Excel'e aktarım tamamlandı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
