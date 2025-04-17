@@ -46,7 +46,8 @@ namespace WinFormsApp1
             {
                 using (var context = new AppDbContext())
                 {
-                    var purEmanets = context.PurEmanets.Include(m => m.Imalat)
+                    var purEmanets = context.PurEmanets.Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
+                         && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
                         .Select(m => m.Imalat.Isim)
                         .Distinct()
                         .ToList();
@@ -66,7 +67,7 @@ namespace WinFormsApp1
                         foreach (var puremanet in purEmanets)
                         {
                             var toplam = grp.Where(m => m.Imalat.Isim == puremanet)
-                                            .Sum(m => m.Tutar);
+                                            .Sum(m => m.Miktar);
                             expandoDict[puremanet] = toplam;
                         }
 
@@ -119,37 +120,35 @@ namespace WinFormsApp1
                         {
                             ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sayfa1");
 
-                            // Başlıkları yaz
+                            
                             for (int j = 0; j < dataGridView1.Columns.Count; j++)
                             {
                                 worksheet.Cells[1, j + 1].Value = dataGridView1.Columns[j].HeaderText;
                             }
-
-                            // Verileri yaz ve biçimlendir
+                            
                             for (int i = 0; i < dataGridView1.Rows.Count; i++)
                             {
                                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                                 {
                                     var cell = worksheet.Cells[i + 2, j + 1];
                                     cell.Value = dataGridView1.Rows[i].Cells[j].Value;
-
-                                    // İlce sütunu hariç tüm sütunlara parasal biçim uygula
-                                    if (j > 0) // İlk sütun (0. indeks) "Ilce" ise
+                                    
+                                    if (j > 0) 
                                     {
-                                        // Sayısal değer kontrolü
+                                        
                                         if (double.TryParse(cell.Value?.ToString(), out double numericValue))
                                         {
-                                            cell.Style.Numberformat.Format = "#,##0.00 ₺"; // Para birimi formatı
+                                            //cell.Style.Numberformat.Format = "#,##0.00 ₺"; // Para birimi formatı
                                         }
                                     }
                                 }
                             }
 
-                            // Sütun genişliklerini otomatik ayarla
+                            
                             worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
 
-                            // Dosyayı kaydet
-                            FileInfo excelFile = new FileInfo(filePath);
+                            
+                            FileInfo excelFile = new FileInfo("Faaliyet Raporu Su " + cmbYil.Text);
                             excelPackage.SaveAs(excelFile);
 
                             MessageBox.Show("Excel'e aktarım tamamlandı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
