@@ -135,7 +135,7 @@ namespace WinFormsApp1
         {
             if (cmbIlce.Text != string.Empty)
             {
-                var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım")).ToList();
+                var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım Hizmetleri")).ToList();
                 dataGridView1.DataSource = projesFilter;
             }
 
