@@ -36,15 +36,14 @@ namespace WinFormsApp1
         {        
             try
             {
-                using (var context = new AppDbContext())
-                {
-                    var purEmanets = context.PurEmanets.Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
+               
+                    var purEmanets = _dbContext.PurEmanets.Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
                          && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
                         .Select(m => m.Imalat.Isim)
                         .Distinct()
                         .ToList();
 
-                    var query = context.PurEmanets.Include(m => m.Imalat)
+                    var query = _dbContext.PurEmanets.Include(m => m.Imalat)
                         .Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
                          && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
                         .GroupBy(m => m.Ilce)
@@ -117,7 +116,6 @@ namespace WinFormsApp1
 
                         dataGridView1.Rows.Add(row);
                     }
-                }
             }
             catch (Exception ex)
             {
