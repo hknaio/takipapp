@@ -3,12 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using YatirimTakip.Helpers;
 using System.Dynamic;
 using OfficeOpenXml;
-using System.IO;
-using System.Windows.Forms;
 
 
 namespace WinFormsApp1
 {   
+    internal record ProjeData(string Ilce, double Miktar, string Imalat);
     public partial class FaaliyetRaporuSu : Form
     {
         private AppDbContext _dbContext;
@@ -28,14 +27,7 @@ namespace WinFormsApp1
         private void btnGetir_Click(object sender, EventArgs e)
         {
             LoadExpandoDataGridView();
-        }
-        private double AsfaltDokumBedel(int id)
-        {
-            var asfaltBedel = _dbContext.Database.SqlQuery<double>($"SELECT DokumBedeli as [VALUE] FROM AsfaltDokum WHERE YatirimProgramiID = {id}")
-                           .FirstOrDefault();
-
-            return asfaltBedel;
-        }
+        }       
         private void button1_Click(object sender, EventArgs e)
         {
             DataGridViewToExcel();
@@ -53,9 +45,33 @@ namespace WinFormsApp1
                         .ToList();
 
                     var query = context.PurEmanets.Include(m => m.Imalat)
+                        .Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
+                         && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
                         .GroupBy(m => m.Ilce)
                         .ToList();
 
+                    var projeler = _dbContext.Projes.Include(p => p.Programis)
+                        .Where(p => p.Programis.Any(p => p.Yil == Convert.ToInt32(cmbYil.Text) 
+                        && p.YatirimDurumu == Models.YatirimDurumu.Uygulandi && p.Birim == "Su ve Kanalizasyon Hizmetleri") 
+                        )                        
+                        .ToList();
+
+                    var projeDatas = new List<ProjeData>();
+
+                    foreach (var item in projeler)
+                    {
+                        var list = item.Programis
+                            .GroupBy(p => p.Ilce)
+                            .Select(s => new ProjeData
+                            (
+                                s.Key,
+                                s.Sum(m => m.Uygulama),
+                                s.Select(m => m.Imalat).FirstOrDefault()
+                            )).ToList();
+
+                        projeDatas.AddRange(list);
+                    }
+                    
                     var dinamikVeri = new List<dynamic>();
 
                     foreach (var grp in query)
@@ -68,6 +84,12 @@ namespace WinFormsApp1
                         {
                             var toplam = grp.Where(m => m.Imalat.Isim == puremanet)
                                             .Sum(m => m.Miktar);
+
+                            var projeMiktar = projeDatas.Where(m => m.Ilce == grp.Key.Adi && m.Imalat == puremanet)
+                                .Sum(m => m.Miktar);
+
+                            toplam += projeMiktar;
+
                             expandoDict[puremanet] = toplam;
                         }
 
