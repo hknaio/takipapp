@@ -200,9 +200,8 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PDFCreator pDF = new();
-
-            pDF.CreatePdf(dataGridView1, "Bütçe " + cmbYil.Text);
+            ExceleAktar exceleAktar = new ExceleAktar();
+            exceleAktar.DataGridViewToExcelButce(dataGridView1);
         }
 
         private void RprButce_FormClosing(object sender, FormClosingEventArgs e)

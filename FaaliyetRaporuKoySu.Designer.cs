@@ -188,7 +188,7 @@
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 54;
-            button1.Text = "PDF Aktar";
+            button1.Text = "Excele Aktar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -246,7 +246,7 @@
             cmbImalat.Size = new Size(220, 33);
             cmbImalat.TabIndex = 65;
             // 
-            // FaaliyetRaporuKoy
+            // FaaliyetRaporuKoySu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -264,7 +264,7 @@
             Controls.Add(cmbYil);
             Controls.Add(btnGetir);
             Controls.Add(dataGridView1);
-            Name = "FaaliyetRaporuKoy";
+            Name = "FaaliyetRaporuKoySu";
             Text = "Faaliyet Raporu (Köy)";
             FormClosing += FaaliyetRaporuKoySu_FormClosing;
             Load += FaaliyetRaporuKoySu_Load;

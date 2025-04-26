@@ -1,14 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Dynamic;
 using WinFormsApp1.Data;
 using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
-{
-    //internal record ToplamUygulama(int programId,string ilce, string imalat, double tahakkkuk, double toplamUygulama, double uygulama, double oransalTahakkuk);
-    internal record IlceButceSu(string ilce, double kat1, double kat2, double bsk, double asfaltOnarim, double kilitliParke, double stabilize,
-        double yolOnarim, double menfez, double istinat, double kopru, double reglaj, double kar, double beton, double yeniYol,
-         double spiral, double icme, double tarim, double kaya, double diger);
+{    
     public partial class RprButceSu : Form
     {
         private AppDbContext _dbContext;
@@ -26,183 +22,104 @@ namespace WinFormsApp1
 
         private void btnGetir_Click(object sender, EventArgs e)
         {
-            var yil = Convert.ToInt32(cmbYil.Text);
-
-            var projeler = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Yil == yil)).ToList();
-
-            var purEmanets = _dbContext.PurEmanets
-                .Include(p => p.Imalat)
-                .Include(p => p.Ilce).Where(p => p.Tarih.Year == yil).ToList();
-
-            List<ToplamUygulama> _toplamUygulamaList = [];
-
-
-            foreach (var item in projeler)
-            {
-                var list = item.Programis.Select(s => new ToplamUygulama
-                 (
-                    s.ID,
-                     s.Ilce,
-                     s.Imalat,
-                     item.HakedisToplamTahakkuk,
-                     item.Programis.Sum(p => p.Uygulama),
-                     s.Uygulama,
-                    double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)) ? 0 :
-                    (s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk)
-                    + AsfaltDokumBedel(s.ID)
-                 )).ToList();
-
-                _toplamUygulamaList.AddRange(list);
-            }
-
-            var toplamUygulamaGrouped = _toplamUygulamaList.GroupBy(t => t.ilce).Select(t => new IlceButce
-                 (
-                    t.Key,
-                    t.Where(t => t.imalat.Contains("1.")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("2.")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("BSK")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Asfalt Bakım Onarım")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Kilitli Parke")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Stabilize")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Yol Onarım")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Menfez")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("İstinat Duvarı")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Köprü")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Reglaj")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Karla Mücadele")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Beton Yol")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Yeni Yol")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Spiral Boru")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Kaya Tahkimat")).Sum(t => t.oransalTahakkuk),
-                    t.Where(t => t.imalat.Contains("Çevre Düzenleme İşleri")).Sum(t => t.oransalTahakkuk)
-                 )).ToList();
-
-            var puremanetsGrouped = purEmanets.GroupBy(p => p.Ilce).Select(t => new IlceButce
-              (
-                   t.Key.Adi,
-                   t.Where(t => t.Imalat.Isim.Contains("1.")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("2.")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("BSK")).Sum(t => t.Tutar),                   
-                   t.Where(t => t.Imalat.Isim.Contains("Asfalt Bakım Onarım")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Kilitli Parke")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Stabilize")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Yol Onarım")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Menfez")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("İstinat Duvarı")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Köprü")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Reglaj")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Karla Mücadele")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Beton Yol")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Yeni Yol")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Spiral Boru")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("İçme Suyu, Kanalizasyon Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Tarımsal Sulama Hattı Yapım-Onarım Kazı Çalışması")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Kaya Tahkimat")).Sum(t => t.Tutar),
-                   t.Where(t => t.Imalat.Isim.Contains("Çevre Düzenleme İşleri")).Sum(t => t.Tutar)
-               ));
-
-            toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(puremanetsGrouped).ToList();
-
-            var onarimVeBsk = _dbContext.AsfaltDokums.Include(p => p.YatirimProgrami).Where(
-                      p => p.DokumBedeli != 0 && p.DokumTarihi.Year == yil && (p.YatirimProgrami.Imalat.Contains("BSK") || p.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")
-                                                   || p.YatirimProgrami.Imalat.Contains("1.") || p.YatirimProgrami.Imalat.Contains("2.")))
-                      .GroupBy(p => new { ilce = p.YatirimProgrami.Ilce })
-                      .Select(t => new IlceButce
-                      (
-                          t.Key.ilce,
-                    t.Where(t => t.YatirimProgrami.Imalat.Contains("1.")).Sum(t => t.DokumBedeli),
-                    t.Where(t => t.YatirimProgrami.Imalat.Contains("2.")).Sum(t => t.DokumBedeli),
-                    t.Where(t => t.YatirimProgrami.Imalat.Contains("BSK")).Sum(t => t.DokumBedeli),
-                    t.Where(t => t.YatirimProgrami.Imalat.Contains("Asfalt Bakım Onarım")).Sum(t => t.DokumBedeli),
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-
-                    0,
-                    0,
-                   
-                    0,
-                    0,
-
-                    0,
-                    0,
-                    0,
-                    0
-                      )).ToList();
-
-            toplamUygulamaGrouped = toplamUygulamaGrouped.Concat(onarimVeBsk).ToList();
-
-            var toplam = toplamUygulamaGrouped.GroupBy(f => 1).Select(s => new IlceButce(
-                "Tümü",
-                double.IsNaN(s.Sum(i => i.kat1)) ? 0 : s.Sum(i => i.kat1),
-                double.IsNaN(s.Sum(i => i.kat2)) ? 0 : s.Sum(i => i.kat2),
-                double.IsNaN(s.Sum(i => i.bsk)) ? 0 : s.Sum(i => i.bsk),
-                double.IsNaN(s.Sum(i => i.asfaltOnarim)) ? 0 : s.Sum(i => i.asfaltOnarim),
-                double.IsNaN(s.Sum(i => i.kilitliParke)) ? 0 : s.Sum(i => i.kilitliParke),
-                double.IsNaN(s.Sum(i => i.stabilize)) ? 0 : s.Sum(i => i.stabilize),
-                double.IsNaN(s.Sum(i => i.yolOnarim)) ? 0 : s.Sum(i => i.yolOnarim),
-                double.IsNaN(s.Sum(i => i.menfez)) ? 0 : s.Sum(i => i.menfez),
-                double.IsNaN(s.Sum(i => i.istinat)) ? 0 : s.Sum(i => i.istinat),
-                double.IsNaN(s.Sum(i => i.kopru)) ? 0 : s.Sum(i => i.kopru),
-                double.IsNaN(s.Sum(i => i.reglaj)) ? 0 : s.Sum(i => i.reglaj),
-                double.IsNaN(s.Sum(i => i.kar)) ? 0 : s.Sum(i => i.kar),
-                double.IsNaN(s.Sum(i => i.beton)) ? 0 : s.Sum(i => i.beton),
-                double.IsNaN(s.Sum(i => i.yeniYol)) ? 0 : s.Sum(i => i.yeniYol),
-                double.IsNaN(s.Sum(i => i.spiral)) ? 0 : s.Sum(i => i.spiral),
-                double.IsNaN(s.Sum(i => i.icme)) ? 0 : s.Sum(i => i.icme),
-                double.IsNaN(s.Sum(i => i.tarim)) ? 0 : s.Sum(i => i.tarim),
-                double.IsNaN(s.Sum(i => i.kaya)) ? 0 : s.Sum(i => i.kaya),
-                double.IsNaN(s.Sum(i => i.diger)) ? 0 : s.Sum(i => i.diger)
-                ));
-
-            var finalList = toplamUygulamaGrouped.GroupBy(f => f.ilce).Select(s => new IlceButce
-            (
-                s.Key,
-                double.IsNaN(s.Sum(i => i.kat1)) ? 0 : s.Sum(i => i.kat1),
-                double.IsNaN(s.Sum(i => i.kat2)) ? 0 : s.Sum(i => i.kat2),
-                double.IsNaN(s.Sum(i => i.bsk)) ? 0 : s.Sum(i => i.bsk),
-                double.IsNaN(s.Sum(i => i.asfaltOnarim)) ? 0 : s.Sum(i => i.asfaltOnarim),
-                double.IsNaN(s.Sum(i => i.kilitliParke)) ? 0 : s.Sum(i => i.kilitliParke),
-                double.IsNaN(s.Sum(i => i.stabilize)) ? 0 : s.Sum(i => i.stabilize),
-                double.IsNaN(s.Sum(i => i.yolOnarim)) ? 0 : s.Sum(i => i.yolOnarim),
-                double.IsNaN(s.Sum(i => i.menfez)) ? 0 : s.Sum(i => i.menfez),
-                double.IsNaN(s.Sum(i => i.istinat)) ? 0 : s.Sum(i => i.istinat),
-                double.IsNaN(s.Sum(i => i.kopru)) ? 0 : s.Sum(i => i.kopru),
-                double.IsNaN(s.Sum(i => i.reglaj)) ? 0 : s.Sum(i => i.reglaj),
-                double.IsNaN(s.Sum(i => i.kar)) ? 0 : s.Sum(i => i.kar),
-                double.IsNaN(s.Sum(i => i.beton)) ? 0 : s.Sum(i => i.beton),
-                double.IsNaN(s.Sum(i => i.yeniYol)) ? 0 : s.Sum(i => i.yeniYol),
-                double.IsNaN(s.Sum(i => i.spiral)) ? 0 : s.Sum(i => i.spiral),
-                double.IsNaN(s.Sum(i => i.icme)) ? 0 : s.Sum(i => i.icme),
-                double.IsNaN(s.Sum(i => i.tarim)) ? 0 : s.Sum(i => i.tarim),
-                double.IsNaN(s.Sum(i => i.kaya)) ? 0 : s.Sum(i => i.kaya),
-                double.IsNaN(s.Sum(i => i.diger)) ? 0 : s.Sum(i => i.diger)
-             )).ToList();
-
-            finalList.AddRange(toplam);
-
-            dataGridView1.DataSource = finalList;
+           LoadExpandoDataGridView();
         }
 
-        private double AsfaltDokumBedel(int id)
+        private void LoadExpandoDataGridView()
         {
-            var asfaltBedel = _dbContext.AsfaltDokums.Where(a => a.YatirimProgrami.ID == id)
-                .Select(a => a.DokumBedeli).FirstOrDefault();
+            try
+            {
 
-            return asfaltBedel;
+                var purEmanets = _dbContext.PurEmanets.Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
+                     && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
+                    .Select(m => m.Imalat.Isim)
+                    .Distinct()
+                    .ToList();
+
+                var query = _dbContext.PurEmanets.Include(m => m.Imalat)
+                    .Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
+                     && p.Imalat.Mudurluk == "Su ve Kanalizasyon Hizmetleri")
+                    .GroupBy(m => m.Ilce)
+                    .ToList();
+
+                var projeler = _dbContext.Projes.Include(p => p.Programis)
+                    .Where(p => p.Programis.Any(p => p.Yil == Convert.ToInt32(cmbYil.Text)
+                    && p.YatirimDurumu == Models.YatirimDurumu.Uygulandi && p.Birim == "Su ve Kanalizasyon Hizmetleri")
+                    )
+                    .ToList();
+
+                var projeDatas = new List<ProjeData>();
+
+                foreach (var item in projeler)
+                {
+                    var list = item.Programis
+                        .GroupBy(p => p.Ilce)
+                        .Select(s => new ProjeData
+                        (
+                            s.Key,
+                            s.Select(a => a.Uygulama).FirstOrDefault() / item.Programis.Sum(p => p.Uygulama) * item.HakedisToplamTahakkuk,
+                            s.Select(m => m.Imalat).FirstOrDefault()
+                        )).ToList();
+
+                    projeDatas.AddRange(list);
+                }
+
+                var dinamikVeri = new List<dynamic>();
+
+                foreach (var grp in query)
+                {
+                    dynamic expando = new ExpandoObject();
+                    var expandoDict = (IDictionary<string, object>)expando;
+                    expandoDict["Ilce"] = grp.Key;
+
+                    foreach (var puremanet in purEmanets)
+                    {
+                        var toplam = grp.Where(m => m.Imalat.Isim == puremanet)
+                                        .Sum(m => m.Tutar);
+
+                        var projeMiktar = projeDatas.Where(m => m.Ilce == grp.Key.Adi && m.Imalat == puremanet)
+                            .Sum(m => m.Miktar);
+
+                        toplam += projeMiktar;
+
+                        expandoDict[puremanet] = toplam;
+                    }
+
+                    dinamikVeri.Add(expando);
+                }
+
+                dataGridView1.Columns.Clear();
+                dataGridView1.Columns.Add("Ilce", "İlçe");
+
+                foreach (var puremanet in purEmanets)
+                {
+                    dataGridView1.Columns.Add(puremanet, puremanet);
+                }
+
+                foreach (dynamic veri in dinamikVeri)
+                {
+                    var row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1);
+                    row.Cells[0].Value = veri.Ilce.Adi;
+
+                    for (int i = 0; i < purEmanets.Count; i++)
+                    {
+                        row.Cells[i + 1].Value = ((IDictionary<string, object>)veri)[purEmanets[i]];
+                    }
+
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PDFCreator pDF = new();
-
-            pDF.CreatePdf(dataGridView1, "Bütçe " + cmbYil.Text);
+            ExceleAktar exceleAktar = new();
+            exceleAktar.DataGridViewToExcelButce(dataGridView1);
         }
 
         private void RprButceSu_FormClosing(object sender, FormClosingEventArgs e)

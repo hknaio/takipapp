@@ -16,24 +16,26 @@ namespace WinFormsApp1
 
         private void btnGetir_Click(object sender, EventArgs e)
         {
-            var programlar = _dbContext.YatirimProgramis.Where(y => y.Kaynak == cmbKaynak.Text)
-                .GroupBy(y => y.Ilce).Select(p => new
-                {
-                    Ilce = p.Key,
-                    ToplamIs = p.Where(y => y.Ilce == p.Key).Count(),
-                    DevamEden = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulaniyor).Count(),
-                    Biten = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulandi).Count(),
-                    Baslamamis = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulanmadi).Count(),
-                }).ToList();
+            if (cmbKaynak.Text != string.Empty && cmbYil.Text != string.Empty)
+            {
+                var programlar = _dbContext.YatirimProgramis.Where(y => y.Kaynak == cmbKaynak.Text && y.Yil == Convert.ToInt32(cmbYil.Text))
+              .GroupBy(y => y.Ilce).Select(p => new
+              {
+                  Ilce = p.Key,
+                  ToplamIs = p.Where(y => y.Ilce == p.Key).Count(),
+                  DevamEden = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulaniyor).Count(),
+                  Biten = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulandi).Count(),
+                  Baslamamis = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulanmadi).Count(),
+              }).ToList();
 
-            dataGridView1.DataSource = programlar;
+                dataGridView1.DataSource = programlar;
+            }          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PDFCreator pDF = new();
-
-            pDF.CreatePdf(dataGridView1, "Program " + cmbKaynak.Text);
+            ExceleAktar exceleAktar = new();
+            exceleAktar.DataGridViewToExcel(dataGridView1);
         }
     }
 }

@@ -38,6 +38,7 @@
             Biten = new DataGridViewTextBoxColumn();
             Baslamamis = new DataGridViewTextBoxColumn();
             button1 = new Button();
+            cmbYil = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -54,14 +55,14 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(156, 22);
+            cmbKaynak.Location = new Point(130, 22);
             cmbKaynak.Name = "cmbKaynak";
             cmbKaynak.Size = new Size(182, 33);
             cmbKaynak.TabIndex = 1;
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(389, 21);
+            btnGetir.Location = new Point(531, 20);
             btnGetir.Name = "btnGetir";
             btnGetir.Size = new Size(134, 34);
             btnGetir.TabIndex = 2;
@@ -126,19 +127,29 @@
             // 
             // button1
             // 
-            button1.Location = new Point(593, 21);
+            button1.Location = new Point(697, 20);
             button1.Name = "button1";
             button1.Size = new Size(146, 34);
             button1.TabIndex = 4;
-            button1.Text = "PDF Aktar";
+            button1.Text = "Excele Aktar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(333, 22);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 48;
             // 
             // RprProgram
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1037, 628);
+            Controls.Add(cmbYil);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(btnGetir);
@@ -163,5 +174,6 @@
         private DataGridViewTextBoxColumn Biten;
         private DataGridViewTextBoxColumn Baslamamis;
         private Button button1;
+        private ComboBox cmbYil;
     }
 }

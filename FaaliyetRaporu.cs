@@ -223,9 +223,8 @@ namespace WinFormsApp1
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            PDFCreator pDF = new();
-
-            pDF.CreatePdfFaaliyet(dataGridView1, "Faaliyet Raporu " + cmbYil.Text);
+            ExceleAktar exceleAktar = new ExceleAktar();
+            exceleAktar.DataGridViewToExcel(dataGridView1);
         }
 
         private void FaaliyetRaporu_FormClosing(object sender, FormClosingEventArgs e)

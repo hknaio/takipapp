@@ -31,9 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridView1 = new DataGridView();
-            cmbYil = new ComboBox();
-            btnGetir = new Button();
-            button1 = new Button();
             Ilce = new DataGridViewTextBoxColumn();
             IsAdet = new DataGridViewTextBoxColumn();
             Kat1 = new DataGridViewTextBoxColumn();
@@ -56,6 +53,9 @@
             Kaya = new DataGridViewTextBoxColumn();
             Diger = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
+            cmbYil = new ComboBox();
+            btnGetir = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -93,35 +93,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView1.Size = new Size(1885, 843);
             dataGridView1.TabIndex = 44;
-            // 
-            // cmbYil
-            // 
-            cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(27, 22);
-            cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
-            cmbYil.TabIndex = 47;
-            // 
-            // btnGetir
-            // 
-            btnGetir.Location = new Point(286, 17);
-            btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
-            btnGetir.TabIndex = 46;
-            btnGetir.Text = "Rapor Getir";
-            btnGetir.UseVisualStyleBackColor = true;
-            btnGetir.Click += btnGetir_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(691, 20);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 34);
-            button1.TabIndex = 48;
-            button1.Text = "PDF Aktar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // Ilce
             // 
@@ -301,6 +272,35 @@
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(27, 22);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 47;
+            // 
+            // btnGetir
+            // 
+            btnGetir.Location = new Point(286, 17);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(179, 41);
+            btnGetir.TabIndex = 46;
+            btnGetir.Text = "Rapor Getir";
+            btnGetir.UseVisualStyleBackColor = true;
+            btnGetir.Click += btnGetir_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(691, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 48;
+            button1.Text = "Excele Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // FaaliyetRaporu
             // 

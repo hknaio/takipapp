@@ -120,9 +120,8 @@ namespace YatirimTakip
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PDFCreator pDF = new();
-            var ilce = (Ilce)cmbIlce.SelectedValue!;
-            pDF.CreatePdf(dataGridView1, ilce.Adi + " Püremanet Raporu " + cmbYil.Text);
+            ExceleAktar exceleAktar = new();
+            exceleAktar.DataGridViewToExcel(dataGridView1);
         }
     }
 }
