@@ -56,11 +56,12 @@ namespace WinFormsApp1
                       .Include(p => p.Koy)
                       .Include(p => p.Imalat)
                       .Where(p => p.Tarih.Year == yil
-                  && p.Ilce.Adi == ilce.Adi
+                  && p.Ilce.Adi == ilce.Adi && p.Imalat.Birim == "Yol ve Ulaşım Hizmetleri"
                   && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
                             projeler = _dbContext.Projes
-                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi) )
+                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Ilce == ilce.Adi 
+                            && p.Birim == "Yol ve Ulaşım Hizmetleri") )
                             .ToList();
 
                             foreach (var item in projeler)
@@ -87,6 +88,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         {
                             projeler = _dbContext.Projes.AsNoTracking()
                             .Include(p => p.Programis.Where(p => p.Kaynak == cmbKaynak.Text
+                                                              && p.Birim == "Yol ve Ulaşım Hizmetleri"
                                                               && p.Yil == yil && p.Ilce == ilce.Adi
                                                               ))
                             .ToList();
@@ -122,12 +124,12 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                        .Include(p => p.Koy)
                        .Include(p => p.Imalat)
                        .Where(p => p.Tarih.Year == yil
-                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text
+                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text && p.Imalat.Birim == "Yol ve Ulaşım Hizmetleri"
                    && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
 
                             projeler = _dbContext.Projes
-                            .Include(p => p.Programis.Where(p => p.Yil == yil
+                            .Include(p => p.Programis.Where(p => p.Yil == yil && p.Birim == "Yol ve Ulaşım Hizmetleri"
                                                               && p.Ilce == ilce.Adi
                                                               ))
                             .ToList();
@@ -156,7 +158,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         else
                         {
                             projeler = _dbContext.Projes.AsNoTracking()
-                            .Include(p => p.Programis.Where(p => p.Kaynak == cmbKaynak.Text
+                            .Include(p => p.Programis.Where(p => p.Kaynak == cmbKaynak.Text && p.Birim == "Yol ve Ulaşım Hizmetleri"
                                                               && p.Yil == yil
                                                               && p.Ilce == ilce.Adi
                                                               ))
