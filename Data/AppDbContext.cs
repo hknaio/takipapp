@@ -42,8 +42,8 @@ namespace WinFormsApp1.Data
 => optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=YatirimTest;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //=> optionsBuilder.UseSqlServer(@"Data Source=10.1.3.200,5004;Initial Catalog=Yatirim;User ID=yatirim; Password=ElazYS26*;TrustServerCertificate=true");
-        //    //personel.elazigozelidaresi.gov.tr
+        //=> optionsBuilder.UseSqlServer(@"Data Source=10.1.3.200,5004;Initial Catalog=YatirimTest;User ID=yatirim; Password=ElazYS26*;TrustServerCertificate=true");
+        ////    //personel.elazigozelidaresi.gov.tr
         //10.1.3.200,1433 - login failed
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

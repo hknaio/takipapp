@@ -39,7 +39,7 @@ namespace WinFormsApp1
 
                     _dbContext.YatirimProgramis.Add(new YatirimProgrami
                     {
-                        Birim = "Yol ve Ulaşım",
+                        Birim = cmbBirim.Text,
                         Ilce = ilce.Adi,
                         Imalat = imalat.Isim,
                         Koy = txtKoy.Text,

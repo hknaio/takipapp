@@ -41,6 +41,8 @@
             label5 = new Label();
             label6 = new Label();
             btnKaydet = new Button();
+            cmbBirim = new ComboBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -113,7 +115,7 @@
             // 
             lblYil.AutoSize = true;
             lblYil.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblYil.Location = new Point(145, 170);
+            lblYil.Location = new Point(145, 209);
             lblYil.Name = "lblYil";
             lblYil.Size = new Size(76, 30);
             lblYil.TabIndex = 8;
@@ -123,7 +125,7 @@
             // 
             lblKaynak.AutoSize = true;
             lblKaynak.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblKaynak.Location = new Point(512, 170);
+            lblKaynak.Location = new Point(512, 209);
             lblKaynak.Name = "lblKaynak";
             lblKaynak.Size = new Size(76, 30);
             lblKaynak.TabIndex = 9;
@@ -132,7 +134,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(44, 174);
+            label5.Location = new Point(44, 213);
             label5.Name = "label5";
             label5.Size = new Size(39, 25);
             label5.TabIndex = 10;
@@ -141,7 +143,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(417, 170);
+            label6.Location = new Point(417, 209);
             label6.Name = "label6";
             label6.Size = new Size(77, 25);
             label6.TabIndex = 11;
@@ -149,7 +151,7 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(427, 259);
+            btnKaydet.Location = new Point(427, 317);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(142, 63);
             btnKaydet.TabIndex = 12;
@@ -157,11 +159,31 @@
             btnKaydet.UseVisualStyleBackColor = true;
             btnKaydet.Click += btnKaydet_Click;
             // 
+            // cmbBirim
+            // 
+            cmbBirim.FormattingEnabled = true;
+            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri" });
+            cmbBirim.Location = new Point(145, 150);
+            cmbBirim.Name = "cmbBirim";
+            cmbBirim.Size = new Size(305, 33);
+            cmbBirim.TabIndex = 26;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(44, 158);
+            label7.Name = "label7";
+            label7.Size = new Size(97, 25);
+            label7.TabIndex = 27;
+            label7.Text = "Müdürlük :";
+            // 
             // EkProgramEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(879, 511);
+            Controls.Add(label7);
+            Controls.Add(cmbBirim);
             Controls.Add(btnKaydet);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -198,5 +220,7 @@
         private Label label5;
         private Label label6;
         private Button btnKaydet;
+        private ComboBox cmbBirim;
+        private Label label7;
     }
 }
