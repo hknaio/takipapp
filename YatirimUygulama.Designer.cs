@@ -86,9 +86,24 @@
             label16 = new Label();
             label17 = new Label();
             label18 = new Label();
+            pictureBox1 = new PictureBox();
+            groupBox2 = new GroupBox();
+            btnOnceFotoKaydet = new Button();
+            btnOncesiGuncelle = new Button();
+            groupBox3 = new GroupBox();
+            btnSonraKaydet = new Button();
+            btnSonraGuncelle = new Button();
+            pictureBox2 = new PictureBox();
+            label19 = new Label();
+            btnDosyaEkle = new Button();
+            linkLabel1 = new LinkLabel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -185,7 +200,7 @@
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(743, 935);
+            btnKaydet.Location = new Point(739, 1004);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(112, 34);
             btnKaydet.TabIndex = 13;
@@ -195,7 +210,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(958, 935);
+            button2.Location = new Point(966, 1004);
             button2.Name = "button2";
             button2.Size = new Size(112, 34);
             button2.TabIndex = 14;
@@ -229,7 +244,7 @@
             groupBox1.Controls.Add(txtHakedis);
             groupBox1.Controls.Add(txtHakedisMiktar);
             groupBox1.Controls.Add(btnHakedisEkle);
-            groupBox1.Location = new Point(990, 59);
+            groupBox1.Location = new Point(987, 16);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(559, 344);
             groupBox1.TabIndex = 20;
@@ -449,7 +464,7 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, ProjedenCikar });
-            dataGridView1.Location = new Point(26, 525);
+            dataGridView1.Location = new Point(39, 594);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
@@ -645,11 +660,127 @@
             label18.TabIndex = 44;
             label18.Text = "₺";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(6, 30);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(333, 152);
+            pictureBox1.TabIndex = 45;
+            pictureBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btnOnceFotoKaydet);
+            groupBox2.Controls.Add(btnOncesiGuncelle);
+            groupBox2.Controls.Add(pictureBox1);
+            groupBox2.Location = new Point(1567, 12);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(345, 242);
+            groupBox2.TabIndex = 46;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Öncesi";
+            // 
+            // btnOnceFotoKaydet
+            // 
+            btnOnceFotoKaydet.Location = new Point(204, 198);
+            btnOnceFotoKaydet.Name = "btnOnceFotoKaydet";
+            btnOnceFotoKaydet.Size = new Size(135, 34);
+            btnOnceFotoKaydet.TabIndex = 47;
+            btnOnceFotoKaydet.Text = "Foto Kaydet";
+            btnOnceFotoKaydet.UseVisualStyleBackColor = true;
+            btnOnceFotoKaydet.Click += btnOnceFotoKaydet_Click;
+            // 
+            // btnOncesiGuncelle
+            // 
+            btnOncesiGuncelle.Location = new Point(6, 198);
+            btnOncesiGuncelle.Name = "btnOncesiGuncelle";
+            btnOncesiGuncelle.Size = new Size(129, 34);
+            btnOncesiGuncelle.TabIndex = 46;
+            btnOncesiGuncelle.Text = "Foto Güncelle";
+            btnOncesiGuncelle.UseVisualStyleBackColor = true;
+            btnOncesiGuncelle.Click += btnOncesiGuncelle_Click;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btnSonraKaydet);
+            groupBox3.Controls.Add(btnSonraGuncelle);
+            groupBox3.Controls.Add(pictureBox2);
+            groupBox3.Location = new Point(1567, 260);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(345, 242);
+            groupBox3.TabIndex = 47;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Sonrası";
+            // 
+            // btnSonraKaydet
+            // 
+            btnSonraKaydet.Location = new Point(204, 198);
+            btnSonraKaydet.Name = "btnSonraKaydet";
+            btnSonraKaydet.Size = new Size(135, 34);
+            btnSonraKaydet.TabIndex = 47;
+            btnSonraKaydet.Text = "Foto Kaydet";
+            btnSonraKaydet.UseVisualStyleBackColor = true;
+            btnSonraKaydet.Click += btnSonraKaydet_Click;
+            // 
+            // btnSonraGuncelle
+            // 
+            btnSonraGuncelle.Location = new Point(6, 198);
+            btnSonraGuncelle.Name = "btnSonraGuncelle";
+            btnSonraGuncelle.Size = new Size(129, 34);
+            btnSonraGuncelle.TabIndex = 46;
+            btnSonraGuncelle.Text = "Foto Güncelle";
+            btnSonraGuncelle.UseVisualStyleBackColor = true;
+            btnSonraGuncelle.Click += btnSonraGuncelle_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(6, 30);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(333, 152);
+            pictureBox2.TabIndex = 45;
+            pictureBox2.TabStop = false;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9F);
+            label19.Location = new Point(548, 363);
+            label19.Name = "label19";
+            label19.Size = new Size(116, 25);
+            label19.TabIndex = 48;
+            label19.Text = "Proje Dosya :";
+            // 
+            // btnDosyaEkle
+            // 
+            btnDosyaEkle.Location = new Point(670, 358);
+            btnDosyaEkle.Name = "btnDosyaEkle";
+            btnDosyaEkle.Size = new Size(112, 34);
+            btnDosyaEkle.TabIndex = 49;
+            btnDosyaEkle.Text = "Dosya Ekle";
+            btnDosyaEkle.UseVisualStyleBackColor = true;
+            btnDosyaEkle.Click += btnDosyaEkle_Click;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(810, 363);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(116, 25);
+            linkLabel1.TabIndex = 50;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Dosyayı Indir";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1890, 1050);
+            ClientSize = new Size(1924, 1050);
+            Controls.Add(linkLabel1);
+            Controls.Add(btnDosyaEkle);
+            Controls.Add(label19);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
             Controls.Add(label18);
             Controls.Add(label17);
             Controls.Add(label16);
@@ -694,6 +825,10 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -757,5 +892,16 @@
         private Label label16;
         private Label label17;
         private Label label18;
+        private PictureBox pictureBox1;
+        private GroupBox groupBox2;
+        private Button btnOncesiGuncelle;
+        private Button btnOnceFotoKaydet;
+        private GroupBox groupBox3;
+        private Button btnSonraKaydet;
+        private Button btnSonraGuncelle;
+        private PictureBox pictureBox2;
+        private Label label19;
+        private Button btnDosyaEkle;
+        private LinkLabel linkLabel1;
     }
 }

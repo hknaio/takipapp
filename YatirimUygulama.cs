@@ -1,5 +1,7 @@
 ﻿using System.Data;
 using System.Data.Entity;
+using System.Drawing.Imaging;
+using System.Net;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;
@@ -13,6 +15,8 @@ namespace WinFormsApp1
         private Proje _proje;
         private bool _tarihleriSifirla;
         private readonly User _user;
+        private static readonly string BaseSavePath = @"C:\Users\Hakan Aygüzer\Desktop\Dosyalar\Dosya_";
+
         public YatirimUygulama(int id, User user)
         {
             InitializeComponent();
@@ -34,7 +38,18 @@ namespace WinFormsApp1
             dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[11].DefaultCellStyle.Format = "N2";
 
-           
+            var serverPath = "C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
+
+            if (File.Exists("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg"))
+            {
+                pictureBox1.Image = Image.FromFile("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg");
+            }
+
+            if (File.Exists("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg"))
+            {
+                pictureBox2.Image = Image.FromFile("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg");
+            }
+
             OrderColumns();
 
             if (_proje is not null)
@@ -330,7 +345,7 @@ namespace WinFormsApp1
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
-            
+
             {
                 _proje.IseBaslamaTarihi = dtpIseBaslama.Value;
                 _proje.Sure = Convert.ToInt32(txtSure.Text == string.Empty ? "0" : txtSure.Text);
@@ -420,6 +435,224 @@ namespace WinFormsApp1
 
             catch (Exception ex) { MessageBox.Show($"Hata.\n\nHata mesajı: {ex.Message}\n\n"); }
 
+        }
+
+        private void btnOncesiGuncelle_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    LoadImageToPictureBox(openFileDialog.FileName, pictureBox1);
+                }
+            }
+        }
+
+        private void LoadImageToPictureBox(string filePath, PictureBox pictureBox)
+        {
+            try
+            {
+                // Eski resmi temizle
+                if (pictureBox.Image != null)
+                {
+                    pictureBox.Image.Dispose();
+                }
+
+                // Resmi yeniden boyutlandırarak yükle
+                using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                {
+                    using (var originalImage = Image.FromStream(stream))
+                    {
+                        var resizedImage = ResizeImage(originalImage, 800, 600);
+                        pictureBox.Image = resizedImage;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata: {ex.Message}", "Yükleme Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Image ResizeImage(Image originalImage, int maxWidth, int maxHeight)
+        {
+            double ratio = Math.Min((double)maxWidth / originalImage.Width, (double)maxHeight / originalImage.Height);
+            int newWidth = (int)(originalImage.Width * ratio);
+            int newHeight = (int)(originalImage.Height * ratio);
+
+            Bitmap resizedImage = new Bitmap(newWidth, newHeight);
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(originalImage, 0, 0, newWidth, newHeight);
+            }
+            return resizedImage;
+        }
+
+        private void btnOnceFotoKaydet_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Önce bir resim yükleyin.");
+                return;
+            }
+
+            string serverBasePath = "C:\\Users\\Hakan Aygüzer"; //@"\\SUNUCU_IP\Paylaşım";
+
+            SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
+        }
+        private void SaveImageWithAutoFolder(string baseServerPath, Image image, string onceSonra)
+        {
+            try
+            {
+                // 1. Otomatik klasör adı oluştur (tarih-saat bazlı)
+                string folderName = "Resimler_" + _id;
+                string fullFolderPath = Path.Combine(baseServerPath, folderName);
+
+                // 2. Klasörü oluştur
+                Directory.CreateDirectory(fullFolderPath);
+
+                // 3. Resmi kaydet (benzersiz dosya adı ile)
+                string fileName = _id + "_" + onceSonra + ".jpg";
+                string fullImagePath = Path.Combine(fullFolderPath, fileName);
+
+                image.Save(fullImagePath, ImageFormat.Jpeg);
+
+                MessageBox.Show($"Resim kaydedildi:\n{fullImagePath}", "Başarılı",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Kayıt başarısız: {ex.Message}", "Hata",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSonraGuncelle_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    LoadImageToPictureBox(openFileDialog.FileName, pictureBox2);
+                }
+            }
+        }
+
+        private void btnSonraKaydet_Click(object sender, EventArgs e)
+        {
+
+            if (pictureBox2.Image == null)
+            {
+                MessageBox.Show("Önce bir resim yükleyin.");
+                return;
+            }
+
+            string serverBasePath = "C:\\Users\\Hakan Aygüzer"; //@"\\SUNUCU_IP\Paylaşım";
+
+            SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "sonrasi");
+        }
+
+        private void btnDosyaEkle_Click(object sender, EventArgs e)
+        {
+            // Kaydedilecek dosyayı seç (örneğin OpenFileDialog ile)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    bool success = SaveFileToFixedLocation(openFileDialog.FileName);
+                    if (success)
+                    {
+                        MessageBox.Show($"Dosya başarıyla kaydedildi:\n{Path.Combine(BaseSavePath + _id, Path.GetFileName(openFileDialog.FileName))}");
+                    }
+                }
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                // 1. Kaynak dosya kontrolü
+                if (string.IsNullOrWhiteSpace(BaseSavePath + _id))
+                {
+                    MessageBox.Show("Dosya bulunamadı");                    
+                }
+
+                // 2. Hedef dosya adını belirle
+                string fileName = Path.GetFileName(BaseSavePath + _id );
+
+                string[] fileNames = Directory.GetFiles(BaseSavePath + _id)
+                                       .Select(Path.GetFileName)
+                                       .ToArray();
+
+                if (fileNames.Count() > 0)
+                {
+                    // 3. Kullanıcıya kaydetme yeri sor
+                    using (SaveFileDialog saveDialog = new SaveFileDialog())
+                    {
+                        saveDialog.FileName = fileNames[0];
+                        saveDialog.Filter = "Tüm Dosyalar (*.*)|*.*";
+                        saveDialog.Title = "Dosyayı Kaydet";
+
+                        if (saveDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string destinationPath = saveDialog.FileName;
+
+                            // Yerel dosya kopyalama
+                            File.Copy(BaseSavePath + _id + "\\" + fileNames[0], destinationPath, overwrite: true);
+
+                            MessageBox.Show($"Dosya başarıyla kaydedildi:\n{destinationPath}");
+
+                        }
+                    }
+                }
+
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"İndirme başarısız: {ex.Message}", "Hata",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool SaveFileToFixedLocation(string sourceFilePath)
+        {
+            try
+            {
+                // 1. Klasörü kontrol et, yoksa oluştur
+                if (!Directory.Exists(BaseSavePath + _id))
+                {
+                    Directory.CreateDirectory(BaseSavePath + _id);
+                }
+
+                // 2. Hedef dosya adını oluştur (orijinal adı koru)
+                string fileName = Path.GetFileName(sourceFilePath);
+                string destinationPath = Path.Combine(BaseSavePath + _id, fileName);
+
+                // 3. Dosyayı kopyala (üzerine yazma kontrolü)
+                if (File.Exists(destinationPath))
+                {
+                    var result = MessageBox.Show(
+                        "Aynı isimli dosya var. Üzerine yazılsın mı?",
+                        "Uyarı",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+
+                    if (result != DialogResult.Yes) return false;
+                }
+
+                File.Copy(sourceFilePath, destinationPath, overwrite: true);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Dosya kaydedilemedi: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }
