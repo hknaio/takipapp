@@ -45,6 +45,12 @@
             label6 = new Label();
             chkMezra = new CheckBox();
             chkMezraList = new CheckedListBox();
+            cmbTalepEden = new ComboBox();
+            label7 = new Label();
+            cmbIsMakinesi = new ComboBox();
+            label8 = new Label();
+            cmbOperator = new ComboBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -196,11 +202,71 @@
             chkMezraList.Size = new Size(313, 256);
             chkMezraList.TabIndex = 17;
             // 
-            // PurEmanetEkle
+            // cmbTalepEden
+            // 
+            cmbTalepEden.FormattingEnabled = true;
+            cmbTalepEden.Items.AddRange(new object[] { "--" });
+            cmbTalepEden.Location = new Point(630, 24);
+            cmbTalepEden.Name = "cmbTalepEden";
+            cmbTalepEden.Size = new Size(252, 33);
+            cmbTalepEden.TabIndex = 23;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(508, 27);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 25);
+            label7.TabIndex = 22;
+            label7.Text = "Talep Eden :";
+            // 
+            // cmbIsMakinesi
+            // 
+            cmbIsMakinesi.FormattingEnabled = true;
+            cmbIsMakinesi.Items.AddRange(new object[] { "--" });
+            cmbIsMakinesi.Location = new Point(630, 74);
+            cmbIsMakinesi.Name = "cmbIsMakinesi";
+            cmbIsMakinesi.Size = new Size(252, 33);
+            cmbIsMakinesi.TabIndex = 25;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(508, 77);
+            label8.Name = "label8";
+            label8.Size = new Size(108, 25);
+            label8.TabIndex = 24;
+            label8.Text = "İş Makinesi :";
+            // 
+            // cmbOperator
+            // 
+            cmbOperator.FormattingEnabled = true;
+            cmbOperator.Items.AddRange(new object[] { "--" });
+            cmbOperator.Location = new Point(1054, 24);
+            cmbOperator.Name = "cmbOperator";
+            cmbOperator.Size = new Size(215, 33);
+            cmbOperator.TabIndex = 27;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(930, 27);
+            label9.Name = "label9";
+            label9.Size = new Size(93, 25);
+            label9.TabIndex = 26;
+            label9.Text = "Operatör :";
+            // 
+            // PurEmanetEkleSu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(923, 629);
+            ClientSize = new Size(1292, 629);
+            Controls.Add(cmbOperator);
+            Controls.Add(label9);
+            Controls.Add(cmbIsMakinesi);
+            Controls.Add(label8);
+            Controls.Add(cmbTalepEden);
+            Controls.Add(label7);
             Controls.Add(chkMezraList);
             Controls.Add(chkMezra);
             Controls.Add(label6);
@@ -218,7 +284,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "PurEmanetEkle";
+            Name = "PurEmanetEkleSu";
             Text = "Pür Emanet Ekle";
             Load += PurEmanetEkleSu_Load;
             ResumeLayout(false);
@@ -244,5 +310,11 @@
         private Label label6;
         private CheckBox chkMezra;
         private CheckedListBox chkMezraList;
+        private ComboBox cmbTalepEden;
+        private Label label7;
+        private ComboBox cmbIsMakinesi;
+        private Label label8;
+        private ComboBox cmbOperator;
+        private Label label9;
     }
 }

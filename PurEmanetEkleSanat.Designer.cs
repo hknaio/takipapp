@@ -50,6 +50,12 @@
             Cap = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
+            cmbTalepEden = new ComboBox();
+            label7 = new Label();
+            cmbIsMakinesi = new ComboBox();
+            label8 = new Label();
+            cmbOperator = new ComboBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgBoru).BeginInit();
             SuspendLayout();
             // 
@@ -256,11 +262,71 @@
             Sil.UseColumnTextForButtonValue = true;
             Sil.Width = 150;
             // 
+            // cmbTalepEden
+            // 
+            cmbTalepEden.FormattingEnabled = true;
+            cmbTalepEden.Items.AddRange(new object[] { "--" });
+            cmbTalepEden.Location = new Point(630, 19);
+            cmbTalepEden.Name = "cmbTalepEden";
+            cmbTalepEden.Size = new Size(252, 33);
+            cmbTalepEden.TabIndex = 21;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(508, 22);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 25);
+            label7.TabIndex = 20;
+            label7.Text = "Talep Eden :";
+            // 
+            // cmbIsMakinesi
+            // 
+            cmbIsMakinesi.FormattingEnabled = true;
+            cmbIsMakinesi.Items.AddRange(new object[] { "--" });
+            cmbIsMakinesi.Location = new Point(630, 74);
+            cmbIsMakinesi.Name = "cmbIsMakinesi";
+            cmbIsMakinesi.Size = new Size(252, 33);
+            cmbIsMakinesi.TabIndex = 23;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(508, 77);
+            label8.Name = "label8";
+            label8.Size = new Size(108, 25);
+            label8.TabIndex = 22;
+            label8.Text = "İş Makinesi :";
+            // 
+            // cmbOperator
+            // 
+            cmbOperator.FormattingEnabled = true;
+            cmbOperator.Items.AddRange(new object[] { "--" });
+            cmbOperator.Location = new Point(1057, 19);
+            cmbOperator.Name = "cmbOperator";
+            cmbOperator.Size = new Size(215, 33);
+            cmbOperator.TabIndex = 25;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(933, 22);
+            label9.Name = "label9";
+            label9.Size = new Size(93, 25);
+            label9.TabIndex = 24;
+            label9.Text = "Operatör :";
+            // 
             // PurEmanetEkleSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1021, 956);
+            ClientSize = new Size(1284, 956);
+            Controls.Add(cmbOperator);
+            Controls.Add(label9);
+            Controls.Add(cmbIsMakinesi);
+            Controls.Add(label8);
+            Controls.Add(cmbTalepEden);
+            Controls.Add(label7);
             Controls.Add(dgBoru);
             Controls.Add(btnBoruEkle);
             Controls.Add(chkMezraList);
@@ -312,5 +378,11 @@
         private DataGridViewTextBoxColumn Cap;
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
+        private ComboBox cmbTalepEden;
+        private Label label7;
+        private ComboBox cmbIsMakinesi;
+        private Label label8;
+        private ComboBox cmbOperator;
+        private Label label9;
     }
 }

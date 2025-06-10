@@ -52,6 +52,10 @@
             lblTutar = new Label();
             label12 = new Label();
             label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            lblOperator = new Label();
+            lblIsMakinesi = new Label();
             SuspendLayout();
             // 
             // label1
@@ -270,11 +274,51 @@
             label13.TabIndex = 23;
             label13.Text = "₺";
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(69, 491);
+            label14.Name = "label14";
+            label14.Size = new Size(93, 25);
+            label14.TabIndex = 24;
+            label14.Text = "Operatör :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(69, 534);
+            label15.Name = "label15";
+            label15.Size = new Size(108, 25);
+            label15.TabIndex = 25;
+            label15.Text = "İş Makinesi :";
+            // 
+            // lblOperator
+            // 
+            lblOperator.AutoSize = true;
+            lblOperator.Location = new Point(168, 491);
+            lblOperator.Name = "lblOperator";
+            lblOperator.Size = new Size(25, 25);
+            lblOperator.TabIndex = 26;
+            lblOperator.Text = ".. ";
+            // 
+            // lblIsMakinesi
+            // 
+            lblIsMakinesi.AutoSize = true;
+            lblIsMakinesi.Location = new Point(183, 534);
+            lblIsMakinesi.Name = "lblIsMakinesi";
+            lblIsMakinesi.Size = new Size(25, 25);
+            lblIsMakinesi.TabIndex = 27;
+            lblIsMakinesi.Text = ".. ";
+            // 
             // PurEmanetDetay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1003, 525);
+            ClientSize = new Size(1003, 577);
+            Controls.Add(lblIsMakinesi);
+            Controls.Add(lblOperator);
+            Controls.Add(label15);
+            Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(lblTutar);
@@ -333,5 +377,9 @@
         private Label lblTutar;
         private Label label12;
         private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label lblOperator;
+        private Label lblIsMakinesi;
     }
 }

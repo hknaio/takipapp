@@ -53,6 +53,9 @@
             Sil = new DataGridViewButtonColumn();
             Detay = new DataGridViewButtonColumn();
             SpiralBoruId = new DataGridViewTextBoxColumn();
+            IsMakinesi = new DataGridViewTextBoxColumn();
+            Operator = new DataGridViewTextBoxColumn();
+            TalepEdenPersonel = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -87,7 +90,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay, SpiralBoruId });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay, SpiralBoruId, IsMakinesi, Operator, TalepEdenPersonel });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -284,6 +287,33 @@
             SpiralBoruId.ReadOnly = true;
             SpiralBoruId.Visible = false;
             // 
+            // IsMakinesi
+            // 
+            IsMakinesi.DataPropertyName = "IsMakinesi";
+            IsMakinesi.HeaderText = "IsMakinesi";
+            IsMakinesi.MinimumWidth = 8;
+            IsMakinesi.Name = "IsMakinesi";
+            IsMakinesi.ReadOnly = true;
+            IsMakinesi.Visible = false;
+            // 
+            // Operator
+            // 
+            Operator.DataPropertyName = "Operator";
+            Operator.HeaderText = "Operator";
+            Operator.MinimumWidth = 8;
+            Operator.Name = "Operator";
+            Operator.ReadOnly = true;
+            Operator.Visible = false;
+            // 
+            // TalepEdenPersonel
+            // 
+            TalepEdenPersonel.DataPropertyName = "TalepEdenPersonel";
+            TalepEdenPersonel.HeaderText = "TalepEdenPersonel";
+            TalepEdenPersonel.MinimumWidth = 8;
+            TalepEdenPersonel.Name = "TalepEdenPersonel";
+            TalepEdenPersonel.ReadOnly = true;
+            TalepEdenPersonel.Visible = false;
+            // 
             // UCPurEmanetSanat
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -312,6 +342,11 @@
         private Button button1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Cins;
+        private ComboBox cmbIlce;
+        private Label label1;
+        private DateTimePicker dtTarih;
+        private Label label2;
+        private Button btnGetir;
         private DataGridViewTextBoxColumn Tarih;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn IlceId;
@@ -325,11 +360,9 @@
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Detay;
-        private ComboBox cmbIlce;
-        private Label label1;
-        private DateTimePicker dtTarih;
-        private Label label2;
-        private Button btnGetir;
         private DataGridViewTextBoxColumn SpiralBoruId;
+        private DataGridViewTextBoxColumn IsMakinesi;
+        private DataGridViewTextBoxColumn Operator;
+        private DataGridViewTextBoxColumn TalepEdenPersonel;
     }
 }

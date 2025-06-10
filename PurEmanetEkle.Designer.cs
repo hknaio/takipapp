@@ -45,6 +45,12 @@
             label6 = new Label();
             chkMezra = new CheckBox();
             chkMezraList = new CheckedListBox();
+            label7 = new Label();
+            cmbTalepEden = new ComboBox();
+            cmbIsMakinesi = new ComboBox();
+            label8 = new Label();
+            cmbOperator = new ComboBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -128,7 +134,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(436, 490);
+            button1.Location = new Point(446, 566);
             button1.Name = "button1";
             button1.Size = new Size(130, 51);
             button1.TabIndex = 10;
@@ -138,7 +144,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(642, 490);
+            button2.Location = new Point(653, 566);
             button2.Name = "button2";
             button2.Size = new Size(122, 51);
             button2.TabIndex = 11;
@@ -193,14 +199,74 @@
             chkMezraList.FormattingEnabled = true;
             chkMezraList.Location = new Point(569, 124);
             chkMezraList.Name = "chkMezraList";
-            chkMezraList.Size = new Size(313, 256);
+            chkMezraList.Size = new Size(374, 256);
             chkMezraList.TabIndex = 17;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(569, 22);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 25);
+            label7.TabIndex = 18;
+            label7.Text = "Talep Eden :";
+            // 
+            // cmbTalepEden
+            // 
+            cmbTalepEden.FormattingEnabled = true;
+            cmbTalepEden.Items.AddRange(new object[] { "--" });
+            cmbTalepEden.Location = new Point(691, 19);
+            cmbTalepEden.Name = "cmbTalepEden";
+            cmbTalepEden.Size = new Size(252, 33);
+            cmbTalepEden.TabIndex = 19;
+            // 
+            // cmbIsMakinesi
+            // 
+            cmbIsMakinesi.FormattingEnabled = true;
+            cmbIsMakinesi.Items.AddRange(new object[] { "--" });
+            cmbIsMakinesi.Location = new Point(691, 71);
+            cmbIsMakinesi.Name = "cmbIsMakinesi";
+            cmbIsMakinesi.Size = new Size(252, 33);
+            cmbIsMakinesi.TabIndex = 21;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(569, 74);
+            label8.Name = "label8";
+            label8.Size = new Size(108, 25);
+            label8.TabIndex = 20;
+            label8.Text = "İş Makinesi :";
+            // 
+            // cmbOperator
+            // 
+            cmbOperator.FormattingEnabled = true;
+            cmbOperator.Items.AddRange(new object[] { "--" });
+            cmbOperator.Location = new Point(1088, 19);
+            cmbOperator.Name = "cmbOperator";
+            cmbOperator.Size = new Size(215, 33);
+            cmbOperator.TabIndex = 23;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(964, 22);
+            label9.Name = "label9";
+            label9.Size = new Size(93, 25);
+            label9.TabIndex = 22;
+            label9.Text = "Operatör :";
             // 
             // PurEmanetEkle
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(923, 629);
+            ClientSize = new Size(1315, 629);
+            Controls.Add(cmbOperator);
+            Controls.Add(label9);
+            Controls.Add(cmbIsMakinesi);
+            Controls.Add(label8);
+            Controls.Add(cmbTalepEden);
+            Controls.Add(label7);
             Controls.Add(chkMezraList);
             Controls.Add(chkMezra);
             Controls.Add(label6);
@@ -244,5 +310,11 @@
         private Label label6;
         private CheckBox chkMezra;
         private CheckedListBox chkMezraList;
+        private Label label7;
+        private ComboBox cmbTalepEden;
+        private ComboBox cmbIsMakinesi;
+        private Label label8;
+        private ComboBox cmbOperator;
+        private Label label9;
     }
 }

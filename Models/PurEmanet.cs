@@ -14,6 +14,9 @@ namespace WinFormsApp1.Models
         public int? SpiralBoruId { get; set; }
         public SpiralBoru? SpiralBoru { get; set; }
         public List<PurEmanetMezra>? Mezralar { get; set; }
+        public string? IsMakinesi { get; set; }
+        public string? Operator { get; set; }
+        public string? TalepEdenPersonel { get; set; }
         public double Miktar { get; set; }
         public double Tutar { get; set; }
     }

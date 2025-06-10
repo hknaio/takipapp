@@ -426,14 +426,23 @@ namespace WinFormsApp1.Migrations
                     b.Property<int>("ImalatId")
                         .HasColumnType("int");
 
+                    b.Property<string>("IsMakinesi")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KoyId")
                         .HasColumnType("int");
 
                     b.Property<double>("Miktar")
                         .HasColumnType("float");
 
+                    b.Property<string>("Operator")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("SpiralBoruId")
                         .HasColumnType("int");
+
+                    b.Property<string>("TalepEdenPersonel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Tarih")
                         .HasColumnType("datetime2");

@@ -37,6 +37,23 @@ namespace WinFormsApp1
 
             ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
 
+            var users = _dbContext.Users.ToList();
+
+            var operators = users.Where(u => u.Role == "Operatör").ToList();
+            operators.Add(new User { Isim = "-", Soyisim = "-" });
+            cmbOperator.DataSource = operators;
+            cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
+
+            var talepEdens = users.Where(u => u.Birim == "Yol ve Ulaşım Hizmetleri").ToList();
+            talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
+            cmbTalepEden.DataSource = talepEdens;
+            cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();
+
+            var ismakinesis = _dbContext.IsMakinesis.ToList();
+            ismakinesis.Add(new IsMakinesi { Plaka = "--" });
+            cmbIsMakinesi.DataSource = ismakinesis;
+            cmbIsMakinesi.DisplayMember = "Plaka"; cmbIsMakinesi.Invalidate();
+
             cmbIlce.DataSource = ilceList;
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
             cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
@@ -85,7 +102,10 @@ namespace WinFormsApp1
                             ImalatId = imalat!.ID,
                             Miktar = Convert.ToDouble(miktar),
                             Tutar = spiralBoru!.BirimFiyat ,
-                            SpiralBoruId = spiralBoru!.ID
+                            SpiralBoruId = spiralBoru!.ID,
+                            TalepEdenPersonel = cmbTalepEden.Text,
+                            Operator = cmbOperator.Text,
+                            IsMakinesi = cmbIsMakinesi.Text,
                         };
 
                         foreach (var mezra in chkMezraList.CheckedItems)
@@ -121,7 +141,10 @@ namespace WinFormsApp1
                             ImalatId = imalat!.ID,
                             Miktar = Convert.ToDouble(txtMiktar.Text),
                             Tutar =  imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
-                            SpiralBoruId = null
+                            SpiralBoruId = null,
+                            TalepEdenPersonel = cmbTalepEden.Text,
+                            Operator = cmbOperator.Text,
+                            IsMakinesi = cmbIsMakinesi.Text,
                         };
 
                         foreach (var mezra in chkMezraList.CheckedItems)

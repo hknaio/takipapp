@@ -42,7 +42,9 @@ namespace WinFormsApp1
                 lblBirimFiyat.Text = BirimFiyat(_purEmanet);
                 lblMiktar.Text = _purEmanet.Miktar.ToString();
                 lblTutar.Text = _purEmanet.Tutar.ToString("0.00");
-                lblPersonel.Text = "Hakan Aygüzer";
+                lblPersonel.Text = _purEmanet.TalepEdenPersonel;
+                lblIsMakinesi.Text = _purEmanet.IsMakinesi;
+                lblOperator.Text = _purEmanet.Operator;
             }
         }
 

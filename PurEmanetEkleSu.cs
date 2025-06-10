@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;
@@ -29,6 +30,23 @@ namespace WinFormsApp1
             List<Ilce> ilceList = new();
 
             ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
+
+            var users = _dbContext.Users.ToList();
+
+            var operators = users.Where(u => u.Role == "Operatör").ToList();
+            operators.Add(new User { Isim = "-", Soyisim = "-" });
+            cmbOperator.DataSource = operators;
+            cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
+
+            var talepEdens = users.Where(u => u.Birim == "Yol ve Ulaşım Hizmetleri").ToList();
+            talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
+            cmbTalepEden.DataSource = talepEdens;
+            cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();
+
+            var ismakinesis = _dbContext.IsMakinesis.ToList();
+            ismakinesis.Add(new IsMakinesi { Plaka = "--" });
+            cmbIsMakinesi.DataSource = ismakinesis;
+            cmbIsMakinesi.DisplayMember = "Plaka"; cmbIsMakinesi.Invalidate();
 
 
             cmbIlce.DataSource = ilceList;
@@ -76,7 +94,10 @@ namespace WinFormsApp1
                         : Convert.ToDouble(txtMiktar.Text),
                         Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text)
                         : imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
-                        SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null
+                        SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null,
+                        TalepEdenPersonel = cmbTalepEden.Text,
+                        Operator = cmbOperator.Text,
+                        IsMakinesi = cmbIsMakinesi.Text,
                     };
 
                     foreach (var mezra in chkMezraList.CheckedItems)

@@ -34,6 +34,11 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             button1 = new Button();
             dataGridView1 = new DataGridView();
+            cmbIlce = new ComboBox();
+            label1 = new Label();
+            dtTarih = new DateTimePicker();
+            label2 = new Label();
+            btnGetir = new Button();
             Tarih = new DataGridViewTextBoxColumn();
             ID = new DataGridViewTextBoxColumn();
             IlceId = new DataGridViewTextBoxColumn();
@@ -47,11 +52,9 @@
             Miktar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             Detay = new DataGridViewButtonColumn();
-            cmbIlce = new ComboBox();
-            label1 = new Label();
-            dtTarih = new DateTimePicker();
-            label2 = new Label();
-            btnGetir = new Button();
+            IsMakinesi = new DataGridViewTextBoxColumn();
+            TalepEdenPersonel = new DataGridViewTextBoxColumn();
+            Operator = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -86,7 +89,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Tarih, ID, IlceId, KoyId, ImalatId, Ilce, Koy, Imalat, Birim, Tutar, Miktar, Sil, Detay, IsMakinesi, TalepEdenPersonel, Operator });
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -104,6 +107,52 @@
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            // 
+            // cmbIlce
+            // 
+            cmbIlce.FormattingEnabled = true;
+            cmbIlce.Location = new Point(491, 25);
+            cmbIlce.Name = "cmbIlce";
+            cmbIlce.Size = new Size(182, 33);
+            cmbIlce.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(438, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(47, 25);
+            label1.TabIndex = 2;
+            label1.Text = "İlçe :";
+            // 
+            // dtTarih
+            // 
+            dtTarih.Format = DateTimePickerFormat.Custom;
+            dtTarih.Location = new Point(764, 27);
+            dtTarih.Name = "dtTarih";
+            dtTarih.Size = new Size(300, 31);
+            dtTarih.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(696, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Tarih : ";
+            // 
+            // btnGetir
+            // 
+            btnGetir.BackColor = SystemColors.GradientActiveCaption;
+            btnGetir.ForeColor = SystemColors.ControlText;
+            btnGetir.Location = new Point(1089, 3);
+            btnGetir.Name = "btnGetir";
+            btnGetir.Size = new Size(224, 74);
+            btnGetir.TabIndex = 7;
+            btnGetir.Text = "Getir";
+            btnGetir.UseVisualStyleBackColor = false;
+            btnGetir.Click += btnGetir_Click;
             // 
             // Tarih
             // 
@@ -228,51 +277,32 @@
             Detay.Text = "Detay";
             Detay.UseColumnTextForButtonValue = true;
             // 
-            // cmbIlce
+            // IsMakinesi
             // 
-            cmbIlce.FormattingEnabled = true;
-            cmbIlce.Location = new Point(491, 25);
-            cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(182, 33);
-            cmbIlce.TabIndex = 3;
+            IsMakinesi.DataPropertyName = "IsMakinesi";
+            IsMakinesi.HeaderText = "IsMakinesi";
+            IsMakinesi.MinimumWidth = 8;
+            IsMakinesi.Name = "IsMakinesi";
+            IsMakinesi.ReadOnly = true;
+            IsMakinesi.Visible = false;
             // 
-            // label1
+            // TalepEdenPersonel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(438, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(47, 25);
-            label1.TabIndex = 2;
-            label1.Text = "İlçe :";
+            TalepEdenPersonel.DataPropertyName = "TalepEdenPersonel";
+            TalepEdenPersonel.HeaderText = "TalepEdenPersonel";
+            TalepEdenPersonel.MinimumWidth = 8;
+            TalepEdenPersonel.Name = "TalepEdenPersonel";
+            TalepEdenPersonel.ReadOnly = true;
+            TalepEdenPersonel.Visible = false;
             // 
-            // dtTarih
+            // Operator
             // 
-            dtTarih.Format = DateTimePickerFormat.Custom;
-            dtTarih.Location = new Point(764, 27);
-            dtTarih.Name = "dtTarih";
-            dtTarih.Size = new Size(300, 31);
-            dtTarih.TabIndex = 6;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(696, 27);
-            label2.Name = "label2";
-            label2.Size = new Size(62, 25);
-            label2.TabIndex = 5;
-            label2.Text = "Tarih : ";
-            // 
-            // btnGetir
-            // 
-            btnGetir.BackColor = SystemColors.GradientActiveCaption;
-            btnGetir.ForeColor = SystemColors.ControlText;
-            btnGetir.Location = new Point(1089, 3);
-            btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(224, 74);
-            btnGetir.TabIndex = 7;
-            btnGetir.Text = "Getir";
-            btnGetir.UseVisualStyleBackColor = false;
-            btnGetir.Click += btnGetir_Click;
+            Operator.DataPropertyName = "Operator";
+            Operator.HeaderText = "Operator";
+            Operator.MinimumWidth = 8;
+            Operator.Name = "Operator";
+            Operator.ReadOnly = true;
+            Operator.Visible = false;
             // 
             // UCPurEmanet
             // 
@@ -302,6 +332,11 @@
         private Button button1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Cins;
+        private ComboBox cmbIlce;
+        private Label label1;
+        private DateTimePicker dtTarih;
+        private Label label2;
+        private Button btnGetir;
         private DataGridViewTextBoxColumn Tarih;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn IlceId;
@@ -315,10 +350,8 @@
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
         private DataGridViewButtonColumn Detay;
-        private ComboBox cmbIlce;
-        private Label label1;
-        private DateTimePicker dtTarih;
-        private Label label2;
-        private Button btnGetir;
+        private DataGridViewTextBoxColumn IsMakinesi;
+        private DataGridViewTextBoxColumn TalepEdenPersonel;
+        private DataGridViewTextBoxColumn Operator;
     }
 }

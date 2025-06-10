@@ -1,4 +1,6 @@
-﻿namespace YatirimTakip.Models
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+
+namespace YatirimTakip.Models
 {    
     internal class User
     {
@@ -7,7 +9,8 @@
         public string Password { get; set; }
         public string Isim { get; set; }
         public string Soyisim { get; set; }
-        public string Birim { get; set; }        
+        public string Birim { get; set; }
         public string Role { get; set; }
+        public string IsimSoyisim => $"{Isim} {Soyisim}";
     }
 }
