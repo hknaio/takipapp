@@ -27,7 +27,7 @@ namespace WinFormsApp1
             var ilce = cmbIlce.Text;
 
             _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt) &&
-                                                   y.Yil == DateTime.Now.Year &&
+                                                   //y.Yil == DateTime.Now.Year &&
                                                    y.Ilce == ilce).Load();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
             dataGridView1.AutoGenerateColumns = false;
