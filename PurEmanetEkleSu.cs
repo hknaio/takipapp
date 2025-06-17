@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;

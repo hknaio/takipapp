@@ -15,7 +15,10 @@ namespace WinFormsApp1
         private Proje _proje;
         private bool _tarihleriSifirla;
         private readonly User _user;
-        private static readonly string BaseSavePath = @"C:\Users\Hakan Aygüzer\Desktop\Dosyalar\Dosya_";
+        private static readonly string BaseSavePath = "C:\\Users\\Hakan Aygüzer\\Desktop\\Dosyalar\\Dosya_";
+        private static readonly string BaseSavePathResim = "C:\\Users\\Hakan Aygüzer\\Desktop\\Resimler\\";
+        private static readonly string BaseSavePathSrv = "10.1.3.200\\D:\\YatirimDoc\\Dosyalar\\Dosya_";
+        private static readonly string BaseSavePathResimSrv = "10.1.3.200\\D:\\YatirimDoc\\Resimler\\";
 
         public YatirimUygulama(int id, User user)
         {
@@ -38,16 +41,16 @@ namespace WinFormsApp1
             dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[11].DefaultCellStyle.Format = "N2";
 
-            var serverPath = "C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
+            var serverPath = BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
 
-            if (File.Exists("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg"))
+            if (File.Exists(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg"))
             {
-                pictureBox1.Image = Image.FromFile("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg");
+                pictureBox1.Image = Image.FromFile(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg");
             }
 
-            if (File.Exists("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg"))
+            if (File.Exists(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_sonrasi.jpg"))
             {
-                pictureBox2.Image = Image.FromFile("C:\\Users\\Hakan Aygüzer\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg");
+                pictureBox2.Image = Image.FromFile(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_sonrasi.jpg");
             }
 
             OrderColumns();
@@ -498,7 +501,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            string serverBasePath = "C:\\Users\\Hakan Aygüzer"; //@"\\SUNUCU_IP\Paylaşım";
+            string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
             SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
         }
@@ -550,7 +553,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            string serverBasePath = "C:\\Users\\Hakan Aygüzer"; //@"\\SUNUCU_IP\Paylaşım";
+            string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
             SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "sonrasi");
         }
@@ -565,7 +568,7 @@ namespace WinFormsApp1
                     bool success = SaveFileToFixedLocation(openFileDialog.FileName);
                     if (success)
                     {
-                        MessageBox.Show($"Dosya başarıyla kaydedildi:\n{Path.Combine(BaseSavePath + _id, Path.GetFileName(openFileDialog.FileName))}");
+                        MessageBox.Show($"Dosya başarıyla kaydedildi:\n{Path.Combine(BaseSavePathSrv + _id, Path.GetFileName(openFileDialog.FileName))}");
                     }
                 }
             }
@@ -576,15 +579,15 @@ namespace WinFormsApp1
             try
             {
                 // 1. Kaynak dosya kontrolü
-                if (string.IsNullOrWhiteSpace(BaseSavePath + _id))
+                if (string.IsNullOrWhiteSpace(BaseSavePathSrv + _id))
                 {
                     MessageBox.Show("Dosya bulunamadı");                    
                 }
 
                 // 2. Hedef dosya adını belirle
-                string fileName = Path.GetFileName(BaseSavePath + _id );
+                string fileName = Path.GetFileName(BaseSavePathSrv + _id );
 
-                string[] fileNames = Directory.GetFiles(BaseSavePath + _id)
+                string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
                                        .Select(Path.GetFileName)
                                        .ToArray();
 
@@ -602,7 +605,7 @@ namespace WinFormsApp1
                             string destinationPath = saveDialog.FileName;
 
                             // Yerel dosya kopyalama
-                            File.Copy(BaseSavePath + _id + "\\" + fileNames[0], destinationPath, overwrite: true);
+                            File.Copy(BaseSavePathSrv + _id + "\\" + fileNames[0], destinationPath, overwrite: true);
 
                             MessageBox.Show($"Dosya başarıyla kaydedildi:\n{destinationPath}");
 
@@ -624,14 +627,14 @@ namespace WinFormsApp1
             try
             {
                 // 1. Klasörü kontrol et, yoksa oluştur
-                if (!Directory.Exists(BaseSavePath + _id))
+                if (!Directory.Exists(BaseSavePathSrv + _id))
                 {
-                    Directory.CreateDirectory(BaseSavePath + _id);
+                    Directory.CreateDirectory(BaseSavePathSrv + _id);
                 }
 
                 // 2. Hedef dosya adını oluştur (orijinal adı koru)
                 string fileName = Path.GetFileName(sourceFilePath);
-                string destinationPath = Path.Combine(BaseSavePath + _id, fileName);
+                string destinationPath = Path.Combine(BaseSavePathSrv + _id, fileName);
 
                 // 3. Dosyayı kopyala (üzerine yazma kontrolü)
                 if (File.Exists(destinationPath))
