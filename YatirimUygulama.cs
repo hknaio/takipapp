@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Drawing.Imaging;
 using System.Net;
+using YatirimTakip.Helpers;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;
@@ -17,8 +18,8 @@ namespace WinFormsApp1
         private readonly User _user;
         private static readonly string BaseSavePath = "C:\\Users\\Hakan Aygüzer\\Desktop\\Dosyalar\\Dosya_";
         private static readonly string BaseSavePathResim = "C:\\Users\\Hakan Aygüzer\\Desktop\\Resimler\\";
-        private static readonly string BaseSavePathSrv = "10.1.3.200\\D:\\YatirimDoc\\Dosyalar\\Dosya_";
-        private static readonly string BaseSavePathResimSrv = "10.1.3.200\\D:\\YatirimDoc\\Resimler\\";
+        private static readonly string BaseSavePathSrv = @"\\10.1.2.12\yol\TakipApp\Dosyalar\Dosya_";
+        private static readonly string BaseSavePathResimSrv = @"\\10.1.2.12\yol\TakipApp";
 
         public YatirimUygulama(int id, User user)
         {
@@ -41,16 +42,16 @@ namespace WinFormsApp1
             dataGridView2.Columns[3].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[11].DefaultCellStyle.Format = "N2";
 
-            var serverPath = BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
+            var Path = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id;
 
-            if (File.Exists(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg"))
+            if (File.Exists(Path + "_oncesi.jpg"))
             {
-                pictureBox1.Image = Image.FromFile(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_oncesi.jpg");
+                pictureBox1.Image = Image.FromFile(Path + "_oncesi.jpg");
             }
 
-            if (File.Exists(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_sonrasi.jpg"))
+            if (File.Exists(Path + "_sonrasi.jpg"))
             {
-                pictureBox2.Image = Image.FromFile(BaseSavePathResimSrv + "Resimler_" + _id + "\\" + _id + "_sonrasi.jpg");
+                pictureBox2.Image = Image.FromFile(Path + "_sonrasi.jpg");
             }
 
             OrderColumns();
@@ -503,7 +504,21 @@ namespace WinFormsApp1
 
             string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
-            SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
+            var credentials = new NetworkCredential(@"Yolsube", "yol2323*", "OZELIDARE");
+
+            try
+            {
+
+                using (new NetworkConnection(serverBasePath, credentials))
+                {
+                    SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException + " " + "!!");
+            }
+        }
         }
         private void SaveImageWithAutoFolder(string baseServerPath, Image image, string onceSonra)
         {
@@ -555,8 +570,21 @@ namespace WinFormsApp1
 
             string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
-            SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "sonrasi");
-        }
+            var credentials = new NetworkCredential(@"Yolsube", "yol2323*", "OZELIDARE");
+
+            try
+            {
+
+                using (new NetworkConnection(serverBasePath, credentials))
+                {
+                    SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException + " " + "!!");
+            }        
+    }
 
         private void btnDosyaEkle_Click(object sender, EventArgs e)
         {
@@ -591,6 +619,7 @@ namespace WinFormsApp1
                                        .Select(Path.GetFileName)
                                        .ToArray();
 
+              
                 if (fileNames.Count() > 0)
                 {
                     // 3. Kullanıcıya kaydetme yeri sor
