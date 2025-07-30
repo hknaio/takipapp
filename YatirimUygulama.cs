@@ -6,6 +6,7 @@ using YatirimTakip.Helpers;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;
+using YatirimTakip;
 
 namespace WinFormsApp1
 {
@@ -519,7 +520,7 @@ namespace WinFormsApp1
                 MessageBox.Show(ex.InnerException + " " + "!!");
             }
         }
-        }
+        
         private void SaveImageWithAutoFolder(string baseServerPath, Image image, string onceSonra)
         {
             try
@@ -583,8 +584,8 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.InnerException + " " + "!!");
-            }        
-    }
+            }
+        }
 
         private void btnDosyaEkle_Click(object sender, EventArgs e)
         {
@@ -609,17 +610,17 @@ namespace WinFormsApp1
                 // 1. Kaynak dosya kontrolü
                 if (string.IsNullOrWhiteSpace(BaseSavePathSrv + _id))
                 {
-                    MessageBox.Show("Dosya bulunamadı");                    
+                    MessageBox.Show("Dosya bulunamadı");
                 }
 
                 // 2. Hedef dosya adını belirle
-                string fileName = Path.GetFileName(BaseSavePathSrv + _id );
+                string fileName = Path.GetFileName(BaseSavePathSrv + _id);
 
                 string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
                                        .Select(Path.GetFileName)
                                        .ToArray();
 
-              
+
                 if (fileNames.Count() > 0)
                 {
                     // 3. Kullanıcıya kaydetme yeri sor
@@ -642,7 +643,7 @@ namespace WinFormsApp1
                     }
                 }
 
-              
+
             }
             catch (Exception ex)
             {
@@ -684,6 +685,20 @@ namespace WinFormsApp1
             {
                 MessageBox.Show($"Dosya kaydedilemedi: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
+                                       .Select(Path.GetFileName)
+                                       .ToArray();
+
+
+            using (YatirimDosyalar dosyalar = new(fileNames, BaseSavePathSrv, _id))
+            {
+                dosyalar.ShowDialog();
+                this.OnLoad(e);
             }
         }
     }

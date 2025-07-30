@@ -34,11 +34,11 @@ namespace WinFormsApp1.Data
         public DbSet<UserIlce> UserIlces { get; set; }
         public DbSet<IsMakinesi> IsMakinesis { get; set; }
 
-     //   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-     //   //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
-     //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        //   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //   //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=YatirimTest;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

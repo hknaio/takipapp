@@ -97,6 +97,7 @@
             label19 = new Label();
             btnDosyaEkle = new Button();
             linkLabel1 = new LinkLabel();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -754,7 +755,7 @@
             // 
             btnDosyaEkle.Location = new Point(670, 358);
             btnDosyaEkle.Name = "btnDosyaEkle";
-            btnDosyaEkle.Size = new Size(112, 34);
+            btnDosyaEkle.Size = new Size(112, 56);
             btnDosyaEkle.TabIndex = 49;
             btnDosyaEkle.Text = "Dosya Ekle";
             btnDosyaEkle.UseVisualStyleBackColor = true;
@@ -763,19 +764,31 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(810, 363);
+            linkLabel1.Location = new Point(807, 417);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(116, 25);
             linkLabel1.TabIndex = 50;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Dosyayı Indir";
+            linkLabel1.Visible = false;
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(811, 358);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 56);
+            button1.TabIndex = 51;
+            button1.Text = "Dosyalar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1050);
+            Controls.Add(button1);
             Controls.Add(linkLabel1);
             Controls.Add(btnDosyaEkle);
             Controls.Add(label19);
@@ -903,5 +916,6 @@
         private Label label19;
         private Button btnDosyaEkle;
         private LinkLabel linkLabel1;
+        private Button button1;
     }
 }
