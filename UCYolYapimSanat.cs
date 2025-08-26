@@ -30,5 +30,15 @@ namespace WinFormsApp1
             UCPurEmanetSanat ucc = new(_user);
             addControls(ucc);
         }
+
+        private void UCYolYapimSanat_Load(object sender, EventArgs e)
+        {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 400;
+            panelContainer.Width = parent.Width - 500;
+            panelContainer.Height = parent.Height - 400;
+        }
     }
 }

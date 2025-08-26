@@ -13,6 +13,13 @@ namespace WinFormsApp1
         }
         private void UCAsfaltSantiye_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 350;
+            dataGridView1.Width = parent.Width - 500;
+            dataGridView1.Height = parent.Height - 350;
+
             _dbContext = new AppDbContext();
             label1.Text = "Asfalt Şantiyesi Günlük Üretim Miktarı";
             _dbContext.Koys.Load();

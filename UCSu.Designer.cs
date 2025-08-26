@@ -37,9 +37,10 @@
             // 
             btnPuremanet.BackColor = Color.LightSkyBlue;
             btnPuremanet.Image = Properties.Resources.icons8_ownership_64;
-            btnPuremanet.Location = new Point(448, 47);
+            btnPuremanet.Location = new Point(314, 28);
+            btnPuremanet.Margin = new Padding(2);
             btnPuremanet.Name = "btnPuremanet";
-            btnPuremanet.Size = new Size(272, 148);
+            btnPuremanet.Size = new Size(190, 89);
             btnPuremanet.TabIndex = 3;
             btnPuremanet.Text = "Püremanet İşler";
             btnPuremanet.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -50,9 +51,10 @@
             // 
             btnProje.BackColor = Color.LightSkyBlue;
             btnProje.Image = Properties.Resources.icons8_bid_64;
-            btnProje.Location = new Point(69, 47);
+            btnProje.Location = new Point(48, 28);
+            btnProje.Margin = new Padding(2);
             btnProje.Name = "btnProje";
-            btnProje.Size = new Size(233, 148);
+            btnProje.Size = new Size(163, 89);
             btnProje.TabIndex = 2;
             btnProje.Text = "Proje - Yatırım Programı";
             btnProje.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -61,20 +63,24 @@
             // 
             // panelContainer
             // 
-            panelContainer.Location = new Point(3, 201);
+            panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelContainer.Location = new Point(2, 121);
+            panelContainer.Margin = new Padding(2);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1441, 760);
+            panelContainer.Size = new Size(1009, 456);
             panelContainer.TabIndex = 5;
             // 
             // UCSu
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContainer);
             Controls.Add(btnPuremanet);
             Controls.Add(btnProje);
+            Margin = new Padding(2);
             Name = "UCSu";
-            Size = new Size(1492, 1058);
+            Size = new Size(1044, 635);
+            Load += UCSu_Load;
             ResumeLayout(false);
         }
 

@@ -213,12 +213,13 @@
             // 
             // panelContainer
             // 
+            panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelContainer.BackColor = SystemColors.GradientActiveCaption;
             panelContainer.BorderStyle = BorderStyle.Fixed3D;
-            panelContainer.Location = new Point(420, 83);
+            panelContainer.Location = new Point(420, 162);
             panelContainer.Margin = new Padding(4);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1511, 918);
+            panelContainer.Size = new Size(1504, 852);
             panelContainer.TabIndex = 1;
             // 
             // lblTitle
@@ -247,6 +248,8 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(1924, 1014);
             Controls.Add(label2);

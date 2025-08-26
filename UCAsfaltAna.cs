@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp1
+﻿using System.Windows.Forms;
+
+namespace WinFormsApp1
 {
     public partial class UCAsfaltAna : UserControl
     {
@@ -43,6 +45,16 @@
         {
             UCAsfaltDokum ucc = new("Asfalt Döküm İhalesi");
             addControls(ucc);
+        }
+
+        private void UCAsfaltAna_Load(object sender, EventArgs e)
+        {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 400;
+            this.Height = parent.Height - 300;
+            panelContainer.Width = parent.Width - 400;
+            panelContainer.Height = parent.Height - 300;
         }
     }
 }

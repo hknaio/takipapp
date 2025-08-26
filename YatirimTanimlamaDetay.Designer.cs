@@ -54,16 +54,18 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Proje, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil, Program, Sil, Duzenle });
             dataGridView1.GridColor = SystemColors.HotTrack;
-            dataGridView1.Location = new Point(12, 115);
+            dataGridView1.Location = new Point(8, 69);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1858, 847);
+            dataGridView1.Size = new Size(1301, 508);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -74,7 +76,6 @@
             Durum.MinimumWidth = 8;
             Durum.Name = "Durum";
             Durum.ReadOnly = true;
-            Durum.Width = 150;
             // 
             // Proje
             // 
@@ -84,7 +85,6 @@
             Proje.Name = "Proje";
             Proje.ReadOnly = true;
             Proje.Visible = false;
-            Proje.Width = 150;
             // 
             // ID
             // 
@@ -94,7 +94,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 150;
             // 
             // Ilce
             // 
@@ -103,7 +102,6 @@
             Ilce.MinimumWidth = 8;
             Ilce.Name = "Ilce";
             Ilce.ReadOnly = true;
-            Ilce.Width = 150;
             // 
             // Koy
             // 
@@ -112,7 +110,6 @@
             Koy.MinimumWidth = 8;
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
-            Koy.Width = 150;
             // 
             // Birim
             // 
@@ -121,7 +118,6 @@
             Birim.MinimumWidth = 8;
             Birim.Name = "Birim";
             Birim.ReadOnly = true;
-            Birim.Width = 150;
             // 
             // Imalat
             // 
@@ -130,7 +126,6 @@
             Imalat.MinimumWidth = 8;
             Imalat.Name = "Imalat";
             Imalat.ReadOnly = true;
-            Imalat.Width = 150;
             // 
             // Miktar
             // 
@@ -139,7 +134,6 @@
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
-            Miktar.Width = 150;
             // 
             // Yil
             // 
@@ -148,7 +142,6 @@
             Yil.MinimumWidth = 8;
             Yil.Name = "Yil";
             Yil.ReadOnly = true;
-            Yil.Width = 150;
             // 
             // Program
             // 
@@ -157,7 +150,6 @@
             Program.MinimumWidth = 8;
             Program.Name = "Program";
             Program.ReadOnly = true;
-            Program.Width = 150;
             // 
             // Sil
             // 
@@ -167,7 +159,6 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
             // 
             // Duzenle
             // 
@@ -177,15 +168,15 @@
             Duzenle.ReadOnly = true;
             Duzenle.Text = "Düzenle";
             Duzenle.UseColumnTextForButtonValue = true;
-            Duzenle.Width = 150;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(44, 24);
+            label1.Location = new Point(31, 14);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(50, 30);
+            label1.Size = new Size(34, 20);
             label1.TabIndex = 3;
             label1.Text = "Yıl :";
             // 
@@ -193,34 +184,38 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label2.Location = new Point(214, 24);
+            label2.Location = new Point(150, 14);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(100, 30);
+            label2.Size = new Size(68, 20);
             label2.TabIndex = 4;
             label2.Text = "Kaynak :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(297, 29);
+            label3.Location = new Point(208, 17);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(0, 25);
+            label3.Size = new Size(0, 15);
             label3.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(100, 29);
+            label4.Location = new Point(70, 17);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(0, 25);
+            label4.Size = new Size(0, 15);
             label4.TabIndex = 6;
             // 
             // btnEkProgram
             // 
             btnEkProgram.BackColor = Color.IndianRed;
-            btnEkProgram.Location = new Point(450, 24);
+            btnEkProgram.Location = new Point(315, 14);
+            btnEkProgram.Margin = new Padding(2, 2, 2, 2);
             btnEkProgram.Name = "btnEkProgram";
-            btnEkProgram.Size = new Size(159, 48);
+            btnEkProgram.Size = new Size(111, 29);
             btnEkProgram.TabIndex = 7;
             btnEkProgram.Text = "Ek Program Ekle";
             btnEkProgram.UseVisualStyleBackColor = false;
@@ -228,9 +223,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(677, 22);
+            button1.Location = new Point(474, 13);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 50);
+            button1.Size = new Size(102, 30);
             button1.TabIndex = 8;
             button1.Text = "PDF Aktar";
             button1.UseVisualStyleBackColor = true;
@@ -238,10 +234,10 @@
             // 
             // YatirimTanimlamaDetay
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(1924, 974);
+            ClientSize = new Size(1347, 584);
             Controls.Add(button1);
             Controls.Add(btnEkProgram);
             Controls.Add(label4);
@@ -249,6 +245,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "YatirimTanimlamaDetay";
             Text = "YatirimTanimlamaDetay";
             WindowState = FormWindowState.Maximized;

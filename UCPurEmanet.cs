@@ -20,6 +20,13 @@ namespace WinFormsApp1
 
         private void UCPurEmanet_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 400;
+            dataGridView1.Width = parent.Width - 500;
+            dataGridView1.Height = parent.Height - 400;
+
             _dbContext = new AppDbContext();
             _dbContext.Koys.Load();
             _dbContext.Mezras.Load();

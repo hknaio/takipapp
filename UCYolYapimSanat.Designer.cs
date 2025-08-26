@@ -37,9 +37,10 @@
             // 
             button1.BackColor = Color.LightSkyBlue;
             button1.Image = YatirimTakip.Properties.Resources.icons8_bid_64;
-            button1.Location = new Point(97, 22);
+            button1.Location = new Point(68, 13);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(233, 148);
+            button1.Size = new Size(163, 89);
             button1.TabIndex = 0;
             button1.Text = "Proje - Yatırım Programı";
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -50,9 +51,10 @@
             // 
             button2.BackColor = Color.LightSkyBlue;
             button2.Image = YatirimTakip.Properties.Resources.icons8_ownership_64;
-            button2.Location = new Point(476, 22);
+            button2.Location = new Point(333, 13);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(272, 148);
+            button2.Size = new Size(190, 89);
             button2.TabIndex = 1;
             button2.Text = "Püremanet İşler";
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -61,23 +63,27 @@
             // 
             // panelContainer
             // 
+            panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelContainer.AutoSize = true;
             panelContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panelContainer.Location = new Point(23, 170);
+            panelContainer.Location = new Point(16, 102);
+            panelContainer.Margin = new Padding(2, 2, 2, 2);
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(0, 0);
             panelContainer.TabIndex = 2;
             // 
             // UCYolYapimSanat
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Controls.Add(panelContainer);
             Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UCYolYapimSanat";
-            Size = new Size(1089, 517);
+            Size = new Size(762, 310);
+            Load += UCYolYapimSanat_Load;
             ResumeLayout(false);
             PerformLayout();
         }

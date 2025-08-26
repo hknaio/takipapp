@@ -248,7 +248,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(btnNewProject);
             Name = "UCProje";
-            Size = new Size(1411, 667);
+            Size = new Size(1411, 100);
             Load += UCProje_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

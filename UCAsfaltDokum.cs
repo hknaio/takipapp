@@ -16,6 +16,12 @@ namespace WinFormsApp1
 
         private void UCAsfaltDokum_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 300;
+            this.Height = parent.Height - 300;
+            dataGridView1.Width = Width - 300; dataGridView1.Height = Height - 300;
+
             var uygulama = _asfalt == "Asfalt Bakım Onarım" || _asfalt == "BSK"
                 || _asfalt == "Asfalt Döküm İhalesi" ? true : false;
 

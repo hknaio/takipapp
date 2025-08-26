@@ -16,6 +16,13 @@ namespace WinFormsApp1
 
         private void UCAsfaltVeri_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 400;
+            this.Height = parent.Height - 300;
+            dataGridView1.Width = parent.Width - 400;
+            dataGridView1.Height = parent.Height - 300;
+
             _dbContext = new AppDbContext();
             _dbContext.YatirimProgramis.Where(y => y.Imalat.Contains(_asfalt)
                                                    //&& y.Uygulama == 0

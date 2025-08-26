@@ -61,6 +61,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.GradientActiveCaption;
@@ -80,13 +81,14 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.Location = new Point(13, 92);
+            dataGridView1.Location = new Point(9, 55);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1460, 435);
+            dataGridView1.Size = new Size(1022, 261);
             dataGridView1.TabIndex = 41;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
@@ -98,7 +100,6 @@
             Ilce.MinimumWidth = 8;
             Ilce.Name = "Ilce";
             Ilce.ReadOnly = true;
-            Ilce.Width = 150;
             // 
             // Koy
             // 
@@ -107,7 +108,6 @@
             Koy.MinimumWidth = 8;
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
-            Koy.Width = 150;
             // 
             // Imalat
             // 
@@ -116,7 +116,6 @@
             Imalat.MinimumWidth = 8;
             Imalat.Name = "Imalat";
             Imalat.ReadOnly = true;
-            Imalat.Width = 150;
             // 
             // Miktar
             // 
@@ -125,7 +124,6 @@
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
-            Miktar.Width = 150;
             // 
             // Uygulama
             // 
@@ -134,7 +132,6 @@
             Uygulama.MinimumWidth = 8;
             Uygulama.Name = "Uygulama";
             Uygulama.ReadOnly = true;
-            Uygulama.Width = 150;
             // 
             // Dokum
             // 
@@ -143,7 +140,6 @@
             Dokum.MinimumWidth = 8;
             Dokum.Name = "Dokum";
             Dokum.ReadOnly = true;
-            Dokum.Width = 150;
             // 
             // ProgramId
             // 
@@ -153,7 +149,6 @@
             ProgramId.Name = "ProgramId";
             ProgramId.ReadOnly = true;
             ProgramId.Visible = false;
-            ProgramId.Width = 150;
             // 
             // YaklasikMaliyet
             // 
@@ -163,7 +158,6 @@
             YaklasikMaliyet.Name = "YaklasikMaliyet";
             YaklasikMaliyet.ReadOnly = true;
             YaklasikMaliyet.Visible = false;
-            YaklasikMaliyet.Width = 150;
             // 
             // Kaynak
             // 
@@ -172,7 +166,6 @@
             Kaynak.MinimumWidth = 8;
             Kaynak.Name = "Kaynak";
             Kaynak.ReadOnly = true;
-            Kaynak.Width = 150;
             // 
             // YatirimDurumu
             // 
@@ -181,7 +174,6 @@
             YatirimDurumu.MinimumWidth = 8;
             YatirimDurumu.Name = "YatirimDurumu";
             YatirimDurumu.ReadOnly = true;
-            YatirimDurumu.Width = 150;
             // 
             // Proje
             // 
@@ -191,7 +183,6 @@
             Proje.Name = "Proje";
             Proje.ReadOnly = true;
             Proje.Visible = false;
-            Proje.Width = 150;
             // 
             // Birim
             // 
@@ -201,7 +192,6 @@
             Birim.Name = "Birim";
             Birim.ReadOnly = true;
             Birim.Visible = false;
-            Birim.Width = 150;
             // 
             // Yil
             // 
@@ -211,7 +201,6 @@
             Yil.Name = "Yil";
             Yil.ReadOnly = true;
             Yil.Visible = false;
-            Yil.Width = 150;
             // 
             // Program
             // 
@@ -221,7 +210,6 @@
             Program.Name = "Program";
             Program.ReadOnly = true;
             Program.Visible = false;
-            Program.Width = 150;
             // 
             // AsfaltDokum
             // 
@@ -237,23 +225,24 @@
             AsfaltDokum.ReadOnly = true;
             AsfaltDokum.Text = "Asfalt Döküm";
             AsfaltDokum.UseColumnTextForButtonValue = true;
-            AsfaltDokum.Width = 200;
             // 
             // cmbIlce
             // 
             cmbIlce.FormattingEnabled = true;
             cmbIlce.Items.AddRange(new object[] { "--" });
-            cmbIlce.Location = new Point(105, 43);
+            cmbIlce.Location = new Point(74, 26);
+            cmbIlce.Margin = new Padding(2, 2, 2, 2);
             cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(300, 33);
+            cmbIlce.Size = new Size(211, 23);
             cmbIlce.TabIndex = 51;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 46);
+            label2.Location = new Point(19, 28);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(52, 25);
+            label2.Size = new Size(34, 15);
             label2.TabIndex = 52;
             label2.Text = "İlçe : ";
             // 
@@ -261,25 +250,28 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "Hepsi", "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(613, 43);
+            cmbKaynak.Location = new Point(429, 26);
+            cmbKaynak.Margin = new Padding(2, 2, 2, 2);
             cmbKaynak.Name = "cmbKaynak";
-            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.Size = new Size(129, 23);
             cmbKaynak.TabIndex = 53;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(480, 46);
+            label1.Location = new Point(336, 28);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 25);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 54;
             label1.Text = "Kaynak :";
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(926, 38);
+            btnGetir.Location = new Point(648, 23);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
+            btnGetir.Size = new Size(125, 25);
             btnGetir.TabIndex = 55;
             btnGetir.Text = "Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -287,7 +279,7 @@
             // 
             // UCAsfaltDokum
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnGetir);
             Controls.Add(label1);
@@ -295,8 +287,9 @@
             Controls.Add(label2);
             Controls.Add(cmbIlce);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UCAsfaltDokum";
-            Size = new Size(1579, 806);
+            Size = new Size(1105, 484);
             Load += UCAsfaltDokum_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

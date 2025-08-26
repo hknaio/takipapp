@@ -29,5 +29,15 @@ namespace WinFormsApp1
             UCAsfaltDokum ucc = new(_asfalt);
             addControls(ucc);
         }
+
+        private void UCKatliAsfalt_Load(object sender, EventArgs e)
+        {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 400;
+            this.Height = parent.Height - 300;
+            panelContainer.Width = parent.Width - 400;
+            panelContainer.Height = parent.Height - 300;
+        }
     }
 }

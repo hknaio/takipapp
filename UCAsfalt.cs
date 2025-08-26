@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace WinFormsApp1
 {
     public partial class UCAsfalt : UserControl
@@ -31,6 +33,16 @@ namespace WinFormsApp1
         {
             UCAsfaltParke ucc = new();
             addControls(ucc);
+        }
+
+        private void UCAsfalt_Load(object sender, EventArgs e)
+        {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 400;
+            this.Height = parent.Height - 300;
+            panelContainer.Width = parent.Width - 400;
+            panelContainer.Height = parent.Height - 300;
         }
     }
 }

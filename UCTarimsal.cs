@@ -9,7 +9,7 @@ namespace YatirimTakip
         public UCTarimsal(User user)
         {
             InitializeComponent();
-            _user = user;   
+            _user = user;
         }
 
         private void btnProje_Click(object sender, EventArgs e)
@@ -28,6 +28,16 @@ namespace YatirimTakip
         {
             UCPurEmanetTarimsal ucc = new(_user);
             addControls(ucc);
+        }
+
+        private void UCTarimsal_Load(object sender, EventArgs e)
+        {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 400;
+            panelContainer.Width = parent.Width - 500;
+            panelContainer.Height = parent.Height - 400;
         }
     }
 }

@@ -28,10 +28,17 @@ namespace WinFormsApp1
 
         private void UCProje_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 400;
+            dataGridView1.Width = parent.Width - 500;
+            dataGridView1.Height = parent.Height - 400;
+
             _dbContext = new AppDbContext();
             var ilces = _dbContext.UserIlces.Where(u => u.User.ID == _user.ID).Select(u => u.IlceId).ToList();
             List<Ilce> ilceList = new();
-            
+
             ilces.ForEach(l => ilceList.Add(_dbContext.Ilces.Where(i => i.ID == l).FirstOrDefault()));
 
             cmbIlce.DataSource = ilceList;
@@ -41,7 +48,7 @@ namespace WinFormsApp1
             dataGridView1.Columns[9].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns[10].DefaultCellStyle.Format = "N2";
 
-            
+
 
             var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım")).ToList();
 
@@ -141,5 +148,10 @@ namespace WinFormsApp1
 
             cmbIlce.Focus();
         }
+
+        private void UCProje_Resize(object sender, EventArgs e)
+        {
+           
+        }        
     }
 }

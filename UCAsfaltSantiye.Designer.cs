@@ -71,6 +71,7 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Tarih, Ilce, IlceId, Koy, KoyId, Mezra, MezraId, Ton, Sil });
@@ -92,7 +93,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 150;
             // 
             // Tarih
             // 
@@ -101,7 +101,6 @@
             Tarih.MinimumWidth = 8;
             Tarih.Name = "Tarih";
             Tarih.ReadOnly = true;
-            Tarih.Width = 150;
             // 
             // Ilce
             // 
@@ -110,7 +109,6 @@
             Ilce.MinimumWidth = 8;
             Ilce.Name = "Ilce";
             Ilce.ReadOnly = true;
-            Ilce.Width = 150;
             // 
             // IlceId
             // 
@@ -120,7 +118,6 @@
             IlceId.Name = "IlceId";
             IlceId.ReadOnly = true;
             IlceId.Visible = false;
-            IlceId.Width = 150;
             // 
             // Koy
             // 
@@ -129,7 +126,6 @@
             Koy.MinimumWidth = 8;
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
-            Koy.Width = 150;
             // 
             // KoyId
             // 
@@ -139,7 +135,6 @@
             KoyId.Name = "KoyId";
             KoyId.ReadOnly = true;
             KoyId.Visible = false;
-            KoyId.Width = 150;
             // 
             // Mezra
             // 
@@ -148,7 +143,6 @@
             Mezra.MinimumWidth = 8;
             Mezra.Name = "Mezra";
             Mezra.ReadOnly = true;
-            Mezra.Width = 150;
             // 
             // MezraId
             // 
@@ -158,7 +152,6 @@
             MezraId.Name = "MezraId";
             MezraId.ReadOnly = true;
             MezraId.Visible = false;
-            MezraId.Width = 150;
             // 
             // Ton
             // 
@@ -167,7 +160,6 @@
             Ton.MinimumWidth = 8;
             Ton.Name = "Ton";
             Ton.ReadOnly = true;
-            Ton.Width = 150;
             // 
             // Sil
             // 
@@ -177,7 +169,6 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
             // 
             // UCAsfaltSantiye
             // 

@@ -41,9 +41,10 @@
             // 
             button1.BackColor = Color.LightSkyBlue;
             button1.Image = YatirimTakip.Properties.Resources.icons8_road_roller_64;
-            button1.Location = new Point(54, 64);
+            button1.Location = new Point(38, 38);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(181, 133);
+            button1.Size = new Size(127, 80);
             button1.TabIndex = 0;
             button1.Text = "1. Kat Asfalt";
             button1.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -54,9 +55,10 @@
             // 
             button2.BackColor = Color.LightSkyBlue;
             button2.Image = YatirimTakip.Properties.Resources.icons8_road_roller_64;
-            button2.Location = new Point(350, 64);
+            button2.Location = new Point(245, 38);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(178, 133);
+            button2.Size = new Size(125, 80);
             button2.TabIndex = 1;
             button2.Text = "2. Kat Asfalt";
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -67,9 +69,10 @@
             // 
             button3.BackColor = Color.LightSkyBlue;
             button3.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
-            button3.Location = new Point(54, 237);
+            button3.Location = new Point(38, 142);
+            button3.Margin = new Padding(2, 2, 2, 2);
             button3.Name = "button3";
-            button3.Size = new Size(181, 148);
+            button3.Size = new Size(127, 89);
             button3.TabIndex = 2;
             button3.Text = "Asfalt Bakım Onarım";
             button3.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -80,9 +83,10 @@
             // 
             button4.BackColor = Color.LightSkyBlue;
             button4.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
-            button4.Location = new Point(350, 237);
+            button4.Location = new Point(245, 142);
+            button4.Margin = new Padding(2, 2, 2, 2);
             button4.Name = "button4";
-            button4.Size = new Size(181, 148);
+            button4.Size = new Size(127, 89);
             button4.TabIndex = 3;
             button4.Text = "BSK (Bitümlü Sıcak Karışım)";
             button4.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -96,18 +100,20 @@
             panelContainer.Controls.Add(button4);
             panelContainer.Controls.Add(button2);
             panelContainer.Controls.Add(button3);
-            panelContainer.Location = new Point(12, 19);
+            panelContainer.Location = new Point(8, 11);
+            panelContainer.Margin = new Padding(2, 2, 2, 2);
             panelContainer.Name = "panelContainer";
-            panelContainer.Size = new Size(1673, 784);
+            panelContainer.Size = new Size(1171, 470);
             panelContainer.TabIndex = 4;
             // 
             // button5
             // 
             button5.BackColor = Color.LightSkyBlue;
             button5.Image = YatirimTakip.Properties.Resources.icons8_bulk_spices_48;
-            button5.Location = new Point(655, 64);
+            button5.Location = new Point(458, 38);
+            button5.Margin = new Padding(2, 2, 2, 2);
             button5.Name = "button5";
-            button5.Size = new Size(181, 133);
+            button5.Size = new Size(127, 80);
             button5.TabIndex = 4;
             button5.Text = "Asfalt Döküm İhalesi";
             button5.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -116,11 +122,14 @@
             // 
             // UCAsfaltAna
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             Controls.Add(panelContainer);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UCAsfaltAna";
-            Size = new Size(1713, 715);
+            Size = new Size(1199, 483);
+            Load += UCAsfaltAna_Load;
             panelContainer.ResumeLayout(false);
             ResumeLayout(false);
         }

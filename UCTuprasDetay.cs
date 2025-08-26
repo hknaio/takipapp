@@ -15,6 +15,13 @@ namespace WinFormsApp1
 
         private void UCTuprasDetay_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height - 350;
+            dataGridView1.Width = parent.Width - 500;
+            dataGridView1.Height = parent.Height - 350;
+
             _dbContext = new AppDbContext();
             label1.Text = _malzeme + " Listesi";
             _dbContext.TuprasMalzemes.Where(t => t.Tur == _malzeme).Load();

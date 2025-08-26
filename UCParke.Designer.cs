@@ -49,9 +49,10 @@
             // 
             btnEkle.BackColor = SystemColors.GradientActiveCaption;
             btnEkle.Image = YatirimTakip.Properties.Resources.icons8_add_642;
-            btnEkle.Location = new Point(44, 19);
+            btnEkle.Location = new Point(31, 11);
+            btnEkle.Margin = new Padding(2);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(242, 94);
+            btnEkle.Size = new Size(169, 56);
             btnEkle.TabIndex = 0;
             btnEkle.Text = "Parke İşi Ekle";
             btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -62,9 +63,10 @@
             // 
             btnParkeStok.BackColor = SystemColors.GradientActiveCaption;
             btnParkeStok.Image = (Image)resources.GetObject("btnParkeStok.Image");
-            btnParkeStok.Location = new Point(350, 19);
+            btnParkeStok.Location = new Point(245, 11);
+            btnParkeStok.Margin = new Padding(2);
             btnParkeStok.Name = "btnParkeStok";
-            btnParkeStok.Size = new Size(239, 94);
+            btnParkeStok.Size = new Size(167, 56);
             btnParkeStok.TabIndex = 1;
             btnParkeStok.Text = "Parke Stok";
             btnParkeStok.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -78,12 +80,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Miktar, Birim, Koy, TalepEden, GidisTarihi, AracPlakasi, ID, MiktarGuncelle, Sil, ParkeBordurTip });
-            dataGridView1.Location = new Point(44, 119);
+            dataGridView1.Location = new Point(31, 71);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1443, 719);
+            dataGridView1.Size = new Size(1010, 431);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -94,7 +97,7 @@
             Miktar.MinimumWidth = 8;
             Miktar.Name = "Miktar";
             Miktar.ReadOnly = true;
-            Miktar.Width = 150;
+            Miktar.Width = 126;
             // 
             // Birim
             // 
@@ -103,7 +106,7 @@
             Birim.MinimumWidth = 8;
             Birim.Name = "Birim";
             Birim.ReadOnly = true;
-            Birim.Width = 150;
+            Birim.Width = 126;
             // 
             // Koy
             // 
@@ -112,7 +115,7 @@
             Koy.MinimumWidth = 8;
             Koy.Name = "Koy";
             Koy.ReadOnly = true;
-            Koy.Width = 150;
+            Koy.Width = 126;
             // 
             // TalepEden
             // 
@@ -121,7 +124,7 @@
             TalepEden.MinimumWidth = 8;
             TalepEden.Name = "TalepEden";
             TalepEden.ReadOnly = true;
-            TalepEden.Width = 150;
+            TalepEden.Width = 126;
             // 
             // GidisTarihi
             // 
@@ -130,7 +133,7 @@
             GidisTarihi.MinimumWidth = 8;
             GidisTarihi.Name = "GidisTarihi";
             GidisTarihi.ReadOnly = true;
-            GidisTarihi.Width = 150;
+            GidisTarihi.Width = 125;
             // 
             // AracPlakasi
             // 
@@ -139,7 +142,7 @@
             AracPlakasi.MinimumWidth = 8;
             AracPlakasi.Name = "AracPlakasi";
             AracPlakasi.ReadOnly = true;
-            AracPlakasi.Width = 150;
+            AracPlakasi.Width = 126;
             // 
             // ID
             // 
@@ -149,7 +152,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 150;
             // 
             // MiktarGuncelle
             // 
@@ -161,7 +163,7 @@
             MiktarGuncelle.SortMode = DataGridViewColumnSortMode.Automatic;
             MiktarGuncelle.Text = "Miktar Güncelle";
             MiktarGuncelle.UseColumnTextForButtonValue = true;
-            MiktarGuncelle.Width = 150;
+            MiktarGuncelle.Width = 126;
             // 
             // Sil
             // 
@@ -171,7 +173,7 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
+            Sil.Width = 126;
             // 
             // ParkeBordurTip
             // 
@@ -181,18 +183,19 @@
             ParkeBordurTip.Name = "ParkeBordurTip";
             ParkeBordurTip.ReadOnly = true;
             ParkeBordurTip.Visible = false;
-            ParkeBordurTip.Width = 150;
             // 
             // UCParke
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(dataGridView1);
             Controls.Add(btnParkeStok);
             Controls.Add(btnEkle);
+            Margin = new Padding(2);
             Name = "UCParke";
-            Size = new Size(1534, 867);
+            Size = new Size(1074, 520);
             Load += UCParke_Load;
             Leave += UCParke_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

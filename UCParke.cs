@@ -14,6 +14,13 @@ namespace WinFormsApp1
 
         private void UCParke_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            this.Width = parent.Width - 500;
+            this.Height = parent.Height;
+            dataGridView1.Width = parent.Width - 500;
+            dataGridView1.Height = parent.Height;
+
             _dbContext = new AppDbContext();
             _dbContext.ParkeBordurIs.Where(p => p.ParkeBordurTip == Models.ParkeBordurTip.Parke).Load();
             _dbContext.ParkeBordurs.Where(p => p.Malzeme == "Parke").Load();

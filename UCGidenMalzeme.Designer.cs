@@ -44,9 +44,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label1.Location = new Point(399, 25);
+            label1.Location = new Point(279, 15);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(76, 30);
+            label1.Size = new Size(51, 20);
             label1.TabIndex = 11;
             label1.Text = "label1";
             // 
@@ -54,9 +55,10 @@
             // 
             btnEkle.BackColor = SystemColors.GradientActiveCaption;
             btnEkle.Image = YatirimTakip.Properties.Resources.icons8_add_641;
-            btnEkle.Location = new Point(14, 16);
+            btnEkle.Location = new Point(10, 10);
+            btnEkle.Margin = new Padding(2, 2, 2, 2);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(319, 94);
+            btnEkle.Size = new Size(223, 56);
             btnEkle.TabIndex = 10;
             btnEkle.Text = "Giden Malzeme Ekle";
             btnEkle.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -67,15 +69,17 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Evsaf, Personel, Yer, Tarih, Sil });
-            dataGridView1.Location = new Point(14, 116);
+            dataGridView1.Location = new Point(10, 70);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1265, 530);
+            dataGridView1.Size = new Size(886, 318);
             dataGridView1.TabIndex = 9;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -87,7 +91,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 150;
             // 
             // Evsaf
             // 
@@ -96,7 +99,6 @@
             Evsaf.MinimumWidth = 8;
             Evsaf.Name = "Evsaf";
             Evsaf.ReadOnly = true;
-            Evsaf.Width = 150;
             // 
             // Personel
             // 
@@ -105,7 +107,6 @@
             Personel.MinimumWidth = 8;
             Personel.Name = "Personel";
             Personel.ReadOnly = true;
-            Personel.Width = 150;
             // 
             // Yer
             // 
@@ -114,7 +115,6 @@
             Yer.MinimumWidth = 8;
             Yer.Name = "Yer";
             Yer.ReadOnly = true;
-            Yer.Width = 150;
             // 
             // Tarih
             // 
@@ -123,7 +123,6 @@
             Tarih.MinimumWidth = 8;
             Tarih.Name = "Tarih";
             Tarih.ReadOnly = true;
-            Tarih.Width = 150;
             // 
             // Sil
             // 
@@ -133,18 +132,18 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
             // 
             // UCGidenMalzeme
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             Controls.Add(label1);
             Controls.Add(btnEkle);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "UCGidenMalzeme";
-            Size = new Size(1308, 727);
+            Size = new Size(916, 436);
             Load += UCGidenMalzeme_Load;
             Leave += UCGidenMalzeme_Leave;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

@@ -18,6 +18,11 @@ namespace WinFormsApp1
         }
         private void YatirimTanimlamaDetay_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+           
+            dataGridView1.Width = parent.Width;
+            dataGridView1.Height = parent.Height;
+
             label3.Text = _kaynak;
             label4.Text = _yil.ToString();
             _dbContext = new AppDbContext();

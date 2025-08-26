@@ -47,6 +47,7 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Tur, Tarih, SiparisNo, TuprasNet, OzelIdareNet, TartimNo, Fark, Sil });
@@ -67,7 +68,6 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             ID.Visible = false;
-            ID.Width = 150;
             // 
             // Tur
             // 
@@ -76,7 +76,6 @@
             Tur.MinimumWidth = 8;
             Tur.Name = "Tur";
             Tur.ReadOnly = true;
-            Tur.Width = 150;
             // 
             // Tarih
             // 
@@ -85,7 +84,6 @@
             Tarih.MinimumWidth = 8;
             Tarih.Name = "Tarih";
             Tarih.ReadOnly = true;
-            Tarih.Width = 150;
             // 
             // SiparisNo
             // 
@@ -94,7 +92,6 @@
             SiparisNo.MinimumWidth = 8;
             SiparisNo.Name = "SiparisNo";
             SiparisNo.ReadOnly = true;
-            SiparisNo.Width = 150;
             // 
             // TuprasNet
             // 
@@ -103,7 +100,6 @@
             TuprasNet.MinimumWidth = 8;
             TuprasNet.Name = "TuprasNet";
             TuprasNet.ReadOnly = true;
-            TuprasNet.Width = 150;
             // 
             // OzelIdareNet
             // 
@@ -112,7 +108,6 @@
             OzelIdareNet.MinimumWidth = 8;
             OzelIdareNet.Name = "OzelIdareNet";
             OzelIdareNet.ReadOnly = true;
-            OzelIdareNet.Width = 150;
             // 
             // TartimNo
             // 
@@ -121,7 +116,6 @@
             TartimNo.MinimumWidth = 8;
             TartimNo.Name = "TartimNo";
             TartimNo.ReadOnly = true;
-            TartimNo.Width = 150;
             // 
             // Fark
             // 
@@ -130,7 +124,6 @@
             Fark.MinimumWidth = 8;
             Fark.Name = "Fark";
             Fark.ReadOnly = true;
-            Fark.Width = 150;
             // 
             // Sil
             // 
@@ -140,7 +133,6 @@
             Sil.ReadOnly = true;
             Sil.Text = "Sil";
             Sil.UseColumnTextForButtonValue = true;
-            Sil.Width = 150;
             // 
             // btnEkle
             // 
