@@ -23,9 +23,12 @@ namespace WinFormsApp1
               {
                   Ilce = p.Key,
                   ToplamIs = p.Where(y => y.Ilce == p.Key).Count(),
-                  DevamEden = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulaniyor).Count(),
-                  Biten = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulandi).Count(),
-                  Baslamamis = p.Where(y => y.Ilce == p.Key && y.YatirimDurumu == YatirimDurumu.Uygulanmadi).Count(),
+                  DevamEden = p.Where(y => y.Ilce == p.Key && y.Program != "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulaniyor).Count(),
+                  DevamEdenEk = p.Where(y => y.Ilce == p.Key && y.Program == "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulaniyor).Count(),
+                  Biten = p.Where(y => y.Ilce == p.Key && y.Program != "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulandi).Count(),
+                  BitenEk = p.Where(y => y.Ilce == p.Key && y.Program == "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulandi).Count(),
+                  Baslamamis = p.Where(y => y.Ilce == p.Key && y.Program != "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulanmadi).Count(),
+                  BaslamamisEk = p.Where(y => y.Ilce == p.Key && y.Program == "Ek Program" && y.YatirimDurumu == YatirimDurumu.Uygulanmadi).Count()
               }).ToList();
 
                 dataGridView1.DataSource = programlar;

@@ -32,13 +32,16 @@
             cmbKaynak = new ComboBox();
             btnGetir = new Button();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
+            cmbYil = new ComboBox();
             Ilce = new DataGridViewTextBoxColumn();
             ToplamProgram = new DataGridViewTextBoxColumn();
             DevamEden = new DataGridViewTextBoxColumn();
+            DevamEdenEk = new DataGridViewTextBoxColumn();
             Biten = new DataGridViewTextBoxColumn();
+            BitenEk = new DataGridViewTextBoxColumn();
             Baslamamis = new DataGridViewTextBoxColumn();
-            button1 = new Button();
-            cmbYil = new ComboBox();
+            BaslamamisEk = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,7 +79,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ToplamProgram, DevamEden, Biten, Baslamamis });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ToplamProgram, DevamEden, DevamEdenEk, Biten, BitenEk, Baslamamis, BaslamamisEk });
             dataGridView1.Location = new Point(39, 106);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -84,6 +87,25 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(986, 510);
             dataGridView1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(697, 20);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 34);
+            button1.TabIndex = 4;
+            button1.Text = "Excele Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
+            cmbYil.Location = new Point(333, 22);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(182, 33);
+            cmbYil.TabIndex = 48;
             // 
             // Ilce
             // 
@@ -109,6 +131,14 @@
             DevamEden.Name = "DevamEden";
             DevamEden.ReadOnly = true;
             // 
+            // DevamEdenEk
+            // 
+            DevamEdenEk.DataPropertyName = "DevamEdenEk";
+            DevamEdenEk.HeaderText = "Devam Eden Ek";
+            DevamEdenEk.MinimumWidth = 8;
+            DevamEdenEk.Name = "DevamEdenEk";
+            DevamEdenEk.ReadOnly = true;
+            // 
             // Biten
             // 
             Biten.DataPropertyName = "Biten";
@@ -116,6 +146,14 @@
             Biten.MinimumWidth = 8;
             Biten.Name = "Biten";
             Biten.ReadOnly = true;
+            // 
+            // BitenEk
+            // 
+            BitenEk.DataPropertyName = "BitenEk";
+            BitenEk.HeaderText = "Biten Ek";
+            BitenEk.MinimumWidth = 8;
+            BitenEk.Name = "BitenEk";
+            BitenEk.ReadOnly = true;
             // 
             // Baslamamis
             // 
@@ -125,24 +163,13 @@
             Baslamamis.Name = "Baslamamis";
             Baslamamis.ReadOnly = true;
             // 
-            // button1
+            // BaslamamisEk
             // 
-            button1.Location = new Point(697, 20);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 34);
-            button1.TabIndex = 4;
-            button1.Text = "Excele Aktar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // cmbYil
-            // 
-            cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(333, 22);
-            cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
-            cmbYil.TabIndex = 48;
+            BaslamamisEk.DataPropertyName = "BaslamamisEk";
+            BaslamamisEk.HeaderText = "Başlamamış Ek";
+            BaslamamisEk.MinimumWidth = 8;
+            BaslamamisEk.Name = "BaslamamisEk";
+            BaslamamisEk.ReadOnly = true;
             // 
             // RprProgram
             // 
@@ -168,12 +195,15 @@
         private ComboBox cmbKaynak;
         private Button btnGetir;
         private DataGridView dataGridView1;
+        private Button button1;
+        private ComboBox cmbYil;
         private DataGridViewTextBoxColumn Ilce;
         private DataGridViewTextBoxColumn ToplamProgram;
         private DataGridViewTextBoxColumn DevamEden;
+        private DataGridViewTextBoxColumn DevamEdenEk;
         private DataGridViewTextBoxColumn Biten;
+        private DataGridViewTextBoxColumn BitenEk;
         private DataGridViewTextBoxColumn Baslamamis;
-        private Button button1;
-        private ComboBox cmbYil;
+        private DataGridViewTextBoxColumn BaslamamisEk;
     }
 }
