@@ -79,7 +79,7 @@ namespace WinFormsApp1
         {
             if (_user.Role == "Asfalt")
             {
-                button1.Visible = false;
+                //button1.Visible = false;
                 var asfaltOldLoc = btnAsfaltYapim.Location;
                 btnAsfaltYapim.Location = button1.Location;
                 btnSanatYapilari.Visible = false;
