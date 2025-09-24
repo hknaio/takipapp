@@ -7,6 +7,9 @@ using WinFormsApp1.Data;
 using WinFormsApp1.Models;
 using YatirimTakip.Models;
 using YatirimTakip;
+using System.Security.Principal;
+using System.Security.Permissions;
+
 
 namespace WinFormsApp1
 {
@@ -19,8 +22,8 @@ namespace WinFormsApp1
         private readonly User _user;
         private static readonly string BaseSavePath = "C:\\Users\\Hakan Aygüzer\\Desktop\\Dosyalar\\Dosya_";
         private static readonly string BaseSavePathResim = "C:\\Users\\Hakan Aygüzer\\Desktop\\Resimler\\";
-        private static readonly string BaseSavePathSrv = @"\\10.1.2.12\yol\TakipApp\Dosyalar\Dosya_";
-        private static readonly string BaseSavePathResimSrv = @"\\10.1.2.12\yol\TakipApp";
+        private static readonly string BaseSavePathSrv = @"\\10.1.2.12\yol\Dosyalar\Dosya_";
+        private static readonly string BaseSavePathResimSrv = @"\\10.1.2.12\ys";
 
         public YatirimUygulama(int id, User user)
         {
@@ -505,7 +508,7 @@ namespace WinFormsApp1
 
             string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
-            var credentials = new NetworkCredential(@"Yolsube", "yol2323*", "OZELIDARE");
+            var credentials = new NetworkCredential(@"yol", "ys23*23M", "OZELIDARE");
 
             try
             {
@@ -571,14 +574,14 @@ namespace WinFormsApp1
 
             string serverBasePath = BaseSavePathResimSrv; //@"\\SUNUCU_IP\Paylaşım";
 
-            var credentials = new NetworkCredential(@"Yolsube", "yol2323*", "OZELIDARE");
+            var credentials = new NetworkCredential(@"yol", "ys23*23M", "OZELIDARE");
 
             try
             {
 
                 using (new NetworkConnection(serverBasePath, credentials))
                 {
-                    SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "oncesi");
+                    SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "sonrasi");
                 }
             }
             catch (Exception ex)

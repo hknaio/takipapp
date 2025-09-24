@@ -81,12 +81,12 @@ namespace WinFormsApp1
             {
                 //button1.Visible = false;
                 var asfaltOldLoc = btnAsfaltYapim.Location;
-                btnAsfaltYapim.Location = button1.Location;
+                //btnAsfaltYapim.Location = button1.Location;
                 btnSanatYapilari.Visible = false;
                 btnTanimlama.Visible = false;
                 button3.Visible = false;
                 btnSu.Visible = false;
-                btnRapor.Location = asfaltOldLoc;
+                btnRapor.Location = btnSanatYapilari.Location;
             }
 
             if (_user.Role == "Yol")

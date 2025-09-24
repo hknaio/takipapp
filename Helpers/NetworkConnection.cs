@@ -1,77 +1,111 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.InteropServices;
 using System.Net;
-using System.Diagnostics;
+using System.Runtime.InteropServices;
 
-namespace YatirimTakip.Helpers
+public class NetworkConnection : IDisposable
 {
-    public class NetworkConnection : IDisposable
+    private string _networkName;
+
+    public NetworkConnection(string networkName, NetworkCredential credentials)
     {
-        [DllImport("mpr.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        private static extern int WNetAddConnection3A(
-            ref NETRESOURCE lpNetResource,
-            string lpPassword,
-            string lpUsername,
-            uint dwFlags);
+        _networkName = networkName;
 
-        [DllImport("mpr.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        private static extern int WNetCancelConnection2(
-            string lpName,
-            uint dwFlags,
-            bool fForce);
-
-        [StructLayout(LayoutKind.Sequential)]
-        private struct NETRESOURCE
+        var netResource = new NetResource
         {
-            public uint dwScope;
-            public uint dwType;
-            public uint dwDisplayType;
-            public uint dwUsage;
-            public string lpLocalName;
-            public string lpRemoteName;
-            public string lpComment;
-            public string lpProvider;
-        }
+            Scope = ResourceScope.GlobalNetwork,
+            ResourceType = ResourceType.Disk,
+            DisplayType = ResourceDisplaytype.Share,
+            RemoteName = networkName
+        };
 
-        private readonly string _networkPath;
+        string userName = string.IsNullOrEmpty(credentials.Domain)
+            ? credentials.UserName
+            : $@"{credentials.Domain}\{credentials.UserName}";
 
-        public NetworkConnection(string networkPath, NetworkCredential credentials)
+        int result = WNetAddConnection2(
+            netResource,
+            credentials.Password,
+            userName,
+            0);
+
+        if (result != 0)
         {
-            _networkPath = networkPath;
-
-            var netResource = new NETRESOURCE
-            {
-                dwType = 0, // RESOURCETYPE_DISK
-                lpRemoteName = networkPath,
-                dwScope = 2,
-                dwDisplayType = 0,
-                dwUsage = 0,
-                lpLocalName = null,
-                lpProvider = null,
-                lpComment = null
-            };
-
-            int result = WNetAddConnection3A(
-                ref netResource,
-                credentials.Password,
-                credentials.UserName,
-                0);
-
-            if (result != 0)
-            {
-                //throw new Win32Exception(result, "Ağ paylaşımına bağlanılamadı");
-                int lastError = Marshal.GetLastWin32Error();
-                Debug.WriteLine($"API Hata Kodu: {lastError}");
-                Debug.WriteLine($"Marshal Error: {Marshal.GetExceptionForHR(lastError)?.Message}");
-
-            }
-        }
-
-        public void Dispose()
-        {
-            WNetCancelConnection2(_networkPath, 0, true);
+            throw new Win32Exception(result, "WNetAddConnection2 failed");
         }
     }
+
+    ~NetworkConnection()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!string.IsNullOrEmpty(_networkName))
+        {
+            WNetCancelConnection2(_networkName, 0, true);
+            _networkName = null;
+        }
+    }
+
+    [DllImport("mpr.dll")]
+    private static extern int WNetAddConnection2(NetResource netResource,
+        string password, string username, int flags);
+
+    [DllImport("mpr.dll")]
+    private static extern int WNetCancelConnection2(string name, int flags,
+        bool force);
 }
 
+[StructLayout(LayoutKind.Sequential)]
+public class NetResource
+{
+    public ResourceScope Scope;
+    public ResourceType ResourceType;
+    public ResourceDisplaytype DisplayType;
+    public int Usage;
+    public string LocalName;
+    public string RemoteName;
+    public string Comment;
+    public string Provider;
+}
+
+public enum ResourceScope : int
+{
+    Connected = 1,
+    GlobalNetwork,
+    Remembered,
+    Recent,
+    Context
+};
+
+public enum ResourceType : int
+{
+    Any = 0,
+    Disk = 1,
+    Print = 2,
+    Reserved = 8,
+}
+
+public enum ResourceDisplaytype : int
+{
+    Generic = 0x0,
+    Domain = 0x01,
+    Server = 0x02,
+    Share = 0x03,
+    File = 0x04,
+    Group = 0x05,
+    Network = 0x06,
+    Root = 0x07,
+    Shareadmin = 0x08,
+    Directory = 0x09,
+    Tree = 0x0a,
+    Ndscontainer = 0x0b
+}
