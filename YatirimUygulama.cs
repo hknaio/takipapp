@@ -22,7 +22,7 @@ namespace WinFormsApp1
         private readonly User _user;
         private static readonly string BaseSavePath = "C:\\Users\\Hakan Aygüzer\\Desktop\\Dosyalar\\Dosya_";
         private static readonly string BaseSavePathResim = "C:\\Users\\Hakan Aygüzer\\Desktop\\Resimler\\";
-        private static readonly string BaseSavePathSrv = @"\\10.1.2.12\yol\Dosyalar\Dosya_";
+        private static readonly string BaseSavePathSrv = @"\\10.1.2.12\ys\Dosyalar\Dosya_";
         private static readonly string BaseSavePathResimSrv = @"\\10.1.2.12\ys";
 
         public YatirimUygulama(int id, User user)
@@ -48,15 +48,20 @@ namespace WinFormsApp1
 
             var Path = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id;
 
-            if (File.Exists(Path + "_oncesi.jpg"))
-            {
-                pictureBox1.Image = Image.FromFile(Path + "_oncesi.jpg");
-            }
+            var credentials = new NetworkCredential(@"yol", "ys23*23M", "OZELIDARE");
 
-            if (File.Exists(Path + "_sonrasi.jpg"))
+            using (new NetworkConnection(@"\\10.1.2.12\ys", credentials))
             {
-                pictureBox2.Image = Image.FromFile(Path + "_sonrasi.jpg");
-            }
+                if (File.Exists(Path + "_oncesi.jpg"))
+                {
+                    pictureBox1.Image = Image.FromFile(Path + "_oncesi.jpg");
+                }
+
+                if (File.Exists(Path + "_sonrasi.jpg"))
+                {
+                    pictureBox2.Image = Image.FromFile(Path + "_sonrasi.jpg");
+                }
+            }             
 
             OrderColumns();
 
@@ -699,16 +704,20 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
+            var credentials = new NetworkCredential(@"yol", "ys23*23M", "OZELIDARE");
+
+            using (new NetworkConnection(@"\\10.1.2.12\ys", credentials))
+            {
+                string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
                                        .Select(Path.GetFileName)
                                        .ToArray();
 
-
-            using (YatirimDosyalar dosyalar = new(fileNames, BaseSavePathSrv, _id))
-            {
-                dosyalar.ShowDialog();
-                this.OnLoad(e);
-            }
+                using (YatirimDosyalar dosyalar = new(fileNames, BaseSavePathSrv, _id))
+                {
+                    dosyalar.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }           
         }
     }
 }
