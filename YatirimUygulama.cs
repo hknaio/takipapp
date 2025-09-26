@@ -659,30 +659,36 @@ namespace WinFormsApp1
         {
             try
             {
-                // 1. Klasörü kontrol et, yoksa oluştur
-                if (!Directory.Exists(BaseSavePathSrv + _id))
+
+                var credentials = new NetworkCredential(@"yol", "ys23*23M", "OZELIDARE");
+
+                using (new NetworkConnection(@"\\10.1.2.12\ys", credentials))
                 {
-                    Directory.CreateDirectory(BaseSavePathSrv + _id);
-                }
+                    // 1. Klasörü kontrol et, yoksa oluştur
+                    if (!Directory.Exists(BaseSavePathSrv + _id))
+                    {
+                        Directory.CreateDirectory(BaseSavePathSrv + _id);
+                    }
 
-                // 2. Hedef dosya adını oluştur (orijinal adı koru)
-                string fileName = Path.GetFileName(sourceFilePath);
-                string destinationPath = Path.Combine(BaseSavePathSrv + _id, fileName);
+                    // 2. Hedef dosya adını oluştur (orijinal adı koru)
+                    string fileName = Path.GetFileName(sourceFilePath);
+                    string destinationPath = Path.Combine(BaseSavePathSrv + _id, fileName);
 
-                // 3. Dosyayı kopyala (üzerine yazma kontrolü)
-                if (File.Exists(destinationPath))
-                {
-                    var result = MessageBox.Show(
-                        "Aynı isimli dosya var. Üzerine yazılsın mı?",
-                        "Uyarı",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Warning);
+                    // 3. Dosyayı kopyala (üzerine yazma kontrolü)
+                    if (File.Exists(destinationPath))
+                    {
+                        var result = MessageBox.Show(
+                            "Aynı isimli dosya var. Üzerine yazılsın mı?",
+                            "Uyarı",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
 
-                    if (result != DialogResult.Yes) return false;
-                }
+                        if (result != DialogResult.Yes) return false;
+                    }
 
-                File.Copy(sourceFilePath, destinationPath, overwrite: true);
-                return true;
+                    File.Copy(sourceFilePath, destinationPath, overwrite: true);
+                    return true;
+                }               
             }
             catch (Exception ex)
             {
