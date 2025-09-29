@@ -586,7 +586,7 @@ namespace WinFormsApp1
 
                 using (new NetworkConnection(serverBasePath, credentials))
                 {
-                    SaveImageWithAutoFolder(serverBasePath, pictureBox1.Image, "sonrasi");
+                    SaveImageWithAutoFolder(serverBasePath, pictureBox2.Image, "sonrasi");
                 }
             }
             catch (Exception ex)
