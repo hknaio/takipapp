@@ -34,6 +34,15 @@ namespace WinFormsApp1
         }
         private void YatirimUygulama_Load(object sender, EventArgs e)
         {
+            Form parent = this.FindForm();
+
+            dataGridView1.Height = parent.Height - 450;
+            btnKaydet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnKaydet.Top = this.ClientSize.Height - btnKaydet.Height - 10;
+            button2.Top = this.ClientSize.Height - button2.Height - 10;
+
+
             _dbContext = new AppDbContext();
             _proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
             _dbContext.Hakedis.Where(h => h.Proje.ID == _id).Load();
@@ -544,9 +553,12 @@ namespace WinFormsApp1
                 string fileName = _id + "_" + onceSonra + ".jpg";
                 string fullImagePath = Path.Combine(fullFolderPath, fileName);
 
-                image.Save(fullImagePath, ImageFormat.Jpeg);
+                using (var bmp = new Bitmap(image))
+                {
+                    bmp.Save(fullImagePath, ImageFormat.Jpeg);
+                }
 
-                MessageBox.Show($"Resim kaydedildi:\n{fullImagePath}", "Başarılı",
+                MessageBox.Show($"Resim kaydedildi!!", "Başarılı",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -605,7 +617,7 @@ namespace WinFormsApp1
                     bool success = SaveFileToFixedLocation(openFileDialog.FileName);
                     if (success)
                     {
-                        MessageBox.Show($"Dosya başarıyla kaydedildi:\n{Path.Combine(BaseSavePathSrv + _id, Path.GetFileName(openFileDialog.FileName))}");
+                        MessageBox.Show($"Dosya başarıyla kaydedildi:\n{Path.GetFileName(openFileDialog.FileName)}");
                     }
                 }
             }

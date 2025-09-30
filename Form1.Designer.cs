@@ -49,18 +49,19 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.GradientActiveCaption;
             label1.Font = new Font("Century Gothic", 20F);
-            label1.Location = new Point(151, 23);
+            label1.Location = new Point(211, 22);
             label1.Name = "label1";
-            label1.Size = new Size(581, 49);
+            label1.Size = new Size(392, 33);
             label1.TabIndex = 1;
             label1.Text = "Yatırım Takip Yönetim Sistemi";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(345, 93);
+            pictureBox1.Location = new Point(285, 73);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(206, 73);
+            pictureBox1.Size = new Size(294, 102);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
@@ -85,7 +86,7 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Location = new Point(222, 191);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(112, 21);
+            linkLabel1.Size = new Size(82, 17);
             linkLabel1.TabIndex = 6;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Şifre Değiştir";
@@ -108,7 +109,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(28, 94);
             label4.Name = "label4";
-            label4.Size = new Size(55, 21);
+            label4.Size = new Size(40, 17);
             label4.TabIndex = 4;
             label4.Text = "Şifre :";
             // 
@@ -116,7 +117,7 @@
             // 
             txtPassword.Location = new Point(154, 91);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(235, 30);
+            txtPassword.Size = new Size(235, 22);
             txtPassword.TabIndex = 3;
             txtPassword.UseSystemPasswordChar = true;
             // 
@@ -125,14 +126,14 @@
             label3.AutoSize = true;
             label3.Location = new Point(28, 94);
             label3.Name = "label3";
-            label3.Size = new Size(0, 21);
+            label3.Size = new Size(0, 17);
             label3.TabIndex = 2;
             // 
             // txtUsername
             // 
             txtUsername.Location = new Point(154, 54);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(235, 30);
+            txtUsername.Size = new Size(235, 22);
             txtUsername.TabIndex = 1;
             // 
             // label2
@@ -140,13 +141,13 @@
             label2.AutoSize = true;
             label2.Location = new Point(28, 57);
             label2.Name = "label2";
-            label2.Size = new Size(89, 21);
+            label2.Size = new Size(63, 17);
             label2.TabIndex = 0;
             label2.Text = "Kullanıcı :";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 21F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(880, 474);
