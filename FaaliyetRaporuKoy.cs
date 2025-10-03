@@ -56,7 +56,7 @@ namespace WinFormsApp1
                       .Include(p => p.Koy)
                       .Include(p => p.Imalat)
                       .Where(p => p.Tarih.Year == yil
-                  && p.Ilce.Adi == ilce.Adi && p.Imalat.Birim == "Yol ve Ulaşım Hizmetleri"
+                  && p.Ilce.Adi == ilce.Adi && p.Imalat.Mudurluk == "Yol ve Ulaşım Hizmetleri"
                   && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
                             projeler = _dbContext.Projes
@@ -124,7 +124,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                        .Include(p => p.Koy)
                        .Include(p => p.Imalat)
                        .Where(p => p.Tarih.Year == yil
-                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text && p.Imalat.Birim == "Yol ve Ulaşım Hizmetleri"
+                   && p.Ilce.Adi == ilce.Adi && p.Koy.Adi == cmbKoy.Text && p.Imalat.Mudurluk == "Yol ve Ulaşım Hizmetleri"
                    && (cmbImalat.Text == "Hepsi" || p.Imalat.Isim == cmbImalat.Text)).ToList();
 
 
