@@ -270,6 +270,7 @@
             btnPrevious.TabIndex = 23;
             btnPrevious.Text = "Önceki";
             btnPrevious.UseVisualStyleBackColor = true;
+            btnPrevious.Click += btnPrevious_Click_1;
             // 
             // btnNext
             // 
@@ -279,6 +280,7 @@
             btnNext.TabIndex = 24;
             btnNext.Text = "Sonraki";
             btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click_1;
             // 
             // PersonelTanimlama
             // 

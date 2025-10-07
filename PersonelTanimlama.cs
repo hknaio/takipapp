@@ -208,5 +208,17 @@ namespace YatirimTakip
                 }
             }
         }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
+        {
+            _currentPage++;
+            PageDatagrid();
+        }
+
+        private void btnPrevious_Click_1(object sender, EventArgs e)
+        {
+            _currentPage--;
+            PageDatagrid();
+        }
     }
 }
