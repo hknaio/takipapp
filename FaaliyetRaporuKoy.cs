@@ -194,7 +194,9 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                         (
                             s.Koy.Adi,
                             "Püremanet",
-                            s.Imalat.Isim,
+                            s.Imalat.Isim == "Spiral Boru" ? 
+                            s.Imalat.Isim + " " + _dbContext.SpiralBorus.Where(b => b.ID == s.SpiralBoruId).Select(b => b.Cap).FirstOrDefault().ToString()
+                            : s.Imalat.Isim,
                             s.Tarih.Date,
                             s.Miktar,
                             s.Tutar
@@ -300,7 +302,7 @@ double.IsNaN((s.Uygulama / item.Programis.Sum(p => p.Uygulama) * item.HakedisTop
                     var finalUygulamaList = _toplamUygulamaList.Select(f => new FaaliyetRaporKoy(
                         f.koyMezra,
                         f.program,
-                        f.imalat + " (" + _dbContext.Imalats.Where(i => i.Isim == f.imalat).Select(i => i.Birim).FirstOrDefault() + ")",
+                        f.imalat.Contains("Spiral") ? f.imalat : f.imalat + " (" + _dbContext.Imalats.Where(i => i.Isim == f.imalat).Select(i => i.Birim).FirstOrDefault() + ")",
                         f.tarih,
                         f.miktarUygulama,
                         f.harcama
