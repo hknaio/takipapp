@@ -736,6 +736,13 @@ namespace WinFormsApp1
         {
             string filePath = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
 
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+                pictureBox1.Image = null;
+            }
+
+
             try
             {
                 // Dosya var mı kontrol et
@@ -768,6 +775,13 @@ namespace WinFormsApp1
         private void btnSonraSil_Click(object sender, EventArgs e)
         {
             string filePath = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg";
+
+            if (pictureBox2.Image != null)
+            {
+                pictureBox2.Image.Dispose();
+                pictureBox2.Image = null;
+            }
+
 
             try
             {
