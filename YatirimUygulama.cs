@@ -70,7 +70,7 @@ namespace WinFormsApp1
                 {
                     pictureBox2.Image = Image.FromFile(Path + "_sonrasi.jpg");
                 }
-            }             
+            }
 
             OrderColumns();
 
@@ -537,7 +537,7 @@ namespace WinFormsApp1
                 MessageBox.Show(ex.InnerException + " " + "!!");
             }
         }
-        
+
         private void SaveImageWithAutoFolder(string baseServerPath, Image image, string onceSonra)
         {
             try
@@ -705,7 +705,7 @@ namespace WinFormsApp1
 
                     File.Copy(sourceFilePath, destinationPath, overwrite: true);
                     return true;
-                }               
+                }
             }
             catch (Exception ex)
             {
@@ -729,7 +729,73 @@ namespace WinFormsApp1
                     dosyalar.ShowDialog();
                     this.OnLoad(e);
                 }
-            }           
+            }
+        }
+
+        private void btnOnceSil_Click(object sender, EventArgs e)
+        {
+            string filePath = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id + "_oncesi.jpg";
+
+            try
+            {
+                // Dosya var mı kontrol et
+                if (File.Exists(filePath))
+                {
+                    // Dosyayı sil
+                    File.Delete(filePath);
+                    MessageBox.Show("Dosya başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.OnLoad(e);
+                }
+                else
+                {
+                    MessageBox.Show("Dosya bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Dosyayı silmek için yetkiniz yok.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Dosya silinirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Beklenmeyen hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSonraSil_Click(object sender, EventArgs e)
+        {
+            string filePath = BaseSavePathResimSrv + "\\Resimler_" + _id + "\\" + _id + "_sonrasi.jpg";
+
+            try
+            {
+                // Dosya var mı kontrol et
+                if (File.Exists(filePath))
+                {
+                    // Dosyayı sil
+                    File.Delete(filePath);
+                    MessageBox.Show("Dosya başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.OnLoad(e);
+                }
+                else
+                {
+                    MessageBox.Show("Dosya bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Dosyayı silmek için yetkiniz yok.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show($"Dosya silinirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Beklenmeyen hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
