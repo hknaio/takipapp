@@ -14,7 +14,6 @@ namespace WinFormsApp1
 
         private void ImalatTanimlama_Load(object sender, EventArgs e)
         {
-            txtBirimFiyat.Mask = "0000000";
             _dbContext = new AppDbContext();
             _dbContext.Imalats.Load();
             dataGridView1.DataSource = _dbContext.Imalats.Local.ToBindingList();

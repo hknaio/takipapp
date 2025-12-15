@@ -62,12 +62,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Isim, Cins, Mudurluk, Birim, BirimFiyat, FiyatGecerlilikTarihi, btnSil, ID, FiyatGuncelle, TarihListesi });
-            dataGridView1.Location = new Point(12, 186);
+            dataGridView1.Location = new Point(8, 112);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1136, 431);
+            dataGridView1.Size = new Size(1433, 633);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -168,44 +169,49 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 18);
+            label1.Location = new Point(15, 11);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(48, 25);
+            label1.Size = new Size(31, 15);
             label1.TabIndex = 1;
             label1.Text = "Adı :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(323, 55);
+            label2.Location = new Point(226, 33);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(107, 25);
+            label2.Size = new Size(72, 15);
             label2.TabIndex = 2;
             label2.Text = "Birim Fiyatı :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(323, 9);
+            label3.Location = new Point(226, 5);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(58, 25);
+            label3.Size = new Size(39, 15);
             label3.TabIndex = 3;
             label3.Text = "Cinsi :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 57);
+            label4.Location = new Point(8, 34);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(61, 25);
+            label4.Size = new Size(41, 15);
             label4.TabIndex = 4;
             label4.Text = "Birim :";
             // 
             // button1
             // 
-            button1.Location = new Point(719, 116);
+            button1.Location = new Point(503, 70);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(127, 53);
+            button1.Size = new Size(89, 32);
             button1.TabIndex = 5;
             button1.Text = "Listeye Ekle";
             button1.UseVisualStyleBackColor = true;
@@ -213,45 +219,51 @@
             // 
             // txtAdi
             // 
-            txtAdi.Location = new Point(76, 12);
+            txtAdi.Location = new Point(53, 7);
+            txtAdi.Margin = new Padding(2, 2, 2, 2);
             txtAdi.Name = "txtAdi";
-            txtAdi.Size = new Size(223, 31);
+            txtAdi.Size = new Size(157, 23);
             txtAdi.TabIndex = 6;
             // 
             // txtBirim
             // 
-            txtBirim.Location = new Point(76, 57);
+            txtBirim.Location = new Point(53, 34);
+            txtBirim.Margin = new Padding(2, 2, 2, 2);
             txtBirim.Name = "txtBirim";
-            txtBirim.Size = new Size(223, 31);
+            txtBirim.Size = new Size(157, 23);
             txtBirim.TabIndex = 8;
             // 
             // txtCins
             // 
-            txtCins.Location = new Point(436, 12);
+            txtCins.Location = new Point(305, 7);
+            txtCins.Margin = new Padding(2, 2, 2, 2);
             txtCins.Name = "txtCins";
-            txtCins.Size = new Size(223, 31);
+            txtCins.Size = new Size(157, 23);
             txtCins.TabIndex = 9;
             // 
             // txtBirimFiyat
             // 
-            txtBirimFiyat.Location = new Point(436, 58);
+            txtBirimFiyat.Location = new Point(305, 35);
+            txtBirimFiyat.Margin = new Padding(2, 2, 2, 2);
             txtBirimFiyat.Name = "txtBirimFiyat";
-            txtBirimFiyat.Size = new Size(223, 31);
+            txtBirimFiyat.Size = new Size(157, 23);
             txtBirimFiyat.TabIndex = 10;
             // 
             // dtpBaslangic
             // 
-            dtpBaslangic.Location = new Point(381, 116);
+            dtpBaslangic.Location = new Point(267, 70);
+            dtpBaslangic.Margin = new Padding(2, 2, 2, 2);
             dtpBaslangic.Name = "dtpBaslangic";
-            dtpBaslangic.Size = new Size(278, 31);
+            dtpBaslangic.Size = new Size(196, 23);
             dtpBaslangic.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(102, 116);
+            label5.Location = new Point(71, 70);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(255, 25);
+            label5.Size = new Size(173, 15);
             label5.TabIndex = 12;
             label5.Text = "Fiyat Geçerlilik Başlangıç Tarihi :";
             // 
@@ -259,25 +271,27 @@
             // 
             cmbMudurluk.FormattingEnabled = true;
             cmbMudurluk.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri" });
-            cmbMudurluk.Location = new Point(814, 12);
+            cmbMudurluk.Location = new Point(570, 7);
+            cmbMudurluk.Margin = new Padding(2, 2, 2, 2);
             cmbMudurluk.Name = "cmbMudurluk";
-            cmbMudurluk.Size = new Size(305, 33);
+            cmbMudurluk.Size = new Size(215, 23);
             cmbMudurluk.TabIndex = 14;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(711, 13);
+            label6.Location = new Point(498, 8);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(97, 25);
+            label6.Size = new Size(65, 15);
             label6.TabIndex = 13;
             label6.Text = "Mudurluk :";
             // 
             // ImalatTanimlama
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1163, 617);
+            ClientSize = new Size(1452, 756);
             Controls.Add(cmbMudurluk);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -292,6 +306,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ImalatTanimlama";
             Text = "İmalat Tanımlama";
             FormClosing += ImalatTanimlama_FormClosing;
