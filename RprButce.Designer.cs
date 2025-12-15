@@ -60,9 +60,10 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(301, 20);
+            btnGetir.Location = new Point(211, 12);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
+            btnGetir.Size = new Size(125, 25);
             btnGetir.TabIndex = 43;
             btnGetir.Text = "Rapor Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -71,26 +72,29 @@
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(77, 25);
+            cmbYil.Items.AddRange(new object[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" });
+            cmbYil.Location = new Point(54, 15);
+            cmbYil.Margin = new Padding(2, 2, 2, 2);
             cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
+            cmbYil.Size = new Size(129, 23);
             cmbYil.TabIndex = 45;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 28);
+            label1.Location = new Point(15, 17);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(39, 25);
+            label1.Size = new Size(26, 15);
             label1.TabIndex = 44;
             label1.Text = "Yıl :";
             // 
             // button1
             // 
-            button1.Location = new Point(582, 24);
+            button1.Location = new Point(407, 14);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 34);
+            button1.Size = new Size(102, 20);
             button1.TabIndex = 46;
             button1.Text = "Excele Aktar";
             button1.UseVisualStyleBackColor = true;
@@ -122,13 +126,14 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(22, 67);
+            dataGridView1.Location = new Point(15, 40);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1885, 843);
+            dataGridView1.Size = new Size(1320, 506);
             dataGridView1.TabIndex = 47;
             // 
             // Ilce
@@ -296,14 +301,15 @@
             // 
             // RprButce
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 897);
+            ClientSize = new Size(1347, 538);
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Controls.Add(cmbYil);
             Controls.Add(label1);
             Controls.Add(btnGetir);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "RprButce";
             Text = "Bütçe Takip";
             FormClosing += RprButce_FormClosing;

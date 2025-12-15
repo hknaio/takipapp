@@ -75,13 +75,14 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(29, 98);
+            dataGridView1.Location = new Point(20, 59);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1777, 723);
+            dataGridView1.Size = new Size(1244, 434);
             dataGridView1.TabIndex = 46;
             // 
             // KoyMezra
@@ -127,46 +128,51 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 36);
+            label1.Location = new Point(23, 22);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(39, 25);
+            label1.Size = new Size(26, 15);
             label1.TabIndex = 55;
             label1.Text = "Yıl :";
             // 
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(78, 33);
+            cmbYil.Items.AddRange(new object[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" });
+            cmbYil.Location = new Point(55, 20);
+            cmbYil.Margin = new Padding(2, 2, 2, 2);
             cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
+            cmbYil.Size = new Size(129, 23);
             cmbYil.TabIndex = 54;
             // 
             // cmbIlce
             // 
             cmbIlce.FormattingEnabled = true;
             cmbIlce.Items.AddRange(new object[] { "--" });
-            cmbIlce.Location = new Point(378, 33);
+            cmbIlce.Location = new Point(265, 20);
+            cmbIlce.Margin = new Padding(2, 2, 2, 2);
             cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(210, 33);
+            cmbIlce.Size = new Size(148, 23);
             cmbIlce.TabIndex = 57;
             cmbIlce.SelectedIndexChanged += cmbIlce_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(320, 36);
+            label2.Location = new Point(224, 22);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(52, 25);
+            label2.Size = new Size(34, 15);
             label2.TabIndex = 56;
             label2.Text = "İlçe : ";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(642, 36);
+            label4.Location = new Point(449, 22);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(56, 25);
+            label4.Size = new Size(36, 15);
             label4.TabIndex = 59;
             label4.Text = "Köy : ";
             // 
@@ -174,16 +180,18 @@
             // 
             cmbKoy.FormattingEnabled = true;
             cmbKoy.Items.AddRange(new object[] { "Hepsi" });
-            cmbKoy.Location = new Point(704, 33);
+            cmbKoy.Location = new Point(493, 20);
+            cmbKoy.Margin = new Padding(2, 2, 2, 2);
             cmbKoy.Name = "cmbKoy";
-            cmbKoy.Size = new Size(300, 33);
+            cmbKoy.Size = new Size(211, 23);
             cmbKoy.TabIndex = 58;
             // 
             // button1
             // 
-            button1.Location = new Point(1650, 34);
+            button1.Location = new Point(1155, 20);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 34);
+            button1.Size = new Size(102, 20);
             button1.TabIndex = 61;
             button1.Text = "Excele Aktar";
             button1.UseVisualStyleBackColor = true;
@@ -191,9 +199,10 @@
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(1465, 31);
+            btnGetir.Location = new Point(1026, 19);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
+            btnGetir.Size = new Size(125, 25);
             btnGetir.TabIndex = 60;
             btnGetir.Text = "Rapor Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -202,9 +211,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1019, 37);
+            label3.Location = new Point(713, 22);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(70, 25);
+            label3.Size = new Size(46, 15);
             label3.TabIndex = 63;
             label3.Text = "İmalat :";
             // 
@@ -212,16 +222,17 @@
             // 
             cmbImalat.FormattingEnabled = true;
             cmbImalat.Items.AddRange(new object[] { "Hepsi" });
-            cmbImalat.Location = new Point(1106, 33);
+            cmbImalat.Location = new Point(774, 20);
+            cmbImalat.Margin = new Padding(2, 2, 2, 2);
             cmbImalat.Name = "cmbImalat";
-            cmbImalat.Size = new Size(300, 33);
+            cmbImalat.Size = new Size(211, 23);
             cmbImalat.TabIndex = 62;
             // 
             // PuremanetRapor
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1818, 877);
+            ClientSize = new Size(1273, 526);
             Controls.Add(label3);
             Controls.Add(cmbImalat);
             Controls.Add(button1);
@@ -233,6 +244,7 @@
             Controls.Add(label1);
             Controls.Add(cmbYil);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "PuremanetRapor";
             Text = "Püremanet Rapor";
             FormClosing += PuremanetRapor_FormClosing;

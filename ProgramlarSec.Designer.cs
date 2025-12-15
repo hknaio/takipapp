@@ -55,27 +55,30 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(82, 41);
+            label1.Location = new Point(57, 25);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(39, 25);
+            label1.Size = new Size(26, 15);
             label1.TabIndex = 0;
             label1.Text = "Yıl :";
             // 
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(137, 38);
+            cmbYil.Items.AddRange(new object[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" });
+            cmbYil.Location = new Point(96, 23);
+            cmbYil.Margin = new Padding(2, 2, 2, 2);
             cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
+            cmbYil.Size = new Size(129, 23);
             cmbYil.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(372, 41);
+            label2.Location = new Point(260, 25);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(157, 25);
+            label2.Size = new Size(104, 15);
             label2.TabIndex = 2;
             label2.Text = "Program Kaynağı :";
             // 
@@ -83,16 +86,18 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(553, 38);
+            cmbKaynak.Location = new Point(387, 23);
+            cmbKaynak.Margin = new Padding(2, 2, 2, 2);
             cmbKaynak.Name = "cmbKaynak";
-            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.Size = new Size(129, 23);
             cmbKaynak.TabIndex = 3;
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(787, 36);
+            btnGetir.Location = new Point(551, 22);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(165, 35);
+            btnGetir.Size = new Size(116, 21);
             btnGetir.TabIndex = 4;
             btnGetir.Text = "Programı Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -107,12 +112,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ID, Uygulama, Koy, Birim, Imalat, Miktar, YaklasikMaliyet, Yil, YatirimDurumu, Proje, Kaynak, Sec });
-            dataGridView1.Location = new Point(12, 100);
+            dataGridView1.Location = new Point(8, 60);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1408, 707);
+            dataGridView1.Size = new Size(986, 424);
             dataGridView1.TabIndex = 5;
             // 
             // Ilce
@@ -236,9 +242,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(637, 851);
+            button1.Location = new Point(446, 511);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(149, 63);
+            button1.Size = new Size(104, 38);
             button1.TabIndex = 6;
             button1.Text = "Seçilenleri Ekle";
             button1.UseVisualStyleBackColor = true;
@@ -246,9 +253,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(841, 851);
+            button2.Location = new Point(589, 511);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(130, 63);
+            button2.Size = new Size(91, 38);
             button2.TabIndex = 7;
             button2.Text = "İptal";
             button2.UseVisualStyleBackColor = true;
@@ -256,9 +264,9 @@
             // 
             // ProgramlarSec
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1432, 926);
+            ClientSize = new Size(1002, 556);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
@@ -267,6 +275,7 @@
             Controls.Add(label2);
             Controls.Add(cmbYil);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ProgramlarSec";
             Text = "ProgramlarSec";
             Load += ProgramlarSec_Load;

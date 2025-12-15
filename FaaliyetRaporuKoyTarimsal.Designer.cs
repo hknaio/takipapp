@@ -78,13 +78,14 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.Location = new Point(9, 87);
+            dataGridView1.Location = new Point(6, 52);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1914, 723);
+            dataGridView1.Size = new Size(1340, 434);
             dataGridView1.TabIndex = 45;
             // 
             // KoyMezra
@@ -138,17 +139,19 @@
             // cmbYil
             // 
             cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(64, 28);
+            cmbYil.Items.AddRange(new object[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" });
+            cmbYil.Location = new Point(45, 17);
+            cmbYil.Margin = new Padding(2, 2, 2, 2);
             cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
+            cmbYil.Size = new Size(129, 23);
             cmbYil.TabIndex = 49;
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(1501, 23);
+            btnGetir.Location = new Point(1051, 14);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(179, 41);
+            btnGetir.Size = new Size(125, 25);
             btnGetir.TabIndex = 48;
             btnGetir.Text = "Rapor Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -158,35 +161,39 @@
             // 
             cmbIlce.FormattingEnabled = true;
             cmbIlce.Items.AddRange(new object[] { "--" });
-            cmbIlce.Location = new Point(328, 28);
+            cmbIlce.Location = new Point(230, 17);
+            cmbIlce.Margin = new Padding(2, 2, 2, 2);
             cmbIlce.Name = "cmbIlce";
-            cmbIlce.Size = new Size(210, 33);
+            cmbIlce.Size = new Size(148, 23);
             cmbIlce.TabIndex = 52;
             cmbIlce.SelectedIndexChanged += cmbIlce_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(270, 31);
+            label2.Location = new Point(189, 19);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(52, 25);
+            label2.Size = new Size(34, 15);
             label2.TabIndex = 51;
             label2.Text = "İlçe : ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 31);
+            label1.Location = new Point(13, 19);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(39, 25);
+            label1.Size = new Size(26, 15);
             label1.TabIndex = 53;
             label1.Text = "Yıl :";
             // 
             // button1
             // 
-            button1.Location = new Point(1686, 27);
+            button1.Location = new Point(1180, 16);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 34);
+            button1.Size = new Size(102, 20);
             button1.TabIndex = 54;
             button1.Text = "Excele Aktar";
             button1.UseVisualStyleBackColor = true;
@@ -196,17 +203,19 @@
             // 
             cmbKoy.FormattingEnabled = true;
             cmbKoy.Items.AddRange(new object[] { "Hepsi" });
-            cmbKoy.Location = new Point(616, 28);
+            cmbKoy.Location = new Point(431, 17);
+            cmbKoy.Margin = new Padding(2, 2, 2, 2);
             cmbKoy.Name = "cmbKoy";
-            cmbKoy.Size = new Size(300, 33);
+            cmbKoy.Size = new Size(211, 23);
             cmbKoy.TabIndex = 56;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(554, 31);
+            label4.Location = new Point(388, 19);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(56, 25);
+            label4.Size = new Size(36, 15);
             label4.TabIndex = 57;
             label4.Text = "Köy : ";
             // 
@@ -214,26 +223,29 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "Hepsi", "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(1011, 29);
+            cmbKaynak.Location = new Point(708, 17);
+            cmbKaynak.Margin = new Padding(2, 2, 2, 2);
             cmbKaynak.Name = "cmbKaynak";
-            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.Size = new Size(129, 23);
             cmbKaynak.TabIndex = 59;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(937, 32);
+            label3.Location = new Point(656, 19);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(77, 25);
+            label3.Size = new Size(51, 15);
             label3.TabIndex = 58;
             label3.Text = "Kaynak :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1199, 32);
+            label5.Location = new Point(839, 19);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(70, 25);
+            label5.Size = new Size(46, 15);
             label5.TabIndex = 64;
             label5.Text = "İmalat :";
             // 
@@ -241,16 +253,17 @@
             // 
             cmbImalat.FormattingEnabled = true;
             cmbImalat.Items.AddRange(new object[] { "Hepsi" });
-            cmbImalat.Location = new Point(1275, 31);
+            cmbImalat.Location = new Point(892, 19);
+            cmbImalat.Margin = new Padding(2, 2, 2, 2);
             cmbImalat.Name = "cmbImalat";
-            cmbImalat.Size = new Size(220, 33);
+            cmbImalat.Size = new Size(155, 23);
             cmbImalat.TabIndex = 65;
             // 
             // FaaliyetRaporuKoyTarimsal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 810);
+            ClientSize = new Size(1347, 486);
             Controls.Add(cmbImalat);
             Controls.Add(label5);
             Controls.Add(cmbKaynak);
@@ -264,6 +277,7 @@
             Controls.Add(cmbYil);
             Controls.Add(btnGetir);
             Controls.Add(dataGridView1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FaaliyetRaporuKoyTarimsal";
             Text = "Faaliyet Raporu (Köy)";
             FormClosing += FaaliyetRaporuKoyTarimsal_FormClosing;

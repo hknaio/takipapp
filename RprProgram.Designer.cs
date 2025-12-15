@@ -32,8 +32,6 @@
             cmbKaynak = new ComboBox();
             btnGetir = new Button();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
-            cmbYil = new ComboBox();
             Ilce = new DataGridViewTextBoxColumn();
             ToplamProgram = new DataGridViewTextBoxColumn();
             DevamEden = new DataGridViewTextBoxColumn();
@@ -42,15 +40,18 @@
             BitenEk = new DataGridViewTextBoxColumn();
             Baslamamis = new DataGridViewTextBoxColumn();
             BaslamamisEk = new DataGridViewTextBoxColumn();
+            button1 = new Button();
+            cmbYil = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(47, 25);
+            label1.Location = new Point(33, 15);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(77, 25);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 0;
             label1.Text = "Kaynak :";
             // 
@@ -58,16 +59,18 @@
             // 
             cmbKaynak.FormattingEnabled = true;
             cmbKaynak.Items.AddRange(new object[] { "İl Özel İdaresi", "KÖYDES", "İlbank", "Diğer" });
-            cmbKaynak.Location = new Point(130, 22);
+            cmbKaynak.Location = new Point(91, 13);
+            cmbKaynak.Margin = new Padding(2, 2, 2, 2);
             cmbKaynak.Name = "cmbKaynak";
-            cmbKaynak.Size = new Size(182, 33);
+            cmbKaynak.Size = new Size(129, 23);
             cmbKaynak.TabIndex = 1;
             // 
             // btnGetir
             // 
-            btnGetir.Location = new Point(531, 20);
+            btnGetir.Location = new Point(372, 12);
+            btnGetir.Margin = new Padding(2, 2, 2, 2);
             btnGetir.Name = "btnGetir";
-            btnGetir.Size = new Size(134, 34);
+            btnGetir.Size = new Size(94, 20);
             btnGetir.TabIndex = 2;
             btnGetir.Text = "Getir";
             btnGetir.UseVisualStyleBackColor = true;
@@ -80,32 +83,14 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ToplamProgram, DevamEden, DevamEdenEk, Biten, BitenEk, Baslamamis, BaslamamisEk });
-            dataGridView1.Location = new Point(39, 106);
+            dataGridView1.Location = new Point(27, 64);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(986, 510);
+            dataGridView1.Size = new Size(690, 306);
             dataGridView1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(697, 20);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 34);
-            button1.TabIndex = 4;
-            button1.Text = "Excele Aktar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // cmbYil
-            // 
-            cmbYil.FormattingEnabled = true;
-            cmbYil.Items.AddRange(new object[] { "2022", "2023", "2024", "2025", "2026" });
-            cmbYil.Location = new Point(333, 22);
-            cmbYil.Name = "cmbYil";
-            cmbYil.Size = new Size(182, 33);
-            cmbYil.TabIndex = 48;
             // 
             // Ilce
             // 
@@ -171,17 +156,39 @@
             BaslamamisEk.Name = "BaslamamisEk";
             BaslamamisEk.ReadOnly = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(488, 12);
+            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(102, 20);
+            button1.TabIndex = 4;
+            button1.Text = "Excele Aktar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // cmbYil
+            // 
+            cmbYil.FormattingEnabled = true;
+            cmbYil.Items.AddRange(new object[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" });
+            cmbYil.Location = new Point(233, 13);
+            cmbYil.Margin = new Padding(2, 2, 2, 2);
+            cmbYil.Name = "cmbYil";
+            cmbYil.Size = new Size(129, 23);
+            cmbYil.TabIndex = 48;
+            // 
             // RprProgram
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1037, 628);
+            ClientSize = new Size(726, 377);
             Controls.Add(cmbYil);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(btnGetir);
             Controls.Add(cmbKaynak);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "RprProgram";
             Text = "Program Raporu";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
