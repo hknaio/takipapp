@@ -50,7 +50,7 @@ namespace WinFormsApp1
 
 
 
-            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım")).ToList();
+            var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım Hizmetleri")).ToList();
 
             dataGridView1.DataSource = projesFilter;
 
@@ -95,6 +95,11 @@ namespace WinFormsApp1
                         _dbContext.Projes.Remove(proje);
 
                         _dbContext.SaveChanges();
+
+                        var projesFilter = _dbContext.Projes.Include(p => p.Programis).Where(p => p.Programis.Any(p => p.Ilce == cmbIlce.Text && p.Birim == "Yol ve Ulaşım Hizmetleri")).ToList();
+
+                        dataGridView1.DataSource = projesFilter;
+
                         dataGridView1.Refresh();
                     }
                 }
