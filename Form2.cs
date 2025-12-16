@@ -142,6 +142,8 @@ namespace WinFormsApp1
                 var yolOldLoc = button1.Location;
                 btnSanatYapilari.Visible = false;
                 btnTanimlama.Visible = false;
+                button3.Visible = false;
+                btnSu.Visible = false;
                 btnAsfaltYapim.Visible = false;
                 btnRapor.Location = yolOldLoc;
             }
