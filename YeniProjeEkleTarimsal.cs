@@ -45,6 +45,7 @@ namespace WinFormsApp1
                     {
                         Adi = txtProjeAdi.Text,
                         Aciklama = txtAciklama.Text,
+                        User = _user.UserName
                     };
 
                     _dbContext.Projes.Add(proje);

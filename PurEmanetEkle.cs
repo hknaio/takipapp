@@ -96,6 +96,7 @@ namespace WinFormsApp1
                         TalepEdenPersonel = cmbTalepEden.Text,
                         Operator = cmbOperator.Text,
                         IsMakinesi = cmbIsMakinesi.Text,
+                        User = _user.UserName
                     };
 
                     foreach (var mezra in chkMezraList.CheckedItems)

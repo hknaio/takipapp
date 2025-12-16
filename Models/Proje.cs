@@ -64,5 +64,6 @@ namespace WinFormsApp1.Models
 
         [Browsable(false)]
         public ICollection<Hakedis>? Hakedis { get; set; }
+        public string? User { get; set; }
     }
 }

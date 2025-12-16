@@ -401,6 +401,9 @@ namespace WinFormsApp1.Migrations
                     b.Property<int>("Sure")
                         .HasColumnType("int");
 
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("YaklasikMaliyet")
                         .HasColumnType("float");
 
@@ -449,6 +452,9 @@ namespace WinFormsApp1.Migrations
 
                     b.Property<double>("Tutar")
                         .HasColumnType("float");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 

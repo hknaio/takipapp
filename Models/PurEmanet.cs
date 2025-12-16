@@ -19,5 +19,6 @@ namespace WinFormsApp1.Models
         public string? TalepEdenPersonel { get; set; }
         public double Miktar { get; set; }
         public double Tutar { get; set; }
+        public string? User { get; set; }
     }
 }
