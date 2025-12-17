@@ -88,8 +88,8 @@ namespace WinFormsApp1
                         ImalatId = imalat!.ID,
                         Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToDouble(txtBoruMetre.Text)
                         : Convert.ToDouble(txtMiktar.Text),
-                        Tutar = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text)
-                        : imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text),
+                        Tutar = cmbImalat.Text == "Spiral Boru" ? Math.Round(spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text), 2)
+                        : Math.Round(imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text), 2),
                         SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null,
                         TalepEdenPersonel = cmbTalepEden.Text,
                         Operator = cmbOperator.Text,
