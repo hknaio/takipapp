@@ -720,15 +720,27 @@ namespace WinFormsApp1
 
             using (new NetworkConnection(@"\\10.1.2.12\ys", credentials))
             {
-                string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
+                try
+                {
+                    string[] fileNames = Directory.GetFiles(BaseSavePathSrv + _id)
                                        .Select(Path.GetFileName)
                                        .ToArray();
 
-                using (YatirimDosyalar dosyalar = new(fileNames, BaseSavePathSrv, _id))
-                {
-                    dosyalar.ShowDialog();
-                    this.OnLoad(e);
+                    using (YatirimDosyalar dosyalar = new(fileNames, BaseSavePathSrv, _id))
+                    {
+                        dosyalar.ShowDialog();
+                        this.OnLoad(e);
+                    }
                 }
+                catch (DirectoryNotFoundException ex)
+                {
+                    MessageBox.Show("Dosya yok..", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata..", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

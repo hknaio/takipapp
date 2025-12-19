@@ -18,8 +18,11 @@ namespace YatirimTakip
 
             // DataGridView'da yeterli satır olduğundan emin ol
             dataGridView1.Rows.Clear();
-            dataGridView1.Rows.Add(dosyalar.Length);
-           
+            if (dosyalar.Length > 0)
+            {
+                dataGridView1.Rows.Add(dosyalar.Length);
+            }
+
             // Belirtilen sütunu doldur
             for (int i = 0; i < dosyalar.Length; i++)
             {
@@ -120,7 +123,10 @@ namespace YatirimTakip
 
             // DataGridView'da yeterli satır olduğundan emin ol
             dataGridView1.Rows.Clear();
-            dataGridView1.Rows.Add(fileNames.Length);
+            if (fileNames.Length > 0)
+            {
+                dataGridView1.Rows.Add(fileNames.Length);
+            }
 
             // Belirtilen sütunu doldur
             for (int i = 0; i < fileNames.Length; i++)
