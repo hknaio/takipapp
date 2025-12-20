@@ -34,7 +34,7 @@ namespace WinFormsApp1
             cmbOperator.DataSource = operators;
             cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
 
-            var talepEdens = users.Where(u => u.Birim == "Yol ve Ulaşım Hizmetleri").ToList();
+            var talepEdens = users.Where(u => u.Birim == "Tarımsal Hizmetler").ToList();
             talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
             cmbTalepEden.DataSource = talepEdens;
             cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();

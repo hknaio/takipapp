@@ -405,10 +405,33 @@ namespace WinFormsApp1
 
         private void btnYeniProgram_Click(object sender, EventArgs e)
         {
-            using (ProgramlarSec programlar = new(this, _user))
+            var birim = _dbContext.YatirimProgramis.Where(p => p.Proje.ID == _id).Select(p => p.Birim).FirstOrDefault();
+
+            if (birim.Contains("Su"))
             {
-                programlar.ShowDialog();
-                this.OnLoad(e);
+                using (ProgramlarSecSu programlar = new(this, _user))
+                {
+                    programlar.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
+
+            if (birim.Contains("Tarımsal"))
+            {
+                using (ProgramlarSecTarimsal programlar = new(this, _user))
+                {
+                    programlar.ShowDialog();
+                    this.OnLoad(e);
+                }
+            }
+
+            if (birim.Contains("Yol"))
+            {
+                using (ProgramlarSec programlar = new(this, _user))
+                {
+                    programlar.ShowDialog();
+                    this.OnLoad(e);
+                }
             }
         }
 
