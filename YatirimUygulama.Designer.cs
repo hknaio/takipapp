@@ -88,9 +88,11 @@
             label18 = new Label();
             pictureBox1 = new PictureBox();
             groupBox2 = new GroupBox();
+            btnOnceSil = new Button();
             btnOnceFotoKaydet = new Button();
             btnOncesiGuncelle = new Button();
             groupBox3 = new GroupBox();
+            btnSonraSil = new Button();
             btnSonraKaydet = new Button();
             btnSonraGuncelle = new Button();
             pictureBox2 = new PictureBox();
@@ -98,8 +100,6 @@
             btnDosyaEkle = new Button();
             linkLabel1 = new LinkLabel();
             button1 = new Button();
-            btnOnceSil = new Button();
-            btnSonraSil = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -112,9 +112,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 487);
+            label1.Location = new Point(19, 292);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(142, 25);
+            label1.Size = new Size(94, 15);
             label1.TabIndex = 1;
             label1.Text = "Program Listesi :";
             // 
@@ -122,9 +123,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.Location = new Point(11, 8);
+            label2.Location = new Point(8, 5);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(120, 32);
+            label2.Size = new Size(80, 21);
             label2.TabIndex = 2;
             label2.Text = "Proje Adı";
             // 
@@ -132,17 +134,19 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 9F);
-            label5.Location = new Point(4, 173);
+            label5.Location = new Point(3, 104);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(155, 25);
+            label5.Size = new Size(106, 15);
             label5.TabIndex = 5;
             label5.Text = "Geçici Kabul Tarihi:";
             // 
             // dtpGeciciKabul
             // 
-            dtpGeciciKabul.Location = new Point(194, 173);
+            dtpGeciciKabul.Location = new Point(136, 104);
+            dtpGeciciKabul.Margin = new Padding(2, 2, 2, 2);
             dtpGeciciKabul.Name = "dtpGeciciKabul";
-            dtpGeciciKabul.Size = new Size(300, 31);
+            dtpGeciciKabul.Size = new Size(211, 23);
             dtpGeciciKabul.TabIndex = 6;
             dtpGeciciKabul.ValueChanged += dtpGeciciKabul_ValueChanged;
             // 
@@ -150,18 +154,20 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9F);
-            label6.Location = new Point(9, 222);
+            label6.Location = new Point(6, 133);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(151, 25);
+            label6.Size = new Size(102, 15);
             label6.TabIndex = 7;
             label6.Text = "Kesin Kabul Tarihi:";
             // 
             // dtpKesinKabul
             // 
             dtpKesinKabul.Enabled = false;
-            dtpKesinKabul.Location = new Point(194, 222);
+            dtpKesinKabul.Location = new Point(136, 133);
+            dtpKesinKabul.Margin = new Padding(2, 2, 2, 2);
             dtpKesinKabul.Name = "dtpKesinKabul";
-            dtpKesinKabul.Size = new Size(300, 31);
+            dtpKesinKabul.Size = new Size(211, 23);
             dtpKesinKabul.TabIndex = 8;
             dtpKesinKabul.ValueChanged += dtpKesinKabul_ValueChanged;
             // 
@@ -169,43 +175,48 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9F);
-            label7.Location = new Point(537, 178);
+            label7.Location = new Point(376, 107);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(86, 25);
+            label7.Size = new Size(57, 15);
             label7.TabIndex = 9;
             label7.Text = "Durumu :";
             // 
             // cmbDurum
             // 
             cmbDurum.FormattingEnabled = true;
-            cmbDurum.Location = new Point(659, 178);
+            cmbDurum.Location = new Point(461, 107);
+            cmbDurum.Margin = new Padding(2, 2, 2, 2);
             cmbDurum.Name = "cmbDurum";
-            cmbDurum.Size = new Size(298, 33);
+            cmbDurum.Size = new Size(210, 23);
             cmbDurum.TabIndex = 10;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 9F);
-            label8.Location = new Point(537, 233);
+            label8.Location = new Point(376, 140);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(92, 25);
+            label8.Size = new Size(62, 15);
             label8.TabIndex = 11;
             label8.Text = "Açıklama :";
             // 
             // txtAciklama
             // 
-            txtAciklama.Location = new Point(659, 233);
+            txtAciklama.Location = new Point(461, 140);
+            txtAciklama.Margin = new Padding(2, 2, 2, 2);
             txtAciklama.Multiline = true;
             txtAciklama.Name = "txtAciklama";
-            txtAciklama.Size = new Size(313, 89);
+            txtAciklama.Size = new Size(220, 55);
             txtAciklama.TabIndex = 12;
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(739, 1003);
+            btnKaydet.Location = new Point(1312, 648);
+            btnKaydet.Margin = new Padding(2, 2, 2, 2);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(111, 33);
+            btnKaydet.Size = new Size(90, 41);
             btnKaydet.TabIndex = 13;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = true;
@@ -213,9 +224,10 @@
             // 
             // button2
             // 
-            button2.Location = new Point(966, 1003);
+            button2.Location = new Point(1437, 648);
+            button2.Margin = new Padding(2, 2, 2, 2);
             button2.Name = "button2";
-            button2.Size = new Size(111, 33);
+            button2.Size = new Size(94, 41);
             button2.TabIndex = 14;
             button2.Text = "İptal";
             button2.UseVisualStyleBackColor = true;
@@ -223,19 +235,21 @@
             // 
             // txtHakedisMiktar
             // 
-            txtHakedisMiktar.Location = new Point(231, 30);
+            txtHakedisMiktar.Location = new Point(162, 18);
+            txtHakedisMiktar.Margin = new Padding(2, 2, 2, 2);
             txtHakedisMiktar.Name = "txtHakedisMiktar";
             txtHakedisMiktar.PlaceholderText = "0,00";
-            txtHakedisMiktar.Size = new Size(143, 31);
+            txtHakedisMiktar.Size = new Size(101, 23);
             txtHakedisMiktar.TabIndex = 17;
             txtHakedisMiktar.Leave += txtHakedisMiktar_Leave;
             // 
             // btnHakedisEkle
             // 
             btnHakedisEkle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnHakedisEkle.Location = new Point(393, 30);
+            btnHakedisEkle.Location = new Point(275, 18);
+            btnHakedisEkle.Margin = new Padding(2, 2, 2, 2);
             btnHakedisEkle.Name = "btnHakedisEkle";
-            btnHakedisEkle.Size = new Size(61, 57);
+            btnHakedisEkle.Size = new Size(43, 34);
             btnHakedisEkle.TabIndex = 18;
             btnHakedisEkle.Text = "+";
             btnHakedisEkle.UseVisualStyleBackColor = true;
@@ -247,9 +261,11 @@
             groupBox1.Controls.Add(txtHakedis);
             groupBox1.Controls.Add(txtHakedisMiktar);
             groupBox1.Controls.Add(btnHakedisEkle);
-            groupBox1.Location = new Point(987, 17);
+            groupBox1.Location = new Point(691, 10);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(559, 343);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(391, 206);
             groupBox1.TabIndex = 20;
             groupBox1.TabStop = false;
             groupBox1.Text = "Hakediş Listesi";
@@ -261,12 +277,13 @@
             dataGridView2.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No, ID, HakedisMiktari, Sil });
-            dataGridView2.Location = new Point(6, 107);
+            dataGridView2.Location = new Point(4, 64);
+            dataGridView2.Margin = new Padding(2, 2, 2, 2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(493, 232);
+            dataGridView2.Size = new Size(345, 139);
             dataGridView2.TabIndex = 21;
             dataGridView2.CellClick += dataGridView2_CellClick;
             // 
@@ -310,35 +327,39 @@
             // 
             // txtHakedis
             // 
-            txtHakedis.Location = new Point(6, 30);
+            txtHakedis.Location = new Point(4, 18);
+            txtHakedis.Margin = new Padding(2, 2, 2, 2);
             txtHakedis.Name = "txtHakedis";
-            txtHakedis.Size = new Size(201, 31);
+            txtHakedis.Size = new Size(142, 23);
             txtHakedis.TabIndex = 20;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(17, 335);
+            label9.Location = new Point(12, 201);
+            label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
-            label9.Size = new Size(148, 25);
+            label9.Size = new Size(97, 15);
             label9.TabIndex = 21;
             label9.Text = "Sözleşme Bedeli :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(9, 58);
+            label3.Location = new Point(6, 35);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(158, 25);
+            label3.Size = new Size(105, 15);
             label3.TabIndex = 23;
             label3.Text = "İşe Başlama Tarihi :";
             // 
             // dtpIseBaslama
             // 
-            dtpIseBaslama.Location = new Point(194, 58);
+            dtpIseBaslama.Location = new Point(136, 35);
+            dtpIseBaslama.Margin = new Padding(2, 2, 2, 2);
             dtpIseBaslama.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtpIseBaslama.Name = "dtpIseBaslama";
-            dtpIseBaslama.Size = new Size(300, 31);
+            dtpIseBaslama.Size = new Size(211, 23);
             dtpIseBaslama.TabIndex = 24;
             dtpIseBaslama.Value = new DateTime(2024, 9, 11, 0, 0, 0, 0);
             dtpIseBaslama.ValueChanged += dtpIseBaslama_ValueChanged;
@@ -346,52 +367,58 @@
             // dtpBitisTarihi
             // 
             dtpBitisTarihi.Enabled = false;
-            dtpBitisTarihi.Location = new Point(194, 115);
+            dtpBitisTarihi.Location = new Point(136, 69);
+            dtpBitisTarihi.Margin = new Padding(2, 2, 2, 2);
             dtpBitisTarihi.Name = "dtpBitisTarihi";
-            dtpBitisTarihi.Size = new Size(300, 31);
+            dtpBitisTarihi.Size = new Size(211, 23);
             dtpBitisTarihi.TabIndex = 25;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(9, 115);
+            label4.Location = new Point(6, 69);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(116, 25);
+            label4.Size = new Size(77, 15);
             label4.TabIndex = 26;
             label4.Text = "İş Bitiş Tarihi :";
             // 
             // txtSure
             // 
-            txtSure.Location = new Point(659, 58);
+            txtSure.Location = new Point(461, 35);
+            txtSure.Margin = new Padding(2, 2, 2, 2);
             txtSure.Name = "txtSure";
-            txtSure.Size = new Size(150, 31);
+            txtSure.Size = new Size(106, 23);
             txtSure.TabIndex = 27;
             txtSure.TextChanged += txtSure_TextChanged;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(537, 58);
+            label10.Location = new Point(376, 35);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(103, 25);
+            label10.Size = new Size(69, 15);
             label10.TabIndex = 28;
             label10.Text = "Süre (Gün) :";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(537, 120);
+            label11.Location = new Point(376, 72);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(89, 25);
+            label11.Size = new Size(61, 15);
             label11.TabIndex = 29;
             label11.Text = "Yüklenici :";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(17, 383);
+            label12.Location = new Point(12, 230);
+            label12.Margin = new Padding(2, 0, 2, 0);
             label12.Name = "label12";
-            label12.Size = new Size(143, 25);
+            label12.Size = new Size(96, 15);
             label12.TabIndex = 31;
             label12.Text = "Yaklaşık Maliyet :";
             // 
@@ -399,33 +426,37 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label13.Location = new Point(194, 378);
+            label13.Location = new Point(136, 227);
+            label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
-            label13.Size = new Size(58, 30);
+            label13.Size = new Size(40, 20);
             label13.TabIndex = 32;
             label13.Text = "00,0";
             // 
             // txtYuklenici
             // 
-            txtYuklenici.Location = new Point(659, 117);
+            txtYuklenici.Location = new Point(461, 70);
+            txtYuklenici.Margin = new Padding(2, 2, 2, 2);
             txtYuklenici.Name = "txtYuklenici";
-            txtYuklenici.Size = new Size(298, 31);
+            txtYuklenici.Size = new Size(210, 23);
             txtYuklenici.TabIndex = 33;
             // 
             // txtSozlesmeBedeli
             // 
-            txtSozlesmeBedeli.Location = new Point(194, 328);
+            txtSozlesmeBedeli.Location = new Point(136, 197);
+            txtSozlesmeBedeli.Margin = new Padding(2, 2, 2, 2);
             txtSozlesmeBedeli.Name = "txtSozlesmeBedeli";
-            txtSozlesmeBedeli.Size = new Size(300, 31);
+            txtSozlesmeBedeli.Size = new Size(211, 23);
             txtSozlesmeBedeli.TabIndex = 34;
             txtSozlesmeBedeli.Leave += txtSozlesmeBedeli_Leave;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(11, 430);
+            label14.Location = new Point(8, 258);
+            label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
-            label14.Size = new Size(151, 25);
+            label14.Size = new Size(100, 15);
             label14.TabIndex = 35;
             label14.Text = "Hakediş Toplamı :";
             // 
@@ -433,18 +464,20 @@
             // 
             lblToplamHakedis.AutoSize = true;
             lblToplamHakedis.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblToplamHakedis.Location = new Point(194, 425);
+            lblToplamHakedis.Location = new Point(136, 255);
+            lblToplamHakedis.Margin = new Padding(2, 0, 2, 0);
             lblToplamHakedis.Name = "lblToplamHakedis";
-            lblToplamHakedis.Size = new Size(58, 30);
+            lblToplamHakedis.Size = new Size(40, 20);
             lblToplamHakedis.TabIndex = 36;
             lblToplamHakedis.Text = "00,0";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(399, 433);
+            label15.Location = new Point(279, 260);
+            label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(161, 25);
+            label15.Size = new Size(107, 15);
             label15.TabIndex = 37;
             label15.Text = "Hakediş Tahakkuk :";
             // 
@@ -452,9 +485,10 @@
             // 
             lblHakedisTahakkuk.AutoSize = true;
             lblHakedisTahakkuk.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblHakedisTahakkuk.Location = new Point(566, 430);
+            lblHakedisTahakkuk.Location = new Point(396, 258);
+            lblHakedisTahakkuk.Margin = new Padding(2, 0, 2, 0);
             lblHakedisTahakkuk.Name = "lblHakedisTahakkuk";
-            lblHakedisTahakkuk.Size = new Size(58, 30);
+            lblHakedisTahakkuk.Size = new Size(40, 20);
             lblHakedisTahakkuk.TabIndex = 38;
             lblHakedisTahakkuk.Text = "00,0";
             // 
@@ -467,12 +501,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, ProjedenCikar });
-            dataGridView1.Location = new Point(39, 593);
+            dataGridView1.Location = new Point(27, 356);
+            dataGridView1.Margin = new Padding(2, 2, 2, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1789, 403);
+            dataGridView1.Size = new Size(1252, 242);
             dataGridView1.TabIndex = 39;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -615,9 +650,10 @@
             // 
             // btnYeniProgram
             // 
-            btnYeniProgram.Location = new Point(174, 472);
+            btnYeniProgram.Location = new Point(122, 283);
+            btnYeniProgram.Margin = new Padding(2, 2, 2, 2);
             btnYeniProgram.Name = "btnYeniProgram";
-            btnYeniProgram.Size = new Size(161, 45);
+            btnYeniProgram.Size = new Size(113, 27);
             btnYeniProgram.TabIndex = 40;
             btnYeniProgram.Text = "Program Ekle";
             btnYeniProgram.UseVisualStyleBackColor = true;
@@ -625,9 +661,10 @@
             // 
             // btnTarihleriSifirla
             // 
-            btnTarihleriSifirla.Location = new Point(194, 268);
+            btnTarihleriSifirla.Location = new Point(136, 161);
+            btnTarihleriSifirla.Margin = new Padding(2, 2, 2, 2);
             btnTarihleriSifirla.Name = "btnTarihleriSifirla";
-            btnTarihleriSifirla.Size = new Size(141, 43);
+            btnTarihleriSifirla.Size = new Size(99, 26);
             btnTarihleriSifirla.TabIndex = 41;
             btnTarihleriSifirla.Text = "Tarihleri Sıfırla";
             btnTarihleriSifirla.UseVisualStyleBackColor = true;
@@ -637,9 +674,10 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label16.Location = new Point(351, 378);
+            label16.Location = new Point(246, 227);
+            label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(26, 30);
+            label16.Size = new Size(18, 20);
             label16.TabIndex = 42;
             label16.Text = "₺";
             // 
@@ -647,9 +685,10 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label17.Location = new Point(351, 425);
+            label17.Location = new Point(246, 255);
+            label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
-            label17.Size = new Size(26, 30);
+            label17.Size = new Size(18, 20);
             label17.TabIndex = 43;
             label17.Text = "₺";
             // 
@@ -657,17 +696,19 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            label18.Location = new Point(713, 430);
+            label18.Location = new Point(499, 258);
+            label18.Margin = new Padding(2, 0, 2, 0);
             label18.Name = "label18";
-            label18.Size = new Size(26, 30);
+            label18.Size = new Size(18, 20);
             label18.TabIndex = 44;
             label18.Text = "₺";
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(7, 33);
+            pictureBox1.Location = new Point(5, 20);
+            pictureBox1.Margin = new Padding(2, 2, 2, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(709, 320);
+            pictureBox1.Size = new Size(496, 192);
             pictureBox1.TabIndex = 45;
             pictureBox1.TabStop = false;
             // 
@@ -677,18 +718,32 @@
             groupBox2.Controls.Add(btnOnceFotoKaydet);
             groupBox2.Controls.Add(btnOncesiGuncelle);
             groupBox2.Controls.Add(pictureBox1);
-            groupBox2.Location = new Point(1861, 22);
+            groupBox2.Location = new Point(1303, 13);
+            groupBox2.Margin = new Padding(2, 2, 2, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(721, 433);
+            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Size = new Size(505, 260);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
             groupBox2.Text = "Öncesi";
             // 
+            // btnOnceSil
+            // 
+            btnOnceSil.Location = new Point(264, 217);
+            btnOnceSil.Margin = new Padding(2, 2, 2, 2);
+            btnOnceSil.Name = "btnOnceSil";
+            btnOnceSil.Size = new Size(94, 28);
+            btnOnceSil.TabIndex = 48;
+            btnOnceSil.Text = "Foto Sil";
+            btnOnceSil.UseVisualStyleBackColor = true;
+            btnOnceSil.Click += btnOnceSil_Click;
+            // 
             // btnOnceFotoKaydet
             // 
-            btnOnceFotoKaydet.Location = new Point(191, 362);
+            btnOnceFotoKaydet.Location = new Point(134, 217);
+            btnOnceFotoKaydet.Margin = new Padding(2, 2, 2, 2);
             btnOnceFotoKaydet.Name = "btnOnceFotoKaydet";
-            btnOnceFotoKaydet.Size = new Size(134, 47);
+            btnOnceFotoKaydet.Size = new Size(94, 28);
             btnOnceFotoKaydet.TabIndex = 47;
             btnOnceFotoKaydet.Text = "Foto Kaydet";
             btnOnceFotoKaydet.UseVisualStyleBackColor = true;
@@ -696,9 +751,10 @@
             // 
             // btnOncesiGuncelle
             // 
-            btnOncesiGuncelle.Location = new Point(13, 362);
+            btnOncesiGuncelle.Location = new Point(9, 217);
+            btnOncesiGuncelle.Margin = new Padding(2, 2, 2, 2);
             btnOncesiGuncelle.Name = "btnOncesiGuncelle";
-            btnOncesiGuncelle.Size = new Size(129, 45);
+            btnOncesiGuncelle.Size = new Size(90, 27);
             btnOncesiGuncelle.TabIndex = 46;
             btnOncesiGuncelle.Text = "Foto Güncelle";
             btnOncesiGuncelle.UseVisualStyleBackColor = true;
@@ -710,18 +766,32 @@
             groupBox3.Controls.Add(btnSonraKaydet);
             groupBox3.Controls.Add(btnSonraGuncelle);
             groupBox3.Controls.Add(pictureBox2);
-            groupBox3.Location = new Point(1861, 472);
+            groupBox3.Location = new Point(1303, 283);
+            groupBox3.Margin = new Padding(2, 2, 2, 2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(716, 560);
+            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Size = new Size(501, 336);
             groupBox3.TabIndex = 47;
             groupBox3.TabStop = false;
             groupBox3.Text = "Sonrası";
             // 
+            // btnSonraSil
+            // 
+            btnSonraSil.Location = new Point(264, 301);
+            btnSonraSil.Margin = new Padding(2, 2, 2, 2);
+            btnSonraSil.Name = "btnSonraSil";
+            btnSonraSil.Size = new Size(94, 28);
+            btnSonraSil.TabIndex = 48;
+            btnSonraSil.Text = "Foto Sil";
+            btnSonraSil.UseVisualStyleBackColor = true;
+            btnSonraSil.Click += btnSonraSil_Click;
+            // 
             // btnSonraKaydet
             // 
-            btnSonraKaydet.Location = new Point(191, 495);
+            btnSonraKaydet.Location = new Point(134, 297);
+            btnSonraKaydet.Margin = new Padding(2, 2, 2, 2);
             btnSonraKaydet.Name = "btnSonraKaydet";
-            btnSonraKaydet.Size = new Size(134, 58);
+            btnSonraKaydet.Size = new Size(94, 35);
             btnSonraKaydet.TabIndex = 47;
             btnSonraKaydet.Text = "Foto Kaydet";
             btnSonraKaydet.UseVisualStyleBackColor = true;
@@ -729,9 +799,10 @@
             // 
             // btnSonraGuncelle
             // 
-            btnSonraGuncelle.Location = new Point(13, 495);
+            btnSonraGuncelle.Location = new Point(9, 297);
+            btnSonraGuncelle.Margin = new Padding(2, 2, 2, 2);
             btnSonraGuncelle.Name = "btnSonraGuncelle";
-            btnSonraGuncelle.Size = new Size(129, 58);
+            btnSonraGuncelle.Size = new Size(90, 35);
             btnSonraGuncelle.TabIndex = 46;
             btnSonraGuncelle.Text = "Foto Güncelle";
             btnSonraGuncelle.UseVisualStyleBackColor = true;
@@ -739,9 +810,10 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(13, 30);
+            pictureBox2.Location = new Point(9, 18);
+            pictureBox2.Margin = new Padding(2, 2, 2, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(697, 455);
+            pictureBox2.Size = new Size(488, 273);
             pictureBox2.TabIndex = 45;
             pictureBox2.TabStop = false;
             // 
@@ -749,17 +821,19 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9F);
-            label19.Location = new Point(549, 363);
+            label19.Location = new Point(384, 218);
+            label19.Margin = new Padding(2, 0, 2, 0);
             label19.Name = "label19";
-            label19.Size = new Size(116, 25);
+            label19.Size = new Size(75, 15);
             label19.TabIndex = 48;
             label19.Text = "Proje Dosya :";
             // 
             // btnDosyaEkle
             // 
-            btnDosyaEkle.Location = new Point(670, 358);
+            btnDosyaEkle.Location = new Point(469, 215);
+            btnDosyaEkle.Margin = new Padding(2, 2, 2, 2);
             btnDosyaEkle.Name = "btnDosyaEkle";
-            btnDosyaEkle.Size = new Size(111, 57);
+            btnDosyaEkle.Size = new Size(78, 34);
             btnDosyaEkle.TabIndex = 49;
             btnDosyaEkle.Text = "Dosya Ekle";
             btnDosyaEkle.UseVisualStyleBackColor = true;
@@ -768,9 +842,10 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(807, 417);
+            linkLabel1.Location = new Point(565, 250);
+            linkLabel1.Margin = new Padding(2, 0, 2, 0);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(116, 25);
+            linkLabel1.Size = new Size(75, 15);
             linkLabel1.TabIndex = 50;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Dosyayı Indir";
@@ -779,39 +854,20 @@
             // 
             // button1
             // 
-            button1.Location = new Point(811, 358);
+            button1.Location = new Point(568, 215);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(146, 57);
+            button1.Size = new Size(102, 34);
             button1.TabIndex = 51;
             button1.Text = "Dosyalar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // btnOnceSil
-            // 
-            btnOnceSil.Location = new Point(377, 362);
-            btnOnceSil.Name = "btnOnceSil";
-            btnOnceSil.Size = new Size(134, 47);
-            btnOnceSil.TabIndex = 48;
-            btnOnceSil.Text = "Foto Sil";
-            btnOnceSil.UseVisualStyleBackColor = true;
-            btnOnceSil.Click += btnOnceSil_Click;
-            // 
-            // btnSonraSil
-            // 
-            btnSonraSil.Location = new Point(377, 501);
-            btnSonraSil.Name = "btnSonraSil";
-            btnSonraSil.Size = new Size(134, 47);
-            btnSonraSil.TabIndex = 48;
-            btnSonraSil.Text = "Foto Sil";
-            btnSonraSil.UseVisualStyleBackColor = true;
-            btnSonraSil.Click += btnSonraSil_Click;
-            // 
             // YatirimUygulama
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2644, 1046);
+            ClientSize = new Size(1562, 808);
             Controls.Add(button1);
             Controls.Add(linkLabel1);
             Controls.Add(btnDosyaEkle);
@@ -853,6 +909,7 @@
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
             WindowState = FormWindowState.Maximized;
