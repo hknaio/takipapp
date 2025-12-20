@@ -37,7 +37,7 @@ namespace WinFormsApp1
             cmbOperator.DataSource = operators;
             cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
 
-            var talepEdens = users.Where(u => u.Birim == "Su ve Kanalizasyon Hizmetleri").ToList();
+            var talepEdens = users.Where(u => u.Birim == "Su ve Kanal Hizmetleri").ToList();
             talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
             cmbTalepEden.DataSource = talepEdens;
             cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();
