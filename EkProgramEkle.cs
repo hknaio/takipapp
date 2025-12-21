@@ -22,6 +22,8 @@ namespace WinFormsApp1
             _dbContext.Ilces.Load(); _dbContext.Imalats.Load();
             cmbIlce.DataSource = _dbContext.Ilces.Local.ToBindingList();
             cmbIlce.DisplayMember = "Adi"; cmbIlce.Invalidate();
+            cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
+            cmbKoy.DisplayMember = "Adi"; cmbKoy.Invalidate();
             cmbImalat.DataSource = _dbContext.Imalats.Local.ToBindingList();
             cmbImalat.DisplayMember = "Isim"; cmbImalat.Invalidate();
             lblYil.Text = _yil.ToString();
@@ -42,11 +44,11 @@ namespace WinFormsApp1
                         Birim = cmbBirim.Text,
                         Ilce = ilce.Adi,
                         Imalat = imalat.Isim,
-                        Koy = txtKoy.Text,
+                        Koy = cmbKoy.Text,
                         Miktar = txtMiktar.Text,
                         Yil = Convert.ToInt32(lblYil.Text),
                         Kaynak = lblKaynak.Text,
-                        Program = "Ek Program",
+                        Program = cmbProgram.Text,
                         YatirimDurumu = YatirimDurumu.Uygulanmadi,
                     });
 
@@ -64,8 +66,8 @@ namespace WinFormsApp1
 
         private bool IsModelValid()
         {
-            if (txtKoy.Text != string.Empty && txtMiktar.Text != string.Empty
-                && cmbIlce.Text != string.Empty)
+            if (cmbKoy.Text != string.Empty && txtMiktar.Text != string.Empty
+                && cmbIlce.Text != string.Empty && cmbProgram.Text != string.Empty)
             {
                 return true;
             }
@@ -79,6 +81,20 @@ namespace WinFormsApp1
 
             _dbContext?.Dispose();
             _dbContext = null;
+        }
+
+        private void cmbIlce_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = cmbIlce.Text;
+
+            cmbKoy.Text = string.Empty;
+
+            var koyList = _dbContext!.Koys.Where(k => k.Ilce.Adi == selectedItem).ToList();
+
+            if (koyList != null)
+            {
+                cmbKoy.DataSource = koyList;
+            }
         }
     }
 }

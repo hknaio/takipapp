@@ -60,7 +60,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Durum, Proje, ID, Ilce, Koy, Birim, Imalat, Miktar, Yil, Program, Sil, Duzenle });
             dataGridView1.GridColor = SystemColors.HotTrack;
             dataGridView1.Location = new Point(8, 69);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
@@ -213,18 +213,18 @@
             // 
             btnEkProgram.BackColor = Color.IndianRed;
             btnEkProgram.Location = new Point(315, 14);
-            btnEkProgram.Margin = new Padding(2, 2, 2, 2);
+            btnEkProgram.Margin = new Padding(2);
             btnEkProgram.Name = "btnEkProgram";
             btnEkProgram.Size = new Size(111, 29);
             btnEkProgram.TabIndex = 7;
-            btnEkProgram.Text = "Ek Program Ekle";
+            btnEkProgram.Text = "Program Ekle";
             btnEkProgram.UseVisualStyleBackColor = false;
             btnEkProgram.Click += btnEkProgram_Click;
             // 
             // button1
             // 
             button1.Location = new Point(474, 13);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(102, 30);
             button1.TabIndex = 8;
@@ -245,7 +245,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "YatirimTanimlamaDetay";
             Text = "YatirimTanimlamaDetay";
             WindowState = FormWindowState.Maximized;
