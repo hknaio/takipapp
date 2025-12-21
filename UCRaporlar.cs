@@ -20,13 +20,13 @@ namespace WinFormsApp1
              || _user.Role == "Yonetim" || _user.Role == "Rapor")
                 {
                     btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
-                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
+                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = btnFaaliyetKoyGenel.Visible = false;
                 }
 
                 if (_user.Role == "Su" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
                 {
                     button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
-                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = false;
+                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = btnFaaliyetKoyGenel.Visible = false;
                     btnSuButce.Location = button5.Location;
                     btnFaaliyetSu.Location = button1.Location;
                     btnFaaliyetKoySu.Location = button2.Location;
@@ -35,12 +35,12 @@ namespace WinFormsApp1
                 if (_user.Role == "Tarımsal" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
                 {
                     button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
-                    btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = false;
+                    btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = btnFaaliyetKoyGenel.Visible = false;
                     btnTarimsalButce.Location = button5.Location;
                     btnFaaliyetTarimsal.Location = button1.Location;
                     btnFaaliyetKoyTarimsal.Location = button2.Location;
                 }
-            }            
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -159,6 +159,15 @@ namespace WinFormsApp1
         private void btnFaaliyetKoySu_Click(object sender, EventArgs e)
         {
             using (FaaliyetRaporuKoySu faaliyetRaporuKoy = new())
+            {
+                faaliyetRaporuKoy.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void btnFaaliyetKoyGenel_Click(object sender, EventArgs e)
+        {
+            using (FaaliyetRaporuKoyGenel faaliyetRaporuKoy = new())
             {
                 faaliyetRaporuKoy.ShowDialog();
                 this.OnLoad(e);
