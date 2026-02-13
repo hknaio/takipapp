@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using YatirimTakip.Models;
 
 namespace WinFormsApp1.Models
 {
@@ -64,6 +65,9 @@ namespace WinFormsApp1.Models
 
         [Browsable(false)]
         public ICollection<Hakedis>? Hakedis { get; set; }
+
+        [Browsable(false)]
+        public ICollection<ProjeAltImalat>? ProjeAltImalats { get; set; }
         public string? User { get; set; }
     }
 }

@@ -45,10 +45,15 @@ namespace WinFormsApp1
 
             _dbContext = new AppDbContext();
             _proje = _dbContext.Projes.Where(p => p.ID == _id).FirstOrDefault();
+
             _dbContext.Hakedis.Where(h => h.Proje.ID == _id).Load();
+            _dbContext.ProjeAltImalats.Where(h => h.Proje.ID == _id).Load();
             _dbContext.YatirimProgramis.Where(p => p.Proje.ID == _id).Load();
+
             dataGridView2.DataSource = _dbContext.Hakedis.Local.ToBindingList();
             dataGridView1.DataSource = _dbContext.YatirimProgramis.Local.ToBindingList();
+            dgAltImalat.DataSource = _dbContext.ProjeAltImalats.Local.ToBindingList();
+
             cmbDurum.DataSource = EnumList.EnumKeyValue<ProjeDurumu>();
             cmbDurum.DisplayMember = "Value";
             cmbDurum.ValueMember = "Key";
@@ -249,6 +254,12 @@ namespace WinFormsApp1
             dataGridView2.Columns["No"].DisplayIndex = 1;
             dataGridView2.Columns["HakedisMiktari"].DisplayIndex = 2;
             dataGridView2.Columns["Sil"].DisplayIndex = 3;
+
+            dgAltImalat.AutoGenerateColumns = false;
+            dgAltImalat.Columns["index"].DisplayIndex = 0;
+            dgAltImalat.Columns["AltImalat"].DisplayIndex = 1;
+            dgAltImalat.Columns["AltMiktar"].DisplayIndex = 2;
+            dgAltImalat.Columns["AltFiyat"].DisplayIndex = 3;
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.Columns["Ilce"].DisplayIndex = 0;
@@ -844,6 +855,46 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Beklenmeyen hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAltImalatEkle_Click(object sender, EventArgs e)
+        {
+            using (AltImalatEkle altImalat = new(_user.Birim, _proje.ID))
+            {
+                altImalat.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void dgAltImalat_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex ==
+          dgAltImalat.Columns[0].Index)
+            {
+                var altImalatId = dgAltImalat.CurrentRow.Cells["index"].Value;
+                var altImalat = _dbContext!.ProjeAltImalats.Where(i => i.ID == (int)altImalatId).FirstOrDefault();
+
+                if (altImalat != null)
+                {
+                    try
+                    {
+                        var buttons = MessageBoxButtons.YesNo;
+                        var result = MessageBox.Show("Silmek İstediğinize Emin misiniz?", "Dikkat", buttons, MessageBoxIcon.Warning);
+
+                        if (result == DialogResult.Yes)
+                        {
+
+                            _dbContext.ProjeAltImalats.Remove(altImalat);
+                            _dbContext.SaveChanges();
+                            dgAltImalat.Refresh();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bir şeyler ters gitti. Lütfen tekrar deneyin.", "Hata");
+                    }
+                }
             }
         }
     }

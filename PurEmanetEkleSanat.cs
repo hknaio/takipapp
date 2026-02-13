@@ -86,7 +86,7 @@ namespace WinFormsApp1
                         var cap = item.Cells["Cap"].Value;
                         var miktar = item.Cells["Miktar"].Value;
 
-                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap)).FirstOrDefault();
+                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap) && b.Mudurluk == "Yol ve Ulaşım Hizmetleri").FirstOrDefault();
 
                         if (spiralBoru != null)
                         {
@@ -222,7 +222,7 @@ namespace WinFormsApp1
                 btnBoruEkle.Visible = true;
                 dgBoru.Visible = true;
 
-                var spiralBoruList = _dbContext?.SpiralBorus.ToList();
+                var spiralBoruList = _dbContext?.SpiralBorus.Where(s => s.Mudurluk == "Yol ve Ulaşım Hizmetleri").ToList();
 
                 if (spiralBoruList != null)
                 {

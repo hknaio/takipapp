@@ -49,55 +49,63 @@
             btnEkle = new Button();
             label4 = new Label();
             txtBirimFiyat = new MaskedTextBox();
+            cmbBirim = new ComboBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 29);
+            label1.Location = new Point(21, 17);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(52, 25);
+            label1.Size = new Size(34, 15);
             label1.TabIndex = 0;
             label1.Text = "Çap :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(261, 31);
+            label2.Location = new Point(183, 19);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(61, 25);
+            label2.Size = new Size(41, 15);
             label2.TabIndex = 1;
             label2.Text = "Birim :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(503, 32);
+            label3.Location = new Point(352, 19);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(111, 25);
+            label3.Size = new Size(73, 15);
             label3.TabIndex = 2;
             label3.Text = "Stok Miktar :";
             // 
             // txtCap
             // 
-            txtCap.Location = new Point(77, 28);
+            txtCap.Location = new Point(54, 17);
+            txtCap.Margin = new Padding(2);
             txtCap.Name = "txtCap";
-            txtCap.Size = new Size(150, 31);
+            txtCap.Size = new Size(106, 23);
             txtCap.TabIndex = 3;
             // 
             // txtBirim
             // 
-            txtBirim.Location = new Point(319, 29);
+            txtBirim.Location = new Point(223, 17);
+            txtBirim.Margin = new Padding(2);
             txtBirim.Name = "txtBirim";
-            txtBirim.Size = new Size(150, 31);
+            txtBirim.Size = new Size(106, 23);
             txtBirim.TabIndex = 4;
             // 
             // txtStok
             // 
-            txtStok.Location = new Point(610, 29);
+            txtStok.Location = new Point(427, 17);
+            txtStok.Margin = new Padding(2);
             txtStok.Name = "txtStok";
-            txtStok.Size = new Size(150, 31);
+            txtStok.Size = new Size(106, 23);
             txtStok.TabIndex = 5;
             // 
             // dataGridView1
@@ -108,12 +116,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Cap, Birim, BirimFiyat, StokMiktar, FiyatGecerlilikTarihi, BirimFiyatGuncelle, MiktarGuncelle, Sil, TarihListesi });
-            dataGridView1.Location = new Point(30, 97);
+            dataGridView1.Location = new Point(11, 61);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1204, 423);
+            dataGridView1.Size = new Size(1204, 254);
             dataGridView1.TabIndex = 6;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -216,9 +225,10 @@
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(1109, 28);
+            btnEkle.Location = new Point(1088, 19);
+            btnEkle.Margin = new Padding(2);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(153, 39);
+            btnEkle.Size = new Size(107, 23);
             btnEkle.TabIndex = 7;
             btnEkle.Text = "Listeye Ekle";
             btnEkle.UseVisualStyleBackColor = true;
@@ -227,24 +237,48 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(812, 32);
+            label4.Location = new Point(568, 19);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(103, 25);
+            label4.Size = new Size(69, 15);
             label4.TabIndex = 8;
             label4.Text = "Birim Fiyat :";
             // 
             // txtBirimFiyat
             // 
-            txtBirimFiyat.Location = new Point(912, 31);
+            txtBirimFiyat.Location = new Point(638, 19);
+            txtBirimFiyat.Margin = new Padding(2);
             txtBirimFiyat.Name = "txtBirimFiyat";
-            txtBirimFiyat.Size = new Size(150, 31);
+            txtBirimFiyat.Size = new Size(106, 23);
             txtBirimFiyat.TabIndex = 9;
+            // 
+            // cmbBirim
+            // 
+            cmbBirim.FormattingEnabled = true;
+            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanal Hizmetleri" });
+            cmbBirim.Location = new Point(859, 19);
+            cmbBirim.Margin = new Padding(2);
+            cmbBirim.Name = "cmbBirim";
+            cmbBirim.Size = new Size(215, 23);
+            cmbBirim.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(786, 23);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Müdürlük :";
             // 
             // SpiralBoruTanimlama
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 589);
+            ClientSize = new Size(1253, 353);
+            Controls.Add(label5);
+            Controls.Add(cmbBirim);
             Controls.Add(txtBirimFiyat);
             Controls.Add(label4);
             Controls.Add(btnEkle);
@@ -255,6 +289,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2);
             Name = "SpiralBoruTanimlama";
             Text = "Spiral Boru Tanımlama";
             FormClosing += SpiralBoruTanimlama_FormClosing;
@@ -286,5 +321,7 @@
         private DataGridViewButtonColumn MiktarGuncelle;
         private DataGridViewButtonColumn Sil;
         private DataGridViewTextBoxColumn TarihListesi;
+        private ComboBox cmbBirim;
+        private Label label5;
     }
 }

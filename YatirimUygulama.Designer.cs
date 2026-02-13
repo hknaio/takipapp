@@ -100,6 +100,14 @@
             btnDosyaEkle = new Button();
             linkLabel1 = new LinkLabel();
             button1 = new Button();
+            grpAltImalat = new GroupBox();
+            btnAltImalatEkle = new Button();
+            dgAltImalat = new DataGridView();
+            AltImalat = new DataGridViewTextBoxColumn();
+            AltMiktar = new DataGridViewTextBoxColumn();
+            AltFiyat = new DataGridViewTextBoxColumn();
+            Kaldir = new DataGridViewButtonColumn();
+            index = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -107,6 +115,8 @@
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            grpAltImalat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgAltImalat).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -144,7 +154,7 @@
             // dtpGeciciKabul
             // 
             dtpGeciciKabul.Location = new Point(136, 104);
-            dtpGeciciKabul.Margin = new Padding(2, 2, 2, 2);
+            dtpGeciciKabul.Margin = new Padding(2);
             dtpGeciciKabul.Name = "dtpGeciciKabul";
             dtpGeciciKabul.Size = new Size(211, 23);
             dtpGeciciKabul.TabIndex = 6;
@@ -165,7 +175,7 @@
             // 
             dtpKesinKabul.Enabled = false;
             dtpKesinKabul.Location = new Point(136, 133);
-            dtpKesinKabul.Margin = new Padding(2, 2, 2, 2);
+            dtpKesinKabul.Margin = new Padding(2);
             dtpKesinKabul.Name = "dtpKesinKabul";
             dtpKesinKabul.Size = new Size(211, 23);
             dtpKesinKabul.TabIndex = 8;
@@ -186,7 +196,7 @@
             // 
             cmbDurum.FormattingEnabled = true;
             cmbDurum.Location = new Point(461, 107);
-            cmbDurum.Margin = new Padding(2, 2, 2, 2);
+            cmbDurum.Margin = new Padding(2);
             cmbDurum.Name = "cmbDurum";
             cmbDurum.Size = new Size(210, 23);
             cmbDurum.TabIndex = 10;
@@ -205,7 +215,7 @@
             // txtAciklama
             // 
             txtAciklama.Location = new Point(461, 140);
-            txtAciklama.Margin = new Padding(2, 2, 2, 2);
+            txtAciklama.Margin = new Padding(2);
             txtAciklama.Multiline = true;
             txtAciklama.Name = "txtAciklama";
             txtAciklama.Size = new Size(220, 55);
@@ -214,7 +224,7 @@
             // btnKaydet
             // 
             btnKaydet.Location = new Point(1312, 648);
-            btnKaydet.Margin = new Padding(2, 2, 2, 2);
+            btnKaydet.Margin = new Padding(2);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(90, 41);
             btnKaydet.TabIndex = 13;
@@ -225,7 +235,7 @@
             // button2
             // 
             button2.Location = new Point(1437, 648);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(94, 41);
             button2.TabIndex = 14;
@@ -236,7 +246,7 @@
             // txtHakedisMiktar
             // 
             txtHakedisMiktar.Location = new Point(162, 18);
-            txtHakedisMiktar.Margin = new Padding(2, 2, 2, 2);
+            txtHakedisMiktar.Margin = new Padding(2);
             txtHakedisMiktar.Name = "txtHakedisMiktar";
             txtHakedisMiktar.PlaceholderText = "0,00";
             txtHakedisMiktar.Size = new Size(101, 23);
@@ -247,7 +257,7 @@
             // 
             btnHakedisEkle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnHakedisEkle.Location = new Point(275, 18);
-            btnHakedisEkle.Margin = new Padding(2, 2, 2, 2);
+            btnHakedisEkle.Margin = new Padding(2);
             btnHakedisEkle.Name = "btnHakedisEkle";
             btnHakedisEkle.Size = new Size(43, 34);
             btnHakedisEkle.TabIndex = 18;
@@ -262,9 +272,9 @@
             groupBox1.Controls.Add(txtHakedisMiktar);
             groupBox1.Controls.Add(btnHakedisEkle);
             groupBox1.Location = new Point(691, 10);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(391, 206);
             groupBox1.TabIndex = 20;
             groupBox1.TabStop = false;
@@ -278,7 +288,7 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No, ID, HakedisMiktari, Sil });
             dataGridView2.Location = new Point(4, 64);
-            dataGridView2.Margin = new Padding(2, 2, 2, 2);
+            dataGridView2.Margin = new Padding(2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersVisible = false;
@@ -328,7 +338,7 @@
             // txtHakedis
             // 
             txtHakedis.Location = new Point(4, 18);
-            txtHakedis.Margin = new Padding(2, 2, 2, 2);
+            txtHakedis.Margin = new Padding(2);
             txtHakedis.Name = "txtHakedis";
             txtHakedis.Size = new Size(142, 23);
             txtHakedis.TabIndex = 20;
@@ -356,7 +366,7 @@
             // dtpIseBaslama
             // 
             dtpIseBaslama.Location = new Point(136, 35);
-            dtpIseBaslama.Margin = new Padding(2, 2, 2, 2);
+            dtpIseBaslama.Margin = new Padding(2);
             dtpIseBaslama.MinDate = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtpIseBaslama.Name = "dtpIseBaslama";
             dtpIseBaslama.Size = new Size(211, 23);
@@ -368,7 +378,7 @@
             // 
             dtpBitisTarihi.Enabled = false;
             dtpBitisTarihi.Location = new Point(136, 69);
-            dtpBitisTarihi.Margin = new Padding(2, 2, 2, 2);
+            dtpBitisTarihi.Margin = new Padding(2);
             dtpBitisTarihi.Name = "dtpBitisTarihi";
             dtpBitisTarihi.Size = new Size(211, 23);
             dtpBitisTarihi.TabIndex = 25;
@@ -386,7 +396,7 @@
             // txtSure
             // 
             txtSure.Location = new Point(461, 35);
-            txtSure.Margin = new Padding(2, 2, 2, 2);
+            txtSure.Margin = new Padding(2);
             txtSure.Name = "txtSure";
             txtSure.Size = new Size(106, 23);
             txtSure.TabIndex = 27;
@@ -436,7 +446,7 @@
             // txtYuklenici
             // 
             txtYuklenici.Location = new Point(461, 70);
-            txtYuklenici.Margin = new Padding(2, 2, 2, 2);
+            txtYuklenici.Margin = new Padding(2);
             txtYuklenici.Name = "txtYuklenici";
             txtYuklenici.Size = new Size(210, 23);
             txtYuklenici.TabIndex = 33;
@@ -444,7 +454,7 @@
             // txtSozlesmeBedeli
             // 
             txtSozlesmeBedeli.Location = new Point(136, 197);
-            txtSozlesmeBedeli.Margin = new Padding(2, 2, 2, 2);
+            txtSozlesmeBedeli.Margin = new Padding(2);
             txtSozlesmeBedeli.Name = "txtSozlesmeBedeli";
             txtSozlesmeBedeli.Size = new Size(211, 23);
             txtSozlesmeBedeli.TabIndex = 34;
@@ -501,13 +511,13 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Ilce, ProgramId, Uygulama, UygulamaEkle, YaklasikMaliyet, MaliyetButton, Koy, Birim, Imalat, Miktar, Yil, YatirimDurumu, Proje, Kaynak, ProjedenCikar });
-            dataGridView1.Location = new Point(27, 356);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Location = new Point(27, 419);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView1.Size = new Size(1252, 242);
+            dataGridView1.Size = new Size(1252, 179);
             dataGridView1.TabIndex = 39;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -651,7 +661,7 @@
             // btnYeniProgram
             // 
             btnYeniProgram.Location = new Point(122, 283);
-            btnYeniProgram.Margin = new Padding(2, 2, 2, 2);
+            btnYeniProgram.Margin = new Padding(2);
             btnYeniProgram.Name = "btnYeniProgram";
             btnYeniProgram.Size = new Size(113, 27);
             btnYeniProgram.TabIndex = 40;
@@ -662,7 +672,7 @@
             // btnTarihleriSifirla
             // 
             btnTarihleriSifirla.Location = new Point(136, 161);
-            btnTarihleriSifirla.Margin = new Padding(2, 2, 2, 2);
+            btnTarihleriSifirla.Margin = new Padding(2);
             btnTarihleriSifirla.Name = "btnTarihleriSifirla";
             btnTarihleriSifirla.Size = new Size(99, 26);
             btnTarihleriSifirla.TabIndex = 41;
@@ -706,7 +716,7 @@
             // pictureBox1
             // 
             pictureBox1.Location = new Point(5, 20);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(496, 192);
             pictureBox1.TabIndex = 45;
@@ -719,9 +729,9 @@
             groupBox2.Controls.Add(btnOncesiGuncelle);
             groupBox2.Controls.Add(pictureBox1);
             groupBox2.Location = new Point(1303, 13);
-            groupBox2.Margin = new Padding(2, 2, 2, 2);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Padding = new Padding(2);
             groupBox2.Size = new Size(505, 260);
             groupBox2.TabIndex = 46;
             groupBox2.TabStop = false;
@@ -730,7 +740,7 @@
             // btnOnceSil
             // 
             btnOnceSil.Location = new Point(264, 217);
-            btnOnceSil.Margin = new Padding(2, 2, 2, 2);
+            btnOnceSil.Margin = new Padding(2);
             btnOnceSil.Name = "btnOnceSil";
             btnOnceSil.Size = new Size(94, 28);
             btnOnceSil.TabIndex = 48;
@@ -741,7 +751,7 @@
             // btnOnceFotoKaydet
             // 
             btnOnceFotoKaydet.Location = new Point(134, 217);
-            btnOnceFotoKaydet.Margin = new Padding(2, 2, 2, 2);
+            btnOnceFotoKaydet.Margin = new Padding(2);
             btnOnceFotoKaydet.Name = "btnOnceFotoKaydet";
             btnOnceFotoKaydet.Size = new Size(94, 28);
             btnOnceFotoKaydet.TabIndex = 47;
@@ -752,7 +762,7 @@
             // btnOncesiGuncelle
             // 
             btnOncesiGuncelle.Location = new Point(9, 217);
-            btnOncesiGuncelle.Margin = new Padding(2, 2, 2, 2);
+            btnOncesiGuncelle.Margin = new Padding(2);
             btnOncesiGuncelle.Name = "btnOncesiGuncelle";
             btnOncesiGuncelle.Size = new Size(90, 27);
             btnOncesiGuncelle.TabIndex = 46;
@@ -767,9 +777,9 @@
             groupBox3.Controls.Add(btnSonraGuncelle);
             groupBox3.Controls.Add(pictureBox2);
             groupBox3.Location = new Point(1303, 283);
-            groupBox3.Margin = new Padding(2, 2, 2, 2);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Padding = new Padding(2);
             groupBox3.Size = new Size(501, 336);
             groupBox3.TabIndex = 47;
             groupBox3.TabStop = false;
@@ -778,7 +788,7 @@
             // btnSonraSil
             // 
             btnSonraSil.Location = new Point(264, 301);
-            btnSonraSil.Margin = new Padding(2, 2, 2, 2);
+            btnSonraSil.Margin = new Padding(2);
             btnSonraSil.Name = "btnSonraSil";
             btnSonraSil.Size = new Size(94, 28);
             btnSonraSil.TabIndex = 48;
@@ -789,7 +799,7 @@
             // btnSonraKaydet
             // 
             btnSonraKaydet.Location = new Point(134, 297);
-            btnSonraKaydet.Margin = new Padding(2, 2, 2, 2);
+            btnSonraKaydet.Margin = new Padding(2);
             btnSonraKaydet.Name = "btnSonraKaydet";
             btnSonraKaydet.Size = new Size(94, 35);
             btnSonraKaydet.TabIndex = 47;
@@ -800,7 +810,7 @@
             // btnSonraGuncelle
             // 
             btnSonraGuncelle.Location = new Point(9, 297);
-            btnSonraGuncelle.Margin = new Padding(2, 2, 2, 2);
+            btnSonraGuncelle.Margin = new Padding(2);
             btnSonraGuncelle.Name = "btnSonraGuncelle";
             btnSonraGuncelle.Size = new Size(90, 35);
             btnSonraGuncelle.TabIndex = 46;
@@ -811,7 +821,7 @@
             // pictureBox2
             // 
             pictureBox2.Location = new Point(9, 18);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(488, 273);
             pictureBox2.TabIndex = 45;
@@ -831,7 +841,7 @@
             // btnDosyaEkle
             // 
             btnDosyaEkle.Location = new Point(469, 215);
-            btnDosyaEkle.Margin = new Padding(2, 2, 2, 2);
+            btnDosyaEkle.Margin = new Padding(2);
             btnDosyaEkle.Name = "btnDosyaEkle";
             btnDosyaEkle.Size = new Size(78, 34);
             btnDosyaEkle.TabIndex = 49;
@@ -855,7 +865,7 @@
             // button1
             // 
             button1.Location = new Point(568, 215);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(102, 34);
             button1.TabIndex = 51;
@@ -863,11 +873,91 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // grpAltImalat
+            // 
+            grpAltImalat.Controls.Add(btnAltImalatEkle);
+            grpAltImalat.Controls.Add(dgAltImalat);
+            grpAltImalat.Location = new Point(697, 222);
+            grpAltImalat.Name = "grpAltImalat";
+            grpAltImalat.Size = new Size(582, 192);
+            grpAltImalat.TabIndex = 52;
+            grpAltImalat.TabStop = false;
+            grpAltImalat.Text = "Alt İmalat";
+            // 
+            // btnAltImalatEkle
+            // 
+            btnAltImalatEkle.Location = new Point(491, 21);
+            btnAltImalatEkle.Margin = new Padding(2);
+            btnAltImalatEkle.Name = "btnAltImalatEkle";
+            btnAltImalatEkle.Size = new Size(86, 27);
+            btnAltImalatEkle.TabIndex = 53;
+            btnAltImalatEkle.Text = "Ekle";
+            btnAltImalatEkle.UseVisualStyleBackColor = true;
+            btnAltImalatEkle.Click += btnAltImalatEkle_Click;
+            // 
+            // dgAltImalat
+            // 
+            dgAltImalat.AllowUserToAddRows = false;
+            dgAltImalat.AllowUserToDeleteRows = false;
+            dgAltImalat.BackgroundColor = SystemColors.ActiveCaption;
+            dgAltImalat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgAltImalat.Columns.AddRange(new DataGridViewColumn[] { AltImalat, AltMiktar, AltFiyat, Kaldir, index });
+            dgAltImalat.Location = new Point(0, 21);
+            dgAltImalat.Margin = new Padding(2);
+            dgAltImalat.Name = "dgAltImalat";
+            dgAltImalat.ReadOnly = true;
+            dgAltImalat.RowHeadersVisible = false;
+            dgAltImalat.RowHeadersWidth = 62;
+            dgAltImalat.Size = new Size(487, 161);
+            dgAltImalat.TabIndex = 22;
+            dgAltImalat.CellClick += dgAltImalat_CellClick;
+            // 
+            // AltImalat
+            // 
+            AltImalat.DataPropertyName = "ImalatAdi";
+            AltImalat.HeaderText = "Alt İmalat";
+            AltImalat.Name = "AltImalat";
+            AltImalat.ReadOnly = true;
+            // 
+            // AltMiktar
+            // 
+            AltMiktar.DataPropertyName = "Miktar";
+            AltMiktar.HeaderText = "Miktar";
+            AltMiktar.Name = "AltMiktar";
+            AltMiktar.ReadOnly = true;
+            // 
+            // AltFiyat
+            // 
+            AltFiyat.DataPropertyName = "Fiyat";
+            AltFiyat.HeaderText = "Fiyat";
+            AltFiyat.Name = "AltFiyat";
+            AltFiyat.ReadOnly = true;
+            // 
+            // Kaldir
+            // 
+            Kaldir.HeaderText = "Kaldır";
+            Kaldir.Name = "Kaldir";
+            Kaldir.ReadOnly = true;
+            Kaldir.Resizable = DataGridViewTriState.True;
+            Kaldir.SortMode = DataGridViewColumnSortMode.Automatic;
+            Kaldir.Text = "Kaldır";
+            Kaldir.ToolTipText = "Kaldır";
+            Kaldir.UseColumnTextForButtonValue = true;
+            // 
+            // index
+            // 
+            index.DataPropertyName = "ID";
+            index.HeaderText = "index";
+            index.Name = "index";
+            index.ReadOnly = true;
+            index.Visible = false;
+            // 
             // YatirimUygulama
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1562, 808);
+            Controls.Add(grpAltImalat);
             Controls.Add(button1);
             Controls.Add(linkLabel1);
             Controls.Add(btnDosyaEkle);
@@ -909,7 +999,7 @@
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "YatirimUygulama";
             Text = "Yatırım Proje Uygulama";
             WindowState = FormWindowState.Maximized;
@@ -923,6 +1013,8 @@
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            grpAltImalat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgAltImalat).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1000,5 +1092,13 @@
         private Button button1;
         private Button btnOnceSil;
         private Button btnSonraSil;
+        private GroupBox grpAltImalat;
+        private DataGridView dgAltImalat;
+        private Button btnAltImalatEkle;
+        private DataGridViewTextBoxColumn AltImalat;
+        private DataGridViewTextBoxColumn AltMiktar;
+        private DataGridViewTextBoxColumn AltFiyat;
+        private DataGridViewButtonColumn Kaldir;
+        private DataGridViewTextBoxColumn index;
     }
 }

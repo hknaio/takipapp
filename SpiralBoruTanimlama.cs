@@ -44,6 +44,7 @@ namespace WinFormsApp1
                         Birim = txtBirim.Text,
                         BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text),
                         StokMiktar = Convert.ToInt32(txtStok.Text),
+                        Mudurluk = cmbBirim.Text,
                     });
                     _dbContext.SaveChanges();
                     dataGridView1.Refresh();

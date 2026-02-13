@@ -537,6 +537,9 @@ namespace WinFormsApp1.Migrations
                     b.Property<DateTime>("FiyatGecerlilikBaslangicTarihi")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Mudurluk")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("StokMiktar")
                         .HasColumnType("int");
 
@@ -693,6 +696,34 @@ namespace WinFormsApp1.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("IsMakinesi", (string)null);
+                });
+
+            modelBuilder.Entity("YatirimTakip.Models.ProjeAltImalat", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("Fiyat")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ImalatAdi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Miktar")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProjeID");
+
+                    b.ToTable("ProjeAltImalat", (string)null);
                 });
 
             modelBuilder.Entity("YatirimTakip.Models.User", b =>
@@ -929,6 +960,17 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("Ilce");
                 });
 
+            modelBuilder.Entity("YatirimTakip.Models.ProjeAltImalat", b =>
+                {
+                    b.HasOne("WinFormsApp1.Models.Proje", "Proje")
+                        .WithMany("ProjeAltImalats")
+                        .HasForeignKey("ProjeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proje");
+                });
+
             modelBuilder.Entity("YatirimTakip.Models.UserIlce", b =>
                 {
                     b.HasOne("WinFormsApp1.Models.Ilce", "Ilce")
@@ -968,6 +1010,8 @@ namespace WinFormsApp1.Migrations
                     b.Navigation("Hakedis");
 
                     b.Navigation("Programis");
+
+                    b.Navigation("ProjeAltImalats");
                 });
 
             modelBuilder.Entity("WinFormsApp1.Models.PurEmanet", b =>
