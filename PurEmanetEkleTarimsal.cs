@@ -57,6 +57,7 @@ namespace WinFormsApp1
             txtBoruMetre.Visible = false;
             label6.Visible = false;
             chkMezraList.Visible = false;
+            btnBoruEkle.Visible = false;
             dgBoru.Visible = false;
         }
 
@@ -210,6 +211,8 @@ namespace WinFormsApp1
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
                 cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();
                 txtMiktar.Visible = false;
+                btnBoruEkle.Visible = true;
+                dgBoru.Visible = true;
 
                 var spiralBoruList = _dbContext?.SpiralBorus.Where(s => s.Mudurluk == "Tarımsal Hizmetler").ToList();
 
@@ -223,6 +226,8 @@ namespace WinFormsApp1
             {
                 txtMiktar.Visible = true;
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = false;
+                btnBoruEkle.Visible = false;
+                dgBoru.Visible = false;
             }
         }
 

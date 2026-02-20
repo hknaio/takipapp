@@ -26,8 +26,7 @@ namespace WinFormsApp1
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
             _dbContext.Ilces.Load();
-            _dbContext.Imalats.Where(i => i.Isim.Contains("Menfez") ||
-                                          i.Isim.Contains("Spiral Boru") ||
+            _dbContext.Imalats.Where(i => (i.Mudurluk == "Yol ve Ulaşım Hizmetleri" && i.Isim.Contains("Spiral Boru")) || i.Isim.Contains("Menfez") ||                                          
                                           i.Isim.Contains("Taş Duvar") ||
                                           i.Isim.Contains("İstinat Duvarı") ||
                                           i.Isim.Contains("Köprü")).Load();
