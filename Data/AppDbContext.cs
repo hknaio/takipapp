@@ -33,8 +33,9 @@ namespace WinFormsApp1.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserIlce> UserIlces { get; set; }
         public DbSet<IsMakinesi> IsMakinesis { get; set; }
+        public DbSet<ProjeAltImalat> ProjeAltImalats { get; set; }
 
-          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //   //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-Q8HAMJ4;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
         //=> optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-AV7VES2;Initial Catalog=Yatirim;Integrated Security=True;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -71,6 +72,7 @@ namespace WinFormsApp1.Data
             modelBuilder.Entity<User>().ToTable(nameof(User));
             modelBuilder.Entity<UserIlce>().ToTable(nameof(UserIlce));
             modelBuilder.Entity<IsMakinesi>().ToTable(nameof(IsMakinesi));
+            modelBuilder.Entity<ProjeAltImalat>().ToTable(nameof(ProjeAltImalat));
         }
     }
 }
