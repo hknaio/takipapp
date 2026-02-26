@@ -39,7 +39,7 @@ namespace WinFormsApp1
             cmbOperator.DataSource = operators;
             cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
 
-            var talepEdens = users.Where(u => u.Birim == "Su ve Kanal Hizmetleri").ToList();
+            var talepEdens = users.Where(u => u.Birim == "Su ve Kanalizasyon Hizmetleri").ToList();
             talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
             cmbTalepEden.DataSource = talepEdens;
             cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();
@@ -80,8 +80,10 @@ namespace WinFormsApp1
                     {
                         var cap = item.Cells["Cap"].Value;
                         var miktar = item.Cells["Miktar"].Value;
+                        var isim = item.Cells["Isim"].Value;
+                        var PN = item.Cells["PN"].Value;
 
-                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap) && b.Mudurluk == "Su ve Kanalizasyon Hizmetleri").FirstOrDefault();
+                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap) && b.Isim == isim && b.PN == PN && b.Mudurluk == "Su ve Kanalizasyon Hizmetleri").FirstOrDefault();
 
                         if (spiralBoru != null)
                         {
@@ -211,18 +213,18 @@ namespace WinFormsApp1
 
             if (selectedItem == "Spiral Boru")
             {
-                cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
-                cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();
-                txtMiktar.Visible = false;
-                btnBoruEkle.Visible = true;
-                dgBoru.Visible = true;
-
                 var spiralBoruList = _dbContext?.SpiralBorus.Where(s => s.Mudurluk == "Su ve Kanalizasyon Hizmetleri").ToList();
 
                 if (spiralBoruList != null)
                 {
                     cmbSpiral.DataSource = spiralBoruList;
                 }
+
+                cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
+                cmbSpiral.DisplayMember = "DisplayText"; cmbSpiral.Invalidate();
+                txtMiktar.Visible = false;
+                btnBoruEkle.Visible = true;
+                dgBoru.Visible = true;              
             }
 
             else
@@ -263,7 +265,13 @@ namespace WinFormsApp1
         {
             if (cmbSpiral.Text != string.Empty && txtBoruMetre.Text != string.Empty)
             {
-                var spiral = new Spiral(cmbSpiral.Text, Convert.ToDouble(txtBoruMetre.Text));
+                string[] texts = cmbSpiral.Text.Split(" - ");
+
+                string cap = texts[0];
+                string isim = texts[1];
+                string pn = texts[2];
+
+                var spiral = new Spiral(cap, isim, pn, Convert.ToDouble(txtBoruMetre.Text));
                 spiralList.Add(spiral);
                 dgBoru.DataSource = null;
                 dgBoru.DataSource = spiralList;
@@ -275,8 +283,10 @@ namespace WinFormsApp1
         private void OrderColumns()
         {
             dgBoru.Columns["Cap"].DisplayIndex = 0;
-            dgBoru.Columns["Miktar"].DisplayIndex = 1;
-            dgBoru.Columns["Sil"].DisplayIndex = 2;
+            dgBoru.Columns["Isim"].DisplayIndex = 1;
+            dgBoru.Columns["PN"].DisplayIndex = 2;
+            dgBoru.Columns["Miktar"].DisplayIndex = 3;
+            dgBoru.Columns["Sil"].DisplayIndex = 4;
         }
 
         private void dgBoru_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -100,7 +100,7 @@
             // cmbBirim
             // 
             cmbBirim.FormattingEnabled = true;
-            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanal Hizmetleri", "Yönetim", "Operatör" });
+            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri", "Yönetim", "Operatör" });
             cmbBirim.Location = new Point(787, 26);
             cmbBirim.Name = "cmbBirim";
             cmbBirim.Size = new Size(305, 33);

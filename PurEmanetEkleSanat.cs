@@ -8,7 +8,7 @@ using YatirimTakip.Models;
 
 namespace WinFormsApp1
 {
-    internal record Spiral(string cap, double miktar);
+    internal record Spiral(string cap, string isim, string PN, double miktar);
     internal partial class PurEmanetEkleSanat : Form
     {
         private AppDbContext? _dbContext;
@@ -267,7 +267,7 @@ namespace WinFormsApp1
         {
             if (cmbSpiral.Text != string.Empty && txtBoruMetre.Text != string.Empty)
             {
-                var spiral = new Spiral(cmbSpiral.Text, Convert.ToDouble(txtBoruMetre.Text));
+                var spiral = new Spiral(cmbSpiral.Text,"", "", Convert.ToDouble(txtBoruMetre.Text));
                 spiralList.Add(spiral);
                 dgBoru.DataSource = null;
                 dgBoru.DataSource = spiralList;

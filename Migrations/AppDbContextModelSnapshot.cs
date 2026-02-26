@@ -537,7 +537,13 @@ namespace WinFormsApp1.Migrations
                     b.Property<DateTime>("FiyatGecerlilikBaslangicTarihi")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Isim")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Mudurluk")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PN")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("StokMiktar")

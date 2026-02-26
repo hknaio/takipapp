@@ -54,6 +54,8 @@
             btnBoruEkle = new Button();
             dgBoru = new DataGridView();
             Cap = new DataGridViewTextBoxColumn();
+            Isim = new DataGridViewTextBoxColumn();
+            PN = new DataGridViewTextBoxColumn();
             Miktar = new DataGridViewTextBoxColumn();
             Sil = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgBoru).BeginInit();
@@ -149,7 +151,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(651, 467);
+            button1.Location = new Point(714, 467);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(91, 31);
@@ -160,7 +162,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(769, 467);
+            button2.Location = new Point(836, 467);
             button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(85, 31);
@@ -183,12 +185,12 @@
             cmbSpiral.Location = new Point(157, 290);
             cmbSpiral.Margin = new Padding(2);
             cmbSpiral.Name = "cmbSpiral";
-            cmbSpiral.Size = new Size(68, 23);
+            cmbSpiral.Size = new Size(103, 23);
             cmbSpiral.TabIndex = 13;
             // 
             // txtBoruMetre
             // 
-            txtBoruMetre.Location = new Point(245, 290);
+            txtBoruMetre.Location = new Point(295, 289);
             txtBoruMetre.Margin = new Padding(2);
             txtBoruMetre.Name = "txtBoruMetre";
             txtBoruMetre.Size = new Size(101, 23);
@@ -287,10 +289,10 @@
             // 
             // btnBoruEkle
             // 
-            btnBoruEkle.Location = new Point(382, 289);
+            btnBoruEkle.Location = new Point(413, 287);
             btnBoruEkle.Margin = new Padding(2);
             btnBoruEkle.Name = "btnBoruEkle";
-            btnBoruEkle.Size = new Size(135, 20);
+            btnBoruEkle.Size = new Size(148, 26);
             btnBoruEkle.TabIndex = 28;
             btnBoruEkle.Text = "Listeye Ekle";
             btnBoruEkle.UseVisualStyleBackColor = true;
@@ -301,14 +303,14 @@
             dgBoru.AllowUserToAddRows = false;
             dgBoru.AllowUserToDeleteRows = false;
             dgBoru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgBoru.Columns.AddRange(new DataGridViewColumn[] { Cap, Miktar, Sil });
+            dgBoru.Columns.AddRange(new DataGridViewColumn[] { Cap, Isim, PN, Miktar, Sil });
             dgBoru.Location = new Point(41, 326);
             dgBoru.Margin = new Padding(2);
             dgBoru.Name = "dgBoru";
             dgBoru.ReadOnly = true;
             dgBoru.RowHeadersVisible = false;
             dgBoru.RowHeadersWidth = 62;
-            dgBoru.Size = new Size(452, 249);
+            dgBoru.Size = new Size(655, 249);
             dgBoru.TabIndex = 29;
             dgBoru.CellClick += dgBoru_CellClick;
             // 
@@ -320,6 +322,20 @@
             Cap.Name = "Cap";
             Cap.ReadOnly = true;
             Cap.Width = 150;
+            // 
+            // Isim
+            // 
+            Isim.DataPropertyName = "Isim";
+            Isim.HeaderText = "Isim";
+            Isim.Name = "Isim";
+            Isim.ReadOnly = true;
+            // 
+            // PN
+            // 
+            PN.DataPropertyName = "PN";
+            PN.HeaderText = "PN";
+            PN.Name = "PN";
+            PN.ReadOnly = true;
             // 
             // Miktar
             // 
@@ -345,7 +361,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(904, 593);
+            ClientSize = new Size(973, 593);
             Controls.Add(dgBoru);
             Controls.Add(btnBoruEkle);
             Controls.Add(cmbOperator);
@@ -408,6 +424,8 @@
         private Button btnBoruEkle;
         private DataGridView dgBoru;
         private DataGridViewTextBoxColumn Cap;
+        private DataGridViewTextBoxColumn Isim;
+        private DataGridViewTextBoxColumn PN;
         private DataGridViewTextBoxColumn Miktar;
         private DataGridViewButtonColumn Sil;
     }

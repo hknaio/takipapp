@@ -260,7 +260,7 @@ namespace WinFormsApp1
         {
             if (cmbSpiral.Text != string.Empty && txtBoruMetre.Text != string.Empty)
             {
-                var spiral = new Spiral(cmbSpiral.Text, Convert.ToDouble(txtBoruMetre.Text));
+                var spiral = new Spiral(cmbSpiral.Text,"", "", Convert.ToDouble(txtBoruMetre.Text));
                 spiralList.Add(spiral);
                 dgBoru.DataSource = null;
                 dgBoru.DataSource = spiralList;
