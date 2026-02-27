@@ -9,6 +9,7 @@ using YatirimTakip.Models;
 using YatirimTakip;
 using System.Security.Principal;
 using System.Security.Permissions;
+using System.Globalization;
 
 
 namespace WinFormsApp1
@@ -207,7 +208,7 @@ namespace WinFormsApp1
             {
                 try
                 {
-                    var miktar = txtHakedisMiktar.Text.Remove(0, 1);
+                    var miktar = txtHakedisMiktar.Text;//.Remove(0, 1);
 
                     _dbContext.Hakedis.Add(new Hakedis
                     {
@@ -216,7 +217,7 @@ namespace WinFormsApp1
                         Proje = _proje
                     });
 
-                    _proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text.Remove(0, 1));
+                    _proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text); //.Remove(0, 1)
                     _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
                     _dbContext.Projes.Update(_proje);
 
@@ -241,11 +242,12 @@ namespace WinFormsApp1
 
         private void txtHakedisMiktar_Leave(object sender, EventArgs e)
         {
-            double value;
-            if (double.TryParse(txtHakedisMiktar.Text, out value))
-                txtHakedisMiktar.Text = string.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C2}", value);
-            else
-                txtHakedisMiktar.Text = string.Empty;
+            //double value;
+            //if (double.TryParse(txtHakedisMiktar.Text, out value))
+            //    txtHakedisMiktar.Text = string.Format(new CultureInfo("tr-TR" +
+            //        ""), "{0:C2}", value);
+            //else
+            //    txtHakedisMiktar.Text = string.Empty;
         }
 
         private void OrderColumns()
