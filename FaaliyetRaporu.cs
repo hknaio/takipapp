@@ -34,7 +34,7 @@ namespace WinFormsApp1
 
             var purEmanets = _dbContext.PurEmanets
                 .Include(p => p.Imalat)
-                .Include(p => p.Ilce).Where(p => p.Tarih.Year == yil).ToList();
+                .Include(p => p.Ilce).Where(p => p.Tarih.Year == yil && p.Imalat.Mudurluk == "Yol ve Ulaşım Hizmetleri").ToList();
 
             List<ToplamUygulama> _toplamUygulamaList = [];
 

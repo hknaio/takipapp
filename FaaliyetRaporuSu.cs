@@ -71,8 +71,13 @@ namespace WinFormsApp1
 
                         projeDatas.AddRange(list);
                     }
-                    
-                    var dinamikVeri = new List<dynamic>();
+
+                foreach (var item in projeDatas.Select(i => i.Imalat).Distinct())
+                {
+                    purEmanets.Add(item);
+                }
+
+                var dinamikVeri = new List<dynamic>();
 
                     foreach (var grp in query)
                     {
@@ -117,6 +122,9 @@ namespace WinFormsApp1
 
                         dataGridView1.Rows.Add(row);
                     }
+
+                ExceleAktar aktar = new();
+                aktar.AddTotalRowGeneric(dataGridView1);
             }
             catch (Exception ex)
             {

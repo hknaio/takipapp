@@ -66,6 +66,12 @@ namespace WinFormsApp1
 
                 var dinamikVeri = new List<dynamic>();
 
+                foreach (var item in projeDatas.Select(i => i.Imalat).Distinct())
+                {
+                    purEmanets.Add(item);
+                }
+
+
                 foreach (var grp in query)
                 {
                     dynamic expando = new ExpandoObject();
@@ -109,6 +115,12 @@ namespace WinFormsApp1
 
                     dataGridView1.Rows.Add(row);
                 }
+
+                ExceleAktar aktar = new();
+                aktar.AddTotalRowGeneric(dataGridView1);
+
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                    dataGridView1.Columns[i].DefaultCellStyle.Format = "N2";
             }
             catch (Exception ex)
             {

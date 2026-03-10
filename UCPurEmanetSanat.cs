@@ -36,7 +36,7 @@ namespace WinFormsApp1
                                           && p.Tarih.Month == dtTarih.Value.Month
                                           && p.Tarih.Year == dtTarih.Value.Year
                                           && (p.Imalat.Isim.Contains("Menfez") ||
-                                          p.Imalat.Isim.Contains("Spiral Boru") ||
+                                           (p.Imalat.Mudurluk == "Yol ve Ulaşım Hizmetleri" && p.Imalat.Isim.Contains("Spiral Boru")) ||
                                           p.Imalat.Isim.Contains("Taş Duvar") ||
                                           p.Imalat.Isim.Contains("İstinat Duvarı") ||
                                           p.Imalat.Isim.Contains("Köprü"))).OrderBy(p => p.Tarih).Load();

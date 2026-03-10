@@ -133,5 +133,51 @@ namespace YatirimTakip.Helpers
                 MessageBox.Show($"Hata: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void AddTotalRowGeneric(DataGridView dgv)
+        {
+            if (dgv.Rows.Count == 0)
+                return;
+
+            // Yeni satır için toplam değerleri saklayacak array
+            object[] toplamlar = new object[dgv.Columns.Count];
+
+            // "Toplam" yazısı ilk hücreye
+            toplamlar[0] = "Toplam";
+
+            // Tüm sütunlar üzerinden dön
+            for (int col = 1; col < dgv.Columns.Count; col++)
+            {
+                decimal sum = 0;
+                bool isNumeric = false;
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (!row.IsNewRow && row.Cells[col].Value != null)
+                    {
+                        // Hücre sayısal mı kontrol et
+                        if (decimal.TryParse(row.Cells[col].Value.ToString(), out decimal val))
+                        {
+                            sum += val;
+                            isNumeric = true;
+                        }
+                    }
+                }
+
+                // Eğer sütun sayısalsa toplamı ekle, değilse boş bırak
+                toplamlar[col] = isNumeric ? (object)sum : "";
+            }
+
+            // Yeni satırı ekle
+            int rowIndex = dgv.Rows.Add();
+            DataGridViewRow totalRow = dgv.Rows[rowIndex];
+
+            for (int col = 0; col < dgv.Columns.Count; col++)
+                totalRow.Cells[col].Value = toplamlar[col];
+
+            // Stil
+            totalRow.DefaultCellStyle.BackColor = Color.LightGray;
+            totalRow.DefaultCellStyle.Font = new Font(dgv.Font, FontStyle.Bold);
+        }
     }
 }
