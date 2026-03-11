@@ -93,7 +93,7 @@ namespace WinFormsApp1
                             KoyId = koy!.ID,
                             ImalatId = imalat!.ID,
                             Miktar = Convert.ToDouble(miktar),
-                            Tutar = Math.Round(spiralBoru!.BirimFiyat, 2),
+                            Tutar = Math.Round(spiralBoru!.BirimFiyat * Convert.ToDouble(miktar), 2),
                             SpiralBoruId = spiralBoru!.ID,
                             TalepEdenPersonel = cmbTalepEden.Text,
                             Operator = cmbOperator.Text,

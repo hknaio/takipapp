@@ -114,13 +114,13 @@ namespace WinFormsApp1
                     }
 
                     dataGridView1.Rows.Add(row);
-
-                    ExceleAktar aktar = new();
-                    aktar.AddTotalRowGeneric(dataGridView1);
-
-                    for (int i = 1; i < dataGridView1.Columns.Count; i++)
-                        dataGridView1.Columns[i].DefaultCellStyle.Format = "N2";
                 }
+
+                ExceleAktar aktar = new();
+                aktar.AddTotalRowGeneric(dataGridView1);
+
+                for (int i = 1; i < dataGridView1.Columns.Count; i++)
+                    dataGridView1.Columns[i].DefaultCellStyle.Format = "N2";
             }
             catch (Exception ex)
             {
