@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -38,11 +39,14 @@ namespace WinFormsApp1
             {
                 try
                 {
+                    ExceleAktar aktar = new();
+                    var birimFiyat = aktar.GetDouble(txtBirimFiyat.Text);
+
                     _dbContext!.SpiralBorus.Add(new SpiralBoru
                     {
                         Cap = Convert.ToInt32(txtCap.Text),
                         Birim = txtBirim.Text,
-                        BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text),
+                        BirimFiyat = birimFiyat,
                         StokMiktar = Convert.ToInt32(txtStok.Text),
                         Mudurluk = cmbBirim.Text,
                         Isim = txtIsim.Text,

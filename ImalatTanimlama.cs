@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using WinFormsApp1.Data;
 using WinFormsApp1.Models;
+using YatirimTakip.Helpers;
 
 namespace WinFormsApp1
 {
@@ -26,6 +27,9 @@ namespace WinFormsApp1
             {
                 try
                 {
+                    ExceleAktar aktar = new();
+                    var birimFiyat = aktar.GetDouble(txtBirimFiyat.Text);
+
                     _dbContext!.Imalats.Add(new Imalat
                     {
                         Isim = txtAdi.Text,
@@ -33,7 +37,7 @@ namespace WinFormsApp1
                         Cins = txtCins.Text,
                         Mudurluk = cmbMudurluk.Text,
                         FiyatGecerlilikBaslangicTarihi = dtpBaslangic.Value.Date,
-                        BirimFiyat = Convert.ToDouble(txtBirimFiyat.Text)
+                        BirimFiyat = birimFiyat
                     });
 
                     _dbContext.SaveChanges();

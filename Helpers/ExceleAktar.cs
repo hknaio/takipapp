@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using System.Globalization;
 
 namespace YatirimTakip.Helpers
 {
@@ -178,6 +179,24 @@ namespace YatirimTakip.Helpers
             // Stil
             totalRow.DefaultCellStyle.BackColor = Color.LightGray;
             totalRow.DefaultCellStyle.Font = new Font(dgv.Font, FontStyle.Bold);
+        }
+
+        public double GetDouble(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return 0;
+
+            text = text.Trim();
+
+            double result;
+
+            if (double.TryParse(text, NumberStyles.Any, CultureInfo.CurrentCulture, out result))
+                return result;
+
+            if (double.TryParse(text, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
+                return result;
+
+            throw new Exception("Sayısal format hatalı");
         }
     }
 }
