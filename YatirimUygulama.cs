@@ -204,11 +204,13 @@ namespace WinFormsApp1
 
         private void btnHakedisEkle_Click(object sender, EventArgs e)
         {
+            
             if (txtHakedis.Text != string.Empty && txtHakedisMiktar.Text != string.Empty)
             {
                 try
                 {
-                    var miktar = txtHakedisMiktar.Text;//.Remove(0, 1);
+                    ExceleAktar aktar = new();
+                    var miktar = aktar.GetDouble(txtHakedisMiktar.Text);//.Remove(0, 1);
 
                     _dbContext.Hakedis.Add(new Hakedis
                     {
@@ -217,7 +219,7 @@ namespace WinFormsApp1
                         Proje = _proje
                     });
 
-                    _proje.HakedisToplami += Convert.ToDouble(txtHakedisMiktar.Text); //.Remove(0, 1)
+                    _proje.HakedisToplami += miktar; //.Remove(0, 1)
                     _proje.HakedisToplamTahakkuk = _proje.HakedisToplami * 1.2;
                     _dbContext.Projes.Update(_proje);
 

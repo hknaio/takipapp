@@ -72,6 +72,8 @@ namespace WinFormsApp1
                     purEmanets.Add(item);
                 }
 
+                purEmanets = purEmanets.Distinct().ToList();
+
                 foreach (var grp in query)
                 {
                     dynamic expando = new ExpandoObject();

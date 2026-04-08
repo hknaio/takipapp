@@ -77,6 +77,8 @@ namespace WinFormsApp1
                     purEmanets.Add(item);
                 }
 
+                purEmanets = purEmanets.Distinct().ToList();
+
                 var dinamikVeri = new List<dynamic>();
 
                     foreach (var grp in query)
