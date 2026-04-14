@@ -58,7 +58,7 @@ namespace WinFormsApp1
             cmbKoy.DataSource = _dbContext.Koys.Local.ToBindingList();
             cmbKoy.DisplayMember = "Adi"; cmbKoy.Invalidate();
             cmbImalat.DataSource = _dbContext.Imalats.Local.ToBindingList();
-            cmbImalat.DisplayMember = "Isim"; cmbImalat.Invalidate();
+            cmbImalat.DisplayMember = "DisplayText"; cmbImalat.Invalidate();
             cmbImalat.SelectedIndex = cmbImalat.FindStringExact("Menfez");
             cmbSpiral.Visible = false;
             txtBoruMetre.Visible = false;
