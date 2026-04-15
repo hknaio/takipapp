@@ -22,10 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FaaliyetRaporuKoyDestek.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FaaliyetRaporuKoyTarimsal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FaaliyetRaporuKoySu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FaaliyetRaporuDestek.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FaaliyetRaporuTarimsal.cs">
@@ -48,6 +54,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="PurEmanetEkleDestek.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PurEmanetEkleTarimsal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +64,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="PurEmanetEkleSanat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RprButceDestek.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="RprButceTarimsal.cs">
@@ -72,6 +84,9 @@
     <Compile Update="UCProjeSanat.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UCPurEmanetDestek.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UCPurEmanetSu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,6 +94,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UCPurEmanetSanat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCDestek.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UCYolYapimSanat.cs">

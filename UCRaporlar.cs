@@ -40,6 +40,16 @@ namespace WinFormsApp1
                     btnFaaliyetTarimsal.Location = button1.Location;
                     btnFaaliyetKoyTarimsal.Location = button2.Location;
                 }
+
+                if (_user.Role == "Destek" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
+                {
+                    button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
+                    btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = btnFaaliyetKoyGenel.Visible = false;
+                    btnFaaliyetKoyTarimsal.Visible = btnFaaliyetTarimsal.Visible = btnTarimsalButce.Visible = btnFaaliyetKoyGenel.Visible = false;
+                    btnButceDestek.Location = button5.Location;
+                    btnFaaliyetDestek.Location = button1.Location;
+                    btnFaaliyetKoyDestek.Location = button2.Location;
+                }
             }
         }
 
@@ -168,6 +178,33 @@ namespace WinFormsApp1
         private void btnFaaliyetKoyGenel_Click(object sender, EventArgs e)
         {
             using (FaaliyetRaporuKoyGenel faaliyetRaporuKoy = new())
+            {
+                faaliyetRaporuKoy.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void btnButceDestek_Click(object sender, EventArgs e)
+        {
+            using (RprButceDestek butce = new())
+            {
+                butce.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void btnFaaliyetDestek_Click(object sender, EventArgs e)
+        {
+            using (FaaliyetRaporuDestek yeniProje = new())
+            {
+                yeniProje.ShowDialog();
+                this.OnLoad(e);
+            }
+        }
+
+        private void btnFaaliyetKoyDestek_Click(object sender, EventArgs e)
+        {
+            using (FaaliyetRaporuKoyDestek faaliyetRaporuKoy = new())
             {
                 faaliyetRaporuKoy.ShowDialog();
                 this.OnLoad(e);

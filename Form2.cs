@@ -136,6 +136,19 @@ namespace WinFormsApp1
                 btnRapor.Location = btnAsfaltYapim.Location;
             }
 
+            if (_user.Role == "Destek")
+            {
+                button1.Visible = false;
+                var yolOldLoc = button1.Location;
+                btnSanatYapilari.Visible = false;
+                btnTanimlama.Visible = false;
+                btnAsfaltYapim.Visible = false;
+                button3.Visible = false;
+                btnDestek.Location = yolOldLoc;
+                btnSu.Visible = false;               
+                btnRapor.Location = btnAsfaltYapim.Location;
+            }
+
             if (_user.Role == "Rapor")
             {
                 button1.Visible = false;
@@ -164,5 +177,13 @@ namespace WinFormsApp1
             UCSu ucc = new(_user);
             addControls(ucc);
         }
-     }
+
+        private void btnDestek_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "DESTEK HİZMETLERİ";
+            slidePanel(button1);
+            UCDestek ucc = new(_user);
+            addControls(ucc);
+        }
+    }
 }

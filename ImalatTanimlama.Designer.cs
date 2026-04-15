@@ -270,7 +270,7 @@
             // cmbMudurluk
             // 
             cmbMudurluk.FormattingEnabled = true;
-            cmbMudurluk.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri" });
+            cmbMudurluk.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri", "Destek Hizmetler", "Kültür ve Sosyal İşler" });
             cmbMudurluk.Location = new Point(570, 7);
             cmbMudurluk.Margin = new Padding(2, 2, 2, 2);
             cmbMudurluk.Name = "cmbMudurluk";

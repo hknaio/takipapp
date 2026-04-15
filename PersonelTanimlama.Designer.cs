@@ -100,7 +100,7 @@
             // cmbBirim
             // 
             cmbBirim.FormattingEnabled = true;
-            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri", "Yönetim", "Operatör" });
+            cmbBirim.Items.AddRange(new object[] { "Yol ve Ulaşım Hizmetleri", "Tarımsal Hizmetler", "Su ve Kanalizasyon Hizmetleri", "Yönetim", "Operatör", "Destek Hizmetler", "Kültür ve Sosyal İşler" });
             cmbBirim.Location = new Point(787, 26);
             cmbBirim.Name = "cmbBirim";
             cmbBirim.Size = new Size(305, 33);
@@ -109,7 +109,7 @@
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Items.AddRange(new object[] { "Admin", "Yol", "Asfalt", "Sanat", "Su", "Tarımsal", "Rapor", "Operatör" });
+            cmbRol.Items.AddRange(new object[] { "Admin", "Yol", "Asfalt", "Sanat", "Su", "Tarımsal", "Rapor", "Operatör", "Destek", "Kültür" });
             cmbRol.Location = new Point(77, 91);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(223, 33);
