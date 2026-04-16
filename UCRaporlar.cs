@@ -41,7 +41,7 @@ namespace WinFormsApp1
                     btnFaaliyetKoyTarimsal.Location = button2.Location;
                 }
 
-                if (_user.Role == "Destek" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
+                if (_user.Role == "Destek" || _user.Role == "Kültür" || _user.Role == "Admin" || _user.Role == "Yonetim" || _user.Role == "Rapor")
                 {
                     button1.Visible = button2.Visible = button4.Visible = button5.Visible = false;
                     btnFaaliyetKoySu.Visible = btnFaaliyetSu.Visible = btnSuButce.Visible = btnFaaliyetKoyGenel.Visible = false;

@@ -136,7 +136,7 @@ namespace WinFormsApp1
                 btnRapor.Location = btnAsfaltYapim.Location;
             }
 
-            if (_user.Role == "Destek")
+            if (_user.Role == "Destek" || _user.Role == "Kültür")
             {
                 button1.Visible = false;
                 var yolOldLoc = button1.Location;
@@ -180,7 +180,7 @@ namespace WinFormsApp1
 
         private void btnDestek_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "DESTEK HİZMETLERİ";
+            lblTitle.Text = _user.Birim;
             slidePanel(button1);
             UCDestek ucc = new(_user);
             addControls(ucc);

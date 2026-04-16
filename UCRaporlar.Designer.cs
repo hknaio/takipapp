@@ -233,7 +233,7 @@
             // 
             btnFaaliyetKoyGenel.BackColor = Color.LightSkyBlue;
             btnFaaliyetKoyGenel.Image = YatirimTakip.Properties.Resources.icons8_roadwork_64;
-            btnFaaliyetKoyGenel.Location = new Point(190, 695);
+            btnFaaliyetKoyGenel.Location = new Point(190, 734);
             btnFaaliyetKoyGenel.Margin = new Padding(2);
             btnFaaliyetKoyGenel.Name = "btnFaaliyetKoyGenel";
             btnFaaliyetKoyGenel.Size = new Size(125, 110);
@@ -250,9 +250,9 @@
             btnFaaliyetKoyDestek.Location = new Point(357, 553);
             btnFaaliyetKoyDestek.Margin = new Padding(2);
             btnFaaliyetKoyDestek.Name = "btnFaaliyetKoyDestek";
-            btnFaaliyetKoyDestek.Size = new Size(125, 110);
+            btnFaaliyetKoyDestek.Size = new Size(125, 156);
             btnFaaliyetKoyDestek.TabIndex = 19;
-            btnFaaliyetKoyDestek.Text = "Faaliyet Raporu Köy (Destek)";
+            btnFaaliyetKoyDestek.Text = "Faaliyet Raporu Köy (Destek ve Kültür)";
             btnFaaliyetKoyDestek.TextImageRelation = TextImageRelation.ImageAboveText;
             btnFaaliyetKoyDestek.UseVisualStyleBackColor = false;
             btnFaaliyetKoyDestek.Click += btnFaaliyetKoyDestek_Click;
@@ -264,9 +264,9 @@
             btnFaaliyetDestek.Location = new Point(190, 553);
             btnFaaliyetDestek.Margin = new Padding(2);
             btnFaaliyetDestek.Name = "btnFaaliyetDestek";
-            btnFaaliyetDestek.Size = new Size(125, 110);
+            btnFaaliyetDestek.Size = new Size(125, 156);
             btnFaaliyetDestek.TabIndex = 18;
-            btnFaaliyetDestek.Text = "Faaliyet Raporu (Destek)";
+            btnFaaliyetDestek.Text = "Faaliyet Raporu (Destek ve Kültür)";
             btnFaaliyetDestek.TextImageRelation = TextImageRelation.ImageAboveText;
             btnFaaliyetDestek.UseVisualStyleBackColor = false;
             btnFaaliyetDestek.Click += btnFaaliyetDestek_Click;
@@ -278,9 +278,9 @@
             btnButceDestek.Location = new Point(26, 553);
             btnButceDestek.Margin = new Padding(2);
             btnButceDestek.Name = "btnButceDestek";
-            btnButceDestek.Size = new Size(125, 110);
+            btnButceDestek.Size = new Size(125, 156);
             btnButceDestek.TabIndex = 17;
-            btnButceDestek.Text = "Bütçe Takip (Destek)";
+            btnButceDestek.Text = "Bütçe Takip (Destek ve Kültür)";
             btnButceDestek.TextImageRelation = TextImageRelation.ImageAboveText;
             btnButceDestek.UseVisualStyleBackColor = false;
             btnButceDestek.Click += btnButceDestek_Click;

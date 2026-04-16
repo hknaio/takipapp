@@ -38,20 +38,20 @@ namespace WinFormsApp1
             {
                
                     var purEmanets = _dbContext.PurEmanets.Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
-                         && p.Imalat.Mudurluk == "Destek Hizmetler")
+                         && (p.Imalat.Mudurluk == "Destek Hizmetler" || p.Imalat.Mudurluk == "Kültür ve Sosyal İşler"))
                         .Select(m => m.Imalat.Isim)
                         .Distinct()
                         .ToList();
 
                     var query = _dbContext.PurEmanets.Include(m => m.Imalat)
                         .Where(p => p.Tarih.Year == Convert.ToInt32(cmbYil.Text)
-                         && p.Imalat.Mudurluk == "Destek Hizmetler")
+                         && (p.Imalat.Mudurluk == "Destek Hizmetler" || p.Imalat.Mudurluk == "Kültür ve Sosyal İşler"))
                         .GroupBy(m => m.Ilce)
                         .ToList();
 
                     var projeler = _dbContext.Projes.Include(p => p.Programis)
                         .Where(p => p.Programis.Any(p => p.Yil == Convert.ToInt32(cmbYil.Text) 
-                        && p.YatirimDurumu == Models.YatirimDurumu.Uygulandi && p.Birim == "Destek Hizmetler") 
+                        && p.YatirimDurumu == Models.YatirimDurumu.Uygulandi && (p.Birim == "Destek Hizmetler" || p.Birim == "Kültür ve Sosyal İşler")) 
                         )                        
                         .ToList();
 

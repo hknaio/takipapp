@@ -22,7 +22,7 @@ namespace WinFormsApp1
             txtMiktar.Text = "0";
             _dbContext = new AppDbContext();
             _dbContext.Koys.Where(k => k.Ilce.Adi == cmbIlce.Text).Load();
-            _dbContext.Imalats.Where(i => i.Mudurluk == "Destek Hizmetler" && (!i.Isim.Contains("Menfez") ||
+            _dbContext.Imalats.Where(i => i.Mudurluk == _user.Birim && (!i.Isim.Contains("Menfez") ||
 
                                           !i.Isim.Contains("Taş Duvar") ||
                                           !i.Isim.Contains("Köprü"))).Load();
@@ -39,7 +39,7 @@ namespace WinFormsApp1
             cmbOperator.DataSource = operators;
             cmbOperator.DisplayMember = "IsimSoyisim"; cmbOperator.Invalidate();
 
-            var talepEdens = users.Where(u => u.Birim == "Destek Hizmetler").ToList();
+            var talepEdens = users.Where(u => u.Birim == _user.Birim).ToList();
             talepEdens.Add(new User { Isim = "-", Soyisim = "-" });
             cmbTalepEden.DataSource = talepEdens;
             cmbTalepEden.DisplayMember = "IsimSoyisim"; cmbTalepEden.Invalidate();
@@ -83,7 +83,7 @@ namespace WinFormsApp1
                         var isim = item.Cells["Isim"].Value;
                         var PN = item.Cells["PN"].Value;
 
-                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap) && b.Isim == isim && b.PN == PN && b.Mudurluk == "Destek Hizmetler").FirstOrDefault();
+                        spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cap) && b.Isim == isim && b.PN == PN && b.Mudurluk == _user.Birim).FirstOrDefault();
 
                         if (spiralBoru != null)
                         {
@@ -213,7 +213,7 @@ namespace WinFormsApp1
 
             if (selectedItem == "Spiral Boru")
             {
-                var spiralBoruList = _dbContext?.SpiralBorus.Where(s => s.Mudurluk == "Destek Hizmetler").ToList();
+                var spiralBoruList = _dbContext?.SpiralBorus.Where(s => s.Mudurluk == _user.Birim).ToList();
 
                 if (spiralBoruList != null)
                 {

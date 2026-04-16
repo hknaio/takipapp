@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaEkran));
             panelLeft = new Panel();
+            btnDestek = new Button();
             btnSu = new Button();
             button3 = new Button();
             panelSide = new Panel();
@@ -44,7 +45,6 @@
             panelContainer = new Panel();
             lblTitle = new Label();
             label2 = new Label();
-            btnDestek = new Button();
             panelLeft.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -69,6 +69,21 @@
             panelLeft.Name = "panelLeft";
             panelLeft.Size = new Size(402, 1047);
             panelLeft.TabIndex = 0;
+            // 
+            // btnDestek
+            // 
+            btnDestek.BackColor = Color.LightSkyBlue;
+            btnDestek.Image = (Image)resources.GetObject("btnDestek.Image");
+            btnDestek.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDestek.Location = new Point(26, 713);
+            btnDestek.Margin = new Padding(4);
+            btnDestek.Name = "btnDestek";
+            btnDestek.Size = new Size(359, 104);
+            btnDestek.TabIndex = 4;
+            btnDestek.Text = "Destek ve Kültür";
+            btnDestek.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDestek.UseVisualStyleBackColor = false;
+            btnDestek.Click += btnDestek_Click;
             // 
             // btnSu
             // 
@@ -245,21 +260,6 @@
             label2.Size = new Size(98, 21);
             label2.TabIndex = 3;
             label2.Text = "USERNAME";
-            // 
-            // btnDestek
-            // 
-            btnDestek.BackColor = Color.LightSkyBlue;
-            btnDestek.Image = (Image)resources.GetObject("btnDestek.Image");
-            btnDestek.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDestek.Location = new Point(26, 713);
-            btnDestek.Margin = new Padding(4);
-            btnDestek.Name = "btnDestek";
-            btnDestek.Size = new Size(359, 104);
-            btnDestek.TabIndex = 4;
-            btnDestek.Text = "Destek Hizmetler";
-            btnDestek.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDestek.UseVisualStyleBackColor = false;
-            btnDestek.Click += btnDestek_Click;
             // 
             // AnaEkran
             // 
