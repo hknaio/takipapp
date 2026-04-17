@@ -86,6 +86,7 @@ namespace WinFormsApp1
                 btnTanimlama.Visible = false;
                 button3.Visible = false;
                 btnSu.Visible = false;
+                btnDestek.Visible = false;
                 btnRapor.Location = btnSanatYapilari.Location;
             }
 
@@ -97,6 +98,7 @@ namespace WinFormsApp1
                 btnAsfaltYapim.Visible = false;
                 button3.Visible = false;
                 btnSu.Visible = false;
+                btnDestek.Visible = false;
                 btnRapor.Location = asfaltOldLoc;
             }
 
@@ -108,6 +110,7 @@ namespace WinFormsApp1
                 btnTanimlama.Visible = false;
                 button3.Visible = false;
                 btnSu.Visible = false;
+                btnDestek.Visible = false;
                 btnRapor.Location = asfaltOldLoc;
                 btnSanatYapilari.Location = button1.Location;
             }
@@ -121,6 +124,7 @@ namespace WinFormsApp1
                 btnAsfaltYapim.Visible = false;
                 btnSu.Location = yolOldLoc;
                 button3.Visible = false;
+                btnDestek.Visible = false;
                 btnRapor.Location = btnAsfaltYapim.Location;
             }
 
@@ -133,6 +137,7 @@ namespace WinFormsApp1
                 btnAsfaltYapim.Visible = false;
                 button3.Location = yolOldLoc;
                 btnSu.Visible = false;
+                btnDestek.Visible = false;
                 btnRapor.Location = btnAsfaltYapim.Location;
             }
 
@@ -157,6 +162,7 @@ namespace WinFormsApp1
                 btnTanimlama.Visible = false;
                 button3.Visible = false;
                 btnSu.Visible = false;
+                btnDestek.Visible = false;
                 btnAsfaltYapim.Visible = false;
                 btnRapor.Location = yolOldLoc;
             }
