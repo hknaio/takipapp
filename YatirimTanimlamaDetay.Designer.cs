@@ -65,7 +65,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1301, 508);
+            dataGridView1.Size = new Size(1829, 981);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -237,7 +237,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
-            ClientSize = new Size(1347, 584);
+            ClientSize = new Size(1924, 1061);
             Controls.Add(button1);
             Controls.Add(btnEkProgram);
             Controls.Add(label4);
