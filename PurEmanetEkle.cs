@@ -69,7 +69,7 @@ namespace WinFormsApp1
 
                 SpiralBoru? spiralBoru = new();
 
-                if (cmbImalat.Text == "Spiral Boru")
+                if (cmbImalat.Text.Split(" - ")[0] == "Spiral Boru")
                 {
                     spiralBoru = _dbContext?.SpiralBorus.Where(b => b.Cap == Convert.ToInt32(cmbSpiral.Text)).FirstOrDefault();
 
@@ -88,11 +88,11 @@ namespace WinFormsApp1
                         IlceId = ilce!.ID,
                         KoyId = koy!.ID,
                         ImalatId = imalat!.ID,
-                        Miktar = cmbImalat.Text == "Spiral Boru" ? Convert.ToDouble(txtBoruMetre.Text)
+                        Miktar = cmbImalat.Text.Split(" - ")[0] == "Spiral Boru" ? Convert.ToDouble(txtBoruMetre.Text)
                         : Convert.ToDouble(txtMiktar.Text),
-                        Tutar = cmbImalat.Text == "Spiral Boru" ? Math.Round(spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text), 2)
+                        Tutar = cmbImalat.Text.Split(" - ")[0] == "Spiral Boru" ? Math.Round(spiralBoru!.BirimFiyat * Convert.ToDouble(txtBoruMetre.Text), 2)
                         : Math.Round(imalat.BirimFiyat * Convert.ToDouble(txtMiktar.Text), 2 ),
-                        SpiralBoruId = cmbImalat.Text == "Spiral Boru" ? spiralBoru!.ID : null,
+                        SpiralBoruId = cmbImalat.Text.Split(" - ")[0] == "Spiral Boru" ? spiralBoru!.ID : null,
                         TalepEdenPersonel = cmbTalepEden.Text,
                         Operator = cmbOperator.Text,
                         IsMakinesi = cmbIsMakinesi.Text,
@@ -163,7 +163,7 @@ namespace WinFormsApp1
         {
             var selectedItem = cmbImalat.Text;
 
-            if (selectedItem == "Spiral Boru")
+            if (selectedItem.Split(" - ")[0] == "Spiral Boru")
             {
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
                 cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();

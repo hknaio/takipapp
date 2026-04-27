@@ -71,7 +71,7 @@ namespace WinFormsApp1
 
                 SpiralBoru? spiralBoru = new();
 
-                if (cmbImalat.Text == "Spiral Boru")
+                if (cmbImalat.Text.Split(" - ")[0] == "Spiral Boru")
                 {
                     foreach (DataGridViewRow item in dgBoru.Rows)
                     {
@@ -206,7 +206,7 @@ namespace WinFormsApp1
         {
             var selectedItem = cmbImalat.Text;
 
-            if (selectedItem == "Spiral Boru")
+            if (selectedItem.Split(" - ")[0] == "Spiral Boru")
             {
                 cmbSpiral.Visible = txtBoruMetre.Visible = label6.Visible = true;
                 cmbSpiral.DisplayMember = "Cap"; cmbSpiral.Invalidate();

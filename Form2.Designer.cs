@@ -105,7 +105,7 @@
             button3.BackColor = Color.LightSkyBlue;
             button3.Image = YatirimTakip.Properties.Resources.icons8_agricultural_64;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(35, 478);
+            button3.Location = new Point(26, 478);
             button3.Margin = new Padding(4);
             button3.Name = "button3";
             button3.Size = new Size(359, 104);
