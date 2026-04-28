@@ -59,10 +59,10 @@ namespace WinFormsApp1
                 foreach (var item in projeler)
                 {
                     var list = item.Programis
-                        .GroupBy(p => p.Ilce)
+                        .GroupBy(p => new { p.Ilce, p.Imalat })
                         .Select(s => new ProjeData
                         (
-                            s.Key,
+                            s.Key.Ilce,
                             s.Sum(m => m.Uygulama),
                             s.Select(m => m.Imalat).FirstOrDefault()
                         )).ToList();
