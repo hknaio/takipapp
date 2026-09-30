@@ -29,9 +29,7 @@ namespace WinFormsApp1.Models
         [Description("Devam Ediyor")]
         DevamEdiyor,       
         [Description("Bitti (Geçici)")]
-        Bitti,
-        [Description("Sonuçlandı (Kesin)")]
-        Sonuclandi
+        Bitti
     }
     public class Proje
     {
