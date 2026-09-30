@@ -139,7 +139,7 @@ namespace WinFormsApp1
             {
                 var tarih = (DateTime)e.Value!;
 
-                if ((tarih - DateTime.Now.Date).TotalDays < 60 && (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Sonuclandi")
+                if ((tarih - DateTime.Now.Date).TotalDays < 60 && (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Bitti")
                 {
                     dataGridView1.Columns[e.ColumnIndex].DefaultCellStyle.BackColor = Color.Red;
                 }
