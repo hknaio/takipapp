@@ -28,7 +28,7 @@ namespace WinFormsApp1.Models
         IhaleAsamasi,
         [Description("Devam Ediyor")]
         DevamEdiyor,       
-        [Description("Bitti (Geçici)")]
+        [Description("Bitti")]
         Bitti
     }
     public class Proje
