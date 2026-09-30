@@ -136,7 +136,7 @@ namespace WinFormsApp1
             {
                 var tarih = (DateTime)e.Value!;
 
-                if ((tarih - DateTime.Now.Date).TotalDays < 60 && (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Bitti")
+                if ((tarih - DateTime.Now.Date).TotalDays < 60 && (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Bitti" && durum != string.Empty)
                 {
                     dataGridView1.Columns[e.ColumnIndex].DefaultCellStyle.BackColor = Color.Red;
                 }
