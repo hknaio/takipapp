@@ -143,6 +143,7 @@ namespace WinFormsApp1
 
             if (_user.Role == "Destek" || _user.Role == "Kültür")
             {
+
                 button1.Visible = false;
                 var yolOldLoc = button1.Location;
                 btnSanatYapilari.Visible = false;
@@ -150,7 +151,7 @@ namespace WinFormsApp1
                 btnAsfaltYapim.Visible = false;
                 button3.Visible = false;
                 btnDestek.Location = yolOldLoc;
-                btnSu.Visible = false;               
+                btnSu.Visible = false;
                 btnRapor.Location = btnAsfaltYapim.Location;
             }
 
@@ -165,6 +166,7 @@ namespace WinFormsApp1
                 btnDestek.Visible = false;
                 btnAsfaltYapim.Visible = false;
                 btnRapor.Location = yolOldLoc;
+                btnDestek.Visible = false;
             }
         }
 

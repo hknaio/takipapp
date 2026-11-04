@@ -118,13 +118,13 @@ namespace WinFormsApp1
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string durum = string.Empty;
+            //string durum = string.Empty;
 
             if (dataGridView1.Columns[e.ColumnIndex].Name == "ProjeDurumu")
             {
                 ProjeDurumu enumValue = (ProjeDurumu)e.Value!;
                 e.Value = ((DescriptionAttribute)typeof(ProjeDurumu).GetMember(enumValue.ToString()).FirstOrDefault().GetCustomAttributes(typeof(DescriptionAttribute)).FirstOrDefault()).Description;
-                durum = enumValue.ToString();
+              //  durum = enumValue.ToString();
             }
 
             if (dataGridView1.Columns[e.ColumnIndex].Name == "KesinKabulTarihi"
@@ -132,7 +132,7 @@ namespace WinFormsApp1
             {
                 var tarih = (DateTime)e.Value!;
 
-                if ((tarih - DateTime.Now.Date).TotalDays < 60 && (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Bitti" && durum != string.Empty)
+                if ((tarih - DateTime.Now.Date).TotalDays < 60 /*&& (tarih - DateTime.Now.Date).TotalDays > 0 && durum != "Bitti" && durum != string.Empty*/)
                 {
                     dataGridView1.Columns[e.ColumnIndex].DefaultCellStyle.BackColor = Color.Red;
                 }
